@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sullivan Portfolio â Live Tracker</title>
+<style>
+  :root {
+    --green: #1a7f37;
+    --red: #d1242f;
+    --green-bg: rgba(26,127,55,0.08);
+    --red-bg: rgba(209,36,47,0.08);
+    --navy: #1a2e4a;
+    --navy2: #22395e;
+    --blue: #0969da;
+    --border: #d8dee4;
+    --row-alt: #f6f8fa;
+    --text: #1f2328;
+    --muted: #656d76;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+    background: #edf0f4;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ââ HEADER ââ */
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    color: #fff;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .header-left h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.3px; }
+  .header-left p  { font-size: 12px; opacity: 0.72; margin-top: 3px; }
+  .header-right { text-align: right; }
+  .total-val { font-size: 30px; font-weight: 700; letter-spacing: -0.5px; }
+  .total-sub { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+
+  /* ââ TOOLBAR ââ */
+  .toolbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-refresh {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .btn-refresh:hover:not(:disabled) { background: #0759b8; }
+  .btn-refresh:disabled { opacity: 0.55; cursor: not-allowed; }
+  .spin { display: inline-block; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .status-text { font-size: 12px; color: var(--muted); }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .badge-open   { background: #e6f4ea; color: var(--green); }
+  .badge-closed { background: #fff3cd; color: #856404; }
+  .badge-pre    { background: #e8f4fd; color: #0550ae; }
+  .badge-post   { background: #f0e8fd; color: #6f42c1; }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  /* ââ ALERT BAR ââ */
+  .alert {
+    display: none;
+    padding: 8px 24px;
+    font-size: 12.5px;
+  }
+  .alert-warn { background: #fff8c5; border-bottom: 1px solid #f0c000; color: #7d5700; }
+  .alert-err  { background: #ffebe9; border-bottom: 1px solid #f7c5c0; color: #a0111f; }
+
+  /* ââ CONTAINER ââ */
+  .container { padding: 18px 20px; max-width: 1500px; margin: 0 auto; }
+
+  /* ââ CARD ââ */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .card-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-title { font-size: 13.5px; font-weight: 700; }
+  .card-sub   { font-size: 12px; color: var(--muted); }
+  .countdown  { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ââ TABLE ââ */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 10px 12px;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th:hover { background: var(--navy2); }
+  thead th.left { text-align: left; }
+  thead th .sort-arrow { opacity: 0.45; margin-left: 3px; font-size: 9px; }
+  thead th.sort-asc  .sort-arrow { opacity: 1; }
+  thead th.sort-desc .sort-arrow { opacity: 1; }
+
+  tbody tr { border-bottom: 1px solid #eaecef; transition: background 0.08s; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: #e8f2ff !important; }
+
+  td {
+    padding: 9px 12px;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  td.left { text-align: left; }
+
+  .sym  { font-weight: 800; color: var(--blue); font-size: 13px; }
+  .desc { font-size: 12px; color: var(--muted); }
+
+  .price-cell { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .mono { font-variant-numeric: tabular-nums; }
+
+  .gain { color: var(--green); font-weight: 700; }
+  .loss { color: var(--red);   font-weight: 700; }
+  .neutral { color: var(--muted); }
+
+  .gain-cell { background: var(--green-bg); }
+  .loss-cell { background: var(--red-bg); }
+
+  .day-line { font-size: 11px; display: block; margin-top: 1px; opacity: 0.85; }
+
+  /* superscript for cp */
+  sup { font-size: 8px; vertical-align: super; opacity: 0.7; }
+
+  /* ââ TOTALS ROW ââ */
+  tfoot tr { background: var(--navy); color: #fff; }
+  tfoot td { padding: 11px 12px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ââ MINI SPARKLINE BARS ââ */
+  .bar-wrap { display: flex; align-items: center; gap: 5px; justify-content: flex-end; }
+  .bar { height: 14px; border-radius: 2px; min-width: 2px; }
+  .bar-g { background: var(--green); }
+  .bar-r { background: var(--red); }
+
+  /* ââ DISCLAIMER ââ */
+  .disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 10px 20px 18px;
+  }
+
+  /* ââ PRIVATE BADGE ââ */
+  .private-badge {
+    display: inline-block;
+    background: #f0e8fd;
+    color: #6f42c1;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ââ PASSWORD OVERLAY ââ */
+  #pw-overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, #1a2e4a 0%, #22395e 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #pw-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 40px 44px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  #pw-box h2 { font-size: 20px; font-weight: 800; color: #1a2e4a; margin-bottom: 6px; }
+  #pw-box p  { font-size: 13px; color: #656d76; margin-bottom: 24px; }
+  #pw-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #d8dee4;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.15s;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  #pw-input:focus { border-color: #0969da; }
+  #pw-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 11px;
+    background: #0969da;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #pw-btn:hover { background: #0759b8; }
+  #pw-err {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #d1242f;
+    font-weight: 600;
+  }
+  #pw-lock { font-size: 36px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD OVERLAY -->
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div id="pw-lock">ð</div>
+    <h2>Sullivan Portfolio</h2>
+    <p>This portfolio is private.<br>Enter the password to continue.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkPw()">
+    <button id="pw-btn" onclick="checkPw()">View Portfolio</button>
+    <div id="pw-err">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1>SULLIVAN, LUKE C &nbsp;Â·&nbsp; 628-840417</h1>
+    <p>Uniform Transfer to Minors Act &nbsp;|&nbsp; eDelivery Enrollment: Full &nbsp;|&nbsp; Cash Avail. to Trade: <strong>$1,082.76</strong></p>
+  </div>
+  <div class="header-right">
+    <div class="total-val" id="hdrTotal">â</div>
+    <div class="total-sub" id="hdrGain">Loading live pricesâ¦</div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button class="btn-refresh" id="btnRefresh" onclick="doFetch()">
+    <span id="btnIcon">â»</span> Refresh Prices
+  </button>
+  <span class="status-text" id="statusText">â</span>
+  <span class="badge" id="mktBadge" style="display:none"></span>
+  <span style="margin-left:auto;" class="countdown" id="cdText"></span>
+</div>
+
+<!-- ALERT -->
+<div class="alert" id="alertBar"></div>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="card-title">Account Positions (Open / Unrealized) â 628-840417</span>
+        <span class="card-sub">&nbsp; 15 Positions</span>
+      </div>
+      <span class="countdown" id="cdText2"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="tbl">
+        <thead>
+          <tr id="thead">
+            <th class="left"   data-col="symbol">Symbol<span class="sort-arrow">â²</span></th>
+            <th class="left"   data-col="name">Description<span class="sort-arrow">â²</span></th>
+            <th                data-col="qty">Qty<span class="sort-arrow">â²</span></th>
+            <th                data-col="price">Recent Price<span class="sort-arrow">â²</span></th>
+            <th                data-col="dayChange">Day Change<span class="sort-arrow">â²</span></th>
+            <th                data-col="mktVal">Market Value<span class="sort-arrow">â²</span></th>
+            <th                data-col="cost">Cost Basis<span class="sort-arrow">â²</span></th>
+            <th                data-col="gainLoss">Gain / Loss $<span class="sort-arrow">â²</span></th>
+            <th                data-col="gainPct">Gain / Loss %<span class="sort-arrow">â²</span></th>
+            <th                data-col="dayValChange">Day Value Î<span class="sort-arrow">â²</span></th>
+            <th class="left">Type</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+        <tfoot>
+          <tr>
+            <td class="left" colspan="2">PORTFOLIO TOTAL</td>
+            <td></td>
+            <td></td>
+            <td id="ftDayChg">â</td>
+            <td id="ftMktVal">â</td>
+            <td id="ftCost">â</td>
+            <td id="ftGL">â</td>
+            <td id="ftGLpct">â</td>
+            <td id="ftDayValChg">â</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <p class="disclaimer">
+    â¡ Prices fetched live from Yahoo Finance Â· Auto-refreshes every 60 s during market hours Â·
+    Gain/Loss calculated as <em>Market Value â Cost Basis</em> Â· Day Change = today's price move Ã shares held Â·
+    Data is delayed ~15 min and for informational purposes only â not financial advice.
+  </p>
+</div>
+
+<script>
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+//  HOLDINGS  (cost = total cost basis from brokerage screenshot)
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+const HOLDINGS = [
+  { symbol:'FCASH', name:'CASH',                                    qty:4.930,    cost:null,      fixed:true,  fixedPrice:1.00,   type:'Cash' },
+  { symbol:'FDLXX', name:'FIDELITY TREASURY ONLY MONEY MARKET FD', qty:1077.830, cost:null,      fixed:true,  fixedPrice:1.00,   type:'Cash' },
+  { symbol:'AMZN',  name:'AMAZON.COM INC',                         qty:20,       cost:1808.95,   fixed:false, type:'Cash' },
+  { symbol:'COIN',  name:'COINBASE GLOBAL INC COM CL A',           qty:30,       cost:5526.30,   fixed:false, type:'Cash' },
+  { symbol:'DIS',   name:'DISNEY WALT CO COM',                     qty:3,        cost:68.92,     fixed:false, type:'Cash' },
+  { symbol:'HODL',  name:'VANECK BITCOIN ETF SH BEN INT',          qty:565,      cost:15051.60,  fixed:false, type:'Cash' },
+  { symbol:'JOBY',  name:'JOBY AVIATION INC COMMON STOCK',         qty:550,      cost:4987.51,   fixed:false, type:'Cash' },
+  { symbol:'MRNA',  name:'MODERNA INC COM',                        qty:3,        cost:815.12,    fixed:false, type:'Cash' },
+  { symbol:'NET',   name:'CLOUDFLARE INC CL A COM',                qty:65,       cost:4982.64,   fixed:false, type:'Cash' },
+  { symbol:'NFLX',  name:'NETFLIX INC',                            qty:10,       cost:4733.65,   fixed:false, type:'Cash' },
+  { symbol:'NVDA',  name:'NVIDIA CORPORATION COM',                 qty:120,      cost:10069.23,  fixed:false, type:'Cash' },
+  { symbol:'SNAP',  name:'SNAP INC CL A',                          qty:500,      cost:6430.00,   fixed:false, type:'Cash' },
+  { symbol:'TSLA',  name:'TESLA INC COM',                          qty:12,       cost:238.34,    fixed:false, type:'Cash' },
+  { symbol:'ZM',    name:'ZOOM COMMUNICATIONS INC CLASS A COMMON', qty:19,       cost:5884.48,   fixed:false, type:'Cash' },
+  { symbol:'SPACEX',name:'SPACE EXPLORATION TECHNOLOGIES CORP',    qty:1,        cost:10000.00,  fixed:true,  fixedPrice:10000.00, private:true, type:'Private' },
+];
+
+// Snapshot prices â sourced May 25, 2026 (used as fallback & initial render)
+const SNAPSHOT = {
+  AMZN:266.32, COIN:184.29, DIS:103.00, HODL:21.46, JOBY:10.84,
+  MRNA:46.85, NET:214.58, NFLX:88.39, NVDA:214.28, SNAP:5.71,
+  TSLA:423.67, ZM:105.40
+};
+
+// Live data store
+let liveData   = {};   // { AMZN: { price, change, changePct, prevClose, state } }
+let usingSnap  = false;
+let lastUpdate = null;
+let cdSecs     = 60;
+let cdTimer    = null;
+let sortCol    = 'symbol';
+let sortDir    = 1;   // 1 = asc, -1 = desc
+
+// âââ FORMAT HELPERS (equivalent to Excel formulas) ââââââââââââââââââââ
+const $n = (n, d=2) => n == null || isNaN(n) ? 'n/a' :
+  Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+const $$ = (n, sign=false) => {
+  if (n == null || isNaN(n)) return 'n/a';
+  const s = sign && n > 0 ? '+' : n < 0 ? '-' : '';
+  return s + '$' + $n(Math.abs(n));
+};
+
+const $pct = (n, sign=false) => {
+  if (n == null || isNaN(n)) return 'n/a';
+  const s = sign && n > 0 ? '+' : n < 0 ? '-' : '';
+  return s + $n(Math.abs(n)) + '%';
+};
+
+const cls = (n) => n == null ? 'neutral' : n >= 0 ? 'gain' : 'loss';
+const cellCls = (n) => n == null ? '' : n >= 0 ? 'gain-cell' : 'loss-cell';
+
+// âââ COMPUTE ROW (Excel formula equivalents) âââââââââââââââââââââââââââ
+function computeRow(h) {
+  // PRICE:  =IF(fixed, fixedPrice, livePrice)
+  const price = h.fixed
+    ? h.fixedPrice
+    : (liveData[h.symbol]?.price ?? SNAPSHOT[h.symbol] ?? 0);
+
+  const prevClose = h.fixed ? h.fixedPrice : (liveData[h.symbol]?.prevClose ?? null);
+  const rawChange = h.fixed ? 0 : (liveData[h.symbol]?.change ?? null);
+  const rawChangePct = h.fixed ? 0 : (liveData[h.symbol]?.changePct ?? null);
+
+  // MARKET VALUE: =Qty * Price
+  const mktVal = h.qty * price;
+
+  // GAIN / LOSS $: =MarketValue - CostBasis
+  const gainLoss = h.cost != null ? mktVal - h.cost : null;
+
+  // GAIN / LOSS %: =(MarketValue - Cost) / Cost * 100
+  const gainPct  = h.cost != null && h.cost > 0 ? (gainLoss / h.cost) * 100 : null;
+
+  // DAY CHANGE $: =DayChangePriceMove * Qty
+  const dayValChange = rawChange != null ? rawChange * h.qty : null;
+
+  return { price, prevClose, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange };
+}
+
+// âââ RENDER âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+function render() {
+  const rows = HOLDINGS.map(h => ({ h, ...computeRow(h) }));
+
+  // Sort
+  rows.sort((a, b) => {
+    let av, bv;
+    switch(sortCol) {
+      case 'symbol':      av = a.h.symbol;    bv = b.h.symbol;    break;
+      case 'name':        av = a.h.name;      bv = b.h.name;      break;
+      case 'qty':         av = a.h.qty;       bv = b.h.qty;       break;
+      case 'price':       av = a.price;       bv = b.price;       break;
+      case 'dayChange':   av = a.rawChange??-Infinity; bv = b.rawChange??-Infinity; break;
+      case 'mktVal':      av = a.mktVal;      bv = b.mktVal;      break;
+      case 'cost':        av = a.h.cost??-Infinity; bv = b.h.cost??-Infinity; break;
+      case 'gainLoss':    av = a.gainLoss??-Infinity; bv = b.gainLoss??-Infinity; break;
+      case 'gainPct':     av = a.gainPct??-Infinity; bv = b.gainPct??-Infinity; break;
+      case 'dayValChange':av = a.dayValChange??-Infinity; bv = b.dayValChange??-Infinity; break;
+      default:            av = 0; bv = 0;
+    }
+    if (typeof av === 'string') return sortDir * av.localeCompare(bv);
+    return sortDir * (av - bv);
+  });
+
+  // Build tbody HTML
+  const html = rows.map(({ h, price, prevClose, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange }) => {
+    const glCls   = cls(gainLoss);
+    const glCCell = cellCls(gainLoss);
+    const dcCls   = cls(rawChange);
+
+    // Price cell
+    let priceHtml;
+    if (h.private)        priceHtml = `<span class="private-badge">PRIVATE</span>`;
+    else if (h.fixed)     priceHtml = `$1.0000<sup>cp</sup>`;
+    else                  priceHtml = `$${$n(price)}`;
+
+    // Day change cell
+    let dayHtml = 'â';
+    if (!h.fixed && rawChange != null) {
+      dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}$${$n(Math.abs(rawChange))}</span>`
+             + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%</span>`;
+    }
+
+    // Gain bar
+    const barW   = gainPct != null ? Math.min(Math.abs(gainPct) / 3, 40) : 0;
+    const barCls = gainPct != null ? (gainPct >= 0 ? 'bar-g' : 'bar-r') : '';
+
+    const qtyFmt = h.private ? 'â' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3));
+
+    // For private holdings, show n/a for gain (market value unknown)
+    const glDisplay   = h.private ? '<span class="neutral">n/a</span>'
+                      : gainLoss != null ? (gainLoss >= 0 ? '+' : '') + '$' + $n(Math.abs(gainLoss))
+                      : '<span class="neutral">n/a</span>';
+    const glPctDisplay = h.private ? '<span class="neutral">n/a</span>'
+                       : gainPct != null
+                         ? `${'<div class="bar-wrap">'}${`<div class="bar ${barCls}" style="width:${barW}px"></div>`}${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
+                         : '<span class="neutral">n/a</span>';
+
+    return `<tr>
+      <td class="left"><span class="sym">${h.symbol}</span></td>
+      <td class="left"><span class="desc">${h.name}</span></td>
+      <td class="mono">${qtyFmt}</td>
+      <td class="price-cell">${priceHtml}</td>
+      <td>${dayHtml}</td>
+      <td class="mono">$${$n(mktVal)}</td>
+      <td class="mono">${h.cost != null ? '$' + $n(h.cost) : '<span class="neutral">n/a</span>'}</td>
+      <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glDisplay}</td>
+      <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glPctDisplay}</td>
+      <td class="${cls(dayValChange)}">${dayValChange != null ? (dayValChange >= 0 ? '+' : '') + '$' + $n(Math.abs(dayValChange)) : 'â'}</td>
+      <td class="left" style="color:var(--muted);font-size:12px;">${h.type}</td>
+    </tr>`;
+  });
+
+  document.getElementById('tbody').innerHTML = html.join('');
+
+  // ââ TOTALS (Excel SUM formulas) ââââââââââââââââââââââââââââââââââââââ
+  // =SUM(MarketValue column)
+  const totMV  = rows.reduce((s, r) => s + r.mktVal, 0);
+  // =SUM(Cost column) â rows with cost
+  const totCost= rows.reduce((s, r) => s + (r.h.cost ?? 0), 0);
+  // =TotalMV - TotalCost
+  const totGL  = totMV - totCost;
+  // =(TotalMv - TotalCost) / TotalCost * 100
+  const totGLp = totCost > 0 ? (totGL / totCost) * 100 : null;
+  // =SUM(DayValChange column)
+  const totDVC = rows.reduce((s, r) => s + (r.dayValChange ?? 0), 0);
+  const totDC  = rows.reduce((s, r) => s + (r.rawChange != null ? r.rawChange : 0), 0);
+
+  const ftGL  = document.getElementById('ftGL');
+  const ftGLp = document.getElementById('ftGLpct');
+  const ftDVC = document.getElementById('ftDayValChg');
+
+  document.getElementById('ftMktVal').textContent  = '$' + $n(totMV);
+  document.getElementById('ftCost').textContent    = '$' + $n(totCost);
+  ftGL.textContent   = (totGL >= 0 ? '+' : '-') + '$' + $n(Math.abs(totGL));
+  ftGL.style.color   = totGL >= 0 ? '#6ee09b' : '#ffaaaa';
+  ftGLp.textContent  = totGLp != null ? (totGLp >= 0 ? '+' : '') + $n(totGLp) + '%' : 'â';
+  ftGLp.style.color  = totGLp != null ? (totGLp >= 0 ? '#6ee09b' : '#ffaaaa') : '';
+  ftDVC.textContent  = totDVC !== 0 ? (totDVC >= 0 ? '+' : '-') + '$' + $n(Math.abs(totDVC)) : 'â';
+  ftDVC.style.color  = totDVC >= 0 ? '#6ee09b' : '#ffaaaa';
+  document.getElementById('ftDayChg').textContent  = totDC !== 0 ? (totDC >= 0 ? '+' : '') + '$' + $n(Math.abs(totDC)) : 'â';
+
+  // ââ HEADER summary ââââââââââââââââââââââââââââââââââââââââââââââââââ
+  document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
+  const gainSign = totGL >= 0 ? '+' : '';
+  document.getElementById('hdrGain').textContent =
+    `Total Return: ${gainSign}$${$n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) Â· `
+    + `Today: ${totDVC >= 0 ? '+' : ''}$${$n(Math.abs(totDVC))}`;
+  document.getElementById('hdrGain').style.color = totGL >= 0 ? '#9fdfb0' : '#ffb3b3';
+}
+
+// âââ FIX cost display (was showing $$ by accident) âââââââââââââââââââââ
+// Corrected in render: using proper string formatting below
+// (the $$ issue is patched in the render call above)
+
+// âââ SORT HEADERS âââââââââââââââââââââââââââââââââââââââââââââââââââââ
+document.getElementById('thead').addEventListener('click', e => {
+  const th = e.target.closest('th[data-col]');
+  if (!th) return;
+  const col = th.dataset.col;
+  if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; }
+
+  document.querySelectorAll('thead th').forEach(t => {
+    t.classList.remove('sort-asc','sort-desc');
+    const arrow = t.querySelector('.sort-arrow');
+    if (arrow) arrow.textContent = 'â²';
+  });
+  th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+  const arrow = th.querySelector('.sort-arrow');
+  if (arrow) arrow.textContent = sortDir === 1 ? 'â²' : 'â¼';
+
+  render();
+});
+
+// âââ LIVE FETCH âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+async function doFetch() {
+  const btn  = document.getElementById('btnRefresh');
+  const icon = document.getElementById('btnIcon');
+  btn.disabled = true;
+  icon.className = 'spin';
+  icon.textContent = 'â»';
+
+  const syms = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol).join(',');
+
+  const YF_URL = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+  const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+
+  // Try multiple sources in order until one works
+  const attempts = [
+    () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
+    () => fetch(YF_URL2, { signal: AbortSignal.timeout(5000) }),
+    () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL)}`,  { signal: AbortSignal.timeout(10000) }),
+    () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+    () => fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+    () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL2)}`, { signal: AbortSignal.timeout(10000) }),
+  ];
+
+  let data = null;
+  for (const attempt of attempts) {
+    if (data) break;
+    try {
+      const r = await attempt();
+      if (r.ok) {
+        const json = await r.json();
+        if (json?.quoteResponse?.result?.length) data = json;
+      }
+    } catch (_) {}
+  }
+
+  if (data?.quoteResponse?.result?.length) {
+    usingSnap = false;
+    data.quoteResponse.result.forEach(q => {
+      liveData[q.symbol] = {
+        price:      q.regularMarketPrice,
+        change:     q.regularMarketChange,
+        changePct:  q.regularMarketChangePercent,
+        prevClose:  q.regularMarketPreviousClose,
+        state:      q.marketState,
+      };
+    });
+    // Market state badge
+    const state = data.quoteResponse.result[0]?.marketState ?? 'UNKNOWN';
+    showMarketBadge(state);
+    showAlert('', '');
+    lastUpdate = new Date();
+    document.getElementById('statusText').textContent =
+      'â Live prices as of ' + lastUpdate.toLocaleTimeString();
+  } else {
+    // Fallback to snapshot
+    usingSnap = true;
+    Object.keys(SNAPSHOT).forEach(sym => {
+      if (!liveData[sym]) {
+        liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
+      }
+    });
+    showAlert('alert-warn', 'â  Could not reach Yahoo Finance â showing May 25, 2026 researched prices. Day Change unavailable.');
+    document.getElementById('statusText').textContent = 'Using May 25, 2026 snapshot prices (live fetch failed)';
+  }
+
+  render();
+  btn.disabled = false;
+  icon.className = '';
+  icon.textContent = 'â»';
+  resetCountdown();
+}
+
+function showMarketBadge(state) {
+  const b = document.getElementById('mktBadge');
+  b.style.display = 'inline-flex';
+  if (state === 'REGULAR') {
+    b.className = 'badge badge-open';
+    b.innerHTML = '<span class="badge-dot"></span> Market Open';
+  } else if (state === 'PRE') {
+    b.className = 'badge badge-pre';
+    b.innerHTML = '<span class="badge-dot"></span> Pre-Market';
+  } else if (state === 'POST') {
+    b.className = 'badge badge-post';
+    b.innerHTML = '<span class="badge-dot"></span> After Hours';
+  } else {
+    b.className = 'badge badge-closed';
+    b.innerHTML = '<span class="badge-dot"></span> Market Closed';
+  }
+}
+
+function showAlert(type, msg) {
+  const bar = document.getElementById('alertBar');
+  if (!msg) { bar.style.display = 'none'; return; }
+  bar.className = 'alert ' + type;
+  bar.textContent = msg;
+  bar.style.display = 'block';
+}
+
+// âââ COUNTDOWN TIMER âââââââââââââââââââââââââââââââââââââââââââââââââ
+function resetCountdown() {
+  cdSecs = 60;
+  clearInterval(cdTimer);
+  cdTimer = setInterval(() => {
+    cdSecs--;
+    const txt = `Auto-refresh in ${cdSecs}s`;
+    document.getElementById('cdText').textContent = txt;
+    document.getElementById('cdText2').textContent = txt;
+    if (cdSecs <= 0) doFetch();
+  }, 1000);
+}
+
+// âââ PASSWORD GATE ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+const PW_HASH = '6a3c9b2e1f8d4507'; // token for Riverside778
+function hashCode(str) {
+  // Simple consistent hash â not cryptographic, just obfuscation
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h * 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8,'0');
+}
+function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  if (val === 'Riverside778') {
+    sessionStorage.setItem('pw_ok', '1');
+    document.getElementById('pw-overlay').style.display = 'none';
+    doFetch();
+  } else {
+    document.getElementById('pw-err').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+// âââ INIT âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// Render immediately with snapshot so page isn't blank
+Object.keys(SNAPSHOT).forEach(sym => {
+  liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
+});
+render();
+// Show password gate unless already authenticated this session
+if (sessionStorage.getItem('pw_ok') === '1') {
+  document.getElementById('pw-overlay').style.display = 'none';
+  document.getElementById('statusText').textContent = 'Fetching live pricesâ¦';
+  doFetch();
+} else {
+  document.getElementById('statusText').textContent = 'Enter password to load live prices';
+  // Focus password input
+  setTimeout(() => document.getElementById('pw-input').focus(), 100);
+}
+</script>
+</body>
+</html>
