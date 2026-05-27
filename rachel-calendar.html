@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rachel Sullivan Calendar - May/June 2026</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;color:#1a1a2e;min-height:100vh}header{background:linear-gradient(135deg,#1565c0 0%,#0d47a1 100%);color:white;padding:22px 24px 18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.2)}header h1{font-size:1.7em;font-weight:800}header p{opacity:.8;margin-top:4px;font-size:.95em}.controls{display:flex;justify-content:center;align-items:center;gap:8px;padding:14px 16px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}.month-btn{padding:8px 24px;border:2px solid #1565c0;border-radius:24px;background:white;color:#1565c0;font-size:.9em;font-weight:700;cursor:pointer;transition:all .18s}.month-btn.active{background:#1565c0;color:white}.legend{display:flex;flex-wrap:wrap;gap:10px;padding:10px 20px;background:white;border-bottom:1px solid #e2e8f0;justify-content:center}.legend-item{display:flex;align-items:center;gap:6px;font-size:.78em;font-weight:600;color:#444}.legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}.month-wrapper{display:none;max-width:1100px;margin:20px auto;padding:0 12px 30px}.month-wrapper.visible{display:block}.month-heading{text-align:center;font-size:1.25em;font-weight:800;color:#1565c0;margin-bottom:12px}.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.09);background:#e2e8f0;gap:1px}.dow-header{background:#1565c0;color:white;text-align:center;padding:9px 4px;font-size:.8em;font-weight:700}.day-cell{background:white;min-height:110px;padding:5px 4px 4px;cursor:pointer;transition:background .12s;overflow:hidden}.day-cell:hover{background:#f0f6ff}.day-cell.empty{background:#f8fafc;cursor:default}.day-cell.today-cell{background:#e8f0fe}.day-num{font-size:.85em;font-weight:700;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-bottom:3px;color:#333}.day-num.today-num{background:#1565c0;color:white}.chip{font-size:.67em;padding:2px 4px;border-radius:3px;margin-bottom:2px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.45;font-weight:500}.chip.more{color:#666;background:#f0f0f0;font-style:italic}.cat-work{background:#d2e3fc;color:#1a3d8f;border-left:3px solid #1565c0}.cat-soccer{background:#d4edda;color:#1a5c34;border-left:3px solid #28a745}.cat-school{background:#fff3cd;color:#856404;border-left:3px solid #ffc107}.cat-travel{background:#fce8d5;color:#8b3a0f;border-left:3px solid #fd7e14}.cat-personal{background:#ede0f9;color:#5a1a8a;border-left:3px solid #9c27b0}.cat-holiday{background:#fde8e8;color:#991b1b;border-left:3px solid #dc3545}.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:200;justify-content:center;align-items:center}.overlay.open{display:flex}.modal-box{background:white;border-radius:14px;padding:24px 22px 20px;max-width:420px;width:92%;max-height:80vh;overflow-y:auto;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.22)}.modal-box h2{font-size:1.1em;font-weight:800;color:#1565c0;margin-bottom:14px}.modal-close{position:absolute;top:14px;right:16px;font-size:1.4em;cursor:pointer;color:#888;background:none;border:none}.ev-card{border-radius:7px;padding:9px 11px;margin-bottom:8px;border-left-width:4px;border-left-style:solid}.ev-card .ev-title{font-weight:700;font-size:.95em}.ev-card .ev-meta{font-size:.82em;color:#555;margin-top:3px;line-height:1.5}.no-events{color:#999;font-style:italic;font-size:.9em}@media(max-width:640px){.day-cell{min-height:72px}.chip{font-size:.58em}.dow-header{font-size:.7em;padding:7px 2px}}
+</style>
+</head>
+<body>
+<header><h1>Rachel Sullivan Calendar</h1><p>May - June 2026 - Tap any day to see details</p></header>
+<div class="controls">
+<button class="month-btn active" onclick="showMonth('may')" id="btn-may">May 2026</button>
+<button class="month-btn" onclick="showMonth('june')" id="btn-june">June 2026</button>
+</div>
+<div class="legend">
+<div class="legend-item"><div class="legend-dot" style="background:#1565c0"></div>Work</div>
+<div class="legend-item"><div class="legend-dot" style="background:#28a745"></div>Soccer</div>
+<div class="legend-item"><div class="legend-dot" style="background:#ffc107"></div>School</div>
+<div class="legend-item"><div class="legend-dot" style="background:#fd7e14"></div>Travel</div>
+<div class="legend-item"><div class="legend-dot" style="background:#9c27b0"></div>Personal</div>
+<div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div>Holiday</div>
+</div>
+<div class="month-wrapper visible" id="wrap-may"><div class="month-heading">May 2026</div><div class="cal-grid" id="grid-may"></div></div>
+<div class="month-wrapper" id="wrap-june"><div class="month-heading">June 2026</div><div class="cal-grid" id="grid-june"></div></div>
+<div class="overlay" id="overlay" onclick="maybeClose(event)"><div class="modal-box"><button class="modal-close" onclick="closeModal()">X</button><h2 id="modal-title"></h2><div id="modal-body"></div></div></div>
+<script>
+const E=[
+{d:'2026-05-25',t:'No School - Whit Monday',cat:'holiday'},
+{d:'2026-05-25',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-05-26',t:'U17 MLS Next Practice',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-05-27',t:'Work: MSH AED',time:'7am',cat:'work'},
+{d:'2026-05-27',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-05-27',t:'U17 MLS Next Practice',time:'7:30-9pm',loc:'Eddie Moraes',cat:'soccer'},
+{d:'2026-05-28',t:'Optional Soccer',time:'6-7:30pm',loc:'Governors Island',cat:'soccer'},
+{d:'2026-05-28',t:'U17 MLS Next Practice',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-05-29',t:'Soccer Practice',time:'7-8:30pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-05-29',t:'Travel to NJ',cat:'travel'},
+{d:'2026-05-30',t:'NAC Finale Day 1',cat:'soccer'},
+{d:'2026-05-30',t:'Soccer Finals (J)',cat:'soccer'},
+{d:'2026-05-30',t:'NJ',cat:'travel'},
+{d:'2026-05-31',t:'NAC Finale Day 2',cat:'soccer'},
+{d:'2026-05-31',t:'Depart NJ',cat:'travel'},
+{d:'2026-06-01',t:'NAC Finale Day 3',cat:'soccer'},
+{d:'2026-06-01',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-06-02',t:'Work: ERU',time:'9am-5:45pm',cat:'work'},
+{d:'2026-06-02',t:'French Finals (J)',cat:'school'},
+{d:'2026-06-02',t:'U17 MLS Next',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-06-03',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-06-03',t:'French Finals (J)',cat:'school'},
+{d:'2026-06-03',t:'U17 MLS Next',time:'7:30-9pm',loc:'Eddie Moraes',cat:'soccer'},
+{d:'2026-06-04',t:'SAT Drop-Off',cat:'school'},
+{d:'2026-06-04',t:'12:30 EMT',cat:'personal'},
+{d:'2026-06-04',t:'Optional Soccer',time:'6-7:30pm',loc:'Governors Island',cat:'soccer'},
+{d:'2026-06-04',t:'U17 MLS Next',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-06-05',t:'Work: Green MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-05',t:'Last Day of School (J)',cat:'school'},
+{d:'2026-06-05',t:'Soccer Practice',time:'7-8:30pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-06-06',t:'Work: Fast Track MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-06',t:'SAT Test',time:'8am',loc:'Kearny NJ',cat:'school'},
+{d:'2026-06-07',t:'Work: Fast Track MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-08',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-06-09',t:'Work: ERU',time:'9am-5:45pm',cat:'work'},
+{d:'2026-06-09',t:'U17 MLS Next',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-06-10',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
+{d:'2026-06-10',t:'U17 MLS Next',time:'7:30-9pm',loc:'Eddie Moraes',cat:'soccer'},
+{d:'2026-06-11',t:'Work: Green MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-11',t:'Optional Soccer',time:'6-7:30pm',loc:'Governors Island',cat:'soccer'},
+{d:'2026-06-11',t:'U17 MLS Next',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
+{d:'2026-06-12',t:'Work: Blue MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-13',t:'Work: Fast Track MD/DO',time:'3-11:45pm',cat:'work'},
+{d:'2026-06-13',t:'Princeton Visit',time:'8am',cat:'school'},
+{d:'2026-06-15',t:'Dr. Vacci Appt',time:'10:40am',cat:'personal'},
+{d:'2026-06-16',t:'Work: WMC-EM',time:'7am-3pm',loc:'Westchester Medical',cat:'work'},
+{d:'2026-06-16',t:'SAT Tutor',time:'2pm',loc:'30 W 61st St',cat:'school'},
+{d:'2026-06-17',t:'Work: WMC-EM',time:'7am-2pm',loc:'Westchester Medical',cat:'work'},
+{d:'2026-06-17',t:'Leave Airbnb',cat:'travel'},
+{d:'2026-06-18',t:'New Jersey',cat:'travel'},
+{d:'2026-06-18',t:'Columbia Visit',cat:'school'},
+{d:'2026-06-19',t:'Columbia Visit',cat:'school'},
+{d:'2026-06-20',t:'Court Due',cat:'personal'},
+{d:'2026-06-20',t:'Villanova Visit',cat:'school'},
+{d:'2026-06-21',t:"Father's Day",cat:'holiday'},
+{d:'2026-06-21',t:'First Day of Summer',cat:'holiday'},
+{d:'2026-06-21',t:'Princeton Visit',cat:'school'},
+{d:'2026-06-22',t:'New Jersey',cat:'travel'},
+{d:'2026-06-24',t:'Work: NWHDoc',time:'7am-5pm',cat:'work'},
+{d:'2026-06-25',t:'Travel to MA',cat:'travel'},
+{d:'2026-06-25',t:'Hancock Inn',cat:'travel'},
+{d:'2026-06-26',t:'Williams College - J',time:'12:30-6:45pm',cat:'school'},
+{d:'2026-06-26',t:'Jim Peat',cat:'personal'},
+{d:'2026-06-27',t:'Williams College - J',time:'9am-6pm',cat:'school'},
+{d:'2026-06-27',t:'Jim Peat',cat:'personal'},
+{d:'2026-06-27',t:'Drive Home',cat:'travel'},
+{d:'2026-06-28',t:'Travel to Yale/Amherst',cat:'travel'},
+{d:'2026-06-29',t:'Yale Visit',time:'Check-in 11:15am',loc:'The Study at Yale',cat:'school'},
+{d:'2026-06-30',t:'Yale Visit (cont.)',cat:'school'}
+];
+const byDate={};E.forEach(e=>{(byDate[e.d]=byDate[e.d]||[]).push(e);});
+const CAT={work:{bg:'#d2e3fc',txt:'#1a3d8f',b:'#1565c0'},soccer:{bg:'#d4edda',txt:'#1a5c34',b:'#28a745'},school:{bg:'#fff3cd',txt:'#856404',b:'#ffc107'},travel:{bg:'#fce8d5',txt:'#8b3a0f',b:'#fd7e14'},personal:{bg:'#ede0f9',txt:'#5a1a8a',b:'#9c27b0'},holiday:{bg:'#fde8e8',txt:'#991b1b',b:'#dc3545'}};
+function pad(n){return String(n).padStart(2,'0')}
+function buildGrid(yr,mo,id){
+const g=document.getElementById(id);g.innerHTML='';
+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const h=document.createElement('div');h.className='dow-header';h.textContent=d;g.appendChild(h);});
+const fd=new Date(yr,mo-1,1).getDay(),dm=new Date(yr,mo,0).getDate();
+const n=new Date(),ts=n.getFullYear()+'-'+pad(n.getMonth()+1)+'-'+pad(n.getDate());
+for(let i=0;i<fd;i++){const b=document.createElement('div');b.className='day-cell empty';g.appendChild(b);}
+for(let d=1;d<=dm;d++){
+const ds=yr+'-'+pad(mo)+'-'+pad(d),ev=byDate[ds]||[],iT=ds===ts;
+const c=document.createElement('div');c.className='day-cell'+(iT?' today-cell':'');c.onclick=()=>openM(ds,d,mo,yr);
+const n=document.createElement('div');n.className='day-num'+(iT?' today-num':'');n.textContent=d;c.appendChild(n);
+ev.slice(0,3).forEach(e=>{const ch=document.createElement('span');ch.className='chip cat-'+e.cat;ch.textContent=(e.time?e.time.split('-')[0]+' ':'')+e.t;c.appendChild(ch);});
+if(ev.length>3){const m=document.createElement('span');m.className='chip more';m.textContent='+'+(ev.length-3)+' more';c.appendChild(m);}
+g.appendChild(c);
+}}
+const MN=['','January','February','March','April','May','June','July','August','September','October','November','December'];
+function openM(ds,d,mo,yr){
+const ev=byDate[ds]||[];
+document.getElementById('modal-title').textContent=MN[mo]+' '+d+', '+yr;
+const b=document.getElementById('modal-body');
+b.innerHTML=ev.length?ev.map(e=>{const c=CAT[e.cat]||CAT.personal;return '<div class="ev-card" style="background:'+c.bg+';border-left-color:'+c.b+'"><div class="ev-title" style="color:'+c.txt+'">'+e.t+'</div><div class="ev-meta">'+(e.time?'Time: '+e.time+'<br>':'')+(e.loc?'Location: '+e.loc:'')+'</div></div>';}).join(''):'<p class="no-events">No events.</p>';
+document.getElementById('overlay').classList.add('open');
+}
+function closeModal(){document.getElementById('overlay').classList.remove('open');}
+function maybeClose(e){if(e.target.id==='overlay')closeModal();}
+function showMonth(m){['may','june'].forEach(id=>{document.getElementById('wrap-'+id).classList.toggle('visible',id===m);document.getElementById('btn-'+id).classList.toggle('active',id===m);});}
+buildGrid(2026,5,'grid-may');buildGrid(2026,6,'grid-june');
+</script>
+</body>
+</html>
