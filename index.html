@@ -442,7 +442,7 @@ function render() {
       case 'symbol':      av = a.h.symbol;    bv = b.h.symbol;    break;
       case 'name':        av = a.h.name;      bv = b.h.name;      break;
       case 'qty':         av = a.h.qty;       bv = b.h.qty;       break;
-      case 'price':       av = a.price;       bv = b.price;       break;
+    0 case 'price':       av = a.price;       bv = b.price;       break;
       case 'dayChange':   av = a.rawChange??-Infinity; bv = b.rawChange??-Infinity; break;
       case 'mktVal':      av = a.mktVal;      bv = b.mktVal;      break;
       case 'cost':        av = a.h.cost??-Infinity; bv = b.h.cost??-Infinity; break;
@@ -486,7 +486,7 @@ function render() {
                       : '<span class="neutral">n/a</span>';
     const glPctDisplay = h.private ? '<span class="neutral">n/a</span>'
                        : gainPct != null
-                         ? `${'<div class="bar-wrap">'}${`<div class="bar ${barCls}" style="width:${barW}px"></div>`}${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
+                         ? `<div class="bar-wrap">${`<div class="bar ${barCls}" style="width:${barW}px"></div>`}${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
                          : '<span class="neutral">n/a</span>';
 
     return `<tr>
@@ -509,11 +509,11 @@ function render() {
   // ââ TOTALS (Excel SUM formulas) ââââââââââââââââââââââââââââââââââââââ
   // =SUM(MarketValue column)
   const totMV  = rows.reduce((s, r) => s + r.mktVal, 0);
-  // =SUM(Cost column) â rows with cost
+  // =SUM(Cost column) â only rows with cost
   const totCost= rows.reduce((s, r) => s + (r.h.cost ?? 0), 0);
   // =TotalMV - TotalCost
   const totGL  = totMV - totCost;
-  // =(TotalMv - TotalCost) / TotalCost * 100
+  // =(TotalMV - TotalCost) / TotalCost * 100
   const totGLp = totCost > 0 ? (totGL / totCost) * 100 : null;
   // =SUM(DayValChange column)
   const totDVC = rows.reduce((s, r) => s + (r.dayValChange ?? 0), 0);
@@ -573,49 +573,80 @@ async function doFetch() {
   icon.className = 'spin';
   icon.textContent = 'â»';
 
-  const syms = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol).join(',');
+  const symsArr = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol);
+  const syms = symsArr.join(',');
 
-  const YF_URL = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+  // ââ SOURCE 1: Stooq.com â CORS-friendly, no API key, very reliable ââ
+  const stooqSyms = symsArr.map(s => s.toLowerCase() + '.us').join(',');
+  const STOOQ_URL = `https://stooq.com/q/l/?s=${stooqSyms}&f=sd2t2ohlcv&h&e=json`;
+
+  // ââ SOURCE 2: Yahoo Finance (with CORS proxies) ââ
+  const YF_URL  = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
   const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
 
-  // Try multiple sources in order until one works
-  const attempts = [
-    () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
-    () => fetch(YF_URL2, { signal: AbortSignal.timeout(5000) }),
-    () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL)}`,  { signal: AbortSignal.timeout(10000) }),
-    () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
-    () => fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
-    () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL2)}`, { signal: AbortSignal.timeout(10000) }),
-  ];
+  let gotLive = false;
 
-  let data = null;
-  for (const attempt of attempts) {
-    if (data) break;
-    try {
-      const r = await attempt();
-      if (r.ok) {
-        const json = await r.json();
-        if (json?.quoteResponse?.result?.length) data = json;
+  // â Try Stooq first â
+  try {
+    const r = await fetch(STOOQ_URL, { signal: AbortSignal.timeout(8000) });
+    if (r.ok) {
+      const json = await r.json();
+      if (json?.symbols?.length) {
+        let count = 0;
+        json.symbols.forEach(s => {
+          const sym = s.symbol.toUpperCase().replace('.US','');
+          if (s.close && s.close > 0) {
+            liveData[sym] = { price: s.close, change: null, changePct: null, prevClose: s.open ?? null, state: 'REGULAR' };
+            count++;
+          }
+        });
+        if (count > 0) gotLive = true;
       }
-    } catch (_) {}
+    }
+  } catch (_) {}
+
+  // â If Stooq failed, try Yahoo Finance with CORS proxies â
+  if (!gotLive) {
+    const attempts = [
+      () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
+      () => fetch(YF_URL2, { signal: AbortSignal.timeout(5000) }),
+      () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL)}`,  { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL2)}`, { signal: AbortSignal.timeout(10000) }),
+    ];
+    let yfData = null;
+    for (const attempt of attempts) {
+      if (yfData) break;
+      try {
+        const r = await attempt();
+        if (r.ok) {
+          const json = await r.json();
+          if (json?.quoteResponse?.result?.length) yfData = json;
+        }
+      } catch (_) {}
+    }
+    if (yfData?.quoteResponse?.result?.length) {
+      yfData.quoteResponse.result.forEach(q => {
+        liveData[q.symbol] = {
+          price:     q.regularMarketPrice,
+          change:    q.regularMarketChange,
+          changePct: q.regularMarketChangePercent,
+          prevClose: q.regularMarketPreviousClose,
+          state:     q.marketState,
+        };
+      });
+      const state = yfData.quoteResponse.result[0]?.marketState ?? 'UNKNOWN';
+      showMarketBadge(state);
+      gotLive = true;
+    }
   }
 
-  if (data?.quoteResponse?.result?.length) {
+  if (gotLive) {
     usingSnap = false;
-    data.quoteResponse.result.forEach(q => {
-      liveData[q.symbol] = {
-        price:      q.regularMarketPrice,
-        change:     q.regularMarketChange,
-        changePct:  q.regularMarketChangePercent,
-        prevClose:  q.regularMarketPreviousClose,
-        state:      q.marketState,
-      };
-    });
-    // Market state badge
-    const state = data.quoteResponse.result[0]?.marketState ?? 'UNKNOWN';
-    showMarketBadge(state);
     showAlert('', '');
     lastUpdate = new Date();
+    showMarketBadge(liveData[symsArr[0]]?.state ?? 'REGULAR');
     document.getElementById('statusText').textContent =
       'â Live prices as of ' + lastUpdate.toLocaleTimeString();
   } else {
@@ -626,7 +657,7 @@ async function doFetch() {
         liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
       }
     });
-    showAlert('alert-warn', 'â  Could not reach Yahoo Finance â showing May 25, 2026 researched prices. Day Change unavailable.');
+    showAlert('alert-warn', 'â  Could not reach live price sources â showing May 25, 2026 snapshot prices. Day Change unavailable.');
     document.getElementById('statusText').textContent = 'Using May 25, 2026 snapshot prices (live fetch failed)';
   }
 
