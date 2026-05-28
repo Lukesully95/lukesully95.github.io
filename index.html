@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sullivan Portfolio â Live Tracker</title>
+<title>Sullivan Portfolio — Live Tracker</title>
 <style>
   :root {
     --green: #1a7f37;
@@ -28,7 +28,7 @@
     min-height: 100vh;
   }
 
-  /* ââ HEADER ââ */
+  /* ── HEADER ── */
   .header {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
     color: #fff;
@@ -44,7 +44,7 @@
   .total-val { font-size: 30px; font-weight: 700; letter-spacing: -0.5px; }
   .total-sub { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 
-  /* ââ TOOLBAR ââ */
+  /* ── TOOLBAR ── */
   .toolbar {
     background: #fff;
     border-bottom: 1px solid var(--border);
@@ -90,7 +90,7 @@
   .badge-post   { background: #f0e8fd; color: #6f42c1; }
   .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 
-  /* ââ ALERT BAR ââ */
+  /* ── ALERT BAR ── */
   .alert {
     display: none;
     padding: 8px 24px;
@@ -99,10 +99,10 @@
   .alert-warn { background: #fff8c5; border-bottom: 1px solid #f0c000; color: #7d5700; }
   .alert-err  { background: #ffebe9; border-bottom: 1px solid #f7c5c0; color: #a0111f; }
 
-  /* ââ CONTAINER ââ */
+  /* ── CONTAINER ── */
   .container { padding: 18px 20px; max-width: 1500px; margin: 0 auto; }
 
-  /* ââ CARD ââ */
+  /* ── CARD ── */
   .card {
     background: #fff;
     border-radius: 8px;
@@ -120,7 +120,7 @@
   .card-sub   { font-size: 12px; color: var(--muted); }
   .countdown  { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-  /* ââ TABLE ââ */
+  /* ── TABLE ── */
   .table-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
 
@@ -172,17 +172,17 @@
   /* superscript for cp */
   sup { font-size: 8px; vertical-align: super; opacity: 0.7; }
 
-  /* ââ TOTALS ROW ââ */
+  /* ── TOTALS ROW ── */
   tfoot tr { background: var(--navy); color: #fff; }
   tfoot td { padding: 11px 12px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
 
-  /* ââ MINI SPARKLINE BARS ââ */
+  /* ── MINI SPARKLINE BARS ── */
   .bar-wrap { display: flex; align-items: center; gap: 5px; justify-content: flex-end; }
   .bar { height: 14px; border-radius: 2px; min-width: 2px; }
   .bar-g { background: var(--green); }
   .bar-r { background: var(--red); }
 
-  /* ââ DISCLAIMER ââ */
+  /* ── DISCLAIMER ── */
   .disclaimer {
     text-align: center;
     font-size: 11px;
@@ -190,7 +190,7 @@
     padding: 10px 20px 18px;
   }
 
-  /* ââ PRIVATE BADGE ââ */
+  /* ── PRIVATE BADGE ── */
   .private-badge {
     display: inline-block;
     background: #f0e8fd;
@@ -202,7 +202,7 @@
     letter-spacing: 0.5px;
   }
 
-  /* ââ PASSWORD OVERLAY ââ */
+  /* ── PASSWORD OVERLAY ── */
   #pw-overlay {
     position: fixed; inset: 0;
     background: linear-gradient(135deg, #1a2e4a 0%, #22395e 100%);
@@ -262,7 +262,7 @@
 <!-- PASSWORD OVERLAY -->
 <div id="pw-overlay">
   <div id="pw-box">
-    <div id="pw-lock">ð</div>
+    <div id="pw-lock">🔒</div>
     <h2>Sullivan Portfolio</h2>
     <p>This portfolio is private.<br>Enter the password to continue.</p>
     <input id="pw-input" type="password" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkPw()">
@@ -274,21 +274,21 @@
 <!-- HEADER -->
 <div class="header">
   <div class="header-left">
-    <h1>SULLIVAN, LUKE C &nbsp;Â·&nbsp; 628-840417</h1>
+    <h1>SULLIVAN, LUKE C &nbsp;·&nbsp; 628-840417</h1>
     <p>Uniform Transfer to Minors Act &nbsp;|&nbsp; eDelivery Enrollment: Full &nbsp;|&nbsp; Cash Avail. to Trade: <strong>$1,082.76</strong></p>
   </div>
   <div class="header-right">
-    <div class="total-val" id="hdrTotal">â</div>
-    <div class="total-sub" id="hdrGain">Loading live pricesâ¦</div>
+    <div class="total-val" id="hdrTotal">—</div>
+    <div class="total-sub" id="hdrGain">Loading live prices…</div>
   </div>
 </div>
 
 <!-- TOOLBAR -->
 <div class="toolbar">
   <button class="btn-refresh" id="btnRefresh" onclick="doFetch()">
-    <span id="btnIcon">â»</span> Refresh Prices
+    <span id="btnIcon">↻</span> Refresh Prices
   </button>
-  <span class="status-text" id="statusText">â</span>
+  <span class="status-text" id="statusText">—</span>
   <span class="badge" id="mktBadge" style="display:none"></span>
   <span style="margin-left:auto;" class="countdown" id="cdText"></span>
 </div>
@@ -301,7 +301,7 @@
   <div class="card">
     <div class="card-header">
       <div>
-        <span class="card-title">Account Positions (Open / Unrealized) â 628-840417</span>
+        <span class="card-title">Account Positions (Open / Unrealized) — 628-840417</span>
         <span class="card-sub">&nbsp; 15 Positions</span>
       </div>
       <span class="countdown" id="cdText2"></span>
@@ -310,16 +310,16 @@
       <table id="tbl">
         <thead>
           <tr id="thead">
-            <th class="left"   data-col="symbol">Symbol<span class="sort-arrow">â²</span></th>
-            <th class="left"   data-col="name">Description<span class="sort-arrow">â²</span></th>
-            <th                data-col="qty">Qty<span class="sort-arrow">â²</span></th>
-            <th                data-col="price">Recent Price<span class="sort-arrow">â²</span></th>
-            <th                data-col="dayChange">Day Change<span class="sort-arrow">â²</span></th>
-            <th                data-col="mktVal">Market Value<span class="sort-arrow">â²</span></th>
-            <th                data-col="cost">Cost Basis<span class="sort-arrow">â²</span></th>
-            <th                data-col="gainLoss">Gain / Loss $<span class="sort-arrow">â²</span></th>
-            <th                data-col="gainPct">Gain / Loss %<span class="sort-arrow">â²</span></th>
-            <th                data-col="dayValChange">Day Value Î<span class="sort-arrow">â²</span></th>
+            <th class="left"   data-col="symbol">Symbol<span class="sort-arrow">▲</span></th>
+            <th class="left"   data-col="name">Description<span class="sort-arrow">▲</span></th>
+            <th                data-col="qty">Qty<span class="sort-arrow">▲</span></th>
+            <th                data-col="price">Recent Price<span class="sort-arrow">▲</span></th>
+            <th                data-col="dayChange">Day Change<span class="sort-arrow">▲</span></th>
+            <th                data-col="mktVal">Market Value<span class="sort-arrow">▲</span></th>
+            <th                data-col="cost">Cost Basis<span class="sort-arrow">▲</span></th>
+            <th                data-col="gainLoss">Gain / Loss $<span class="sort-arrow">▲</span></th>
+            <th                data-col="gainPct">Gain / Loss %<span class="sort-arrow">▲</span></th>
+            <th                data-col="dayValChange">Day Value Δ<span class="sort-arrow">▲</span></th>
             <th class="left">Type</th>
           </tr>
         </thead>
@@ -329,12 +329,12 @@
             <td class="left" colspan="2">PORTFOLIO TOTAL</td>
             <td></td>
             <td></td>
-            <td id="ftDayChg">â</td>
-            <td id="ftMktVal">â</td>
-            <td id="ftCost">â</td>
-            <td id="ftGL">â</td>
-            <td id="ftGLpct">â</td>
-            <td id="ftDayValChg">â</td>
+            <td id="ftDayChg">—</td>
+            <td id="ftMktVal">—</td>
+            <td id="ftCost">—</td>
+            <td id="ftGL">—</td>
+            <td id="ftGLpct">—</td>
+            <td id="ftDayValChg">—</td>
             <td></td>
           </tr>
         </tfoot>
@@ -342,16 +342,16 @@
     </div>
   </div>
   <p class="disclaimer">
-    â¡ Prices fetched live from Yahoo Finance Â· Auto-refreshes every 60 s during market hours Â·
-    Gain/Loss calculated as <em>Market Value â Cost Basis</em> Â· Day Change = today's price move Ã shares held Â·
-    Data is delayed ~15 min and for informational purposes only â not financial advice.
+    ⚡ Prices fetched live from Yahoo Finance · Auto-refreshes every 60 s during market hours ·
+    Gain/Loss calculated as <em>Market Value − Cost Basis</em> · Day Change = today's price move × shares held ·
+    Data is delayed ~15 min and for informational purposes only — not financial advice.
   </p>
 </div>
 
 <script>
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─────────────────────────────────────────────────────────────────────
 //  HOLDINGS  (cost = total cost basis from brokerage screenshot)
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─────────────────────────────────────────────────────────────────────
 const HOLDINGS = [
   { symbol:'FCASH', name:'CASH',                                    qty:4.930,    cost:null,      fixed:true,  fixedPrice:1.00,   type:'Cash' },
   { symbol:'FDLXX', name:'FIDELITY TREASURY ONLY MONEY MARKET FD', qty:1077.830, cost:null,      fixed:true,  fixedPrice:1.00,   type:'Cash' },
@@ -370,7 +370,7 @@ const HOLDINGS = [
   { symbol:'SPACEX',name:'SPACE EXPLORATION TECHNOLOGIES CORP',    qty:1,        cost:10000.00,  fixed:true,  fixedPrice:10000.00, private:true, type:'Private' },
 ];
 
-// Snapshot prices â sourced May 25, 2026 (used as fallback & initial render)
+// Snapshot prices — sourced May 25, 2026 (used as fallback & initial render)
 const SNAPSHOT = {
   AMZN:266.32, COIN:184.29, DIS:103.00, HODL:21.46, JOBY:10.84,
   MRNA:46.85, NET:214.58, NFLX:88.39, NVDA:214.28, SNAP:5.71,
@@ -386,7 +386,7 @@ let cdTimer    = null;
 let sortCol    = 'symbol';
 let sortDir    = 1;   // 1 = asc, -1 = desc
 
-// âââ FORMAT HELPERS (equivalent to Excel formulas) ââââââââââââââââââââ
+// ─── FORMAT HELPERS (equivalent to Excel formulas) ────────────────────
 const $n = (n, d=2) => n == null || isNaN(n) ? 'n/a' :
   Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 
@@ -405,7 +405,7 @@ const $pct = (n, sign=false) => {
 const cls = (n) => n == null ? 'neutral' : n >= 0 ? 'gain' : 'loss';
 const cellCls = (n) => n == null ? '' : n >= 0 ? 'gain-cell' : 'loss-cell';
 
-// âââ COMPUTE ROW (Excel formula equivalents) âââââââââââââââââââââââââââ
+// ─── COMPUTE ROW (Excel formula equivalents) ───────────────────────────
 function computeRow(h) {
   // PRICE:  =IF(fixed, fixedPrice, livePrice)
   const price = h.fixed
@@ -431,7 +431,7 @@ function computeRow(h) {
   return { price, prevClose, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange };
 }
 
-// âââ RENDER âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── RENDER ───────────────────────────────────────────────────────────
 function render() {
   const rows = HOLDINGS.map(h => ({ h, ...computeRow(h) }));
 
@@ -468,7 +468,7 @@ function render() {
     else                  priceHtml = `$${$n(price)}`;
 
     // Day change cell
-    let dayHtml = 'â';
+    let dayHtml = '—';
     if (!h.fixed && rawChange != null) {
       dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}$${$n(Math.abs(rawChange))}</span>`
              + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%</span>`;
@@ -478,7 +478,7 @@ function render() {
     const barW   = gainPct != null ? Math.min(Math.abs(gainPct) / 3, 40) : 0;
     const barCls = gainPct != null ? (gainPct >= 0 ? 'bar-g' : 'bar-r') : '';
 
-    const qtyFmt = h.private ? 'â' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3));
+    const qtyFmt = h.private ? '—' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3));
 
     // For private holdings, show n/a for gain (market value unknown)
     const glDisplay   = h.private ? '<span class="neutral">n/a</span>'
@@ -499,17 +499,17 @@ function render() {
       <td class="mono">${h.cost != null ? '$' + $n(h.cost) : '<span class="neutral">n/a</span>'}</td>
       <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glDisplay}</td>
       <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glPctDisplay}</td>
-      <td class="${cls(dayValChange)}">${dayValChange != null ? (dayValChange >= 0 ? '+' : '') + '$' + $n(Math.abs(dayValChange)) : 'â'}</td>
+      <td class="${cls(dayValChange)}">${dayValChange != null ? (dayValChange >= 0 ? '+' : '') + '$' + $n(Math.abs(dayValChange)) : '—'}</td>
       <td class="left" style="color:var(--muted);font-size:12px;">${h.type}</td>
     </tr>`;
   });
 
   document.getElementById('tbody').innerHTML = html.join('');
 
-  // ââ TOTALS (Excel SUM formulas) ââââââââââââââââââââââââââââââââââââââ
+  // ── TOTALS (Excel SUM formulas) ──────────────────────────────────────
   // =SUM(MarketValue column)
   const totMV  = rows.reduce((s, r) => s + r.mktVal, 0);
-  // =SUM(Cost column) â only rows with cost
+  // =SUM(Cost column) — only rows with cost
   const totCost= rows.reduce((s, r) => s + (r.h.cost ?? 0), 0);
   // =TotalMV - TotalCost
   const totGL  = totMV - totCost;
@@ -527,26 +527,26 @@ function render() {
   document.getElementById('ftCost').textContent    = '$' + $n(totCost);
   ftGL.textContent   = (totGL >= 0 ? '+' : '-') + '$' + $n(Math.abs(totGL));
   ftGL.style.color   = totGL >= 0 ? '#6ee09b' : '#ffaaaa';
-  ftGLp.textContent  = totGLp != null ? (totGLp >= 0 ? '+' : '') + $n(totGLp) + '%' : 'â';
+  ftGLp.textContent  = totGLp != null ? (totGLp >= 0 ? '+' : '') + $n(totGLp) + '%' : '—';
   ftGLp.style.color  = totGLp != null ? (totGLp >= 0 ? '#6ee09b' : '#ffaaaa') : '';
-  ftDVC.textContent  = totDVC !== 0 ? (totDVC >= 0 ? '+' : '-') + '$' + $n(Math.abs(totDVC)) : 'â';
+  ftDVC.textContent  = totDVC !== 0 ? (totDVC >= 0 ? '+' : '-') + '$' + $n(Math.abs(totDVC)) : '—';
   ftDVC.style.color  = totDVC >= 0 ? '#6ee09b' : '#ffaaaa';
-  document.getElementById('ftDayChg').textContent  = totDC !== 0 ? (totDC >= 0 ? '+' : '') + '$' + $n(Math.abs(totDC)) : 'â';
+  document.getElementById('ftDayChg').textContent  = totDC !== 0 ? (totDC >= 0 ? '+' : '') + '$' + $n(Math.abs(totDC)) : '—';
 
-  // ââ HEADER summary ââââââââââââââââââââââââââââââââââââââââââââââââââ
+  // ── HEADER summary ──────────────────────────────────────────────────
   document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
   const gainSign = totGL >= 0 ? '+' : '';
   document.getElementById('hdrGain').textContent =
-    `Total Return: ${gainSign}$${$n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) Â· `
+    `Total Return: ${gainSign}$${$n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) · `
     + `Today: ${totDVC >= 0 ? '+' : ''}$${$n(Math.abs(totDVC))}`;
   document.getElementById('hdrGain').style.color = totGL >= 0 ? '#9fdfb0' : '#ffb3b3';
 }
 
-// âââ FIX cost display (was showing $$ by accident) âââââââââââââââââââââ
+// ─── FIX cost display (was showing $$ by accident) ─────────────────────
 // Corrected in render: using proper string formatting below
 // (the $$ issue is patched in the render call above)
 
-// âââ SORT HEADERS âââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── SORT HEADERS ─────────────────────────────────────────────────────
 document.getElementById('thead').addEventListener('click', e => {
   const th = e.target.closest('th[data-col]');
   if (!th) return;
@@ -556,37 +556,37 @@ document.getElementById('thead').addEventListener('click', e => {
   document.querySelectorAll('thead th').forEach(t => {
     t.classList.remove('sort-asc','sort-desc');
     const arrow = t.querySelector('.sort-arrow');
-    if (arrow) arrow.textContent = 'â²';
+    if (arrow) arrow.textContent = '▲';
   });
   th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
   const arrow = th.querySelector('.sort-arrow');
-  if (arrow) arrow.textContent = sortDir === 1 ? 'â²' : 'â¼';
+  if (arrow) arrow.textContent = sortDir === 1 ? '▲' : '▼';
 
   render();
 });
 
-// âââ LIVE FETCH âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── LIVE FETCH ───────────────────────────────────────────────────────
 async function doFetch() {
   const btn  = document.getElementById('btnRefresh');
   const icon = document.getElementById('btnIcon');
   btn.disabled = true;
   icon.className = 'spin';
-  icon.textContent = 'â»';
+  icon.textContent = '↻';
 
   const symsArr = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol);
   const syms = symsArr.join(',');
 
-  // ââ SOURCE 1: Stooq.com â CORS-friendly, no API key, very reliable ââ
+  // ── SOURCE 1: Stooq.com — CORS-friendly, no API key, very reliable ──
   const stooqSyms = symsArr.map(s => s.toLowerCase() + '.us').join(',');
   const STOOQ_URL = `https://stooq.com/q/l/?s=${stooqSyms}&f=sd2t2ohlcv&h&e=json`;
 
-  // ââ SOURCE 2: Yahoo Finance (with CORS proxies) ââ
+  // ── SOURCE 2: Yahoo Finance (with CORS proxies) ──
   const YF_URL  = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
   const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
 
   let gotLive = false;
 
-  // â Try Stooq first â
+  // — Try Stooq first —
   try {
     const r = await fetch(STOOQ_URL, { signal: AbortSignal.timeout(8000) });
     if (r.ok) {
@@ -605,7 +605,7 @@ async function doFetch() {
     }
   } catch (_) {}
 
-  // â If Stooq failed, try Yahoo Finance with CORS proxies â
+  // — If Stooq failed, try Yahoo Finance with CORS proxies —
   if (!gotLive) {
     const attempts = [
       () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
@@ -648,7 +648,7 @@ async function doFetch() {
     lastUpdate = new Date();
     showMarketBadge(liveData[symsArr[0]]?.state ?? 'REGULAR');
     document.getElementById('statusText').textContent =
-      'â Live prices as of ' + lastUpdate.toLocaleTimeString();
+      '✓ Live prices as of ' + lastUpdate.toLocaleTimeString();
   } else {
     // Fallback to snapshot
     usingSnap = true;
@@ -657,14 +657,14 @@ async function doFetch() {
         liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
       }
     });
-    showAlert('alert-warn', 'â  Could not reach live price sources â showing May 25, 2026 snapshot prices. Day Change unavailable.');
+    showAlert('alert-warn', '⚠ Could not reach live price sources — showing May 25, 2026 snapshot prices. Day Change unavailable.');
     document.getElementById('statusText').textContent = 'Using May 25, 2026 snapshot prices (live fetch failed)';
   }
 
   render();
   btn.disabled = false;
   icon.className = '';
-  icon.textContent = 'â»';
+  icon.textContent = '↻';
   resetCountdown();
 }
 
@@ -694,7 +694,7 @@ function showAlert(type, msg) {
   bar.style.display = 'block';
 }
 
-// âââ COUNTDOWN TIMER âââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── COUNTDOWN TIMER ─────────────────────────────────────────────────
 function resetCountdown() {
   cdSecs = 60;
   clearInterval(cdTimer);
@@ -707,10 +707,10 @@ function resetCountdown() {
   }, 1000);
 }
 
-// âââ PASSWORD GATE ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── PASSWORD GATE ────────────────────────────────────────────────────
 const PW_HASH = '6a3c9b2e1f8d4507'; // token for Riverside778
 function hashCode(str) {
-  // Simple consistent hash â not cryptographic, just obfuscation
+  // Simple consistent hash — not cryptographic, just obfuscation
   let h = 0x811c9dc5;
   for (let i = 0; i < str.length; i++) {
     h ^= str.charCodeAt(i);
@@ -731,7 +731,7 @@ function checkPw() {
   }
 }
 
-// âââ INIT âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── INIT ─────────────────────────────────────────────────────────────
 // Render immediately with snapshot so page isn't blank
 Object.keys(SNAPSHOT).forEach(sym => {
   liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
@@ -740,7 +740,7 @@ render();
 // Show password gate unless already authenticated this session
 if (sessionStorage.getItem('pw_ok') === '1') {
   document.getElementById('pw-overlay').style.display = 'none';
-  document.getElementById('statusText').textContent = 'Fetching live pricesâ¦';
+  document.getElementById('statusText').textContent = 'Fetching live prices…';
   doFetch();
 } else {
   document.getElementById('statusText').textContent = 'Enter password to load live prices';
