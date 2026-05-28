@@ -577,47 +577,66 @@ async function doFetch() {
   const syms = symsArr.join(',');
   let gotLive = false;
 
-  // ── SOURCE 1: /prices.json — updated by GitHub Action every 15 min, no CORS ──
+  // ── SOURCE 1: /prices.json — updated by GitHub Action, only use if fresh (< 30 min) ──
   try {
     const r = await fetch('/prices.json?t=' + Date.now(), { signal: AbortSignal.timeout(5000) });
     if (r.ok) {
       const data = await r.json();
       if (data?.prices) {
-        let count = 0;
-        symsArr.forEach(sym => {
-          const p = data.prices[sym];
-          if (p?.price) {
-            liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
-            count++;
+        const updatedAt = data.updated ? new Date(data.updated) : null;
+        const ageMinutes = updatedAt ? (Date.now() - updatedAt.getTime()) / 60000 : Infinity;
+        if (ageMinutes <= 30) {
+          let count = 0;
+          symsArr.forEach(sym => {
+            const p = data.prices[sym];
+            if (p?.price) {
+              liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
+              count++;
+            }
+          });
+          if (count > 0) {
+            gotLive = true;
+            lastUpdate = updatedAt;
           }
-        });
-        if (count > 0) {
-          gotLive = true;
-          lastUpdate = data.updated ? new Date(data.updated) : new Date();
         }
       }
     }
   } catch (_) {}
 
-  // ── SOURCE 2: Stooq.com (direct, CORS-friendly fallback) ──
+  // ── SOURCE 2: Yahoo Finance chart API via allorigins CORS proxy (parallel fetch) ──
   if (!gotLive) {
     try {
-      const stooqSyms = symsArr.map(s => s.toLowerCase() + '.us').join(',');
-      const STOOQ_URL = `https://stooq.com/q/l/?s=${stooqSyms}&f=sd2t2ohlcv&h&e=json`;
-      const r = await fetch(STOOQ_URL, { signal: AbortSignal.timeout(8000) });
-      if (r.ok) {
-        const json = await r.json();
-        if (json?.symbols?.length) {
-          let count = 0;
-          json.symbols.forEach(s => {
-            const sym = s.symbol.toUpperCase().replace('.US','');
-            if (s.close && s.close > 0) {
-              liveData[sym] = { price: s.close, change: null, changePct: null, prevClose: s.open ?? null, state: 'REGULAR' };
-              count++;
-            }
-          });
-          if (count > 0) gotLive = true;
+      const chartResults = await Promise.allSettled(
+        symsArr.map(sym =>
+          fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/' + sym + '?interval=1d&range=1d')}`,
+            { signal: AbortSignal.timeout(12000) })
+            .then(r => r.json())
+            .then(data => ({ sym, data }))
+        )
+      );
+      let count = 0;
+      chartResults.forEach(res => {
+        if (res.status === 'fulfilled') {
+          const { sym, data } = res.value;
+          const meta = data?.chart?.result?.[0]?.meta;
+          if (meta?.regularMarketPrice) {
+            const price = meta.regularMarketPrice;
+            const prev  = meta.previousClose ?? meta.chartPreviousClose ?? null;
+            liveData[sym] = {
+              price,
+              change:    prev ? Math.round((price - prev) * 10000) / 10000 : null,
+              changePct: prev ? Math.round((price - prev) / prev * 100 * 10000) / 10000 : null,
+              prevClose: prev,
+              state:     meta.marketState ?? 'REGULAR',
+            };
+            count++;
+          }
         }
+      });
+      if (count > 0) {
+        gotLive = true;
+        lastUpdate = new Date();
+        showMarketBadge(liveData[symsArr[0]]?.state ?? 'REGULAR');
       }
     } catch (_) {}
   }
