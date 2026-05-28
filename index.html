@@ -465,12 +465,12 @@ function render() {
     let priceHtml;
     if (h.private)        priceHtml = `<span class="private-badge">PRIVATE</span>`;
     else if (h.fixed)     priceHtml = `$1.0000<sup>cp</sup>`;
-    else                  priceHtml = `$${$n(price)}`;
+    else                  priceHtml = `${'$' + $n(price)}`;
 
     // Day change cell
     let dayHtml = '—';
     if (!h.fixed && rawChange != null) {
-      dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}$${$n(Math.abs(rawChange))}</span>`
+      dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}${'$' + $n(Math.abs(rawChange))}</span>`
              + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%</span>`;
     }
 
@@ -495,7 +495,7 @@ function render() {
       <td class="mono">${qtyFmt}</td>
       <td class="price-cell">${priceHtml}</td>
       <td>${dayHtml}</td>
-      <td class="mono">$${$n(mktVal)}</td>
+      <td class="mono">${'$' + $n(mktVal)}</td>
       <td class="mono">${h.cost != null ? '$' + $n(h.cost) : '<span class="neutral">n/a</span>'}</td>
       <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glDisplay}</td>
       <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glPctDisplay}</td>
@@ -537,8 +537,8 @@ function render() {
   document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
   const gainSign = totGL >= 0 ? '+' : '';
   document.getElementById('hdrGain').textContent =
-    `Total Return: ${gainSign}$${$n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) · `
-    + `Today: ${totDVC >= 0 ? '+' : ''}$${$n(Math.abs(totDVC))}`;
+    `Total Return: ${gainSign}${'$' + $n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) · `
+    + `Today: ${totDVC >= 0 ? '+' : ''}${'$' + $n(Math.abs(totDVC))}`;
   document.getElementById('hdrGain').style.color = totGL >= 0 ? '#9fdfb0' : '#ffb3b3';
 }
 
