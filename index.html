@@ -575,38 +575,57 @@ async function doFetch() {
 
   const symsArr = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol);
   const syms = symsArr.join(',');
-
-  // ── SOURCE 1: Stooq.com — CORS-friendly, no API key, very reliable ──
-  const stooqSyms = symsArr.map(s => s.toLowerCase() + '.us').join(',');
-  const STOOQ_URL = `https://stooq.com/q/l/?s=${stooqSyms}&f=sd2t2ohlcv&h&e=json`;
-
-  // ── SOURCE 2: Yahoo Finance (with CORS proxies) ──
-  const YF_URL  = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
-  const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
-
   let gotLive = false;
 
-  // — Try Stooq first —
+  // ── SOURCE 1: /prices.json — updated by GitHub Action every 15 min, no CORS ──
   try {
-    const r = await fetch(STOOQ_URL, { signal: AbortSignal.timeout(8000) });
+    const r = await fetch('/prices.json?t=' + Date.now(), { signal: AbortSignal.timeout(5000) });
     if (r.ok) {
-      const json = await r.json();
-      if (json?.symbols?.length) {
+      const data = await r.json();
+      if (data?.prices) {
         let count = 0;
-        json.symbols.forEach(s => {
-          const sym = s.symbol.toUpperCase().replace('.US','');
-          if (s.close && s.close > 0) {
-            liveData[sym] = { price: s.close, change: null, changePct: null, prevClose: s.open ?? null, state: 'REGULAR' };
+        symsArr.forEach(sym => {
+          const p = data.prices[sym];
+          if (p?.price) {
+            liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
             count++;
           }
         });
-        if (count > 0) gotLive = true;
+        if (count > 0) {
+          gotLive = true;
+          lastUpdate = data.updated ? new Date(data.updated) : new Date();
+        }
       }
     }
   } catch (_) {}
 
-  // — If Stooq failed, try Yahoo Finance with CORS proxies —
+  // ── SOURCE 2: Stooq.com (direct, CORS-friendly fallback) ──
   if (!gotLive) {
+    try {
+      const stooqSyms = symsArr.map(s => s.toLowerCase() + '.us').join(',');
+      const STOOQ_URL = `https://stooq.com/q/l/?s=${stooqSyms}&f=sd2t2ohlcv&h&e=json`;
+      const r = await fetch(STOOQ_URL, { signal: AbortSignal.timeout(8000) });
+      if (r.ok) {
+        const json = await r.json();
+        if (json?.symbols?.length) {
+          let count = 0;
+          json.symbols.forEach(s => {
+            const sym = s.symbol.toUpperCase().replace('.US','');
+            if (s.close && s.close > 0) {
+              liveData[sym] = { price: s.close, change: null, changePct: null, prevClose: s.open ?? null, state: 'REGULAR' };
+              count++;
+            }
+          });
+          if (count > 0) gotLive = true;
+        }
+      }
+    } catch (_) {}
+  }
+
+  // ── SOURCE 3: Yahoo Finance with CORS proxies ──
+  if (!gotLive) {
+    const YF_URL  = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+    const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
     const attempts = [
       () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
       () => fetch(YF_URL2, { signal: AbortSignal.timeout(5000) }),
