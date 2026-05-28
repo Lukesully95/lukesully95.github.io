@@ -471,7 +471,7 @@ function render() {
     let dayHtml = '—';
     if (!h.fixed && rawChange != null) {
       dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}$${$n(Math.abs(rawChange))}</span>`
-              + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${`n(rawChangePct)}%</span>`;
+             + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%</span>`;
     }
 
     // Gain bar
@@ -486,7 +486,7 @@ function render() {
                       : '<span class="neutral">n/a</span>';
     const glPctDisplay = h.private ? '<span class="neutral">n/a</span>'
                        : gainPct != null
-                         ? `<div class="bar-wrap">${`<div class="bar ${barCls}" style="width:${barW_}px"></div>`}${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
+                         ? `<div class="bar-wrap"><div class="bar ${barCls}" style="width:${barW}px"></div>${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
                          : '<span class="neutral">n/a</span>';
 
     return `<tr>
@@ -509,11 +509,11 @@ function render() {
   // ── TOTALS (Excel SUM formulas) ──────────────────────────────────────
   // =SUM(MarketValue column)
   const totMV  = rows.reduce((s, r) => s + r.mktVal, 0);
-  // =SUM(Cost column) — if rows with cost
+  // =SUM(Cost column) — only rows with cost
   const totCost= rows.reduce((s, r) => s + (r.h.cost ?? 0), 0);
   // =TotalMV - TotalCost
   const totGL  = totMV - totCost;
-  // =(TotalMv - TotalCost) / TotalCost * 100
+  // =(TotalMV - TotalCost) / TotalCost * 100
   const totGLp = totCost > 0 ? (totGL / totCost) * 100 : null;
   // =SUM(DayValChange column)
   const totDVC = rows.reduce((s, r) => s + (r.dayValChange ?? 0), 0);
