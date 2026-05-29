@@ -1,77 +1,77 @@
 {
-  "updated": "2026-05-28T23:52:38.176833+00:00",
+  "updated": "2026-05-29T11:59:20.334510+00:00",
   "prices": {
     "AMZN": {
       "price": 274.0,
-      "change": 1.69,
-      "changePct": 0.6206,
-      "prevClose": 272.31
+      "change": 1.42,
+      "changePct": 0.5209,
+      "prevClose": 272.58
     },
     "COIN": {
       "price": 182.25,
-      "change": 8.685,
-      "changePct": 5.0039,
-      "prevClose": 173.565
+      "change": -0.2,
+      "changePct": -0.1096,
+      "prevClose": 182.45
     },
     "DIS": {
       "price": 103.73,
-      "change": -0.37,
-      "changePct": -0.3554,
-      "prevClose": 104.1
+      "change": 0.06,
+      "changePct": 0.0579,
+      "prevClose": 103.67
     },
     "HODL": {
       "price": 20.74,
-      "change": -0.2616,
-      "changePct": -1.2456,
-      "prevClose": 21.0016
+      "change": -0.021,
+      "changePct": -0.1012,
+      "prevClose": 20.761
     },
     "JOBY": {
       "price": 12.3,
-      "change": 0.83,
-      "changePct": 7.2363,
-      "prevClose": 11.47
+      "change": -0.0498,
+      "changePct": -0.4032,
+      "prevClose": 12.3498
     },
     "MRNA": {
       "price": 47.57,
-      "change": -0.13,
-      "changePct": -0.2725,
-      "prevClose": 47.7
+      "change": 0.21,
+      "changePct": 0.4434,
+      "prevClose": 47.36
     },
     "NET": {
       "price": 228.11,
-      "change": 14.55,
-      "changePct": 6.8131,
-      "prevClose": 213.56
+      "change": -0.7233,
+      "changePct": -0.3161,
+      "prevClose": 228.8333
     },
     "NFLX": {
       "price": 86.36,
-      "change": -1.005,
-      "changePct": -1.1503,
-      "prevClose": 87.365
+      "change": 0.04,
+      "changePct": 0.0463,
+      "prevClose": 86.32
     },
     "NVDA": {
       "price": 214.25,
-      "change": 2.5099,
-      "changePct": 1.1854,
-      "prevClose": 211.7401
+      "change": 0.1,
+      "changePct": 0.0467,
+      "prevClose": 214.15
     },
     "SNAP": {
       "price": 5.91,
-      "change": 0.0113,
-      "changePct": 0.1916,
-      "prevClose": 5.8987
+      "change": -0.01,
+      "changePct": -0.1689,
+      "prevClose": 5.92
     },
     "TSLA": {
       "price": 442.1,
-      "change": 3.97,
-      "changePct": 0.9061,
-      "prevClose": 438.13
+      "change": 1.83,
+      "changePct": 0.4157,
+      "prevClose": 440.27
     },
     "ZM": {
       "price": 100.46,
-      "change": 0.44,
-      "changePct": 0.4399,
-      "prevClose": 100.02
+      "change": 0.46,
+      "changePct": 0.46,
+      "prevClose": 100.0
     }
   }
 }
