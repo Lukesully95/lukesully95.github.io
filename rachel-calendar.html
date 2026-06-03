@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rachel Sullivan Calendar - May 2026 to April 2027</title>
+<title>Rachel Sullivan Calendar - May 2026 to December 2031</title>
 <style>
 :root{color-scheme:light}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;color:#1a1a2e;min-height:100vh}header{background:linear-gradient(135deg,#1565c0 0%,#0d47a1 100%);color:white;padding:22px 24px 18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.2)}header h1{font-size:1.7em;font-weight:800}header p{opacity:.85;margin-top:4px;font-size:.95em}
 .controls{display:flex;justify-content:center;align-items:center;gap:10px;padding:14px 16px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}
@@ -51,7 +51,7 @@
 </style>
 </head>
 <body>
-<header><h1>Rachel Sullivan Calendar</h1><p>May 2026 &ndash; April 2027 &middot; Shared &middot; anyone with the link can edit</p></header>
+<header><h1>Rachel Sullivan Calendar</h1><p>May 2026 &ndash; December 2031 &middot; Shared &middot; anyone with the link can edit</p></header>
 <div class="controls">
 <button class="nav-btn" id="prevBtn">&#8249;</button>
 <div class="cur-label" id="curLabel"></div>
@@ -190,7 +190,7 @@ function eventsFor(ds){
 function photosFor(ds){return photos.filter(p=>p.d===ds);}
 
 /* ---------- Month range: May 2026 .. May 2027 ---------- */
-const RANGE=[];for(let i=0;i<12;i++){const m=5+i;RANGE.push({yr:2026+Math.floor((m-1)/12),mo:((m-1)%12)+1});}
+const RANGE=[];for(let i=0;i<68;i++){const m=5+i;RANGE.push({yr:2026+Math.floor((m-1)/12),mo:((m-1)%12)+1});}
 let cur=0;
 
 function buildGrid(){
@@ -217,7 +217,7 @@ function buildGrid(){
 function navMonth(dir){cur=Math.max(0,Math.min(RANGE.length-1,cur+dir));buildGrid();}
 function goToday(){
   const n=new Date(),idx=RANGE.findIndex(r=>r.yr===n.getFullYear()&&r.mo===n.getMonth()+1);
-  if(idx>=0){cur=idx;buildGrid();}else{alert('Today is outside this calendar’s range (May 2026 – April 2027).');}
+  if(idx>=0){cur=idx;buildGrid();}else{alert('Today is outside this calendar’s range (May 2026 – December 2031).');}
 }
 
 /* ---------- Day modal ---------- */
