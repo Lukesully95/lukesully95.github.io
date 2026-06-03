@@ -3,16 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rachel Sullivan Calendar - May/June 2026</title>
+<title>Rachel Sullivan Calendar - May 2026 to April 2027</title>
 <style>
-:root{color-scheme:light}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;color:#1a1a2e;min-height:100vh}header{background:linear-gradient(135deg,#1565c0 0%,#0d47a1 100%);color:white;padding:22px 24px 18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.2)}header h1{font-size:1.7em;font-weight:800}header p{opacity:.8;margin-top:4px;font-size:.95em}.controls{display:flex;justify-content:center;align-items:center;gap:8px;padding:14px 16px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}.month-btn{padding:8px 24px;border:2px solid #1565c0;border-radius:24px;background:white;color:#1565c0;font-size:.9em;font-weight:700;cursor:pointer;transition:all .18s}.month-btn.active{background:#1565c0;color:white}.legend{display:flex;flex-wrap:wrap;gap:10px;padding:10px 20px;background:white;border-bottom:1px solid #e2e8f0;justify-content:center}.legend-item{display:flex;align-items:center;gap:6px;font-size:.78em;font-weight:600;color:#444}.legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}.month-wrapper{display:none;max-width:1100px;margin:20px auto;padding:0 12px 30px}.month-wrapper.visible{display:block}.month-heading{text-align:center;font-size:1.25em;font-weight:800;color:#1565c0;margin-bottom:12px}.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.09);background:#e2e8f0;gap:1px}.dow-header{background:#1565c0;color:white;text-align:center;padding:9px 4px;font-size:.8em;font-weight:700}.day-cell{background:white;min-height:110px;padding:5px 4px 4px;cursor:pointer;transition:background .12s;overflow:hidden}.day-cell:hover{background:#f0f6ff}.day-cell.empty{background:#f8fafc;cursor:default}.day-cell.today-cell{background:#e8f0fe}.day-num{font-size:.85em;font-weight:700;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-bottom:3px;color:#333}.day-num.today-num{background:#1565c0;color:white}.chip{font-size:.67em;padding:2px 4px;border-radius:3px;margin-bottom:2px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.45;font-weight:500}.chip.more{color:#666;background:#f0f0f0;font-style:italic}.cat-work{background:#d2e3fc;color:#1a3d8f;border-left:3px solid #1565c0}.cat-soccer{background:#d4edda;color:#1a5c34;border-left:3px solid #28a745}.cat-school{background:#fff3cd;color:#856404;border-left:3px solid #ffc107}.cat-travel{background:#fce8d5;color:#8b3a0f;border-left:3px solid #fd7e14}.cat-personal{background:#ede0f9;color:#5a1a8a;border-left:3px solid #9c27b0}.cat-holiday{background:#fde8e8;color:#991b1b;border-left:3px solid #dc3545}.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:200;justify-content:center;align-items:center}.overlay.open{display:flex}.modal-box{background:white;border-radius:14px;padding:24px 22px 20px;max-width:420px;width:92%;max-height:80vh;overflow-y:auto;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.22)}.modal-box h2{font-size:1.1em;font-weight:800;color:#1565c0;margin-bottom:14px}.modal-close{position:absolute;top:14px;right:16px;font-size:1.4em;cursor:pointer;color:#888;background:none;border:none}.ev-card{border-radius:7px;padding:9px 11px;margin-bottom:8px;border-left-width:4px;border-left-style:solid}.ev-card .ev-title{font-weight:700;font-size:.95em}.ev-card .ev-meta{font-size:.82em;color:#555;margin-top:3px;line-height:1.5}.no-events{color:#999;font-style:italic;font-size:.9em}@media(max-width:640px){.day-cell{min-height:72px}.chip{font-size:.58em}.dow-header{font-size:.7em;padding:7px 2px}}
+:root{color-scheme:light}*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f4f8;color:#1a1a2e;min-height:100vh}header{background:linear-gradient(135deg,#1565c0 0%,#0d47a1 100%);color:white;padding:22px 24px 18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.2)}header h1{font-size:1.7em;font-weight:800}header p{opacity:.85;margin-top:4px;font-size:.95em}
+.controls{display:flex;justify-content:center;align-items:center;gap:10px;padding:14px 16px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}
+.nav-btn{padding:8px 16px;border:2px solid #1565c0;border-radius:24px;background:white;color:#1565c0;font-size:1.05em;font-weight:700;cursor:pointer;transition:all .18s;line-height:1}
+.nav-btn:hover:not(:disabled){background:#1565c0;color:white}.nav-btn:disabled{opacity:.35;cursor:not-allowed}
+.cur-label{font-size:1.05em;font-weight:800;color:#1565c0;min-width:170px;text-align:center}
+.today-btn{padding:7px 16px;border:2px solid #28a745;border-radius:24px;background:white;color:#1a7a34;font-weight:700;cursor:pointer;font-size:.85em}
+.today-btn:hover{background:#28a745;color:white}
+.sync-badge{font-size:.72em;font-weight:700;padding:5px 12px;border-radius:20px;background:#fff3cd;color:#856404}
+.sync-badge.ok{background:#d4edda;color:#1a5c34}.sync-badge.err{background:#fde8e8;color:#991b1b}
+.legend{display:flex;flex-wrap:wrap;gap:10px;padding:10px 20px;background:white;border-bottom:1px solid #e2e8f0;justify-content:center}.legend-item{display:flex;align-items:center;gap:6px;font-size:.78em;font-weight:600;color:#444}.legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.month-wrapper{max-width:1100px;margin:20px auto;padding:0 12px 30px}.month-heading{text-align:center;font-size:1.25em;font-weight:800;color:#1565c0;margin-bottom:12px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.09);background:#e2e8f0;gap:1px}
+.dow-header{background:#1565c0;color:white;text-align:center;padding:9px 4px;font-size:.8em;font-weight:700}
+.day-cell{background:white;min-height:110px;padding:5px 4px 4px;cursor:pointer;transition:background .12s;overflow:hidden;position:relative}.day-cell:hover{background:#f0f6ff}.day-cell.empty{background:#f8fafc;cursor:default}.day-cell.today-cell{background:#e8f0fe}
+.day-num{font-size:.85em;font-weight:700;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-bottom:3px;color:#333}.day-num.today-num{background:#1565c0;color:white}
+.photo-flag{position:absolute;top:5px;right:5px;font-size:.8em}
+.chip{font-size:.67em;padding:2px 4px;border-radius:3px;margin-bottom:2px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.45;font-weight:500}.chip.more{color:#666;background:#f0f0f0;font-style:italic}
+.cat-work{background:#d2e3fc;color:#1a3d8f;border-left:3px solid #1565c0}.cat-soccer{background:#d4edda;color:#1a5c34;border-left:3px solid #28a745}.cat-school{background:#fff3cd;color:#856404;border-left:3px solid #ffc107}.cat-travel{background:#fce8d5;color:#8b3a0f;border-left:3px solid #fd7e14}.cat-personal{background:#ede0f9;color:#5a1a8a;border-left:3px solid #9c27b0}.cat-holiday{background:#fde8e8;color:#991b1b;border-left:3px solid #dc3545}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:200;justify-content:center;align-items:center}.overlay.open{display:flex}
+.modal-box{background:white;border-radius:14px;padding:24px 22px 20px;max-width:460px;width:94%;max-height:86vh;overflow-y:auto;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.22)}
+.modal-box h2{font-size:1.1em;font-weight:800;color:#1565c0;margin-bottom:14px;padding-right:30px}
+.modal-close{position:absolute;top:14px;right:16px;font-size:1.4em;cursor:pointer;color:#888;background:none;border:none;line-height:1}
+.ev-card{border-radius:7px;padding:9px 11px;margin-bottom:8px;border-left-width:4px;border-left-style:solid;position:relative}.ev-card .ev-title{font-weight:700;font-size:.95em;padding-right:22px}.ev-card .ev-meta{font-size:.82em;color:#555;margin-top:3px;line-height:1.5}
+.ev-del{position:absolute;top:7px;right:9px;border:none;background:none;color:#b91c1c;font-size:1.05em;cursor:pointer;font-weight:700;line-height:1}.ev-del:hover{color:#7f1010}
+.no-events{color:#999;font-style:italic;font-size:.9em;margin-bottom:6px}
+.sec-label{font-size:.74em;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#1565c0;margin:16px 0 8px;border-top:1px solid #eef2f7;padding-top:14px}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.field label{font-size:.75em;font-weight:700;color:#555}
+.field input,.field select{padding:8px 9px;border:1px solid #cbd5e1;border-radius:7px;font-size:.9em;font-family:inherit}
+.row2{display:flex;gap:8px}.row2 .field{flex:1}
+.btn-primary{width:100%;padding:10px;border:none;border-radius:8px;background:#1565c0;color:white;font-weight:700;font-size:.92em;cursor:pointer;margin-top:4px}.btn-primary:hover{background:#0d47a1}.btn-primary:disabled{opacity:.5;cursor:wait}
+.photo-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.photo-thumb{position:relative;width:88px}
+.photo-thumb img{width:88px;height:88px;object-fit:cover;border-radius:8px;border:1px solid #e2e8f0;cursor:pointer}
+.photo-cap{font-size:.66em;color:#555;margin-top:2px;line-height:1.3;word-break:break-word}
+.photo-del{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;border:none;background:#dc3545;color:white;font-size:.8em;cursor:pointer;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.upload-label{display:inline-block;padding:9px 14px;border:2px dashed #1565c0;border-radius:8px;color:#1565c0;font-weight:700;font-size:.85em;cursor:pointer;text-align:center;width:100%;margin-top:4px}
+.upload-label:hover{background:#f0f6ff}
+.hint{font-size:.72em;color:#888;line-height:1.45;margin-top:6px}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;justify-content:center;align-items:center;padding:20px}.lightbox.open{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:8px}
+.setup-warn{max-width:1100px;margin:20px auto;padding:16px 18px;background:#fff3cd;border:1px solid #ffe08a;border-radius:10px;color:#7a5b00;font-size:.9em;line-height:1.5}
+.setup-warn code{background:#fff;padding:1px 5px;border-radius:4px;border:1px solid #eadca0}
+@media(max-width:640px){.day-cell{min-height:72px}.chip{font-size:.58em}.dow-header{font-size:.7em;padding:7px 2px}.cur-label{min-width:120px;font-size:.95em}}
 </style>
 </head>
 <body>
-<header><h1>Rachel Sullivan Calendar</h1><p>May - June 2026 - Tap any day to see details</p></header>
+<header><h1>Rachel Sullivan Calendar</h1><p>May 2026 &ndash; April 2027 &middot; Shared &middot; anyone with the link can edit</p></header>
 <div class="controls">
-<button class="month-btn active" onclick="showMonth('may')" id="btn-may">May 2026</button>
-<button class="month-btn" onclick="showMonth('june')" id="btn-june">June 2026</button>
+<button class="nav-btn" id="prevBtn">&#8249;</button>
+<div class="cur-label" id="curLabel"></div>
+<button class="nav-btn" id="nextBtn">&#8250;</button>
+<button class="today-btn" id="todayBtn">Today</button>
+<span class="sync-badge" id="syncBadge">Connecting…</span>
 </div>
 <div class="legend">
 <div class="legend-item"><div class="legend-dot" style="background:#1565c0"></div>Work</div>
@@ -22,11 +67,39 @@
 <div class="legend-item"><div class="legend-dot" style="background:#9c27b0"></div>Personal</div>
 <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div>Holiday</div>
 </div>
-<div class="month-wrapper visible" id="wrap-may"><div class="month-heading">May 2026</div><div class="cal-grid" id="grid-may"></div></div>
-<div class="month-wrapper" id="wrap-june"><div class="month-heading">June 2026</div><div class="cal-grid" id="grid-june"></div></div>
-<div class="overlay" id="overlay" onclick="maybeClose(event)"><div class="modal-box"><button class="modal-close" onclick="closeModal()">X</button><h2 id="modal-title"></h2><div id="modal-body"></div></div></div>
-<script>
-const E=[
+<div class="setup-warn" id="setupWarn" style="display:none"></div>
+<div class="month-wrapper"><div class="month-heading" id="monthHeading"></div><div class="cal-grid" id="grid"></div></div>
+
+<div class="overlay" id="overlay"><div class="modal-box" id="modalBox">
+<button class="modal-close" id="modalClose">&times;</button>
+<h2 id="modal-title"></h2>
+<div id="modal-body"></div>
+</div></div>
+
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<script type="module">
+/* ============================================================
+   STEP 1 — PASTE YOUR FIREBASE CONFIG BELOW.
+   Get it from console.firebase.google.com (see the setup
+   instructions). Replace the placeholder values, keep the quotes.
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyBequvP1Ksb3mkftxMk5kgpyDP7iNF39Ww",
+  authDomain: "rachel-calendar.firebaseapp.com",
+  projectId: "rachel-calendar",
+  storageBucket: "rachel-calendar.firebasestorage.app",
+  messagingSenderId: "374021310278",
+  appId: "1:374021310278:web:0497e2a71cc19644498747"
+};
+/* ============================================================ */
+
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, setDoc, doc }
+  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+/* ---------- Built-in events (everyone sees these) ---------- */
+const BASE=[
 {d:'2026-05-25',t:'No School - Whit Monday',cat:'holiday'},
 {d:'2026-05-25',t:'Soccer Practice',time:'5:30-7pm',loc:'Pier 40',cat:'soccer'},
 {d:'2026-05-26',t:'U17 MLS Next Practice',time:'7:30-9pm',loc:'Rutgers Newark',cat:'soccer'},
@@ -97,35 +170,203 @@ const E=[
 {d:'2026-06-29',t:'Yale Visit',time:'Check-in 11:15am',loc:'The Study at Yale',cat:'school'},
 {d:'2026-06-30',t:'Yale Visit (cont.)',cat:'school'}
 ];
-const byDate={};E.forEach(e=>{(byDate[e.d]=byDate[e.d]||[]).push(e);});
+BASE.forEach((e,i)=>{e.id='base-'+i;e.base=true;});
+
+/* ---------- Shared state (filled from Firestore) ---------- */
+let addedEvents=[];   // {id, d, t, time, loc, cat}
+let hiddenBaseIds=[]; // ids of base events removed by someone
+let photos=[];        // {id, d, src, cap}
+
 const CAT={work:{bg:'#d2e3fc',txt:'#1a3d8f',b:'#1565c0'},soccer:{bg:'#d4edda',txt:'#1a5c34',b:'#28a745'},school:{bg:'#fff3cd',txt:'#856404',b:'#ffc107'},travel:{bg:'#fce8d5',txt:'#8b3a0f',b:'#fd7e14'},personal:{bg:'#ede0f9',txt:'#5a1a8a',b:'#9c27b0'},holiday:{bg:'#fde8e8',txt:'#991b1b',b:'#dc3545'}};
-function pad(n){return String(n).padStart(2,'0')}
-function buildGrid(yr,mo,id){
-const g=document.getElementById(id);g.innerHTML='';
-['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const h=document.createElement('div');h.className='dow-header';h.textContent=d;g.appendChild(h);});
-const fd=new Date(yr,mo-1,1).getDay(),dm=new Date(yr,mo,0).getDate();
-const n=new Date(),ts=n.getFullYear()+'-'+pad(n.getMonth()+1)+'-'+pad(n.getDate());
-for(let i=0;i<fd;i++){const b=document.createElement('div');b.className='day-cell empty';g.appendChild(b);}
-for(let d=1;d<=dm;d++){
-const ds=yr+'-'+pad(mo)+'-'+pad(d),ev=byDate[ds]||[],iT=ds===ts;
-const c=document.createElement('div');c.className='day-cell'+(iT?' today-cell':'');c.onclick=()=>openM(ds,d,mo,yr);
-const n=document.createElement('div');n.className='day-num'+(iT?' today-num':'');n.textContent=d;c.appendChild(n);
-ev.slice(0,3).forEach(e=>{const ch=document.createElement('span');ch.className='chip cat-'+e.cat;ch.textContent=(e.time?e.time.split('-')[0]+' ':'')+e.t;c.appendChild(ch);});
-if(ev.length>3){const m=document.createElement('span');m.className='chip more';m.textContent='+'+(ev.length-3)+' more';c.appendChild(m);}
-g.appendChild(c);
-}}
 const MN=['','January','February','March','April','May','June','July','August','September','October','November','December'];
-function openM(ds,d,mo,yr){
-const ev=byDate[ds]||[];
-document.getElementById('modal-title').textContent=MN[mo]+' '+d+', '+yr;
-const b=document.getElementById('modal-body');
-b.innerHTML=ev.length?ev.map(e=>{const c=CAT[e.cat]||CAT.personal;return '<div class="ev-card" style="background:'+c.bg+';border-left-color:'+c.b+'"><div class="ev-title" style="color:'+c.txt+'">'+e.t+'</div><div class="ev-meta">'+(e.time?'Time: '+e.time+'<br>':'')+(e.loc?'Location: '+e.loc:'')+'</div></div>';}).join(''):'<p class="no-events">No events.</p>';
-document.getElementById('overlay').classList.add('open');
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function eventsFor(ds){
+  const base=BASE.filter(e=>e.d===ds&&!hiddenBaseIds.includes(e.id));
+  const add=addedEvents.filter(e=>e.d===ds);
+  return base.concat(add);
 }
+function photosFor(ds){return photos.filter(p=>p.d===ds);}
+
+/* ---------- Month range: May 2026 .. May 2027 ---------- */
+const RANGE=[];for(let i=0;i<12;i++){const m=5+i;RANGE.push({yr:2026+Math.floor((m-1)/12),mo:((m-1)%12)+1});}
+let cur=0;
+
+function buildGrid(){
+  const {yr,mo}=RANGE[cur];
+  document.getElementById('curLabel').textContent=MN[mo]+' '+yr;
+  document.getElementById('monthHeading').textContent=MN[mo]+' '+yr;
+  document.getElementById('prevBtn').disabled=cur===0;
+  document.getElementById('nextBtn').disabled=cur===RANGE.length-1;
+  const g=document.getElementById('grid');g.innerHTML='';
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const h=document.createElement('div');h.className='dow-header';h.textContent=d;g.appendChild(h);});
+  const fd=new Date(yr,mo-1,1).getDay(),dm=new Date(yr,mo,0).getDate();
+  const n=new Date(),ts=n.getFullYear()+'-'+pad(n.getMonth()+1)+'-'+pad(n.getDate());
+  for(let i=0;i<fd;i++){const b=document.createElement('div');b.className='day-cell empty';g.appendChild(b);}
+  for(let d=1;d<=dm;d++){
+    const ds=yr+'-'+pad(mo)+'-'+pad(d),ev=eventsFor(ds),ph=photosFor(ds),iT=ds===ts;
+    const c=document.createElement('div');c.className='day-cell'+(iT?' today-cell':'');c.onclick=()=>openM(ds);
+    const num=document.createElement('div');num.className='day-num'+(iT?' today-num':'');num.textContent=d;c.appendChild(num);
+    if(ph.length){const f=document.createElement('div');f.className='photo-flag';f.textContent='📷';c.appendChild(f);}
+    ev.slice(0,3).forEach(e=>{const ch=document.createElement('span');ch.className='chip cat-'+e.cat;ch.textContent=(e.time?e.time.split('-')[0]+' ':'')+e.t;c.appendChild(ch);});
+    if(ev.length>3){const m2=document.createElement('span');m2.className='chip more';m2.textContent='+'+(ev.length-3)+' more';c.appendChild(m2);}
+    g.appendChild(c);
+  }
+}
+function navMonth(dir){cur=Math.max(0,Math.min(RANGE.length-1,cur+dir));buildGrid();}
+function goToday(){
+  const n=new Date(),idx=RANGE.findIndex(r=>r.yr===n.getFullYear()&&r.mo===n.getMonth()+1);
+  if(idx>=0){cur=idx;buildGrid();}else{alert('Today is outside this calendar’s range (May 2026 – April 2027).');}
+}
+
+/* ---------- Day modal ---------- */
+let activeDate=null;
+function openM(ds){activeDate=ds;renderModal();document.getElementById('overlay').classList.add('open');}
 function closeModal(){document.getElementById('overlay').classList.remove('open');}
-function maybeClose(e){if(e.target.id==='overlay')closeModal();}
-function showMonth(m){['may','june'].forEach(id=>{document.getElementById('wrap-'+id).classList.toggle('visible',id===m);document.getElementById('btn-'+id).classList.toggle('active',id===m);});}
-buildGrid(2026,5,'grid-may');buildGrid(2026,6,'grid-june');
+
+function renderModal(){
+  const ds=activeDate;if(!ds)return;
+  const [y,m,d]=ds.split('-').map(Number);
+  document.getElementById('modal-title').textContent=MN[m]+' '+d+', '+y;
+  const ev=eventsFor(ds),ph=photosFor(ds);
+  let html='';
+  html+=ev.length?ev.map(e=>{const c=CAT[e.cat]||CAT.personal;return '<div class="ev-card" style="background:'+c.bg+';border-left-color:'+c.b+'"><button class="ev-del" title="Delete" data-evid="'+e.id+'">&times;</button><div class="ev-title" style="color:'+c.txt+'">'+esc(e.t)+'</div><div class="ev-meta">'+(e.time?'Time: '+esc(e.time)+'<br>':'')+(e.loc?'Location: '+esc(e.loc):'')+'</div></div>';}).join(''):'<p class="no-events">No events yet for this day.</p>';
+  html+='<div class="sec-label">Add an event</div>';
+  html+='<div class="field"><label>Title</label><input id="f-title" placeholder="e.g. Dentist appointment"></div>';
+  html+='<div class="row2"><div class="field"><label>Time (optional)</label><input id="f-time" placeholder="e.g. 3-4pm"></div><div class="field"><label>Category</label><select id="f-cat"><option value="work">Work</option><option value="soccer">Soccer</option><option value="school">School</option><option value="travel">Travel</option><option value="personal" selected>Personal</option><option value="holiday">Holiday</option></select></div></div>';
+  html+='<div class="field"><label>Location (optional)</label><input id="f-loc" placeholder="e.g. 123 Main St"></div>';
+  html+='<button class="btn-primary" id="addEvBtn">+ Add event</button>';
+  html+='<div class="sec-label">Photos</div>';
+  if(ph.length){
+    html+='<div class="photo-grid">'+ph.map(p=>'<div class="photo-thumb"><button class="photo-del" title="Remove" data-pid="'+p.id+'">&times;</button><img src="'+p.src+'" data-light="'+p.id+'"><div class="photo-cap">'+esc(p.cap||'')+'</div></div>').join('')+'</div>';
+  }else{html+='<p class="no-events">No photos yet.</p>';}
+  html+='<div class="field" style="margin-top:8px"><label>Caption / note (optional — added to the schedule)</label><input id="f-photocap" placeholder="e.g. Game flyer, party invite"></div>';
+  html+='<label class="upload-label" for="f-photo">📷 Add a photo to this day</label><input id="f-photo" type="file" accept="image/*" style="display:none">';
+  html+='<p class="hint">Add a photo of anything going on (a flyer, invite, schedule screenshot) — everyone with the link sees it. A caption is also added to the day as a note.</p>';
+  const body=document.getElementById('modal-body');body.innerHTML=html;
+  // wire handlers
+  body.querySelectorAll('.ev-del').forEach(b=>b.onclick=()=>delEvent(b.dataset.evid));
+  body.querySelectorAll('.photo-del').forEach(b=>b.onclick=()=>delPhoto(b.dataset.pid));
+  body.querySelectorAll('img[data-light]').forEach(im=>im.onclick=()=>showLightbox(im.dataset.light));
+  document.getElementById('addEvBtn').onclick=addEvent;
+  document.getElementById('f-photo').onchange=addPhoto;
+}
+
+/* ---------- Writes to Firestore ---------- */
+let db=null,ready=false;
+async function addEvent(){
+  if(!ready)return alert('Still connecting to the shared database — try again in a moment.');
+  const t=document.getElementById('f-title').value.trim();
+  if(!t)return alert('Please enter a title.');
+  const btn=document.getElementById('addEvBtn');btn.disabled=true;
+  try{
+    await addDoc(collection(db,'events'),{
+      d:activeDate,t,
+      time:document.getElementById('f-time').value.trim(),
+      loc:document.getElementById('f-loc').value.trim(),
+      cat:document.getElementById('f-cat').value,
+      ts:Date.now()
+    });
+  }catch(e){alert('Could not save: '+e.message);}
+  btn.disabled=false;
+}
+async function delEvent(id){
+  if(!ready)return;
+  if(!confirm('Delete this event for everyone?'))return;
+  try{
+    if(String(id).startsWith('base-')){await setDoc(doc(db,'hidden',id),{hidden:true});}
+    else{await deleteDoc(doc(db,'events',id));}
+  }catch(e){alert('Could not delete: '+e.message);}
+}
+function addPhoto(evt){
+  if(!ready)return alert('Still connecting — try again in a moment.');
+  const file=evt.target.files[0];if(!file)return;
+  const cap=document.getElementById('f-photocap').value.trim(),forDate=activeDate;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const img=new Image();
+    img.onload=async function(){
+      const max=700;let{width:w,height:h}=img;
+      if(w>max||h>max){if(w>h){h=Math.round(h*max/w);w=max;}else{w=Math.round(w*max/h);h=max;}}
+      const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+      cv.getContext('2d').drawImage(img,0,0,w,h);
+      let q=0.6,data=cv.toDataURL('image/jpeg',q);
+      while(data.length>900000&&q>0.3){q-=0.1;data=cv.toDataURL('image/jpeg',q);}
+      if(data.length>1000000)return alert('That photo is too large to store. Try a smaller image.');
+      try{
+        const ref=await addDoc(collection(db,'photos'),{d:forDate,src:data,cap,ts:Date.now()});
+        if(cap){await addDoc(collection(db,'events'),{d:forDate,t:'📷 '+cap,time:'',loc:'',cat:'personal',photoId:ref.id,ts:Date.now()});}
+      }catch(err){alert('Could not upload photo: '+err.message);}
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+async function delPhoto(id){
+  if(!ready)return;
+  try{
+    await deleteDoc(doc(db,'photos',id));
+    // also remove the linked note event, if present
+    const linked=addedEvents.find(e=>e.photoId===id);
+    if(linked)await deleteDoc(doc(db,'events',linked.id));
+  }catch(e){alert('Could not remove photo: '+e.message);}
+}
+function showLightbox(id){
+  const p=photos.find(x=>x.id===id);
+  if(p){document.getElementById('lightbox-img').src=p.src;document.getElementById('lightbox').classList.add('open');}
+}
+
+/* ---------- Static UI wiring (works even before DB connects) ---------- */
+document.getElementById('prevBtn').onclick=()=>navMonth(-1);
+document.getElementById('nextBtn').onclick=()=>navMonth(1);
+document.getElementById('todayBtn').onclick=goToday;
+document.getElementById('modalClose').onclick=closeModal;
+document.getElementById('overlay').onclick=e=>{if(e.target.id==='overlay')closeModal();};
+document.getElementById('modalBox').onclick=e=>e.stopPropagation();
+document.getElementById('lightbox').onclick=function(){this.classList.remove('open');};
+
+// show current month immediately
+(function(){const n=new Date(),idx=RANGE.findIndex(r=>r.yr===n.getFullYear()&&r.mo===n.getMonth()+1);cur=idx>=0?idx:0;buildGrid();})();
+
+/* ---------- Connect to Firestore ---------- */
+const badge=document.getElementById('syncBadge');
+function setBadge(text,cls){badge.textContent=text;badge.className='sync-badge'+(cls?' '+cls:'');}
+
+if(firebaseConfig.apiKey.startsWith('PASTE_')){
+  setBadge('Not connected','err');
+  const w=document.getElementById('setupWarn');w.style.display='block';
+  w.innerHTML='⚠️ <b>Firebase not set up yet.</b> The calendar shows but edits won’t be shared. Open this file and paste your Firebase config into the <code>firebaseConfig</code> block near the top of the script, then re-upload to GitHub.';
+}else{
+  try{
+    const app=initializeApp(firebaseConfig);
+    db=getFirestore(app);
+    setBadge('Connecting…');
+    let loaded=0;const need=3;
+    const mark=()=>{loaded++;if(loaded>=need){ready=true;setBadge('Synced ✓','ok');}};
+    let f1=false,f2=false,f3=false;
+    onSnapshot(collection(db,'events'),snap=>{
+      addedEvents=snap.docs.map(d=>({id:d.id,...d.data()}));
+      buildGrid();if(document.getElementById('overlay').classList.contains('open'))renderModal();
+      if(!f1){f1=true;mark();}
+    },err=>{setBadge('Sync error','err');console.error(err);});
+    onSnapshot(collection(db,'hidden'),snap=>{
+      hiddenBaseIds=snap.docs.map(d=>d.id);
+      buildGrid();if(document.getElementById('overlay').classList.contains('open'))renderModal();
+      if(!f2){f2=true;mark();}
+    },err=>{console.error(err);});
+    onSnapshot(collection(db,'photos'),snap=>{
+      photos=snap.docs.map(d=>({id:d.id,...d.data()}));
+      buildGrid();if(document.getElementById('overlay').classList.contains('open'))renderModal();
+      if(!f3){f3=true;mark();}
+    },err=>{console.error(err);});
+    ready=true; // allow writes as soon as app initializes
+  }catch(e){
+    setBadge('Connection failed','err');
+    const w=document.getElementById('setupWarn');w.style.display='block';
+    w.innerHTML='⚠️ Could not connect to Firebase: '+esc(e.message)+'. Double-check your config values.';
+  }
+}
 </script>
 </body>
 </html>
