@@ -44,9 +44,17 @@
 .upload-label{display:inline-block;padding:9px 14px;border:2px dashed #1565c0;border-radius:8px;color:#1565c0;font-weight:700;font-size:.85em;cursor:pointer;text-align:center;width:100%;margin-top:4px}
 .upload-label:hover{background:#f0f6ff}
 .hint{font-size:.72em;color:#888;line-height:1.45;margin-top:6px}
-.board-wrap{max-width:1100px;margin:18px auto 0;padding:0 12px}
-.board-box{background:white;border-radius:12px;padding:14px 18px 16px;box-shadow:0 2px 16px rgba(0,0,0,.09)}
-.board-title{font-size:.95em;font-weight:800;color:#1565c0;margin-bottom:8px}
+.board-wrap{max-width:680px;margin:12px auto 0;padding:0 12px}
+.board-box{background:white;border-radius:10px;padding:9px 14px 10px;box-shadow:0 1px 8px rgba(0,0,0,.07)}
+.board-title{font-size:.8em;font-weight:800;color:#1565c0;margin-bottom:5px}
+.board-box .field{margin-bottom:5px}
+.board-box .field label{font-size:.68em}
+.board-box .field input{padding:5px 8px;font-size:.82em}
+.board-box .upload-label{padding:5px 10px;font-size:.75em;margin-top:1px}
+.board-box .hint{font-size:.65em;margin-top:4px}
+.board-box .photo-thumb{width:62px}
+.board-box .photo-thumb img{width:62px;height:62px}
+.board-box .no-events{font-size:.75em}
 .photo-date{font-size:.64em;color:#1565c0;font-weight:700;margin-top:1px}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;justify-content:center;align-items:center;padding:20px}.lightbox.open{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:8px}
 .setup-warn{max-width:1100px;margin:20px auto;padding:16px 18px;background:#fff3cd;border:1px solid #ffe08a;border-radius:10px;color:#7a5b00;font-size:.9em;line-height:1.5}
@@ -76,7 +84,7 @@
 <div class="board-title">📷 Add a photo to the calendar</div>
 <div class="row2"><div class="field"><label>Which day is it for? (optional)</label><input type="date" id="b-date" min="2026-05-01" max="2031-12-31"></div><div class="field"><label>Caption / note (optional)</label><input id="b-cap" placeholder="e.g. Soccer tournament flyer"></div></div>
 <label class="upload-label" for="b-photo">📷 Choose a photo</label><input id="b-photo" type="file" accept="image/*" style="display:none">
-<p class="hint">Anyone with the link can add photos. Pick a day and the photo lands on that day — a 📷 appears on the calendar, and your caption is added to that day's schedule. Photos also show in the gallery below.</p>
+<p class="hint">Pick a day and the photo lands on that day — your caption is added to that day's schedule.</p>
 <div class="photo-grid" id="boardGrid"></div>
 <p class="no-events" id="boardEmpty" style="margin-top:8px">No photos yet — be the first to add one.</p>
 </div></div>
