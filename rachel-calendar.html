@@ -9,7 +9,7 @@
 .controls{display:flex;justify-content:center;align-items:center;gap:10px;padding:14px 16px;background:white;border-bottom:1px solid #e2e8f0;flex-wrap:wrap}
 .nav-btn{padding:8px 16px;border:2px solid #1565c0;border-radius:24px;background:white;color:#1565c0;font-size:1.05em;font-weight:700;cursor:pointer;transition:all .18s;line-height:1}
 .nav-btn:hover:not(:disabled){background:#1565c0;color:white}.nav-btn:disabled{opacity:.35;cursor:not-allowed}
-.cur-label{font-size:1.05em;font-weight:800;color:#1565c0;min-width:170px;text-align:center}
+.cur-label{font-size:1em;font-weight:800;color:#1565c0;min-width:185px;text-align:center;padding:8px 14px;border:2px solid #1565c0;border-radius:24px;background:white;cursor:pointer;font-family:inherit;-webkit-appearance:menulist;appearance:menulist}
 .today-btn{padding:7px 16px;border:2px solid #28a745;border-radius:24px;background:white;color:#1a7a34;font-weight:700;cursor:pointer;font-size:.85em}
 .today-btn:hover{background:#28a745;color:white}
 .sync-badge{font-size:.72em;font-weight:700;padding:5px 12px;border-radius:20px;background:#fff3cd;color:#856404}
@@ -44,6 +44,10 @@
 .upload-label{display:inline-block;padding:9px 14px;border:2px dashed #1565c0;border-radius:8px;color:#1565c0;font-weight:700;font-size:.85em;cursor:pointer;text-align:center;width:100%;margin-top:4px}
 .upload-label:hover{background:#f0f6ff}
 .hint{font-size:.72em;color:#888;line-height:1.45;margin-top:6px}
+.board-wrap{max-width:1100px;margin:18px auto 0;padding:0 12px}
+.board-box{background:white;border-radius:12px;padding:14px 18px 16px;box-shadow:0 2px 16px rgba(0,0,0,.09)}
+.board-title{font-size:.95em;font-weight:800;color:#1565c0;margin-bottom:8px}
+.photo-date{font-size:.64em;color:#1565c0;font-weight:700;margin-top:1px}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;justify-content:center;align-items:center;padding:20px}.lightbox.open{display:flex}.lightbox img{max-width:100%;max-height:100%;border-radius:8px}
 .setup-warn{max-width:1100px;margin:20px auto;padding:16px 18px;background:#fff3cd;border:1px solid #ffe08a;border-radius:10px;color:#7a5b00;font-size:.9em;line-height:1.5}
 .setup-warn code{background:#fff;padding:1px 5px;border-radius:4px;border:1px solid #eadca0}
@@ -54,7 +58,7 @@
 <header><h1>Rachel Sullivan Calendar</h1><p>May 2026 &ndash; December 2031 &middot; Shared &middot; anyone with the link can edit</p></header>
 <div class="controls">
 <button class="nav-btn" id="prevBtn">&#8249;</button>
-<div class="cur-label" id="curLabel"></div>
+<select class="cur-label" id="curLabel" title="Jump to month"></select>
 <button class="nav-btn" id="nextBtn">&#8250;</button>
 <button class="today-btn" id="todayBtn">Today</button>
 <span class="sync-badge" id="syncBadge">Connecting…</span>
@@ -68,6 +72,14 @@
 <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div>Holiday</div>
 </div>
 <div class="setup-warn" id="setupWarn" style="display:none"></div>
+<div class="board-wrap"><div class="board-box">
+<div class="board-title">📷 Add a photo to the calendar</div>
+<div class="row2"><div class="field"><label>Which day is it for? (optional)</label><input type="date" id="b-date" min="2026-05-01" max="2031-12-31"></div><div class="field"><label>Caption / note (optional)</label><input id="b-cap" placeholder="e.g. Soccer tournament flyer"></div></div>
+<label class="upload-label" for="b-photo">📷 Choose a photo</label><input id="b-photo" type="file" accept="image/*" style="display:none">
+<p class="hint">Anyone with the link can add photos. Pick a day and the photo lands on that day — a 📷 appears on the calendar, and your caption is added to that day's schedule. Photos also show in the gallery below.</p>
+<div class="photo-grid" id="boardGrid"></div>
+<p class="no-events" id="boardEmpty" style="margin-top:8px">No photos yet — be the first to add one.</p>
+</div></div>
 <div class="month-wrapper"><div class="month-heading" id="monthHeading"></div><div class="cal-grid" id="grid"></div></div>
 
 <div class="overlay" id="overlay"><div class="modal-box" id="modalBox">
@@ -195,7 +207,7 @@ let cur=0;
 
 function buildGrid(){
   const {yr,mo}=RANGE[cur];
-  document.getElementById('curLabel').textContent=MN[mo]+' '+yr;
+  document.getElementById('curLabel').value=String(cur);
   document.getElementById('monthHeading').textContent=MN[mo]+' '+yr;
   document.getElementById('prevBtn').disabled=cur===0;
   document.getElementById('nextBtn').disabled=cur===RANGE.length-1;
@@ -305,6 +317,7 @@ function addPhoto(evt){
 }
 async function delPhoto(id){
   if(!ready)return;
+  if(!confirm('Remove this photo for everyone?'))return;
   try{
     await deleteDoc(doc(db,'photos',id));
     // also remove the linked note event, if present
@@ -317,7 +330,50 @@ function showLightbox(id){
   if(p){document.getElementById('lightbox-img').src=p.src;document.getElementById('lightbox').classList.add('open');}
 }
 
+/* ---------- Shared photo board (top of calendar) ---------- */
+function renderBoard(){
+  const g=document.getElementById('boardGrid'),empty=document.getElementById('boardEmpty');
+  const all=[...photos].sort((a,b)=>(b.ts||0)-(a.ts||0));
+  empty.style.display=all.length?'none':'block';
+  g.innerHTML=all.map(p=>{
+    let dl='';
+    if(p.d){const parts=p.d.split('-').map(Number);dl='<div class="photo-date">'+MN[parts[1]]+' '+parts[2]+', '+parts[0]+'</div>';}
+    return '<div class="photo-thumb"><button class="photo-del" title="Remove" data-pid="'+p.id+'">&times;</button><img src="'+p.src+'" data-light="'+p.id+'">'+dl+'<div class="photo-cap">'+esc(p.cap||'')+'</div></div>';
+  }).join('');
+  g.querySelectorAll('.photo-del').forEach(b=>b.onclick=()=>delPhoto(b.dataset.pid));
+  g.querySelectorAll('img[data-light]').forEach(im=>im.onclick=()=>showLightbox(im.dataset.light));
+}
+function addBoardPhoto(evt){
+  if(!ready)return alert('Still connecting — try again in a moment.');
+  const file=evt.target.files[0];if(!file)return;
+  const cap=document.getElementById('b-cap').value.trim();
+  const forDate=document.getElementById('b-date').value||'';
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const img=new Image();
+    img.onload=async function(){
+      const max=700;let w=img.width,h=img.height;
+      if(w>max||h>max){if(w>h){h=Math.round(h*max/w);w=max;}else{w=Math.round(w*max/h);h=max;}}
+      const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+      cv.getContext('2d').drawImage(img,0,0,w,h);
+      let q=0.6,data=cv.toDataURL('image/jpeg',q);
+      while(data.length>900000&&q>0.3){q-=0.1;data=cv.toDataURL('image/jpeg',q);}
+      if(data.length>1000000)return alert('That photo is too large to store. Try a smaller image.');
+      try{
+        const ref=await addDoc(collection(db,'photos'),{d:forDate,src:data,cap,ts:Date.now()});
+        if(cap&&forDate){await addDoc(collection(db,'events'),{d:forDate,t:'📷 '+cap,time:'',loc:'',cat:'personal',photoId:ref.id,ts:Date.now()});}
+        document.getElementById('b-cap').value='';document.getElementById('b-date').value='';
+      }catch(err){alert('Could not upload photo: '+err.message);}
+      evt.target.value='';
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
 /* ---------- Static UI wiring (works even before DB connects) ---------- */
+(function(){const sel=document.getElementById('curLabel');RANGE.forEach((r,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=MN[r.mo]+' '+r.yr;sel.appendChild(o);});sel.onchange=()=>{cur=+sel.value;buildGrid();};})();
+document.getElementById('b-photo').onchange=addBoardPhoto;
 document.getElementById('prevBtn').onclick=()=>navMonth(-1);
 document.getElementById('nextBtn').onclick=()=>navMonth(1);
 document.getElementById('todayBtn').onclick=goToday;
@@ -357,7 +413,7 @@ if(firebaseConfig.apiKey.startsWith('PASTE_')){
     },err=>{console.error(err);});
     onSnapshot(collection(db,'photos'),snap=>{
       photos=snap.docs.map(d=>({id:d.id,...d.data()}));
-      buildGrid();if(document.getElementById('overlay').classList.contains('open'))renderModal();
+      buildGrid();renderBoard();if(document.getElementById('overlay').classList.contains('open'))renderModal();
       if(!f3){f3=true;mark();}
     },err=>{console.error(err);});
     ready=true; // allow writes as soon as app initializes
