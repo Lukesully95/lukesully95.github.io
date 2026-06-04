@@ -65,6 +65,7 @@
 <body>
 <header><h1>Rachel Sullivan Calendar</h1><p>May 2026 &ndash; December 2031 &middot; Shared &middot; anyone with the link can edit</p></header>
 <div class="controls">
+<button class="nav-btn" id="photoBtn" title="Add a photo to the calendar">📷</button>
 <button class="nav-btn" id="prevBtn">&#8249;</button>
 <select class="cur-label" id="curLabel" title="Jump to month"></select>
 <button class="nav-btn" id="nextBtn">&#8250;</button>
@@ -80,8 +81,9 @@
 <div class="legend-item"><div class="legend-dot" style="background:#dc3545"></div>Holiday</div>
 </div>
 <div class="setup-warn" id="setupWarn" style="display:none"></div>
-<div class="board-wrap"><div class="board-box">
-<div class="board-title">📷 Add a photo to the calendar</div>
+<div class="overlay" id="photoOverlay"><div class="modal-box board-box" id="photoBox" style="padding:20px 20px 16px">
+<button class="modal-close" id="photoClose">&times;</button>
+<div class="board-title" style="font-size:1em;margin-bottom:10px;padding-right:26px">📷 Add a photo to the calendar</div>
 <div class="row2"><div class="field"><label>Which day is it for? (optional)</label><input type="date" id="b-date" min="2026-05-01" max="2031-12-31"></div><div class="field"><label>Caption / note (optional)</label><input id="b-cap" placeholder="e.g. Soccer tournament flyer"></div></div>
 <label class="upload-label" for="b-photo">📷 Choose a photo</label><input id="b-photo" type="file" accept="image/*" style="display:none">
 <p class="hint">Pick a day and the photo lands on that day — your caption is added to that day's schedule.</p>
@@ -382,6 +384,10 @@ function addBoardPhoto(evt){
 /* ---------- Static UI wiring (works even before DB connects) ---------- */
 (function(){const sel=document.getElementById('curLabel');RANGE.forEach((r,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=MN[r.mo]+' '+r.yr;sel.appendChild(o);});sel.onchange=()=>{cur=+sel.value;buildGrid();};})();
 document.getElementById('b-photo').onchange=addBoardPhoto;
+document.getElementById('photoBtn').onclick=()=>document.getElementById('photoOverlay').classList.add('open');
+document.getElementById('photoClose').onclick=()=>document.getElementById('photoOverlay').classList.remove('open');
+document.getElementById('photoOverlay').onclick=e=>{if(e.target.id==='photoOverlay')e.currentTarget.classList.remove('open');};
+document.getElementById('photoBox').onclick=e=>e.stopPropagation();
 document.getElementById('prevBtn').onclick=()=>navMonth(-1);
 document.getElementById('nextBtn').onclick=()=>navMonth(1);
 document.getElementById('todayBtn').onclick=goToday;
