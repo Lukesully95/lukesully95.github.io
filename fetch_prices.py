@@ -2,7 +2,7 @@ import yfinance as yf
 import json
 from datetime import datetime, timezone
 
-SYMBOLS = ['AMZN', 'COIN', 'DIS', 'HODL', 'JOBY', 'MRNA', 'NET', 'NFLX', 'NVDA', 'SNAP', 'TSLA', 'ZM']
+SYMBOLS = ['AMZN', 'COIN', 'DIS', 'HODL', 'JOBY', 'MRNA', 'NET', 'NFLX', 'NVDA', 'SNAP', 'TSLA', 'ZM', 'SPCX']
 
 data = {}
 try:
