@@ -103,6 +103,27 @@
     .chip{font-size:.62rem}
     .cell .num{width:20px;height:20px;font-size:.74rem}
   }
+
+  /* Photo features */
+  .photobar{display:flex;align-items:center;gap:13px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(57,208,216,.10));border:1px solid var(--line);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px}
+  .photobar .pi{width:42px;height:42px;border-radius:12px;background:rgba(124,92,255,.28);display:grid;place-items:center;font-size:1.25rem;flex:none}
+  .photobar .ptext{flex:1;min-width:180px}
+  .photobar .ptext b{display:block;font-size:.94rem}
+  .photobar .ptext span{font-size:.79rem;color:var(--muted)}
+  .photobar .pstatus{font-size:.79rem;color:var(--accent2)}
+  .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;display:inline-block;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .cell .pbadge{position:absolute;top:5px;right:6px;font-size:.72rem;line-height:1}
+  .dayphotos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+  .dayphotos img{width:66px;height:66px;object-fit:cover;border-radius:9px;border:1px solid var(--line);cursor:pointer}
+  .pstatus{font-size:.79rem;color:var(--accent2)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:13px;padding:12px 16px;display:none;align-items:center;gap:12px;z-index:80;font-size:.9rem;max-width:92vw}
+  .toast.show{display:flex}
+  .toast button{background:var(--accent);border:0;color:#fff;font-weight:700;padding:7px 12px;border-radius:9px;cursor:pointer;font-size:.84rem}
+  .toast button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:90;padding:20px}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:94vw;max-height:88vh;border-radius:12px;display:block}
 </style>
 </head>
 <body>
@@ -139,6 +160,17 @@
 
   <div class="legend" id="legend"></div>
 
+  <div class="photobar">
+    <div class="pi">📷</div>
+    <div class="ptext">
+      <b>Add a schedule photo</b>
+      <span>Drop in a pic of a schedule, flyer, or itinerary — the calendar reads it and fills in the right days automatically.</span>
+    </div>
+    <button class="btn primary" id="topPhotoBtn">📷 Read a photo</button>
+    <div class="pstatus" id="topPhotoStatus"></div>
+    <input type="file" id="topPhotoInput" accept="image/*" style="display:none" />
+  </div>
+
   <div class="calwrap">
     <div class="dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
     <div class="grid" id="grid"></div>
@@ -152,13 +184,17 @@
   <div class="modal">
     <div class="mhead"><h3 id="dayTitle">Day</h3><button class="x" data-close>×</button></div>
     <div class="mbody">
+      <div class="dayphotos" id="dayPhotos"></div>
       <div class="daylist" id="dayList"></div>
     </div>
     <div class="mfoot">
-      <button class="btn primary" id="dayAdd">+ Add to this day</button>
+      <button class="btn primary" id="dayAdd">+ Add event</button>
+      <button class="btn" id="dayPhotoBtn">📷 Add photo</button>
+      <span class="pstatus" id="dayPhotoStatus"></span>
       <div class="spacer"></div>
       <button class="btn" data-close>Close</button>
     </div>
+    <input type="file" id="dayPhotoInput" accept="image/*" style="display:none" />
   </div>
 </div>
 
@@ -199,6 +235,22 @@
   </div>
 </div>
 
+<!-- Toast (auto-add + undo) -->
+<div class="toast" id="toast">
+  <span id="toastMsg"></span>
+  <button id="toastUndo">Undo</button>
+  <button class="ghost" id="toastClose">Dismiss</button>
+</div>
+
+<!-- Photo lightbox -->
+<div class="lightbox" id="lightbox">
+  <div style="position:relative">
+    <img id="lightboxImg" alt="photo" />
+    <button class="btn danger" id="lbDelete" style="position:absolute;top:10px;right:10px">Delete photo</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
@@ -280,6 +332,7 @@ function renderMonth(){
     });
     html+=`</div>`;
     if(dayEvents.length>3) html+=`<div class="more">+${dayEvents.length-3} more</div>`;
+    if(photosOn(ds).length) html+=`<span class="pbadge">📷</span>`;
     cell.innerHTML=html;
     cell.addEventListener("click",()=>openDay(ds));
     grid.appendChild(cell);
@@ -306,6 +359,7 @@ function openDay(ds){
     row.addEventListener("click",()=>openEdit(e));
     list.appendChild(row);
   });
+  renderDayPhotos(ds);
   show("dayOv");
 }
 document.getElementById("dayAdd").addEventListener("click",()=>{ openEdit(null,activeDay); });
@@ -379,6 +433,7 @@ function startLocal(){
   let saved=null;
   try{ saved=JSON.parse(localStorage.getItem("cal_"+ROOM)||"null"); }catch(e){}
   events = saved || seedObject();
+  try{ photos=JSON.parse(localStorage.getItem("ph_"+ROOM)||"{}"); }catch(e){ photos={}; }
   persistLocal();
   renderMonth();
   jumpToEvents();
@@ -436,6 +491,14 @@ function startFirebase(cfg){
       console.warn("snapshot error:",err);
       setStatus("","Can't sync — check sharing rules");
     });
+    // live photo updates
+    pcol=db.collection(PHOTOS_COLLECTION);
+    pcol.onSnapshot(snap=>{
+      photos={};
+      snap.forEach(d=>{ photos[d.id]=d.data(); });
+      renderMonth();
+      if(activeDay) renderDayPhotos(activeDay);
+    }, e=>console.warn("photo snapshot error:",e));
   }catch(e){
     console.warn("Firebase failed, using local:",e);
     startLocal();
@@ -460,6 +523,207 @@ function setStatus(cls,txt){
   s.className="status"+(cls?(" "+cls):"");
   document.getElementById("statusText").textContent=txt;
 }
+
+/* =========================================================================
+   PHOTO FEATURES — read a photo (OCR) and auto-fill the calendar
+   ========================================================================= */
+const PHOTOS_COLLECTION = "lukePhotos";
+let pcol=null;
+let photos={};   // id -> {date, img, ts}
+
+function photosOn(ds){ return Object.entries(photos).filter(([id,p])=>p.date===ds).map(([id,p])=>({id,...p})); }
+function savePhoto(id,p){
+  if(mode==="firebase" && pcol){ pcol.doc(id).set(p).catch(e=>alert("Couldn't save photo: "+e.message)); }
+  else { photos[id]=p; persistPhotosLocal(); renderMonth(); if(activeDay) renderDayPhotos(activeDay); }
+}
+function deletePhoto(id){
+  if(mode==="firebase" && pcol){ pcol.doc(id).delete().catch(()=>{}); }
+  else { delete photos[id]; persistPhotosLocal(); renderMonth(); if(activeDay) renderDayPhotos(activeDay); }
+}
+function persistPhotosLocal(){ try{ localStorage.setItem("ph_"+ROOM, JSON.stringify(photos)); }catch(e){} }
+
+function renderDayPhotos(ds){
+  const wrap=document.getElementById("dayPhotos"); if(!wrap) return;
+  wrap.innerHTML="";
+  photosOn(ds).forEach(p=>{
+    const im=document.createElement("img"); im.src=p.img; im.alt="day photo";
+    im.addEventListener("click",()=>openLightbox(p.id,p.img));
+    wrap.appendChild(im);
+  });
+}
+
+// shrink an uploaded image to a small JPEG data URL so it fits in the shared DB
+function compressImage(file,maxDim=760,q=0.55){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    img.onload=()=>{
+      let w=img.width,h=img.height;
+      if(w>h && w>maxDim){ h=Math.round(h*maxDim/w); w=maxDim; }
+      else if(h>=w && h>maxDim){ w=Math.round(w*maxDim/h); h=maxDim; }
+      const c=document.createElement("canvas"); c.width=w; c.height=h;
+      c.getContext("2d").drawImage(img,0,0,w,h);
+      try{ resolve(c.toDataURL("image/jpeg",q)); }catch(e){ reject(e); }
+      URL.revokeObjectURL(img.src);
+    };
+    img.onerror=reject;
+    img.src=URL.createObjectURL(file);
+  });
+}
+
+// ---- OCR ----
+async function ocr(file,statusEl){
+  if(typeof Tesseract==="undefined") throw new Error("photo reader still loading — try again in a moment");
+  const{data:{text}}=await Tesseract.recognize(file,"eng",{
+    logger:m=>{ if(statusEl && m.status==="recognizing text"){ statusEl.innerHTML=`<span class="spin"></span>Reading… ${Math.round((m.progress||0)*100)}%`; } }
+  });
+  return text||"";
+}
+
+// ---- schedule text -> events ----
+const WD={sun:0,mon:1,tue:2,wed:3,thu:4,fri:5,sat:6};
+const MO={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+function startOfToday(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
+function nextWeekday(dow){ const t=startOfToday(); const diff=(dow-t.getDay()+7)%7; const d=new Date(t); d.setDate(t.getDate()+diff); return d; }
+function resolveYear(mo,day){ const now=startOfToday(); let yr=now.getFullYear(); if(new Date(yr,mo,day)<now) yr++; return yr; }
+function parseDateToken(line){
+  let m;
+  m=line.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:\s*,?\s*(\d{4}))?/i);
+  if(m){ const mo=MO[m[1].slice(0,3).toLowerCase()]; const day=+m[2]; if(day>=1&&day<=31){ const yr=m[3]?+m[3]:resolveYear(mo,day); return ymd(new Date(yr,mo,day)); } }
+  m=line.match(/\b(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?\b/);
+  if(m){ const mo=+m[1]-1, day=+m[2]; if(mo>=0&&mo<=11&&day>=1&&day<=31){ let yr=m[3]?(+m[3]<100?2000+(+m[3]):+m[3]):resolveYear(mo,day); return ymd(new Date(yr,mo,day)); } }
+  m=line.match(/\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b/i);
+  if(m){ return ymd(nextWeekday(WD[m[1].slice(0,3).toLowerCase()])); }
+  return null;
+}
+function parseTimes(line){
+  const re=/\b(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)?/ig;
+  const hits=[]; let m;
+  while((m=re.exec(line))){
+    let h=+m[1]; const min=m[2]?+m[2]:0; let ap=m[3]?m[3].replace(/\./g,"").toLowerCase():null;
+    const strong=!!(ap||m[2]);                 // needs am/pm or a colon to count as a real time
+    if(!strong) continue;
+    if(h>12 && ap) continue;                   // "13pm" nonsense
+    if(ap==="pm"&&h<12)h+=12;
+    if(ap==="am"&&h===12)h=0;
+    if(h>23||min>59) continue;
+    hits.push(`${pad(h)}:${pad(min)}`);
+  }
+  if(!hits.length) return null;
+  return {time:hits[0], endTime:hits.length>1?hits[1]:""};
+}
+function cleanTitle(line){
+  return line
+    .replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:\s*,?\s*\d{4})?/ig,"")
+    .replace(/\b\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\b/g,"")
+    .replace(/\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b/ig,"")
+    .replace(/\b\d{1,2}(?::\d{2})?\s*(a\.?m\.?|p\.?m\.?)?\s*(?:[-–—]|to)\s*\d{1,2}(?::\d{2})?\s*(a\.?m\.?|p\.?m\.?)?/ig,"")
+    .replace(/\b\d{1,2}:\d{2}\s*(a\.?m\.?|p\.?m\.?)?/ig,"")
+    .replace(/\b\d{1,2}\s*(a\.?m\.?|p\.?m\.?)\b/ig,"")
+    .replace(/[•·*|]+/g," ").replace(/[-–—:]\s*$/,"").replace(/^\s*[-–—:]/,"")
+    .replace(/\s+/g," ").trim();
+}
+function isWeakTitle(t){
+  if(!t) return true;
+  if(t.replace(/[^a-z0-9]/ig,"").length<3) return true;
+  return /^(at|to|on|the|a|an|am|pm|and|or|of|in|for|with|by|st|nd|rd|th)$/i.test(t.trim());
+}
+function parseSchedule(text,opts){
+  opts=opts||{};
+  const perDay=!!opts.defaultDate;             // a per-day photo stays on its day
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.length>1);
+  let current = opts.defaultDate || null;
+  let lastText = "";                           // most recent descriptive line (title candidate)
+  const out=[];
+  for(const line of lines){
+    const d = perDay ? null : parseDateToken(line);
+    const t = parseTimes(line);
+    if(t){
+      const date = perDay ? opts.defaultDate : (d||current);
+      if(d) current=d;
+      if(!date) continue;                      // multi-day: skip undated times
+      let title=cleanTitle(line);
+      if(isWeakTitle(title)) title = lastText || "Event";
+      out.push({date,time:t.time,endTime:t.endTime,title:title.slice(0,80),category:"Personal"});
+      continue;
+    }
+    if(d){                                      // dated line, no time -> all-day event
+      current=d; const title=cleanTitle(line);
+      if(title && !isWeakTitle(title)) out.push({date:d,time:"",endTime:"",title:title.slice(0,80),category:"Personal"});
+      else { const ct=cleanTitle(line); if(ct) lastText=ct; }
+      continue;
+    }
+    const ct=cleanTitle(line); if(ct && !isWeakTitle(ct)) lastText=ct;   // plain text -> title candidate
+  }
+  // per-day photo with no times found: capture the gist as one all-day event
+  if(perDay && out.length===0 && lastText && !isWeakTitle(lastText)){
+    out.push({date:opts.defaultDate,time:"",endTime:"",title:lastText.slice(0,80),category:"Personal"});
+  }
+  const seen=new Set(), uniq=[];
+  for(const e of out){ const k=e.date+"|"+e.time+"|"+e.title.toLowerCase(); if(seen.has(k))continue; seen.add(k); uniq.push(e); }
+  return uniq;
+}
+
+// ---- auto-add with undo ----
+let lastBatchIds=[];
+function autoAddEvents(list){
+  lastBatchIds=[];
+  list.forEach(ev=>{ const id=uid(); lastBatchIds.push(id); saveEvent(id,ev); });
+  return lastBatchIds.length;
+}
+function showToast(msg,canUndo){
+  document.getElementById("toastMsg").textContent=msg;
+  document.getElementById("toastUndo").style.display=canUndo?"inline-block":"none";
+  const t=document.getElementById("toast"); t.classList.add("show");
+  clearTimeout(window.__toastT); window.__toastT=setTimeout(()=>t.classList.remove("show"), canUndo?14000:6000);
+}
+
+// ---- handlers ----
+async function handleTopPhoto(file){
+  const status=document.getElementById("topPhotoStatus");
+  status.innerHTML='<span class="spin"></span>Reading photo…';
+  try{
+    const text=await ocr(file,status);
+    const list=parseSchedule(text,{multiDay:true});
+    if(!list.length){ status.textContent="No dated events found — try a clearer schedule photo."; showToast("Couldn't find dated events in that photo. A typed schedule with dates/times works best.",false); setTimeout(()=>status.textContent="",6000); return; }
+    const n=autoAddEvents(list);
+    const days=[...new Set(list.map(e=>e.date))].length;
+    status.textContent=`Added ${n} event${n>1?"s":""} across ${days} day${days>1?"s":""}.`;
+    showToast(`Added ${n} event${n>1?"s":""} from the photo across ${days} day${days>1?"s":""}.`,true);
+    setTimeout(()=>status.textContent="",7000);
+  }catch(e){ console.warn(e); status.textContent="Couldn't read that photo."; showToast("Couldn't read that photo: "+e.message,false); }
+}
+async function handleDayPhoto(file,ds){
+  const status=document.getElementById("dayPhotoStatus");
+  status.innerHTML='<span class="spin"></span>Adding photo…';
+  try{ const img=await compressImage(file); savePhoto(uid(),{date:ds,img,ts:Date.now()}); }
+  catch(e){ console.warn("compress failed",e); }
+  status.innerHTML='<span class="spin"></span>Reading text…';
+  try{
+    const text=await ocr(file,status);
+    const list=parseSchedule(text,{defaultDate:ds});
+    if(list.length){
+      const n=autoAddEvents(list);
+      status.textContent=`Photo + ${n} event${n>1?"s":""} added.`;
+      showToast(`Added ${n} event${n>1?"s":""} from the photo to this day.`,true);
+    } else { status.textContent="Photo added."; showToast("Photo added to the day (no event text detected).",false); }
+  }catch(e){ console.warn(e); status.textContent="Photo added (couldn't read text)."; }
+  if(activeDay===ds) openDay(ds);
+  setTimeout(()=>{ status.textContent=""; },7000);
+}
+
+// ---- lightbox ----
+let lbPhotoId=null;
+function openLightbox(id,src){ lbPhotoId=id; document.getElementById("lightboxImg").src=src; document.getElementById("lightbox").classList.add("show"); }
+document.getElementById("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox") document.getElementById("lightbox").classList.remove("show"); });
+document.getElementById("lbDelete").addEventListener("click",()=>{ if(lbPhotoId && confirm("Delete this photo?")) deletePhoto(lbPhotoId); document.getElementById("lightbox").classList.remove("show"); });
+
+// ---- photo UI wiring ----
+document.getElementById("topPhotoBtn").addEventListener("click",()=>document.getElementById("topPhotoInput").click());
+document.getElementById("topPhotoInput").addEventListener("change",e=>{ const f=e.target.files[0]; if(f) handleTopPhoto(f); e.target.value=""; });
+document.getElementById("dayPhotoBtn").addEventListener("click",()=>document.getElementById("dayPhotoInput").click());
+document.getElementById("dayPhotoInput").addEventListener("change",e=>{ const f=e.target.files[0]; if(f&&activeDay) handleDayPhoto(f,activeDay); e.target.value=""; });
+document.getElementById("toastUndo").addEventListener("click",()=>{ lastBatchIds.forEach(id=>deleteEvent(id)); lastBatchIds=[]; document.getElementById("toast").classList.remove("show"); showToast("Removed those events.",false); });
+document.getElementById("toastClose").addEventListener("click",()=>document.getElementById("toast").classList.remove("show"));
 
 // ---------- UI plumbing ----------
 function show(id){document.getElementById(id).classList.add("show");}
