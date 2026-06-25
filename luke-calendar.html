@@ -162,6 +162,17 @@
   .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:90;padding:20px}
   .lightbox.show{display:flex}
   .lightbox img{max-width:94vw;max-height:88vh;border-radius:12px;display:block}
+
+  /* Phone overrides for the photo-feature styles — declared LAST so they win over
+     the desktop photo styles above (this is what frees the space for all 6 weeks). */
+  @media(max-width:600px){
+    .photobar{flex:none;flex-wrap:nowrap;padding:6px 9px;gap:8px;margin-bottom:6px;border-radius:12px}
+    .photobar .pi{width:28px;height:28px;font-size:.85rem;border-radius:7px}
+    .photobar .ptext{flex:1;min-width:0}
+    .photobar .ptext b{font-size:.76rem}
+    .cell .pbadge{font-size:.55rem;top:2px;right:2px}
+    .dayphotos img{width:56px;height:56px}
+  }
 </style>
 </head>
 <body>
