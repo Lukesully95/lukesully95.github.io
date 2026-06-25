@@ -814,38 +814,41 @@ if (sessionStorage.getItem('pw_ok') === '1') {
 </script>
 
 <script>
-// Fit the entire positions table to the screen width on phones
+// Fit the positions table to the phone screen — ONE stable size
 (function () {
-  function fitTable() {
-    var table = document.getElementById('tbl');
-    if (!table) return;
-    var wrap = table.parentElement;
-    table.style.transform = '';
-    table.style.transformOrigin = '';
-    wrap.style.height = '';
-    wrap.style.maxHeight = '';
-    if (window.innerWidth <= 820) {
-      var natW = table.offsetWidth, natH = table.offsetHeight;
-      var availW = wrap.clientWidth;
-      var top = wrap.getBoundingClientRect().top;
-      var availH = window.innerHeight - top - 6;
-      if (natW > 0 && natH > 0 && availH > 120) {
-        var sx = availW / natW;
-        var sy = availH / natH;
-        table.style.transformOrigin = 'top left';
-        table.style.transform = 'scale(' + sx + ',' + sy + ')';
-        wrap.style.height = availH + 'px';
-      }
+  var natW = 0, natH = 0, lastW = -1;
+  function fit() {
+    var t = document.getElementById('tbl');
+    if (!t) return;
+    var wrap = t.parentElement;
+    if (window.innerWidth > 820) {
+      t.style.transform = ''; t.style.transformOrigin = ''; wrap.style.height = '';
+      return;
+    }
+    if (!natW) {
+      var prev = t.style.transform;
+      t.style.transform = 'none';
+      natW = t.offsetWidth; natH = t.offsetHeight;
+      t.style.transform = prev;
+    }
+    var availW = wrap.clientWidth;
+    var top = wrap.getBoundingClientRect().top;
+    var availH = window.innerHeight - top - 6;
+    if (natW > 0 && natH > 0 && availH > 120) {
+      t.style.transformOrigin = 'top left';
+      t.style.transform = 'scale(' + (availW / natW) + ',' + (availH / natH) + ')';
+      wrap.style.height = availH + 'px';
     }
   }
-  window.addEventListener('resize', fitTable);
-  window.addEventListener('orientationchange', fitTable);
-  var tb = document.getElementById('tbody');
-  if (tb && window.MutationObserver) {
-    new MutationObserver(function () { setTimeout(fitTable, 0); }).observe(tb, { childList: true });
+  function onResize() {
+    if (window.innerWidth !== lastW) { lastW = window.innerWidth; fit(); }
   }
-  window.addEventListener('load', fitTable);
-  setTimeout(fitTable, 300);
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', function () { lastW = -1; natW = 0; setTimeout(fit, 250); });
+  window.addEventListener('load', function () { lastW = window.innerWidth; fit(); });
+  lastW = window.innerWidth;
+  setTimeout(fit, 300);
+  setTimeout(fit, 1200);
 })();
 </script>
 </body>
