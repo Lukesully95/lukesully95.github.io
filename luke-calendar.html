@@ -24,7 +24,8 @@
       linear-gradient(180deg,var(--bg),var(--bg2));
     min-height:100vh;-webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 16px;display:flex;flex-direction:column;height:100vh;height:100dvh}
+  .wrap{max-width:1080px;margin:0 auto;padding:12px 14px 10px;display:flex;flex-direction:column;height:100vh;height:100dvh}
+  header.top,.toolbar,.photobar,.legend,footer{flex:none}
 
   header.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
   .brand{display:flex;align-items:center;gap:12px}
@@ -48,11 +49,10 @@
   .btn svg{width:16px;height:16px}
   .spacer{flex:1}
 
-  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:.8rem;color:var(--muted)}
+  .legend{display:none}
   .legend .it{display:flex;align-items:center;gap:7px;cursor:default}
   .sw{width:11px;height:11px;border-radius:4px}
 
-  header.top,.toolbar,.photobar,.legend,footer{flex:none}
   .calwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
   .dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--card2);border-bottom:1px solid var(--line);flex:none}
   .dow div{padding:10px 8px;text-align:center;font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);font-weight:700}
@@ -61,10 +61,10 @@
   .cell:nth-child(7n){border-right:0}
   .cell:hover{background:rgba(124,92,255,.08)}
   .cell.dim{opacity:.38}
-  .cell .num{font-size:.82rem;color:var(--muted);font-weight:600;display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;border-radius:50%}
+  .cell .num{font-size:.74rem;color:var(--muted);font-weight:600;display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%}
   .cell.today .num{background:var(--accent);color:#fff}
-  .chips{margin-top:3px;display:flex;flex-direction:column;gap:3px}
-  .chip{font-size:.7rem;line-height:1.25;padding:2px 6px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#0b0d20;font-weight:600}
+  .chips{margin-top:2px;display:flex;flex-direction:column;gap:2px}
+  .chip{font-size:.62rem;line-height:1.18;padding:1px 5px;border-radius:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#0b0d20;font-weight:600}
   .chip .t{opacity:.75;font-weight:700;margin-right:3px}
   .more{font-size:.66rem;color:var(--muted);margin-top:2px;font-weight:600}
   [data-cat="Work"]{background:var(--c-work)} [data-cat="School"]{background:var(--c-school)}
@@ -95,7 +95,7 @@
   .mfoot .spacer{flex:1}
   .danger{background:transparent;border:1px solid var(--c-holiday);color:#ff9a9a}
   .danger:hover{background:rgba(255,107,107,.12)}
-  footer{margin-top:22px;text-align:center;color:var(--muted);font-size:.78rem}
+  footer{display:none}
   .banner{background:rgba(255,180,84,.12);border:1px solid rgba(255,180,84,.4);color:#ffd9a8;font-size:.82rem;padding:10px 13px;border-radius:11px;margin-bottom:14px}
   .banner b{color:#fff}
   @media(max-width:600px){
@@ -144,11 +144,11 @@
   }
 
   /* Photo features */
-  .photobar{display:flex;align-items:center;gap:13px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(57,208,216,.10));border:1px solid var(--line);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px}
-  .photobar .pi{width:42px;height:42px;border-radius:12px;background:rgba(124,92,255,.28);display:grid;place-items:center;font-size:1.25rem;flex:none}
-  .photobar .ptext{flex:1;min-width:180px}
-  .photobar .ptext b{display:block;font-size:.94rem}
-  .photobar .ptext span{font-size:.79rem;color:var(--muted)}
+  .photobar{display:flex;align-items:center;gap:11px;flex-wrap:nowrap;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(57,208,216,.10));border:1px solid var(--line);border-radius:13px;padding:8px 13px;margin-bottom:8px}
+  .photobar .pi{width:34px;height:34px;border-radius:10px;background:rgba(124,92,255,.28);display:grid;place-items:center;font-size:1.05rem;flex:none}
+  .photobar .ptext{flex:1;min-width:0}
+  .photobar .ptext b{display:block;font-size:.86rem}
+  .photobar .ptext span{display:none}
   .photobar .pstatus{font-size:.79rem;color:var(--accent2)}
   .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;display:inline-block;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
   @keyframes sp{to{transform:rotate(360deg)}}
@@ -375,13 +375,14 @@ function renderMonth(){
     cell.className="cell"+(d.getMonth()!==m?" dim":"")+(ds===todayStr?" today":"");
     cell.dataset.date=ds;
     const dayEvents=eventsOn(ds);
+    const cap = (window.innerWidth<=600) ? 3 : dayEvents.length;   // phone caps with "+more"; desktop shows all
     let html=`<span class="num">${d.getDate()}</span><div class="chips">`;
-    dayEvents.slice(0,3).forEach(e=>{
+    dayEvents.slice(0,cap).forEach(e=>{
       const t=e.time?`<span class="t">${to12(e.time).replace(":00","")}</span>`:"";
       html+=`<div class="chip" data-cat="${e.category||'Personal'}">${t}${escapeHtml(e.title)}</div>`;
     });
     html+=`</div>`;
-    if(dayEvents.length>3) html+=`<div class="more">+${dayEvents.length-3} more</div>`;
+    if(dayEvents.length>cap) html+=`<div class="more">+${dayEvents.length-cap} more</div>`;
     if(photosOn(ds).length) html+=`<span class="pbadge">📷</span>`;
     cell.innerHTML=html;
     cell.addEventListener("click",()=>openDay(ds));
@@ -786,6 +787,7 @@ document.getElementById("prev").addEventListener("click",()=>{view.setMonth(view
 document.getElementById("next").addEventListener("click",()=>{view.setMonth(view.getMonth()+1);renderMonth();});
 document.getElementById("todayBtn").addEventListener("click",()=>{view=new Date();renderMonth();});
 document.getElementById("addBtn").addEventListener("click",()=>{activeDay=null;openEdit(null);});
+window.addEventListener("resize",()=>{ clearTimeout(window.__rz); window.__rz=setTimeout(renderMonth,180); });
 
 // ---------- boot ----------
 renderLegend();
