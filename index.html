@@ -255,6 +255,32 @@
     font-weight: 600;
   }
   #pw-lock { font-size: 36px; margin-bottom: 14px; }
+
+  /* MOBILE: fit the entire spreadsheet on a phone screen */
+  @media (max-width: 820px) {
+    .header { flex-wrap: wrap; gap: 6px; padding: 10px 14px; }
+    .header-left h1 { font-size: 14px; }
+    .header-left p  { font-size: 10px; line-height: 1.35; }
+    .header-right   { text-align: left; }
+    .total-val { font-size: 22px; }
+    .total-sub { font-size: 10.5px; }
+    .toolbar { padding: 6px 12px; gap: 8px; }
+    .btn-refresh { padding: 5px 12px; font-size: 12px; }
+    .status-text, .countdown { font-size: 10px; }
+    .container { padding: 10px 6px; }
+    .card-header { padding: 8px 12px; }
+    .card-title { font-size: 12px; }
+
+    table { font-size: 8px; }
+    thead th { padding: 4px 3px; font-size: 7px; letter-spacing: 0; }
+    td { padding: 4px 3px; }
+    .sym { font-size: 8.5px; }
+    .desc { font-size: 7px; white-space: normal; display: inline-block; max-width: 70px; line-height: 1.2; }
+    .price-cell { font-size: 8px; }
+    .day-line { font-size: 7px; }
+    .bar-wrap .bar { max-width: 8px; }
+    tfoot td { padding: 5px 3px; font-size: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -785,6 +811,40 @@ if (sessionStorage.getItem('pw_ok') === '1') {
   // Focus password input
   setTimeout(() => document.getElementById('pw-input').focus(), 100);
 }
+</script>
+
+<script>
+// Fit the entire positions table to the screen width on phones
+(function () {
+  function fitTable() {
+    var table = document.getElementById('tbl');
+    if (!table) return;
+    var wrap = table.parentElement;
+    table.style.transform = '';
+    table.style.transformOrigin = '';
+    wrap.style.height = '';
+    wrap.style.overflowX = '';
+    if (window.innerWidth <= 820) {
+      var natural = table.offsetWidth;
+      var avail = wrap.clientWidth;
+      if (natural > avail && natural > 0) {
+        var s = avail / natural;
+        table.style.transformOrigin = 'top left';
+        table.style.transform = 'scale(' + s + ')';
+        wrap.style.overflowX = 'hidden';
+        wrap.style.height = (table.offsetHeight * s) + 'px';
+      }
+    }
+  }
+  window.addEventListener('resize', fitTable);
+  window.addEventListener('orientationchange', fitTable);
+  var tb = document.getElementById('tbody');
+  if (tb && window.MutationObserver) {
+    new MutationObserver(function () { setTimeout(fitTable, 0); }).observe(tb, { childList: true });
+  }
+  window.addEventListener('load', fitTable);
+  setTimeout(fitTable, 300);
+})();
 </script>
 </body>
 </html>
