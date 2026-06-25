@@ -605,6 +605,7 @@ async function doFetch() {
   const symsArr = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol);
   const syms = symsArr.join(',');
   let gotLive = false;
+  let pjData = null;
 
   // ── SOURCE 1: /prices.json — updated by GitHub Action, only use if fresh (< 30 min) ──
   try {
@@ -612,6 +613,7 @@ async function doFetch() {
     if (r.ok) {
       const data = await r.json();
       if (data?.prices) {
+        pjData = data;
         const updatedAt = data.updated ? new Date(data.updated) : null;
         const ageMinutes = updatedAt ? (Date.now() - updatedAt.getTime()) / 60000 : Infinity;
         if (ageMinutes <= 30) {
@@ -717,15 +719,28 @@ async function doFetch() {
     document.getElementById('statusText').textContent =
       '✓ Live prices as of ' + lastUpdate.toLocaleTimeString();
   } else {
-    // Fallback to snapshot
-    usingSnap = true;
-    Object.keys(SNAPSHOT).forEach(sym => {
-      if (!liveData[sym]) {
-        liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
-      }
-    });
-    showAlert('alert-warn', '⚠ Could not reach live price sources — showing May 25, 2026 snapshot prices. Day Change unavailable.');
-    document.getElementById('statusText').textContent = 'Using May 25, 2026 snapshot prices (live fetch failed)';
+    // Live feeds unreachable — use the latest prices.json we have (any age) before the static snapshot
+    if (pjData && pjData.prices) {
+      const updatedAt = pjData.updated ? new Date(pjData.updated) : null;
+      symsArr.forEach(sym => {
+        const p = pjData.prices[sym];
+        if (p?.price) {
+          liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
+        }
+      });
+      lastUpdate = updatedAt || new Date();
+      showAlert('', '');
+      document.getElementById('statusText').textContent = 'Prices as of ' + (updatedAt ? updatedAt.toLocaleString() : 'recently');
+    } else {
+      usingSnap = true;
+      Object.keys(SNAPSHOT).forEach(sym => {
+        if (!liveData[sym]) {
+          liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
+        }
+      });
+      showAlert('alert-warn', '⚠ Could not reach price sources — showing fallback snapshot prices.');
+      document.getElementById('statusText').textContent = 'Using fallback snapshot prices (live fetch failed)';
+    }
   }
 
   render();
