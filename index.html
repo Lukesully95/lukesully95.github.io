@@ -840,11 +840,10 @@ if (sessionStorage.getItem('pw_ok') === '1') {
       wrap.style.height = availH + 'px';
     }
   }
-  function onResize() {
-    if (window.innerWidth !== lastW) { lastW = window.innerWidth; fit(); }
-  }
-  window.addEventListener('resize', onResize);
-  window.addEventListener('orientationchange', function () { lastW = -1; natW = 0; setTimeout(fit, 250); });
+  // No resize listener on purpose: mobile address-bar show/hide can nudge the
+  // viewport and cause flicker. We fit once at startup and only re-fit on an
+  // actual device rotation, so the size stays rock steady.
+  window.addEventListener('orientationchange', function () { lastW = -1; natW = 0; setTimeout(fit, 350); });
   window.addEventListener('load', function () { lastW = window.innerWidth; fit(); });
   lastW = window.innerWidth;
   setTimeout(fit, 300);
