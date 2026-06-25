@@ -271,15 +271,15 @@
     .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
-    table { font-size: 8px; }
-    thead th { padding: 11px 3px; font-size: 7px; letter-spacing: 0; }
-    td { padding: 15px 3px; }
-    .sym { font-size: 8.5px; }
-    .desc { font-size: 7px; white-space: normal; display: inline-block; max-width: 70px; line-height: 1.2; }
-    .price-cell { font-size: 8px; }
-    .day-line { font-size: 7px; }
-    .bar-wrap .bar { max-width: 8px; }
-    tfoot td { padding: 15px 3px; font-size: 8px; }
+    .table-wrap { overflow: auto; -webkit-overflow-scrolling: touch; }
+    table { font-size: 11px; }
+    thead th { padding: 10px 8px; font-size: 9px; letter-spacing: 0; position: sticky; top: 0; z-index: 2; }
+    td { padding: 14px 8px; }
+    .sym { font-size: 11px; }
+    .desc { font-size: 10px; }
+    .price-cell { font-size: 11px; }
+    .day-line { font-size: 9px; }
+    tfoot td { padding: 14px 8px; font-size: 11px; }
   }
 </style>
 </head>
@@ -823,16 +823,12 @@ if (sessionStorage.getItem('pw_ok') === '1') {
     table.style.transform = '';
     table.style.transformOrigin = '';
     wrap.style.height = '';
-    wrap.style.overflowX = '';
+    wrap.style.maxHeight = '';
     if (window.innerWidth <= 820) {
-      var natural = table.offsetWidth;
-      var avail = wrap.clientWidth;
-      if (natural > 0) {
-        var s = Math.min(avail / natural, 1.7);
-        table.style.transformOrigin = 'top left';
-        table.style.transform = 'scale(' + s + ')';
-        wrap.style.overflowX = 'hidden';
-        wrap.style.height = (table.offsetHeight * s) + 'px';
+      var top = wrap.getBoundingClientRect().top;
+      var avail = window.innerHeight - top - 6;
+      if (avail > 220) {
+        wrap.style.maxHeight = avail + 'px';
       }
     }
   }
