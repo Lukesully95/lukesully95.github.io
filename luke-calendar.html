@@ -49,7 +49,7 @@
   .btn svg{width:16px;height:16px}
   .spacer{flex:1}
 
-  .legend{display:none}
+  .legend{display:flex;flex-wrap:wrap;gap:9px 16px;margin-bottom:9px;font-size:.76rem;color:var(--muted);justify-content:center}
   .legend .it{display:flex;align-items:center;gap:7px;cursor:default}
   .sw{width:11px;height:11px;border-radius:4px}
 
@@ -61,10 +61,11 @@
   .cell:nth-child(7n){border-right:0}
   .cell:hover{background:rgba(124,92,255,.08)}
   .cell.dim{opacity:.38}
-  .cell .num{font-size:.74rem;color:var(--muted);font-weight:600;display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%}
+  .cell .num{font-size:.8rem;color:var(--muted);font-weight:700;display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:50%}
   .cell.today .num{background:var(--accent);color:#fff}
-  .chips{margin-top:2px;display:flex;flex-direction:column;gap:2px}
-  .chip{font-size:.62rem;line-height:1.18;padding:1px 5px;border-radius:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#0b0d20;font-weight:600}
+  .cell.blank{cursor:default;background:rgba(124,92,255,.03)}
+  .chips{margin-top:3px;display:flex;flex-direction:column;gap:3px}
+  .chip{font-size:.72rem;line-height:1.25;padding:2px 7px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#0b0d20;font-weight:600}
   .chip .t{opacity:.75;font-weight:700;margin-right:3px}
   .more{font-size:.66rem;color:var(--muted);margin-top:2px;font-weight:600}
   [data-cat="Work"]{background:var(--c-work)} [data-cat="School"]{background:var(--c-school)}
@@ -364,19 +365,25 @@ function eventsOn(dateStr){
 function renderMonth(){
   const y=view.getFullYear(), m=view.getMonth();
   document.getElementById("monthLabel").textContent=`${MONTHS[m]} ${y}`;
-  const first=new Date(y,m,1);
-  const start=new Date(y,m,1-first.getDay());     // back to Sunday
+  const firstWeekday=new Date(y,m,1).getDay();        // 0=Sun
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const totalCells=Math.ceil((firstWeekday+daysInMonth)/7)*7;   // only the weeks this month touches
+  const rows=totalCells/7;
   const grid=document.getElementById("grid"); grid.innerHTML="";
+  grid.style.gridTemplateRows=`repeat(${rows},1fr)`;            // 4–6 rows, like Mom's
   const todayStr=ymd(new Date());
-  for(let i=0;i<42;i++){
-    const d=new Date(start); d.setDate(start.getDate()+i);
-    const ds=ymd(d);
+  const cap=3;                                                  // show up to 3 + "+more", like Mom's
+  for(let i=0;i<totalCells;i++){
+    const dayNum=i-firstWeekday+1;
+    const inMonth=dayNum>=1 && dayNum<=daysInMonth;
     const cell=document.createElement("div");
-    cell.className="cell"+(d.getMonth()!==m?" dim":"")+(ds===todayStr?" today":"");
+    if(!inMonth){ cell.className="cell blank"; grid.appendChild(cell); continue; }   // blank leading/trailing cells
+    const d=new Date(y,m,dayNum);
+    const ds=ymd(d);
+    cell.className="cell"+(ds===todayStr?" today":"");
     cell.dataset.date=ds;
     const dayEvents=eventsOn(ds);
-    const cap = (window.innerWidth<=600) ? 3 : dayEvents.length;   // phone caps with "+more"; desktop shows all
-    let html=`<span class="num">${d.getDate()}</span><div class="chips">`;
+    let html=`<span class="num">${dayNum}</span><div class="chips">`;
     dayEvents.slice(0,cap).forEach(e=>{
       const t=e.time?`<span class="t">${to12(e.time).replace(":00","")}</span>`:"";
       html+=`<div class="chip" data-cat="${e.category||'Personal'}">${t}${escapeHtml(e.title)}</div>`;
