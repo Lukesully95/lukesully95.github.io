@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" id="vp" content="width=device-width, initial-scale=1.0" />
+<script>
+/* On phones, lay the calendar out at a fixed width and let the browser scale it
+   to fit the screen, so the WHOLE month is visible at once — and pinch-zoom stays
+   enabled so you can zoom in on any day. Desktop is unaffected (keeps device-width). */
+(function(){
+  try{
+    var w = (window.screen && screen.width) ? screen.width : 1024;
+    if (w < 700){
+      document.getElementById('vp').setAttribute('content','width=800, maximum-scale=6, user-scalable=yes');
+    }
+  }catch(e){}
+})();
+</script>
 <title>Luke's Calendar</title>
 <style>
   :root{
