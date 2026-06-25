@@ -267,8 +267,8 @@
     .toolbar { padding: 6px 12px; gap: 8px; }
     .btn-refresh { padding: 5px 12px; font-size: 12px; }
     .status-text, .countdown { font-size: 10px; }
-    .container { padding: 10px 6px; }
-    .card-header { padding: 8px 12px; }
+    .container { padding: 6px 2px; }
+    .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
     table { font-size: 8px; }
@@ -827,8 +827,8 @@ if (sessionStorage.getItem('pw_ok') === '1') {
     if (window.innerWidth <= 820) {
       var natural = table.offsetWidth;
       var avail = wrap.clientWidth;
-      if (natural > avail && natural > 0) {
-        var s = avail / natural;
+      if (natural > 0) {
+        var s = Math.min(avail / natural, 1.7);
         table.style.transformOrigin = 'top left';
         table.style.transform = 'scale(' + s + ')';
         wrap.style.overflowX = 'hidden';
