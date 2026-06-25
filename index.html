@@ -274,7 +274,7 @@
     .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
-    .table-wrap { overflow: hidden; }
+    .table-wrap { overflow: visible; }
     table { font-size: 10px; }
     thead th { padding: 8px 4px; font-size: 8px; letter-spacing: 0; }
     td { padding: 12px 4px; }
@@ -855,7 +855,7 @@ if (sessionStorage.getItem('pw_ok') === '1') {
     if (natW > 0 && natH > 0 && availH > 120) {
       t.style.transformOrigin = 'top left';
       t.style.transform = 'scale(' + (availW / natW) + ',' + (availH / natH) + ')';
-      wrap.style.height = availH + 'px';
+      wrap.style.height = (Math.ceil(t.getBoundingClientRect().height) + 2) + 'px';
     }
   }
   // No resize listener on purpose: mobile address-bar show/hide can nudge the
