@@ -98,39 +98,49 @@
   .banner{background:rgba(255,180,84,.12);border:1px solid rgba(255,180,84,.4);color:#ffd9a8;font-size:.82rem;padding:10px 13px;border-radius:11px;margin-bottom:14px}
   .banner b{color:#fff}
   @media(max-width:600px){
-    .wrap{padding:13px 9px 46px}
-    header.top{gap:9px;margin-bottom:11px}
-    .logo{width:38px;height:38px;border-radius:11px}
-    .logo svg{width:21px;height:21px}
-    h1{font-size:1.12rem}
-    .sub{font-size:.73rem}
-    .status{font-size:.7rem;padding:4px 9px}
-    .toolbar{gap:7px;margin-bottom:9px}
-    .nav{gap:5px}
-    .iconbtn{width:34px;height:34px;font-size:1rem;border-radius:10px}
-    .monthlabel{min-width:0;font-size:1rem}
-    .btn{padding:8px 11px;font-size:.83rem;border-radius:10px}
-    .photobar{padding:10px 12px;gap:10px;margin-bottom:10px}
-    .photobar .pi{width:34px;height:34px;font-size:1.05rem}
+    /* fit the entire month on one phone screen: fixed-height flex column */
+    html,body{height:100%}
+    .wrap{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:none;padding:7px 8px 8px;gap:0}
+    header.top{flex:none;gap:8px;margin-bottom:7px}
+    .logo{width:32px;height:32px;border-radius:9px}
+    .logo svg{width:18px;height:18px}
+    h1{font-size:1.02rem}
+    .sub{display:none}
+    .status{font-size:.66rem;padding:3px 8px}
+    .toolbar{flex:none;gap:6px;margin-bottom:7px}
+    .nav{gap:4px}
+    .iconbtn{width:32px;height:32px;font-size:.95rem;border-radius:9px}
+    .monthlabel{min-width:0;flex:1;font-size:.96rem;text-align:left}
+    .btn{padding:7px 10px;font-size:.8rem;border-radius:9px}
+    #todayBtn{padding:7px 9px}
+    #addBtn{font-size:0;padding:7px 9px}
+    #addBtn svg{width:18px;height:18px}
+    .photobar{flex:none;padding:7px 10px;gap:8px;margin-bottom:7px}
+    .photobar .pi{width:30px;height:30px;font-size:.95rem}
     .photobar .ptext{min-width:0}
-    .photobar .ptext b{font-size:.85rem}
+    .photobar .ptext b{font-size:.79rem}
     .photobar .ptext span{display:none}
-    #topPhotoBtn{margin-left:auto;white-space:nowrap}
-    .legend{gap:8px 11px;font-size:.7rem;margin-bottom:9px}
-    .dow div{padding:7px 1px;font-size:.58rem;letter-spacing:.2px}
-    .cell{min-height:58px;padding:4px 3px 6px}
-    .cell .num{width:18px;height:18px;font-size:.68rem}
-    .chips{gap:2px;margin-top:2px}
-    .chip{font-size:.55rem;padding:1px 4px;border-radius:5px;line-height:1.2}
+    #topPhotoBtn{margin-left:auto;white-space:nowrap;font-size:.78rem;padding:8px 11px}
+    .legend{flex:none;gap:5px 9px;font-size:.64rem;margin-bottom:7px}
+    .legend .sw{width:9px;height:9px}
+    .calwrap{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+    .dow{flex:none}
+    .dow div{padding:5px 1px;font-size:.55rem;letter-spacing:.2px}
+    .grid{flex:1 1 auto;min-height:0;grid-template-rows:repeat(6,1fr)}
+    .cell{min-height:0;padding:3px 3px 4px;overflow:hidden}
+    .cell .num{width:17px;height:17px;font-size:.65rem}
+    .chips{gap:1px;margin-top:1px;overflow:hidden}
+    .chip{font-size:.52rem;padding:1px 3px;border-radius:4px;line-height:1.16}
     .chip .t{display:none}
-    .more{font-size:.55rem;margin-top:1px}
-    .cell .pbadge{font-size:.58rem;top:3px;right:3px}
-    .ov{padding:11px}
-    .modal{max-width:none}
-    .mhead{padding:13px 15px}
-    .mbody{padding:13px 15px}
-    .mfoot{padding:12px 15px;flex-wrap:wrap}
-    .dayphotos img{width:58px;height:58px}
+    .more{font-size:.5rem;margin-top:0}
+    .cell .pbadge{font-size:.55rem;top:2px;right:2px}
+    footer{display:none}
+    .ov{padding:10px}
+    .modal{max-width:none;max-height:90vh;max-height:90dvh}
+    .mhead{padding:12px 14px}
+    .mbody{padding:12px 14px}
+    .mfoot{padding:11px 14px;flex-wrap:wrap}
+    .dayphotos img{width:56px;height:56px}
   }
 
   /* Photo features */
