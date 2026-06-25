@@ -830,10 +830,11 @@ if (sessionStorage.getItem('pw_ok') === '1') {
       var top = wrap.getBoundingClientRect().top;
       var availH = window.innerHeight - top - 6;
       if (natW > 0 && natH > 0 && availH > 120) {
-        var s = Math.min(availW / natW, availH / natH);
+        var sx = availW / natW;
+        var sy = availH / natH;
         table.style.transformOrigin = 'top left';
-        table.style.transform = 'scale(' + s + ')';
-        wrap.style.height = (natH * s) + 'px';
+        table.style.transform = 'scale(' + sx + ',' + sy + ')';
+        wrap.style.height = availH + 'px';
       }
     }
   }
