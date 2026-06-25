@@ -14,7 +14,7 @@
     --shadow:0 18px 50px rgba(0,0,0,.45); --radius:16px;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;height:100%}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--text);
@@ -24,7 +24,7 @@
       linear-gradient(180deg,var(--bg),var(--bg2));
     min-height:100vh;-webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
+  .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 16px;display:flex;flex-direction:column;height:100vh;height:100dvh}
 
   header.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
   .brand{display:flex;align-items:center;gap:12px}
@@ -52,11 +52,12 @@
   .legend .it{display:flex;align-items:center;gap:7px;cursor:default}
   .sw{width:11px;height:11px;border-radius:4px}
 
-  .calwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-  .dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--card2);border-bottom:1px solid var(--line)}
+  header.top,.toolbar,.photobar,.legend,footer{flex:none}
+  .calwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  .dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--card2);border-bottom:1px solid var(--line);flex:none}
   .dow div{padding:10px 8px;text-align:center;font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);font-weight:700}
-  .grid{display:grid;grid-template-columns:repeat(7,1fr)}
-  .cell{min-height:104px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 6px 8px;cursor:pointer;position:relative;transition:.12s background}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(6,1fr);flex:1 1 auto;min-height:0}
+  .cell{min-height:0;overflow:hidden;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 6px 8px;cursor:pointer;position:relative;transition:.12s background}
   .cell:nth-child(7n){border-right:0}
   .cell:hover{background:rgba(124,92,255,.08)}
   .cell.dim{opacity:.38}
