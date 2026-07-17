@@ -1,11 +1,11 @@
 {
-  "updated": "2026-07-17T22:33:19.169827+00:00",
+  "updated": "2026-07-17T23:32:18.821796+00:00",
   "prices": {
     "AMZN": {
-      "price": null,
-      "change": null,
-      "changePct": null,
-      "prevClose": null
+      "price": 247.23,
+      "change": -3.6951,
+      "changePct": -1.4726,
+      "prevClose": 250.9251
     },
     "COIN": {
       "price": 157.12,
