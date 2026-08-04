@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04T10:18:13.406443+00:00",
+  "updated": "2026-08-04T12:24:27.517546+00:00",
   "prices": {
     "AMZN": {
       "price": 284.02,
@@ -21,8 +21,8 @@
     },
     "HODL": {
       "price": 18.05,
-      "change": 0.0,
-      "changePct": 0.0,
+      "change": -0.0,
+      "changePct": -0.0,
       "prevClose": 18.05
     },
     "JOBY": {
