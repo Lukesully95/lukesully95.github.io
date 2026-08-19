@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T21:18:53.290645+00:00",
+  "updated": "2026-08-19T21:48:25.570055+00:00",
   "prices": {
     "AMZN": {
       "price": 265.84,
@@ -45,9 +45,9 @@
     },
     "NFLX": {
       "price": 80.22,
-      "change": 1.92,
-      "changePct": 2.4521,
-      "prevClose": 78.3
+      "change": 2.18,
+      "changePct": 2.7934,
+      "prevClose": 78.04
     },
     "NVDA": {
       "price": 217.56,
