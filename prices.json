@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T04:08:13.713695+00:00",
+  "updated": "2026-08-20T04:51:10.066810+00:00",
   "prices": {
     "AMZN": {
       "price": 265.84,
@@ -21,15 +21,15 @@
     },
     "HODL": {
       "price": 19.37,
-      "change": 1.09,
-      "changePct": 5.9628,
-      "prevClose": 18.28
+      "change": 1.11,
+      "changePct": 6.0789,
+      "prevClose": 18.26
     },
     "JOBY": {
       "price": 7.72,
-      "change": 0.11,
-      "changePct": 1.4455,
-      "prevClose": 7.61
+      "change": 0.0829,
+      "changePct": 1.0855,
+      "prevClose": 7.6371
     },
     "MRNA": {
       "price": 174.38,
@@ -57,9 +57,9 @@
     },
     "SNAP": {
       "price": 5.24,
-      "change": 0.1202,
-      "changePct": 2.3477,
-      "prevClose": 5.1198
+      "change": 0.13,
+      "changePct": 2.544,
+      "prevClose": 5.11
     },
     "TSLA": {
       "price": 351.12,
