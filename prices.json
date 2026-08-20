@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T04:51:10.066810+00:00",
+  "updated": "2026-08-20T05:24:08.336966+00:00",
   "prices": {
     "AMZN": {
       "price": 265.84,
@@ -15,9 +15,9 @@
     },
     "DIS": {
       "price": 106.93,
-      "change": 2.87,
-      "changePct": 2.758,
-      "prevClose": 104.06
+      "change": 2.97,
+      "changePct": 2.8569,
+      "prevClose": 103.96
     },
     "HODL": {
       "price": 19.37,
@@ -45,9 +45,9 @@
     },
     "NFLX": {
       "price": 80.22,
-      "change": 2.18,
-      "changePct": 2.7934,
-      "prevClose": 78.04
+      "change": 1.92,
+      "changePct": 2.4521,
+      "prevClose": 78.3
     },
     "NVDA": {
       "price": 217.56,
