@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T20:00:30.286822+00:00",
+  "updated": "2026-09-17T22:50:36.579404+00:00",
   "prices": {
     "AMZN": {
       "price": 251.19,
@@ -14,15 +14,15 @@
       "prevClose": 166.1732
     },
     "DIS": {
-      "price": 105.42,
-      "change": -1.71,
-      "changePct": -1.5962,
+      "price": 105.35,
+      "change": -1.78,
+      "changePct": -1.6615,
       "prevClose": 107.13
     },
     "HODL": {
-      "price": 21.645,
-      "change": 0.1343,
-      "changePct": 0.6243,
+      "price": 21.63,
+      "change": 0.1193,
+      "changePct": 0.5546,
       "prevClose": 21.5107
     },
     "JOBY": {
@@ -38,9 +38,9 @@
       "prevClose": 146.58
     },
     "NET": {
-      "price": 334.07,
-      "change": 7.57,
-      "changePct": 2.3185,
+      "price": 333.94,
+      "change": 7.44,
+      "changePct": 2.2787,
       "prevClose": 326.5
     },
     "NFLX": {
@@ -56,9 +56,9 @@
       "prevClose": 215.68
     },
     "SNAP": {
-      "price": 5.64,
-      "change": -0.3,
-      "changePct": -5.0505,
+      "price": 5.65,
+      "change": -0.29,
+      "changePct": -4.8822,
       "prevClose": 5.94
     },
     "TSLA": {
