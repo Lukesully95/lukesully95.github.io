@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14T21:56:57.167762+00:00",
+  "updated": "2026-10-15T00:16:50.030464+00:00",
   "prices": {
     "AMZN": {
       "price": 254.08,
@@ -39,9 +39,9 @@
     },
     "NET": {
       "price": 324.33,
-      "change": -23.37,
-      "changePct": -6.7213,
-      "prevClose": 347.7
+      "change": -23.55,
+      "changePct": -6.7696,
+      "prevClose": 347.88
     },
     "NFLX": {
       "price": 70.57,
