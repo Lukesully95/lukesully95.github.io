@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T01:58:17.675830+00:00",
+  "updated": "2026-10-20T07:15:10.338772+00:00",
   "prices": {
     "AMZN": {
       "price": 262.45,
@@ -69,9 +69,9 @@
     },
     "ZM": {
       "price": 97.59,
-      "change": 3.45,
-      "changePct": 3.6648,
-      "prevClose": 94.14
+      "change": 3.3901,
+      "changePct": 3.5988,
+      "prevClose": 94.1999
     },
     "SPCX": {
       "price": 147.96,
