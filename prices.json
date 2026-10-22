@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T21:39:14.359225+00:00",
+  "updated": "2026-10-22T00:13:23.385478+00:00",
   "prices": {
     "AMZN": {
       "price": 262.37,
@@ -27,9 +27,9 @@
     },
     "JOBY": {
       "price": 4.64,
-      "change": -0.08,
-      "changePct": -1.6949,
-      "prevClose": 4.72
+      "change": -0.06,
+      "changePct": -1.2766,
+      "prevClose": 4.7
     },
     "MRNA": {
       "price": 245.81,
