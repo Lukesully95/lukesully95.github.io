@@ -1,6 +1,6 @@
 {
  "status": {
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-04",
   "cadence": "Refreshes every morning"
  },
  "bots": [
@@ -366,25 +366,25 @@
  ],
  "news": [
   {
-   "title": "India is now ChatGPT's biggest market by weekly users",
-   "source": "StartupTalky",
-   "url": "https://startuptalky.com/news/daily-indian-funding-roundup-key-news-3-november-2026/",
-   "date": "Nov 3",
+   "title": "AMD posts record quarter as AI data center sales surge",
+   "source": "AMD (SEC filing)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000188/q32026991.htm",
+   "date": "Nov 4",
    "type": "company"
   },
   {
-   "title": "OpenAI hires Uber veteran Jill Hazelbaker to lead communications",
-   "source": "PYMNTS",
-   "url": "https://pymnts.com/personnel/2026/openai-recruits-uber-communications-exec-jill-hazelbaker-to-win-public-trust",
+   "title": "Meta speeds up shipping new ad AI features 3.6x",
+   "source": "Meta Engineering",
+   "url": "https://engineering.fb.com/2026/11/03/ml-applications/f3-lightning-how-meta-accelerates-ads-ml-features-to-production",
    "date": "Nov 3",
-   "type": "company"
+   "type": "research"
   },
   {
-   "title": "Anthropic buys a tiny biotech to test Claude on real drug development",
-   "source": "PYMNTS",
-   "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-buys-one-person-biotech-to-prove-claude-can-make-drugs/",
+   "title": "Anthropic expands invisible watermarks on Claude-written text",
+   "source": "Yahoo Finance",
+   "url": "https://uk.finance.yahoo.com/news/anthropic-claude-now-leave-trail-151343512.html",
    "date": "Nov 2",
-   "type": "funding"
+   "type": "policy"
   }
  ]
 }
