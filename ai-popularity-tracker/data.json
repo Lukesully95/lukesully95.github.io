@@ -218,5 +218,24 @@
    "history": []
   }
  ],
- "news": []
+ "news": [
+  {
+   "title": "India is now ChatGPT's biggest market by weekly users",
+   "source": "StartupTalky",
+   "url": "https://startuptalky.com/news/daily-indian-funding-roundup-key-news-3-november-2026/",
+   "date": "Nov 3"
+  },
+  {
+   "title": "OpenAI hires Uber veteran Jill Hazelbaker to lead communications",
+   "source": "PYMNTS",
+   "url": "https://pymnts.com/personnel/2026/openai-recruits-uber-communications-exec-jill-hazelbaker-to-win-public-trust",
+   "date": "Nov 3"
+  },
+  {
+   "title": "Anthropic buys a tiny biotech to test Claude on real drug development",
+   "source": "PYMNTS",
+   "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-buys-one-person-biotech-to-prove-claude-can-make-drugs/",
+   "date": "Nov 2"
+  }
+ ]
 }
