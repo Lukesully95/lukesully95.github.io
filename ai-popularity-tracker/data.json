@@ -30,13 +30,17 @@
      "users": 1200000000
     }
    ],
-   "color2": "#5c5c5c"
+   "color2": "#4a4a4a",
+   "colors": [
+    "#0d0d0d",
+    "#4a4a4a"
+   ]
   },
   {
    "id": "gemini",
    "name": "Gemini",
    "maker": "Google",
-   "color": "#4796e3",
+   "color": "#3186ff",
    "metric": "Monthly",
    "users": 1000000000,
    "prevUsers": 1000000000,
@@ -54,13 +58,19 @@
      "users": 1000000000
     }
    ],
-   "color2": "#9177c7"
+   "color2": "#f94543",
+   "colors": [
+    "#3186ff",
+    "#08b962",
+    "#fabc12",
+    "#f94543"
+   ]
   },
   {
    "id": "meta-ai",
    "name": "Meta AI",
    "maker": "Meta",
-   "color": "#0081fb",
+   "color": "#0082fb",
    "metric": "Monthly",
    "users": 1000000000,
    "prevUsers": 1000000000,
@@ -69,13 +79,19 @@
    "source": "Meta earnings",
    "sourceUrl": "https://www.demandsage.com/meta-ai-statistics/",
    "history": [],
-   "color2": "#a33bf2"
+   "color2": "#e541ff",
+   "colors": [
+    "#0082fb",
+    "#5041ff",
+    "#a555ff",
+    "#e541ff"
+   ]
   },
   {
    "id": "doubao",
    "name": "Doubao",
    "maker": "ByteDance",
-   "color": "#3a7bff",
+   "color": "#1e37fc",
    "metric": "Monthly",
    "users": 419080000,
    "prevUsers": 382000000,
@@ -93,7 +109,12 @@
      "users": 419080000
     }
    ],
-   "color2": "#7b5cff"
+   "color2": "#37e1be",
+   "colors": [
+    "#1e37fc",
+    "#a569ff",
+    "#37e1be"
+   ]
   },
   {
    "id": "claude",
@@ -108,13 +129,17 @@
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
    "history": [],
-   "color2": "#c15f3c"
+   "color2": "#c15f3c",
+   "colors": [
+    "#d97757",
+    "#c15f3c"
+   ]
   },
   {
    "id": "copilot",
    "name": "Copilot",
    "maker": "Microsoft",
-   "color": "#2b7de9",
+   "color": "#a86edd",
    "metric": "Monthly",
    "users": 212000000,
    "prevUsers": 212000000,
@@ -123,13 +148,19 @@
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
    "history": [],
-   "color2": "#7a4ef0"
+   "color2": "#aad445",
+   "colors": [
+    "#a86edd",
+    "#f2598a",
+    "#ffb152",
+    "#aad445"
+   ]
   },
   {
    "id": "qwen",
    "name": "Qwen",
    "maker": "Alibaba",
-   "color": "#615ced",
+   "color": "#082dff",
    "metric": "Monthly",
    "users": 158170000,
    "prevUsers": 167000000,
@@ -147,7 +178,11 @@
      "users": 158170000
     }
    ],
-   "color2": "#8b5cf6"
+   "color2": "#615ced",
+   "colors": [
+    "#082dff",
+    "#615ced"
+   ]
   },
   {
    "id": "deepseek",
@@ -162,13 +197,17 @@
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
    "history": [],
-   "color2": "#3a52d9"
+   "color2": "#3a52d9",
+   "colors": [
+    "#4d6bfe",
+    "#3a52d9"
+   ]
   },
   {
    "id": "grok",
    "name": "Grok",
    "maker": "xAI",
-   "color": "#1f2937",
+   "color": "#0d0d0d",
    "metric": "Monthly",
    "users": 117000000,
    "prevUsers": 117000000,
@@ -177,13 +216,17 @@
    "source": "SpaceX IPO filing",
    "sourceUrl": "https://rctrl.com/blog/grok-statistics-2026",
    "history": [],
-   "color2": "#4b5563"
+   "color2": "#4a4a4a",
+   "colors": [
+    "#0d0d0d",
+    "#4a4a4a"
+   ]
   },
   {
    "id": "yuanbao",
    "name": "Yuanbao",
    "maker": "Tencent",
-   "color": "#00b37e",
+   "color": "#00cc70",
    "metric": "Monthly",
    "users": 114000000,
    "prevUsers": 114000000,
@@ -197,13 +240,17 @@
      "users": 114000000
     }
    ],
-   "color2": "#0052d9"
+   "color2": "#00a85c",
+   "colors": [
+    "#00cc70",
+    "#00a85c"
+   ]
   },
   {
    "id": "perplexity",
    "name": "Perplexity",
    "maker": "Perplexity AI",
-   "color": "#20808d",
+   "color": "#22b8cd",
    "metric": "Monthly",
    "users": 45000000,
    "prevUsers": 45000000,
@@ -212,7 +259,11 @@
    "source": "fatjoe",
    "sourceUrl": "https://fatjoe.com/blog/perplexity-ai-stats/",
    "history": [],
-   "color2": "#1a6b75"
+   "color2": "#1a8f9f",
+   "colors": [
+    "#22b8cd",
+    "#1a8f9f"
+   ]
   },
   {
    "id": "character-ai",
@@ -227,7 +278,11 @@
    "source": "Sacra",
    "sourceUrl": "https://sqmagazine.co.uk/character-ai-statistics.md",
    "history": [],
-   "color2": "#6b7280"
+   "color2": "#6b7280",
+   "colors": [
+    "#1f2937",
+    "#6b7280"
+   ]
   }
  ],
  "news": [

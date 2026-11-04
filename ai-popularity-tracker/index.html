@@ -232,10 +232,15 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     return (w.length > 1 ? w[0][0] + w[1][0] : (w[0]||"?").slice(0,2)).toUpperCase();
   }
   function safeUrl(u){ return /^https:\/\//.test(u||"") ? u : null; }
+  const HEX = /^#[0-9a-f]{3,8}$/i;
+  function cols(b){
+    const arr = (Array.isArray(b.colors) ? b.colors : [b.color, b.color2]).filter(c => HEX.test(c||""));
+    return arr.length ? arr : ["#5b6b8c"];
+  }
+  function grad(b, angle){ const a = cols(b); return a.length > 1 ? `linear-gradient(${angle}, ${a.join(", ")})` : a[0]; }
   function badge(b, sm){
-    const c = /^#[0-9a-f]{3,8}$/i.test(b.color||"") ? b.color : "#5b6b8c";
-    const c2 = /^#[0-9a-f]{3,8}$/i.test(b.color2||"") ? b.color2 : c;
-    return `<span class="badge${sm?" sm":""}" style="--c:${c};background-color:${c};background-image:linear-gradient(145deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 45%), linear-gradient(135deg, ${c} 0%, ${c2} 100%)" aria-hidden="true">${esc(initials(b.name))}</span>`;
+    const c = cols(b)[0];
+    return `<span class="badge${sm?" sm":""}" style="--c:${c};background-color:${c};background-image:linear-gradient(145deg, rgba(255,255,255,.26) 0%, rgba(255,255,255,0) 45%), ${grad(b,"135deg")}" aria-hidden="true">${esc(initials(b.name))}</span>`;
   }
   function delta(b){
     if (!isFinite(b.prevUsers) || !b.prevUsers) return null;
@@ -352,7 +357,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
         <div class="rank"><span class="n">${b.rank}</span>${mv}</div>
         <div class="who">${badge(b)}<div><div class="nm">${esc(b.name)}</div><div class="mk">${esc(b.maker||"")}</div></div></div>
         <div class="barcell">
-          <div class="bar" role="img" aria-label="${esc(b.name)} at ${pct.toFixed(0)}% of the leader"><i style="width:${pct}%;background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?`linear-gradient(90deg, ${b.color}, ${/^#[0-9a-f]{3,8}$/i.test(b.color2||"")?b.color2:b.color})`:"var(--accent)"}"></i></div>
+          <div class="bar" role="img" aria-label="${esc(b.name)} at ${pct.toFixed(0)}% of the leader"><i style="width:${pct}%;background:${grad(b,"90deg")}"></i></div>
           <div class="meta"><span class="chip">${esc(b.metric || "users")}</span>${b.asOf?`<span>${esc(b.asOf)}</span>`:""}${src?`<span>${src}</span>`:""}</div>
         </div>
         <div class="users"><span class="big">${fmt(b.users)}</span>${dlHtml}${spark(b.history)}</div>
