@@ -1,0 +1,337 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI Tracker</title>
+<meta name="description" content="Live leaderboard of the 10 most-used AI chatbots, refreshed every morning.">
+<meta property="og:title" content="AI Tracker"><meta property="og:description" content="The 10 most-used AI chatbots, ranked by the latest reported users.">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a market-terminal leaderboard — live ticker tape, three headline tiles, then ranked rows with share-of-leader bars. */
+:root{
+  --bg:#f3f5fa; --panel:#ffffff; --panel-2:#eef1f8; --line:#dde3ef;
+  --fg:#0e1422; --muted:#5d6a82; --accent:#3d5bd9; --accent-soft:#e3e9ff;
+  --up:#0f9d6b; --down:#d6455d; --flat:#8a95aa;
+  --f-display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#090d16; --panel:#111827; --panel-2:#0d1320; --line:#1d2840;
+    --fg:#e9eef8; --muted:#8692aa; --accent:#8aa6ff; --accent-soft:#1a2547;
+    --up:#3ddc97; --down:#ff6b81; --flat:#6b7690; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#090d16; --panel:#111827; --panel-2:#0d1320; --line:#1d2840;
+  --fg:#e9eef8; --muted:#8692aa; --accent:#8aa6ff; --accent-soft:#1a2547;
+  --up:#3ddc97; --down:#ff6b81; --flat:#6b7690; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-body); font-size:15px; line-height:1.5}
+.wrap{max-width:1040px; margin:0 auto; padding-block:28px 56px;
+  padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px));
+  display:flex; flex-direction:column; gap:22px}
+.num{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+header{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px}
+.eyebrow{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:8px}
+.live{width:8px; height:8px; border-radius:50%; background:var(--up); box-shadow:0 0 0 0 var(--up); animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--up) 60%, transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-family:var(--f-display); font-weight:800; font-size:clamp(30px,5.4vw,48px); line-height:1.02; letter-spacing:-.02em; margin:6px 0 0; text-wrap:balance}
+.sub{color:var(--muted); margin:6px 0 0; max-width:60ch}
+.status{font-family:var(--f-mono); font-size:12px; color:var(--muted); text-align:right; display:flex; flex-direction:column; gap:2px}
+.status b{color:var(--fg); font-weight:500}
+
+/* ticker */
+.tape{overflow:hidden; border-block:1px solid var(--line); background:var(--panel-2); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tape-track{display:flex; gap:34px; width:max-content; padding:10px 0; animation:scroll 40s linear infinite}
+.tape:hover .tape-track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.tick{display:flex; align-items:center; gap:8px; font-family:var(--f-mono); font-size:13px; white-space:nowrap}
+.tick .tn{font-weight:700}
+.tick .tv{color:var(--muted)}
+
+/* tiles */
+.tiles{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.tile{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:6px; min-width:0}
+.tile .k{font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.tile .v{font-family:var(--f-display); font-weight:700; font-size:24px; line-height:1.1; display:flex; align-items:center; gap:10px; min-width:0}
+.tile .v span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.tile .d{font-size:13px; color:var(--muted)}
+
+/* board */
+.board{background:var(--panel); border:1px solid var(--line); border-radius:16px; overflow:hidden}
+.board-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line); flex-wrap:wrap}
+.board-head h2{font-family:var(--f-display); font-weight:700; font-size:20px; margin:0}
+.board-head .note{font-size:12px; color:var(--muted); font-family:var(--f-mono)}
+.cols,.row{display:grid; grid-template-columns:54px minmax(0,1.6fr) minmax(0,2fr) 96px; align-items:center; gap:14px; padding:0 20px}
+.cols{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding-block:10px; border-bottom:1px solid var(--line)}
+.cols .r{text-align:right}
+.row{padding-block:14px; border-bottom:1px solid var(--line); transition:background .15s}
+.row:last-child{border-bottom:0}
+.row:hover{background:var(--panel-2)}
+.rank{display:flex; flex-direction:column; align-items:flex-start; gap:2px}
+.rank .n{font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1}
+.mv{font-family:var(--f-mono); font-size:11px; font-weight:700}
+.mv.up{color:var(--up)} .mv.down{color:var(--down)} .mv.flat{color:var(--flat)} .mv.new{color:var(--accent)}
+.who{display:flex; align-items:center; gap:12px; min-width:0}
+.badge{flex:none; width:40px; height:40px; border-radius:11px; display:grid; place-items:center; color:#fff; font-family:var(--f-display); font-weight:800; font-size:15px; letter-spacing:-.02em; box-shadow:inset 0 -2px 0 rgba(0,0,0,.18)}
+.badge.sm{width:28px; height:28px; border-radius:8px; font-size:11px}
+.who .nm{font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.who .mk{font-size:12.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.who > div{min-width:0}
+.barcell{display:flex; flex-direction:column; gap:6px; min-width:0}
+.bar{height:10px; border-radius:6px; background:var(--panel-2); overflow:hidden; border:1px solid var(--line)}
+.bar i{display:block; height:100%; border-radius:6px; transform-origin:left; animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(.02)}}
+.meta{display:flex; flex-wrap:wrap; gap:4px 10px; font-size:11.5px; color:var(--muted)}
+.chip{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:1px 7px; border-radius:999px; background:var(--accent-soft); color:var(--accent)}
+.meta a{color:var(--muted); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:2px}
+.meta a:hover,.meta a:focus-visible{color:var(--accent)}
+.users{text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:2px}
+.users .big{font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-weight:700; font-size:19px}
+.users .dl{font-family:var(--f-mono); font-size:11.5px}
+.spark{display:block}
+
+/* bubbling under */
+.under{display:flex; flex-direction:column; gap:10px}
+.under h3{font-family:var(--f-display); font-size:16px; margin:0}
+.under p{margin:0; color:var(--muted); font-size:13px}
+.chips{display:flex; flex-wrap:wrap; gap:10px}
+.uchip{display:flex; align-items:center; gap:10px; background:var(--panel); border:1px dashed var(--line); border-radius:12px; padding:8px 14px 8px 8px}
+.uchip .nm{font-weight:600}
+.uchip .num{color:var(--muted); font-size:13px}
+
+.chartbox{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px 20px 10px; display:flex; flex-direction:column; gap:8px}
+.chartbox .hd{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.chartbox h2{font-family:var(--f-display); font-weight:700; font-size:20px; margin:0}
+.chartbox .note{font-size:12px; color:var(--muted); font-family:var(--f-mono)}
+.chart-scroll{overflow-x:auto}
+.chart-scroll svg{display:block; width:100%; min-width:620px; height:auto}
+.c-grid{stroke:var(--line); stroke-width:1}
+.c-axis{fill:var(--muted); font-family:var(--f-mono); font-size:11px}
+.c-val{fill:var(--fg); font-family:var(--f-mono); font-size:13px; font-weight:700}
+.c-name{fill:var(--fg); font-family:var(--f-body); font-size:12.5px; font-weight:600}
+.c-rank{fill:var(--muted); font-family:var(--f-mono); font-size:11px}
+.c-bar{transform-box:fill-box; transform-origin:bottom; animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:scaleY(.02)}}
+@media (prefers-reduced-motion:reduce){.c-bar{animation:none}}
+.empty{padding:40px 20px; text-align:center; color:var(--muted)}
+.empty b{display:block; color:var(--fg); font-family:var(--f-display); font-size:18px; margin-bottom:4px}
+footer{font-size:12.5px; color:var(--muted); max-width:75ch}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+
+@media (max-width:720px){
+  .tiles{grid-template-columns:1fr}
+  .cols{display:none}
+  .row{grid-template-columns:40px minmax(0,1fr) auto; grid-template-areas:"rk who us" "rk bar bar"; row-gap:10px}
+  .rank{grid-area:rk; align-self:start}
+  .who{grid-area:who} .users{grid-area:us} .barcell{grid-area:bar}
+  .status{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+  .tape-track,.bar i,.live{animation:none}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow"><span class="live" aria-hidden="true"></span>Live leaderboard</div>
+      <h1>AI Tracker</h1>
+      <p class="sub">The 10 most-used AI chatbots, ranked by the latest reported user counts. When a challenger passes #10, it takes the spot automatically.</p>
+    </div>
+    <div class="status" id="status"><span>Loading latest numbers…</span></div>
+  </header>
+
+  <section class="chartbox" aria-labelledby="ch">
+    <div class="hd"><h2 id="ch">Users by chatbot</h2><span class="note">Top 10 · reported users</span></div>
+    <div class="chart-scroll" id="chart"><div class="empty">The chart appears once the numbers load.</div></div>
+  </section>
+
+  <div class="tape" aria-label="Ticker"><div class="tape-track" id="tape"></div></div>
+
+  <section class="tiles" id="tiles" aria-label="Highlights"></section>
+
+  <section class="board" aria-labelledby="bh">
+    <div class="board-head">
+      <h2 id="bh">Top 10</h2>
+      <span class="note">Bar = users vs. the #1 spot</span>
+    </div>
+    <div class="cols"><span>Rank</span><span>Chatbot</span><span>Reach</span><span class="r">Users</span></div>
+    <div id="rows"><div class="empty"><b>Pulling the latest numbers</b>The leaderboard fills in as soon as the data loads.</div></div>
+  </section>
+
+  <section class="under" id="under" hidden>
+    <div><h3>Bubbling under</h3><p>Next in line. If any of these passes #10, it moves onto the board.</p></div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <footer>
+    Companies report users differently. Some give monthly users, OpenAI gives weekly users, and a few numbers are outside estimates. Each row shows its metric, date and source so you can check it. The numbers are refreshed every morning from the latest public reports, and the page loads the newest set every time you open it.
+  </footer>
+</div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const TOP = 10;
+
+  function fmt(n){
+    if (!isFinite(n)) return "—";
+    if (n >= 1e9) return (n/1e9).toFixed(n >= 1e10 ? 1 : 2).replace(/\.?0+$/,"") + "B";
+    if (n >= 1e6) return Math.round(n/1e6) + "M";
+    if (n >= 1e3) return Math.round(n/1e3) + "K";
+    return String(n);
+  }
+  function initials(name){
+    const w = String(name).replace(/[^A-Za-z0-9 .]/g," ").split(/[\s.]+/).filter(Boolean);
+    return (w.length > 1 ? w[0][0] + w[1][0] : (w[0]||"?").slice(0,2)).toUpperCase();
+  }
+  function safeUrl(u){ return /^https:\/\//.test(u||"") ? u : null; }
+  function badge(b, sm){
+    return `<span class="badge${sm?" sm":""}" style="background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?b.color:"#5b6b8c"}" aria-hidden="true">${esc(initials(b.name))}</span>`;
+  }
+  function delta(b){
+    if (!isFinite(b.prevUsers) || !b.prevUsers) return null;
+    return (b.users - b.prevUsers) / b.prevUsers;
+  }
+  function spark(hist){
+    const pts = (Array.isArray(hist)?hist:[]).filter(p => isFinite(p.users));
+    if (pts.length < 2) return "";
+    const w = 64, h = 20, max = Math.max(...pts.map(p=>p.users)), min = Math.min(...pts.map(p=>p.users));
+    const span = max - min || 1;
+    const xy = pts.map((p,i) => [ (i/(pts.length-1))*(w-4)+2, h-2-((p.users-min)/span)*(h-4) ]);
+    const d = xy.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join("");
+    const up = pts[pts.length-1].users >= pts[0].users;
+    const c = up ? "var(--up)" : "var(--down)";
+    const last = xy[xy.length-1];
+    return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="${c}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4" fill="${c}"/></svg>`;
+  }
+
+  function niceStep(raw){
+    const p = Math.pow(10, Math.floor(Math.log10(raw)));
+    const f = raw / p;
+    return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+  }
+  function drawChart(top){
+    const W = 960, H = 340, L = 56, R = 12, T = 28, B = 56;
+    const iw = W - L - R, ih = H - T - B;
+    const max = top[0].users;
+    const step = niceStep(max / 4);
+    const ceil = Math.ceil(max / step) * step;
+    const y = v => T + ih - (v / ceil) * ih;
+    const slot = iw / top.length, bw = Math.min(56, slot * 0.58);
+    let g = "";
+    for (let v = 0; v <= ceil + 1; v += step){
+      g += `<line class="c-grid" x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}"/><text class="c-axis" x="${L-8}" y="${y(v)+4}" text-anchor="end">${v ? fmt(v) : "0"}</text>`;
+    }
+    const bars = top.map((b,i) => {
+      const cx = L + slot * i + slot / 2, x = cx - bw / 2, yy = y(b.users), h = Math.max(2, T + ih - yy);
+      const col = /^#[0-9a-f]{3,8}$/i.test(b.color||"") ? b.color : "#5b6b8c";
+      return `<g><title>${esc(b.name)}: ${fmt(b.users)} ${esc((b.metric||"").toLowerCase())} users</title>
+        <rect class="c-bar" x="${x}" y="${T+ih-h}" width="${bw}" height="${h}" rx="7" fill="${col}" style="animation-delay:${i*60}ms"/>
+        <text class="c-val" x="${cx}" y="${T+ih-h-8}" text-anchor="middle">${fmt(b.users)}</text>
+        <text class="c-name" x="${cx}" y="${T+ih+20}" text-anchor="middle">${esc(b.name)}</text>
+        <text class="c-rank" x="${cx}" y="${T+ih+38}" text-anchor="middle">#${b.rank}</text></g>`;
+    }).join("");
+    $("#chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart of users for the top 10 chatbots">${g}${bars}</svg>`;
+  }
+
+  function render(bots, status){
+    bots = bots.filter(b => b && b.name && isFinite(b.users)).sort((a,b) => b.users - a.users);
+    bots.forEach((b,i) => b.rank = i + 1);
+    const top = bots.slice(0, TOP), rest = bots.slice(TOP);
+    const max = top[0]?.users || 1;
+
+    if (status && status.updatedAt){
+      const d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(status.updatedAt) ? status.updatedAt + "T12:00:00" : status.updatedAt);
+      const when = isNaN(d) ? esc(status.updatedAt) : d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});
+      $("#status").innerHTML = `<span>Last refreshed <b>${when}</b></span><span>${esc(status.cadence || "Refreshes every morning")}</span>`;
+    } else {
+      $("#status").innerHTML = `<span>Showing the latest saved numbers</span>`;
+    }
+
+    if (!top.length){
+      $("#rows").innerHTML = `<div class="empty"><b>No numbers yet</b>The next morning refresh will fill this board.</div>`;
+      return;
+    }
+
+    drawChart(top);
+
+    // ticker
+    const ticks = top.map(b => {
+      const dl = delta(b);
+      const cls = dl == null ? "flat" : dl > 0 ? "up" : dl < 0 ? "down" : "flat";
+      const txt = dl == null ? "" : `<span class="mv ${cls}">${dl>0?"▲":dl<0?"▼":"•"} ${Math.abs(dl*100).toFixed(1)}%</span>`;
+      return `<span class="tick">${badge(b,true)}<span class="tn">${esc(b.name)}</span><span class="tv">${fmt(b.users)}</span>${txt}</span>`;
+    }).join("");
+    $("#tape").innerHTML = ticks + ticks;
+
+    // tiles
+    const leader = top[0];
+    const movers = top.map(b => ({b, d: delta(b)})).filter(x => x.d != null).sort((a,b)=>b.d-a.d);
+    const climber = movers[0];
+    let race = null;
+    for (let i = 0; i < top.length - 1; i++){
+      const gap = (top[i].users - top[i+1].users) / top[i].users;
+      if (gap > 0 && (!race || gap < race.gap)) race = {a: top[i], b: top[i+1], gap};
+    }
+    if (!race) race = {a: top[0], b: top[1] || top[0], gap: 0};
+    const doorman = rest[0];
+    $("#tiles").innerHTML = `
+      <div class="tile"><span class="k">#1 right now</span><span class="v">${badge(leader)}<span>${esc(leader.name)}</span></span><span class="d"><span class="num">${fmt(leader.users)}</span> ${esc((leader.metric||"").toLowerCase())} users</span></div>
+      ${climber && climber.d > 0
+        ? `<div class="tile"><span class="k">Fastest growing</span><span class="v">${badge(climber.b)}<span>${esc(climber.b.name)}</span></span><span class="d"><span class="num" style="color:var(--up)">+${(climber.d*100).toFixed(1)}%</span> since the last refresh</span></div>`
+        : `<div class="tile"><span class="k">Closest race</span><span class="v"><span>#${race.a.rank} vs #${race.b.rank}</span></span><span class="d">${esc(race.a.name)} leads ${esc(race.b.name)} by <span class="num">${fmt(race.a.users-race.b.users)}</span></span></div>`}
+      ${doorman
+        ? `<div class="tile"><span class="k">Knocking on #10</span><span class="v">${badge(doorman)}<span>${esc(doorman.name)}</span></span><span class="d">Needs <span class="num">${fmt(top[top.length-1].users - doorman.users)}</span> more users to pass ${esc(top[top.length-1].name)}</span></div>`
+        : `<div class="tile"><span class="k">Closest race</span><span class="v"><span>#${race.a.rank} vs #${race.b.rank}</span></span><span class="d">${esc(race.a.name)} leads by <span class="num">${fmt(race.a.users-race.b.users)}</span></span></div>`}
+    `;
+
+    // rows
+    $("#rows").innerHTML = top.map(b => {
+      let mv;
+      if (!isFinite(b.prevRank)) mv = `<span class="mv flat">—</span>`;
+      else if (b.prevRank > TOP) mv = `<span class="mv new">NEW</span>`;
+      else if (b.prevRank > b.rank) mv = `<span class="mv up">▲${b.prevRank-b.rank}</span>`;
+      else if (b.prevRank < b.rank) mv = `<span class="mv down">▼${b.rank-b.prevRank}</span>`;
+      else mv = `<span class="mv flat">—</span>`;
+      const dl = delta(b);
+      const dlHtml = dl == null ? `<span class="dl" style="color:var(--flat)">—</span>`
+        : `<span class="dl" style="color:${dl>0?"var(--up)":dl<0?"var(--down)":"var(--flat)"}">${dl>0?"+":""}${(dl*100).toFixed(1)}%</span>`;
+      const url = safeUrl(b.sourceUrl);
+      const src = b.source ? (url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(b.source)}</a>` : esc(b.source)) : "";
+      const pct = Math.max(2, (b.users / max) * 100);
+      return `<div class="row">
+        <div class="rank"><span class="n">${b.rank}</span>${mv}</div>
+        <div class="who">${badge(b)}<div><div class="nm">${esc(b.name)}</div><div class="mk">${esc(b.maker||"")}</div></div></div>
+        <div class="barcell">
+          <div class="bar" role="img" aria-label="${esc(b.name)} at ${pct.toFixed(0)}% of the leader"><i style="width:${pct}%;background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?b.color:"var(--accent)"}"></i></div>
+          <div class="meta"><span class="chip">${esc(b.metric || "users")}</span>${b.asOf?`<span>${esc(b.asOf)}</span>`:""}${src?`<span>${src}</span>`:""}</div>
+        </div>
+        <div class="users"><span class="big">${fmt(b.users)}</span>${dlHtml}${spark(b.history)}</div>
+      </div>`;
+    }).join("");
+
+    // bubbling under
+    if (rest.length){
+      $("#under").hidden = false;
+      $("#chips").innerHTML = rest.map(b => `<div class="uchip">${badge(b,true)}<span class="nm">#${b.rank} ${esc(b.name)}</span><span class="num">${fmt(b.users)}</span></div>`).join("");
+    } else $("#under").hidden = true;
+  }
+
+  fetch("data.json?t=" + Date.now(), {cache: "no-store"})
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => render(d.bots || [], d.status || null))
+    .catch(() => {
+      $("#status").innerHTML = `<span>Couldn't load the numbers</span>`;
+      $("#rows").innerHTML = `<div class="empty"><b>Couldn't load the numbers</b>Reload the page to try again.</div>`;
+    });
+})();
+</script>
+
+</body></html>
