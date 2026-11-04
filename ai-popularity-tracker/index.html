@@ -262,8 +262,16 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     let base = null;
     for (const p of pts){ if (p.d <= cutoff) base = p; }
     if (!base) return null;
+    if (base === pts[pts.length-1]) return "nr";
     return (b.users - base.u) / base.u;
   }
+  function lastReport(b){
+    const pts = (Array.isArray(b.history) ? b.history : []).map(p => ({d: pdate(p.date), u: p.users})).filter(p => p.d && isFinite(p.u) && p.u > 0).sort((a,c) => a.d - c.d);
+    if (pts.length < 2) return null;
+    const a = pts[pts.length-2].u, c = pts[pts.length-1].u;
+    return (c - a) / a;
+  }
+  const num = v => typeof v === "number" && isFinite(v);
   function spark(hist){
     const pts = (Array.isArray(hist)?hist:[]).filter(p => isFinite(p.users));
     if (pts.length < 2) return "";
@@ -329,7 +337,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
 
     // ticker
     const ticks = top.map(b => {
-      const dl = delta(b);
+      const dl = lastReport(b);
       const cls = dl == null ? "flat" : dl > 0 ? "up" : dl < 0 ? "down" : "flat";
       const txt = dl == null ? "" : `<span class="mv ${cls}">${dl>0?"▲":dl<0?"▼":"•"} ${Math.abs(dl*100).toFixed(1)}%</span>`;
       return `<span class="tick">${badge(b,true)}<span class="tn">${esc(b.name)}</span><span class="tv">${fmt(b.users)}</span>${txt}</span>`;
@@ -338,7 +346,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
 
     // tiles
     const leader = top[0];
-    const movers = top.map(b => ({b, d: delta(b)})).filter(x => x.d != null).sort((a,b)=>b.d-a.d);
+    const movers = top.map(b => ({b, d: delta(b)})).filter(x => num(x.d)).sort((a,b)=>b.d-a.d);
     const climber = movers[0];
     let race = null;
     for (let i = 0; i < top.length - 1; i++){
@@ -366,7 +374,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
       else if (b.prevRank < b.rank) mv = `<span class="mv down">▼${b.rank-b.prevRank}</span>`;
       else mv = `<span class="mv flat">—</span>`;
       const dl = delta(b);
-      const dlHtml = dl == null ? `<span class="dl" style="color:var(--flat)">—</span>`
+      const dlHtml = dl === "nr" ? `<span class="dl" style="color:var(--flat)" title="The company hasn't released a newer number in this period">no new report</span>`
+        : !num(dl) ? `<span class="dl" style="color:var(--flat)" title="Not enough reported history for this period yet">—</span>`
         : `<span class="dl" style="color:${dl>0?"var(--up)":dl<0?"var(--down)":"var(--flat)"}">${dl>0?"+":""}${(dl*100).toFixed(1)}%</span>`;
       const url = safeUrl(b.sourceUrl);
       const src = b.source ? (url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(b.source)}</a>` : esc(b.source)) : "";
@@ -427,7 +436,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
       const ok = p && isFinite(p.price);
       const pct = ok && isFinite(p.changePct) ? p.changePct : null;
       const col = pct == null ? "var(--flat)" : pct > 0 ? "var(--up)" : pct < 0 ? "var(--down)" : "var(--flat)";
-      return `<div class="stk"><span class="sym">${sym}</span><span class="co">${co} · <b>${bot}</b></span><span class="px">${ok ? "$" + Number(p.price).toFixed(2) : "—"}</span><span class="ch" style="color:${col}">${pct == null ? "—" : (pct > 0 ? "▲ +" : pct < 0 ? "▼ " : "• ") + pct.toFixed(2) + "%"}</span><span class="mc">Mkt cap ${fmtCap(p && p.marketCap)}</span></div>`;
+      return `<div class="stk"><span class="sym">${sym}</span><span class="co">${co} · <b>${bot}</b></span><span class="mc" style="margin-top:6px">Market cap</span><span class="px" style="margin-top:0">${fmtCap(p && p.marketCap)}</span><span class="mc">${ok ? "$" + Number(p.price).toFixed(2) + " / share" : "—"}</span><span class="ch" style="color:${col}">${pct == null ? "—" : (pct > 0 ? "▲ +" : pct < 0 ? "▼ " : "• ") + pct.toFixed(2) + "%"}</span></div>`;
     }).join("");
     if (updated){
       const d = new Date(updated);
