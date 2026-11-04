@@ -29,13 +29,14 @@
      "date": "2026-09",
      "users": 1200000000
     }
-   ]
+   ],
+   "color2": "#0d8a6a"
   },
   {
    "id": "gemini",
    "name": "Gemini",
    "maker": "Google",
-   "color": "#4f7cff",
+   "color": "#4796e3",
    "metric": "Monthly",
    "users": 1000000000,
    "prevUsers": 1000000000,
@@ -52,13 +53,14 @@
      "date": "2026-10",
      "users": 1000000000
     }
-   ]
+   ],
+   "color2": "#9177c7"
   },
   {
    "id": "meta-ai",
    "name": "Meta AI",
    "maker": "Meta",
-   "color": "#1877f2",
+   "color": "#0081fb",
    "metric": "Monthly",
    "users": 1000000000,
    "prevUsers": 1000000000,
@@ -66,13 +68,14 @@
    "asOf": "2025 (latest reported)",
    "source": "Meta earnings",
    "sourceUrl": "https://www.demandsage.com/meta-ai-statistics/",
-   "history": []
+   "history": [],
+   "color2": "#a33bf2"
   },
   {
    "id": "doubao",
    "name": "Doubao",
    "maker": "ByteDance",
-   "color": "#ff6a3d",
+   "color": "#3a7bff",
    "metric": "Monthly",
    "users": 419080000,
    "prevUsers": 382000000,
@@ -89,7 +92,8 @@
      "date": "2026-09",
      "users": 419080000
     }
-   ]
+   ],
+   "color2": "#7b5cff"
   },
   {
    "id": "claude",
@@ -103,13 +107,14 @@
    "asOf": "Aug 2026 (estimate)",
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
-   "history": []
+   "history": [],
+   "color2": "#c15f3c"
   },
   {
    "id": "copilot",
    "name": "Copilot",
    "maker": "Microsoft",
-   "color": "#2a8fd0",
+   "color": "#2b7de9",
    "metric": "Monthly",
    "users": 212000000,
    "prevUsers": 212000000,
@@ -117,13 +122,14 @@
    "asOf": "Nov 2025",
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
-   "history": []
+   "history": [],
+   "color2": "#7a4ef0"
   },
   {
    "id": "qwen",
    "name": "Qwen",
    "maker": "Alibaba",
-   "color": "#6b4dff",
+   "color": "#615ced",
    "metric": "Monthly",
    "users": 158170000,
    "prevUsers": 167000000,
@@ -140,13 +146,14 @@
      "date": "2026-09",
      "users": 158170000
     }
-   ]
+   ],
+   "color2": "#8b5cf6"
   },
   {
    "id": "deepseek",
    "name": "DeepSeek",
    "maker": "DeepSeek",
-   "color": "#3d5afe",
+   "color": "#4d6bfe",
    "metric": "Monthly",
    "users": 139080000,
    "prevUsers": 139080000,
@@ -154,13 +161,14 @@
    "asOf": "Jul 2026",
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
-   "history": []
+   "history": [],
+   "color2": "#3a52d9"
   },
   {
    "id": "grok",
    "name": "Grok",
    "maker": "xAI",
-   "color": "#4b5563",
+   "color": "#1f2937",
    "metric": "Monthly",
    "users": 117000000,
    "prevUsers": 117000000,
@@ -168,13 +176,14 @@
    "asOf": "Mar 2026",
    "source": "SpaceX IPO filing",
    "sourceUrl": "https://rctrl.com/blog/grok-statistics-2026",
-   "history": []
+   "history": [],
+   "color2": "#4b5563"
   },
   {
    "id": "yuanbao",
    "name": "Yuanbao",
    "maker": "Tencent",
-   "color": "#0052d9",
+   "color": "#00b37e",
    "metric": "Monthly",
    "users": 114000000,
    "prevUsers": 114000000,
@@ -187,7 +196,8 @@
      "date": "2026-02",
      "users": 114000000
     }
-   ]
+   ],
+   "color2": "#0052d9"
   },
   {
    "id": "perplexity",
@@ -201,13 +211,14 @@
    "asOf": "Oct 2026",
    "source": "fatjoe",
    "sourceUrl": "https://fatjoe.com/blog/perplexity-ai-stats/",
-   "history": []
+   "history": [],
+   "color2": "#1a6b75"
   },
   {
    "id": "character-ai",
    "name": "Character.AI",
    "maker": "Character.AI",
-   "color": "#e8a317",
+   "color": "#1f2937",
    "metric": "Monthly",
    "users": 20000000,
    "prevUsers": 20000000,
@@ -215,7 +226,8 @@
    "asOf": "2024 (latest reported)",
    "source": "Sacra",
    "sourceUrl": "https://sqmagazine.co.uk/character-ai-statistics.md",
-   "history": []
+   "history": [],
+   "color2": "#6b7280"
   }
  ],
  "news": [

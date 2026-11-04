@@ -79,7 +79,9 @@ h1{font-family:var(--f-display); font-weight:800; font-size:clamp(30px,5.4vw,48p
 .mv{font-family:var(--f-mono); font-size:11px; font-weight:700}
 .mv.up{color:var(--up)} .mv.down{color:var(--down)} .mv.flat{color:var(--flat)} .mv.new{color:var(--accent)}
 .who{display:flex; align-items:center; gap:12px; min-width:0}
-.badge{flex:none; width:40px; height:40px; border-radius:11px; display:grid; place-items:center; color:#fff; font-family:var(--f-display); font-weight:800; font-size:15px; letter-spacing:-.02em; box-shadow:inset 0 -2px 0 rgba(0,0,0,.18)}
+.badge{flex:none; position:relative; width:40px; height:40px; border-radius:12px; display:grid; place-items:center; color:#fff; font-family:var(--f-display); font-weight:800; font-size:15px; letter-spacing:-.02em; text-shadow:0 1px 2px rgba(0,0,0,.25);
+  background-image:linear-gradient(145deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,0) 48%, rgba(0,0,0,.22) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), inset 0 -2px 0 rgba(0,0,0,.2), 0 6px 16px -6px var(--c, #5b6b8c), 0 0 0 3px color-mix(in srgb, var(--c, #5b6b8c) 16%, transparent)}
 .badge.sm{width:28px; height:28px; border-radius:8px; font-size:11px}
 .who .nm{font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .who .mk{font-size:12.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
@@ -231,7 +233,9 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
   }
   function safeUrl(u){ return /^https:\/\//.test(u||"") ? u : null; }
   function badge(b, sm){
-    return `<span class="badge${sm?" sm":""}" style="background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?b.color:"#5b6b8c"}" aria-hidden="true">${esc(initials(b.name))}</span>`;
+    const c = /^#[0-9a-f]{3,8}$/i.test(b.color||"") ? b.color : "#5b6b8c";
+    const c2 = /^#[0-9a-f]{3,8}$/i.test(b.color2||"") ? b.color2 : c;
+    return `<span class="badge${sm?" sm":""}" style="--c:${c};background-color:${c};background-image:linear-gradient(145deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 45%), linear-gradient(135deg, ${c} 0%, ${c2} 100%)" aria-hidden="true">${esc(initials(b.name))}</span>`;
   }
   function delta(b){
     if (!isFinite(b.prevUsers) || !b.prevUsers) return null;
@@ -348,7 +352,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
         <div class="rank"><span class="n">${b.rank}</span>${mv}</div>
         <div class="who">${badge(b)}<div><div class="nm">${esc(b.name)}</div><div class="mk">${esc(b.maker||"")}</div></div></div>
         <div class="barcell">
-          <div class="bar" role="img" aria-label="${esc(b.name)} at ${pct.toFixed(0)}% of the leader"><i style="width:${pct}%;background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?b.color:"var(--accent)"}"></i></div>
+          <div class="bar" role="img" aria-label="${esc(b.name)} at ${pct.toFixed(0)}% of the leader"><i style="width:${pct}%;background:${/^#[0-9a-f]{3,8}$/i.test(b.color||"")?`linear-gradient(90deg, ${b.color}, ${/^#[0-9a-f]{3,8}$/i.test(b.color2||"")?b.color2:b.color})`:"var(--accent)"}"></i></div>
           <div class="meta"><span class="chip">${esc(b.metric || "users")}</span>${b.asOf?`<span>${esc(b.asOf)}</span>`:""}${src?`<span>${src}</span>`:""}</div>
         </div>
         <div class="users"><span class="big">${fmt(b.users)}</span>${dlHtml}${spark(b.history)}</div>
