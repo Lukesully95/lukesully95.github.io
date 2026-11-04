@@ -8,7 +8,7 @@
    "id": "chatgpt",
    "name": "ChatGPT",
    "maker": "OpenAI",
-   "color": "#10a37f",
+   "color": "#0d0d0d",
    "metric": "Weekly",
    "users": 1200000000,
    "prevUsers": 1200000000,
@@ -30,7 +30,7 @@
      "users": 1200000000
     }
    ],
-   "color2": "#0d8a6a"
+   "color2": "#5c5c5c"
   },
   {
    "id": "gemini",
