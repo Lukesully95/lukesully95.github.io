@@ -58,6 +58,10 @@
      "users": 650000000
     },
     {
+     "date": "2025-12",
+     "users": 750000000
+    },
+    {
      "date": "2026-08",
      "users": 1000000000
     },
@@ -86,7 +90,20 @@
    "asOf": "2025 (latest reported)",
    "source": "Meta earnings",
    "sourceUrl": "https://www.demandsage.com/meta-ai-statistics/",
-   "history": [],
+   "history": [
+    {
+     "date": "2024-09",
+     "users": 500000000
+    },
+    {
+     "date": "2024-12",
+     "users": 600000000
+    },
+    {
+     "date": "2025-05",
+     "users": 1000000000
+    }
+   ],
    "color2": "#e541ff",
    "colors": [
     "#0082fb",
@@ -108,6 +125,22 @@
    "source": "QuestMobile (Q3 2026 AI app report)",
    "sourceUrl": "https://finance.sina.com.cn/stock/relnews/hk/2026-10-20/doc-inivvxct6517780.shtml",
    "history": [
+    {
+     "date": "2024-11",
+     "users": 56000000
+    },
+    {
+     "date": "2025-08",
+     "users": 157000000
+    },
+    {
+     "date": "2025-12",
+     "users": 226690000
+    },
+    {
+     "date": "2026-03",
+     "users": 345000000
+    },
     {
      "date": "2026-05",
      "users": 382000000
@@ -178,6 +211,14 @@
    "sourceUrl": "https://finance.sina.com.cn/stock/relnews/hk/2026-10-20/doc-inivvxct6517780.shtml",
    "history": [
     {
+     "date": "2025-12",
+     "users": 25170000
+    },
+    {
+     "date": "2026-03",
+     "users": 166000000
+    },
+    {
      "date": "2026-05",
      "users": 167000000
     },
@@ -204,7 +245,28 @@
    "asOf": "Jul 2026",
    "source": "Datarefs",
    "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
-   "history": [],
+   "history": [
+    {
+     "date": "2025-08",
+     "users": 143000000
+    },
+    {
+     "date": "2025-12",
+     "users": 135570000
+    },
+    {
+     "date": "2026-03",
+     "users": 127000000
+    },
+    {
+     "date": "2026-05",
+     "users": 130000000
+    },
+    {
+     "date": "2026-07",
+     "users": 139080000
+    }
+   ],
    "color2": "#3a52d9",
    "colors": [
     "#4d6bfe",
@@ -266,7 +328,16 @@
    "asOf": "Oct 2026",
    "source": "fatjoe",
    "sourceUrl": "https://fatjoe.com/blog/perplexity-ai-stats/",
-   "history": [],
+   "history": [
+    {
+     "date": "2025-01",
+     "users": 22000000
+    },
+    {
+     "date": "2026-10",
+     "users": 45000000
+    }
+   ],
    "color2": "#1a8f9f",
    "colors": [
     "#22b8cd",
