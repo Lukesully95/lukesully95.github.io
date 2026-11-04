@@ -2,7 +2,7 @@ import yfinance as yf
 import json
 from datetime import datetime, timezone
 
-SYMBOLS = ['AMZN', 'COIN', 'DIS', 'HODL', 'JOBY', 'MRNA', 'NET', 'NFLX', 'NVDA', 'SNAP', 'TSLA', 'ZM', 'SPCX', 'MSFT', 'GOOGL', 'META']
+SYMBOLS = ['AMZN', 'COIN', 'DIS', 'HODL', 'JOBY', 'MRNA', 'NET', 'NFLX', 'NVDA', 'SNAP', 'TSLA', 'ZM', 'SPCX', 'MSFT', 'GOOGL', 'META', 'BABA', 'TCEHY']
 
 data = {}
 try:
@@ -21,6 +21,11 @@ try:
                 'changePct': chgPct,
                 'prevClose': round(prev, 4) if prev else None,
             }
+            try:
+                mc = fi.market_cap
+                if mc: data[sym]['marketCap'] = int(mc)
+            except Exception:
+                pass
             print(f"  {sym}: ${price}")
         except Exception as e:
             print(f"  {sym} error: {e}")

@@ -162,6 +162,15 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
 .brand span{font-size:13px; color:var(--muted)}
 .brand b{color:var(--fg)}
 @media (max-width:720px){ .stocks{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.ptabs{display:inline-flex; gap:2px; padding:3px; border-radius:10px; background:var(--panel-2); border:1px solid var(--line)}
+.ptabs button{font:600 12.5px var(--f-body); color:var(--muted); background:none; border:0; padding:5px 12px; border-radius:7px; cursor:pointer}
+.ptabs button[aria-selected="true"]{background:var(--panel); color:var(--fg); box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.ptabs button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.stk .co b{color:var(--fg); font-weight:600}
+.stk .mc{font-family:var(--f-mono); font-size:11.5px; color:var(--muted); margin-top:2px}
+.priv{font-size:12px; color:var(--muted); margin-top:8px}
+.stocks{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media (max-width:900px){ .stocks{grid-template-columns:repeat(3,minmax(0,1fr))} }
 </style>
 
 <div class="wrap">
@@ -184,16 +193,17 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
   <section class="tiles" id="tiles" aria-label="Highlights"></section>
 
   <section aria-labelledby="sh">
-    <div class="sec-hd"><h2 id="sh">AI stocks</h2><span class="note" id="stk-note">Live prices</span></div>
+    <div class="sec-hd"><h2 id="sh">Chatbot makers on the stock market</h2><span class="note" id="stk-note">Live prices</span></div>
     <div class="stocks" id="stocks"></div>
+    <p class="priv">Not publicly traded: OpenAI (ChatGPT), Anthropic (Claude), ByteDance (Doubao), DeepSeek, Perplexity.</p>
   </section>
 
   <section class="board" aria-labelledby="bh">
     <div class="board-head">
       <h2 id="bh">Top 10</h2>
-      <span class="note">Bar = users vs. the #1 spot</span>
+      <div class="ptabs" role="tablist" aria-label="Change period"><button data-p="day">Day</button><button data-p="week">Week</button><button data-p="month" aria-selected="true">Month</button><button data-p="year">Year</button></div>
     </div>
-    <div class="cols"><span>Rank</span><span>Chatbot</span><span>Reach</span><span class="r">Users</span></div>
+    <div class="cols"><span>Rank</span><span>Chatbot</span><span>Reach</span><span class="r">Users · <span id="pcol">month</span></span></div>
     <div id="rows"><div class="empty"><b>Pulling the latest numbers</b>The leaderboard fills in as soon as the data loads.</div></div>
   </section>
 
@@ -242,9 +252,17 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     const c = cols(b)[0];
     return `<span class="badge${sm?" sm":""}" style="--c:${c};background-color:${c};background-image:linear-gradient(145deg, rgba(255,255,255,.26) 0%, rgba(255,255,255,0) 45%), ${grad(b,"135deg")}" aria-hidden="true">${esc(initials(b.name))}</span>`;
   }
+  const PERIODS = {day:{days:1,label:"past day"}, week:{days:7,label:"past week"}, month:{days:30,label:"past month"}, year:{days:365,label:"past year"}};
+  let PERIOD = "month";
+  function pdate(s){ const m = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(s||""); return m ? new Date(+m[1], +m[2]-1, m[3] ? +m[3] : 1) : null; }
   function delta(b){
-    if (!isFinite(b.prevUsers) || !b.prevUsers) return null;
-    return (b.users - b.prevUsers) / b.prevUsers;
+    const pts = (Array.isArray(b.history) ? b.history : []).map(p => ({d: pdate(p.date), u: p.users})).filter(p => p.d && isFinite(p.u) && p.u > 0).sort((a,c) => a.d - c.d);
+    if (!pts.length || !isFinite(b.users)) return null;
+    const cutoff = new Date(Date.now() - PERIODS[PERIOD].days * 864e5);
+    let base = null;
+    for (const p of pts){ if (p.d <= cutoff) base = p; }
+    if (!base) return null;
+    return (b.users - base.u) / base.u;
   }
   function spark(hist){
     const pts = (Array.isArray(hist)?hist:[]).filter(p => isFinite(p.users));
@@ -332,7 +350,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     $("#tiles").innerHTML = `
       <div class="tile"><span class="k">#1 right now</span><span class="v">${badge(leader)}<span>${esc(leader.name)}</span></span><span class="d"><span class="num">${fmt(leader.users)}</span> ${esc((leader.metric||"").toLowerCase())} users</span></div>
       ${climber && climber.d > 0
-        ? `<div class="tile"><span class="k">Fastest growing</span><span class="v">${badge(climber.b)}<span>${esc(climber.b.name)}</span></span><span class="d"><span class="num" style="color:var(--up)">+${(climber.d*100).toFixed(1)}%</span> since the last refresh</span></div>`
+        ? `<div class="tile"><span class="k">Fastest growing</span><span class="v">${badge(climber.b)}<span>${esc(climber.b.name)}</span></span><span class="d"><span class="num" style="color:var(--up)">+${(climber.d*100).toFixed(1)}%</span> in the ${PERIODS[PERIOD].label}</span></div>`
         : `<div class="tile"><span class="k">Closest race</span><span class="v"><span>#${race.a.rank} vs #${race.b.rank}</span></span><span class="d">${esc(race.a.name)} leads ${esc(race.b.name)} by <span class="num">${fmt(race.a.users-race.b.users)}</span></span></div>`}
       ${doorman
         ? `<div class="tile"><span class="k">Knocking on #10</span><span class="v">${badge(doorman)}<span>${esc(doorman.name)}</span></span><span class="d">Needs <span class="num">${fmt(top[top.length-1].users - doorman.users)}</span> more users to pass ${esc(top[top.length-1].name)}</span></div>`
@@ -371,6 +389,13 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     } else $("#under").hidden = true;
   }
 
+  let LAST = null;
+  document.querySelectorAll(".ptabs button").forEach(btn => btn.addEventListener("click", () => {
+    PERIOD = btn.dataset.p;
+    document.querySelectorAll(".ptabs button").forEach(x => x.setAttribute("aria-selected", x === btn ? "true" : "false"));
+    const pc = document.getElementById("pcol"); if (pc) pc.textContent = btn.dataset.p;
+    if (LAST) render(LAST[0].map(x => ({...x})), LAST[1]);
+  }));
   const DATA_URLS = ["https://lukesully95.github.io/ai-popularity-tracker/data.json", "data.json"];
   (async () => {
     for (const u of DATA_URLS){
@@ -378,7 +403,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
         const r = await fetch(u + "?t=" + Date.now(), {cache: "no-store"});
         if (!r.ok) continue;
         const d = await r.json();
-        render(d.bots || [], d.status || null);
+        LAST = [d.bots || [], d.status || null];
+        render(LAST[0].map(x => ({...x})), LAST[1]);
         renderNews(d.news || []);
         return;
       } catch (_) {}
@@ -393,14 +419,15 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     $("#news").innerHTML = items.map((n,i) => `<a class="nitem" href="${esc(n.url)}" target="_blank" rel="noopener"><span class="nn">${i+1}</span><div><div class="nt">${esc(n.title)}</div><div class="ns">${esc(n.source || "")}${n.date ? " · " + esc(n.date) : ""}</div></div></a>`).join("");
   }
 
-  const STOCKS = [["NVDA","Nvidia"],["MSFT","Microsoft"],["GOOGL","Alphabet"],["META","Meta"],["AMZN","Amazon"]];
+  const STOCKS = [["GOOGL","Alphabet","Gemini"],["META","Meta","Meta AI"],["MSFT","Microsoft","Copilot"],["BABA","Alibaba","Qwen"],["TCEHY","Tencent","Yuanbao"],["SPCX","SpaceX","Grok"]];
+  function fmtCap(n){ if (!isFinite(n) || n <= 0) return "—"; return n >= 1e12 ? "$" + (n/1e12).toFixed(2) + "T" : n >= 1e9 ? "$" + Math.round(n/1e9) + "B" : "$" + Math.round(n/1e6) + "M"; }
   function renderStocks(prices, updated){
-    $("#stocks").innerHTML = STOCKS.map(([sym, co]) => {
+    $("#stocks").innerHTML = STOCKS.map(([sym, co, bot]) => {
       const p = prices && prices[sym];
       const ok = p && isFinite(p.price);
       const pct = ok && isFinite(p.changePct) ? p.changePct : null;
       const col = pct == null ? "var(--flat)" : pct > 0 ? "var(--up)" : pct < 0 ? "var(--down)" : "var(--flat)";
-      return `<div class="stk"><span class="sym">${sym}</span><span class="co">${co}</span><span class="px">${ok ? "$" + Number(p.price).toFixed(2) : "—"}</span><span class="ch" style="color:${col}">${pct == null ? "—" : (pct > 0 ? "▲ +" : pct < 0 ? "▼ " : "• ") + pct.toFixed(2) + "%"}</span></div>`;
+      return `<div class="stk"><span class="sym">${sym}</span><span class="co">${co} · <b>${bot}</b></span><span class="px">${ok ? "$" + Number(p.price).toFixed(2) : "—"}</span><span class="ch" style="color:${col}">${pct == null ? "—" : (pct > 0 ? "▲ +" : pct < 0 ? "▼ " : "• ") + pct.toFixed(2) + "%"}</span><span class="mc">Mkt cap ${fmtCap(p && p.marketCap)}</span></div>`;
     }).join("");
     if (updated){
       const d = new Date(updated);
