@@ -173,11 +173,11 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
 @media (max-width:900px){ .stocks{grid-template-columns:repeat(3,minmax(0,1fr))} }
 .nimg{flex:none; width:56px; height:56px; border-radius:12px; display:grid; place-items:center; color:#fff; box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
 .nimg svg{width:26px; height:26px}
-.ndays{display:flex; gap:6px; padding:4px 20px 12px; overflow-x:auto; scrollbar-width:none}
-.ndays::-webkit-scrollbar{display:none}
-.ndays button{flex:none; font:600 12.5px var(--f-body); color:var(--muted); background:var(--panel-2); border:1px solid var(--line); padding:5px 12px; border-radius:999px; cursor:pointer}
-.ndays button[aria-selected="true"]{background:var(--accent); border-color:var(--accent); color:var(--panel)}
-.ndays button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.ndays{display:flex; align-items:center; gap:8px; padding:4px 20px 12px}
+.ndays[hidden]{display:none}
+.ndays label{font-size:12px; color:var(--muted); font-family:var(--f-mono)}
+.ndays select{appearance:none; -webkit-appearance:none; font:600 13px var(--f-body); color:var(--fg); background:var(--panel-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center; border:1px solid var(--line); border-radius:10px; padding:7px 32px 7px 12px; cursor:pointer; max-width:100%}
+.ndays select:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
 </style>
 
 <div class="wrap">
@@ -222,7 +222,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
 
   <section class="news" aria-labelledby="nh">
     <div class="sec-hd"><h2 id="nh">Latest AI news</h2><span class="note">Updated every morning</span></div>
-    <div class="ndays" id="ndays" role="tablist" aria-label="Pick a day" hidden></div>
+    <div class="ndays" id="ndays" hidden><label for="nday">Show news from</label><select id="nday"></select></div>
     <div id="news"><div class="empty">Today's headlines arrive with the next morning refresh.</div></div>
   </section>
 
@@ -442,21 +442,19 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radi
     return `<span class="nimg" style="background:${bg}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${path}</svg></span>`;
   }
   function dayLabel(k, latest){
-    if (k === latest) return "Today";
     const [y,m,dd] = k.split("-").map(Number);
-    return new Date(y, m-1, dd).toLocaleDateString("en-US", {month:"short", day:"numeric"});
+    const t = new Date(y, m-1, dd).toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"});
+    return k === latest ? "Today · " + t : t;
   }
   function renderNews(items, archive, status){
     const days = archive && typeof archive === "object" ? Object.keys(archive).filter(k => /^\d{4}-\d{2}-\d{2}$/.test(k) && Array.isArray(archive[k]) && archive[k].length).sort().reverse() : [];
     if (days.length > 1){
       const latest = (status && status.updatedAt) || days[0];
-      const bar = $("#ndays");
-      bar.innerHTML = days.map((k,i) => `<button type="button" role="tab" data-day="${k}" aria-selected="${i===0}">${dayLabel(k, latest)}</button>`).join("");
-      bar.hidden = false;
-      bar.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
-        bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false"));
-        showNews(archive[b.dataset.day]);
-      }));
+      const sel = $("#nday");
+      sel.innerHTML = days.map(k => `<option value="${k}">${dayLabel(k, latest)}</option>`).join("");
+      sel.value = days[0];
+      sel.addEventListener("change", () => showNews(archive[sel.value]));
+      $("#ndays").hidden = false;
       items = archive[days[0]];
     }
     showNews(items);
