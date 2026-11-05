@@ -75,6 +75,14 @@ def describe(sym):
     price_date = ts.strftime('%Y-%m-%d') if ts else None
     before = [c for d, c in closes if price_date and d < price_date]
     prev = before[-1] if before else None
+    if sym.endswith('-USD') and ts is not None:
+        # crypto trades 24h: compare with the price 24 hours earlier
+        try:
+            ago = intra[intra.index <= intra.index[-1] - __import__('pandas').Timedelta(hours=24)]
+            if len(ago):
+                prev = float(ago['Close'].iloc[-1])
+        except Exception:
+            pass
     # If the latest trade is from a day with no completed bar yet, history ends on the prior day.
     out = {
         'price': round(price, 4) if price else None,
@@ -82,7 +90,7 @@ def describe(sym):
         'priceDate': price_date,
         'session': session_for(ts, sym) if ts else None,
         'prevClose': round(prev, 4) if prev else None,
-        'prevCloseDate': next((d for d, c in reversed(closes) if price_date and d < price_date), None),
+        'prevCloseDate': None if sym.endswith('-USD') else next((d for d, c in reversed(closes) if price_date and d < price_date), None),
         'changePct': round((price - prev) / prev * 100, 4) if price and prev else None,
         'history': closes[-10:],
         'low52': min(c for _, c in closes) if closes else None,
