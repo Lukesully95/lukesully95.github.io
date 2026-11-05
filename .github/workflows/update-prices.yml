@@ -33,4 +33,5 @@ jobs:
           git add prices.json
           git add briefing-prices.json || true
           git diff --staged --quiet || git commit -m "prices: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main || true
           git push
