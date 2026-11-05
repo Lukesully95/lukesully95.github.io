@@ -35,6 +35,31 @@ def category(title):
     return "Personal"
 
 
+def write_ics(feed, path):
+    """Same events as an .ics file Apple/Google Calendar can subscribe to."""
+    def esc(t):
+        return (t or "").replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Christopher//Luke Calendar//EN", "CALSCALE:GREGORIAN",
+         "X-WR-CALNAME:Luke (Christopher sync)", "X-WR-TIMEZONE:America/New_York",
+         "REFRESH-INTERVAL;VALUE=DURATION:PT1H", "X-PUBLISHED-TTL:PT1H"]
+    for i, e in enumerate(feed):
+        d = e["date"].replace("-", "")
+        L += ["BEGIN:VEVENT", f"UID:{e.get('gid') or i}-{d}@luke-calendar", f"DTSTAMP:{now}", f"SUMMARY:{esc(e['title'])}"]
+        if e["time"]:
+            end = e["endTime"] or e["time"]
+            L += [f"DTSTART;TZID=America/New_York:{d}T{e['time'].replace(':', '')}00",
+                  f"DTEND;TZID=America/New_York:{d}T{end.replace(':', '')}00"]
+        else:
+            nd = (datetime.fromisoformat(e["date"]) + timedelta(days=1)).strftime("%Y%m%d")
+            L += [f"DTSTART;VALUE=DATE:{d}", f"DTEND;VALUE=DATE:{nd}", "TRANSP:TRANSPARENT"]
+        if e.get("location"):
+            L.append(f"LOCATION:{esc(e['location'])}")
+        L.append("END:VEVENT")
+    L.append("END:VCALENDAR")
+    open(path, "w").write("\r\n".join(L) + "\r\n")
+
+
 def main():
     out, pages = sys.argv[1], sys.argv[2:]
     seen, feed = set(), []
@@ -78,6 +103,7 @@ def main():
         "from": min(dates) if dates else None, "to": max(dates) if dates else None,
         "events": feed,
     }, open(out, "w"), indent=0, ensure_ascii=False)
+    write_ics(feed, out.rsplit(".", 1)[0].replace("-feed", "") + ".ics")
     print(json.dumps({"events": len(feed), "from": min(dates) if dates else None, "to": max(dates) if dates else None}))
 
 
