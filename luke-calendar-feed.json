@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-05T17:39:05+00:00",
+"updated": "2026-11-05T20:48:31+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-10-01",
-"to": "2027-01-31",
+"to": "2027-02-03",
 "events": [
 {
 "date": "2026-10-01",
@@ -4454,6 +4454,78 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20270131T200000Z"
+},
+{
+"date": "2027-02-01",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270201T110000Z"
+},
+{
+"date": "2027-02-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270201T120000Z"
+},
+{
+"date": "2027-02-01",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270202T010000Z"
+},
+{
+"date": "2027-02-02",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270202T110000Z"
+},
+{
+"date": "2027-02-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270202T120000Z"
+},
+{
+"date": "2027-02-02",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270203T010000Z"
+},
+{
+"date": "2027-02-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270203T120000Z"
+},
+{
+"date": "2027-02-03",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270204T010000Z"
 }
 ]
 }
