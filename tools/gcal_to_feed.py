@@ -12,7 +12,7 @@ from datetime import datetime, timedelta, timezone
 
 PRIVATE = re.compile(r"therap|doctor|dentist|dermat|psychiat|counsel|medic|pharmac|prescri|\bdate w/|\bdate with\b", re.I)
 
-# Shown on the public mirrors under a neutral title instead of being dropped.
+# Luke asked for these to show on all calendars, under a short title (no notes/location).
 MASK = re.compile(r"\brice\b|\btherapy\b", re.I)
 
 CATS = [
@@ -73,7 +73,7 @@ def main():
             title = (e.get("summary") or "").strip()
             blob = " ".join([title, e.get("description") or "", e.get("location") or ""])
             if MASK.search(title):
-                title = "Appointment (Zoom)" if re.search(r"zoom", blob, re.I) else "Appointment"
+                title = "Tim Rice (Zoom)" if re.search(r"zoom", blob, re.I) else "Tim Rice"
                 e = dict(e, location="")
             elif e.get("visibility") == "private" or not title or PRIVATE.search(blob):
                 continue
