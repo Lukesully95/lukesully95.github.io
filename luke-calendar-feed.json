@@ -1,0 +1,4459 @@
+{
+"updated": "2026-11-05T17:39:05+00:00",
+"source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
+"from": "2026-10-01",
+"to": "2027-01-31",
+"events": [
+{
+"date": "2026-10-01",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261001T100000Z"
+},
+{
+"date": "2026-10-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261001T110000Z"
+},
+{
+"date": "2026-10-01",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261001T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-01",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261002T000000Z"
+},
+{
+"date": "2026-10-01",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261001T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-02",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261002T100000Z"
+},
+{
+"date": "2026-10-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261002T110000Z"
+},
+{
+"date": "2026-10-02",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261003T000000Z"
+},
+{
+"date": "2026-10-03",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261003T130000Z"
+},
+{
+"date": "2026-10-03",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261003T140000Z"
+},
+{
+"date": "2026-10-03",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261003T150000Z"
+},
+{
+"date": "2026-10-03",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261003T170000Z"
+},
+{
+"date": "2026-10-03",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261003T190000Z"
+},
+{
+"date": "2026-10-04",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261004T130000Z"
+},
+{
+"date": "2026-10-04",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261004T140000Z"
+},
+{
+"date": "2026-10-04",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261004T150000Z"
+},
+{
+"date": "2026-10-04",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261004T170000Z"
+},
+{
+"date": "2026-10-04",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261004T190000Z"
+},
+{
+"date": "2026-10-05",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261005T100000Z"
+},
+{
+"date": "2026-10-05",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261005T110000Z"
+},
+{
+"date": "2026-10-05",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261006T000000Z"
+},
+{
+"date": "2026-10-05",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261005T223000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-06",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261006T100000Z"
+},
+{
+"date": "2026-10-06",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261006T110000Z"
+},
+{
+"date": "2026-10-06",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261006T220000Z"
+},
+{
+"date": "2026-10-06",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261007T000000Z"
+},
+{
+"date": "2026-10-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261007T110000Z"
+},
+{
+"date": "2026-10-07",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261007T140000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-07",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261007T183000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-07",
+"time": "18:00",
+"endTime": "19:55",
+"title": "Marketing Analytics Requirement (Zile)",
+"category": "School",
+"src": "gcal",
+"gid": "40gaqs5c0j3qgv1kou7al4gtl0_20261007T220000Z",
+"location": "Leon Lowenstein Bldg, Room 521, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-07",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261008T000000Z"
+},
+{
+"date": "2026-10-08",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261008T100000Z"
+},
+{
+"date": "2026-10-08",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261008T110000Z"
+},
+{
+"date": "2026-10-08",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261008T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-08",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261009T000000Z"
+},
+{
+"date": "2026-10-08",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261008T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-09",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261009T100000Z"
+},
+{
+"date": "2026-10-09",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261009T110000Z"
+},
+{
+"date": "2026-10-09",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261010T000000Z"
+},
+{
+"date": "2026-10-10",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261010T130000Z"
+},
+{
+"date": "2026-10-10",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261010T140000Z"
+},
+{
+"date": "2026-10-10",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261010T150000Z"
+},
+{
+"date": "2026-10-10",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261010T170000Z"
+},
+{
+"date": "2026-10-10",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261010T190000Z"
+},
+{
+"date": "2026-10-11",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261011T130000Z"
+},
+{
+"date": "2026-10-11",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261011T140000Z"
+},
+{
+"date": "2026-10-11",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261011T150000Z"
+},
+{
+"date": "2026-10-11",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261011T170000Z"
+},
+{
+"date": "2026-10-11",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261011T190000Z"
+},
+{
+"date": "2026-10-12",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261012T100000Z"
+},
+{
+"date": "2026-10-12",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261012T110000Z"
+},
+{
+"date": "2026-10-12",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261013T000000Z"
+},
+{
+"date": "2026-10-13",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261013T100000Z"
+},
+{
+"date": "2026-10-13",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261013T110000Z"
+},
+{
+"date": "2026-10-13",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261013T220000Z"
+},
+{
+"date": "2026-10-13",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261014T000000Z"
+},
+{
+"date": "2026-10-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261014T110000Z"
+},
+{
+"date": "2026-10-14",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261014T140000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-14",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261014T183000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-14",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261015T000000Z"
+},
+{
+"date": "2026-10-15",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261015T100000Z"
+},
+{
+"date": "2026-10-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261015T110000Z"
+},
+{
+"date": "2026-10-15",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261015T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-15",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261016T000000Z"
+},
+{
+"date": "2026-10-15",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261015T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261016T100000Z"
+},
+{
+"date": "2026-10-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261016T110000Z"
+},
+{
+"date": "2026-10-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261017T000000Z"
+},
+{
+"date": "2026-10-17",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261017T130000Z"
+},
+{
+"date": "2026-10-17",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261017T140000Z"
+},
+{
+"date": "2026-10-17",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261017T150000Z"
+},
+{
+"date": "2026-10-17",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261017T170000Z"
+},
+{
+"date": "2026-10-17",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261017T190000Z"
+},
+{
+"date": "2026-10-18",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261018T130000Z"
+},
+{
+"date": "2026-10-18",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261018T140000Z"
+},
+{
+"date": "2026-10-18",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261018T150000Z"
+},
+{
+"date": "2026-10-18",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261018T170000Z"
+},
+{
+"date": "2026-10-18",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261018T190000Z"
+},
+{
+"date": "2026-10-19",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261019T100000Z"
+},
+{
+"date": "2026-10-19",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261019T110000Z"
+},
+{
+"date": "2026-10-19",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261020T000000Z"
+},
+{
+"date": "2026-10-19",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261019T223000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-20",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261020T100000Z"
+},
+{
+"date": "2026-10-20",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261020T110000Z"
+},
+{
+"date": "2026-10-20",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261020T220000Z"
+},
+{
+"date": "2026-10-20",
+"time": "19:00",
+"endTime": "20:00",
+"title": "RHA Town Hall",
+"category": "Personal",
+"src": "gcal",
+"gid": "4ud64dt5vtiti428v2nldu64b0",
+"location": "McMahon 109"
+},
+{
+"date": "2026-10-20",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261021T000000Z"
+},
+{
+"date": "2026-10-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261021T110000Z"
+},
+{
+"date": "2026-10-21",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261021T140000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-21",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261021T183000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261022T000000Z"
+},
+{
+"date": "2026-10-22",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261022T100000Z"
+},
+{
+"date": "2026-10-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261022T110000Z"
+},
+{
+"date": "2026-10-22",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261022T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-22",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261023T000000Z"
+},
+{
+"date": "2026-10-22",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261022T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-23",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261023T100000Z"
+},
+{
+"date": "2026-10-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261023T110000Z"
+},
+{
+"date": "2026-10-23",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261024T000000Z"
+},
+{
+"date": "2026-10-24",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261024T130000Z"
+},
+{
+"date": "2026-10-24",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261024T140000Z"
+},
+{
+"date": "2026-10-24",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261024T150000Z"
+},
+{
+"date": "2026-10-24",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261024T170000Z"
+},
+{
+"date": "2026-10-24",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261024T190000Z"
+},
+{
+"date": "2026-10-25",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261025T130000Z"
+},
+{
+"date": "2026-10-25",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261025T140000Z"
+},
+{
+"date": "2026-10-25",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261025T150000Z"
+},
+{
+"date": "2026-10-25",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261025T170000Z"
+},
+{
+"date": "2026-10-25",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261025T190000Z"
+},
+{
+"date": "2026-10-26",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261026T100000Z"
+},
+{
+"date": "2026-10-26",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261026T110000Z"
+},
+{
+"date": "2026-10-26",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261027T000000Z"
+},
+{
+"date": "2026-10-26",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261026T223000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-27",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261027T100000Z"
+},
+{
+"date": "2026-10-27",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261027T110000Z"
+},
+{
+"date": "2026-10-27",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261027T220000Z"
+},
+{
+"date": "2026-10-27",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261028T000000Z"
+},
+{
+"date": "2026-10-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261028T110000Z"
+},
+{
+"date": "2026-10-28",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261028T140000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-28",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261028T183000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-28",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261029T000000Z"
+},
+{
+"date": "2026-10-29",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261029T100000Z"
+},
+{
+"date": "2026-10-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261029T110000Z"
+},
+{
+"date": "2026-10-29",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261029T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-10-29",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261030T000000Z"
+},
+{
+"date": "2026-10-29",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261029T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-10-30",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261030T100000Z"
+},
+{
+"date": "2026-10-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261030T110000Z"
+},
+{
+"date": "2026-10-30",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261031T000000Z"
+},
+{
+"date": "2026-10-31",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261031T130000Z"
+},
+{
+"date": "2026-10-31",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261031T140000Z"
+},
+{
+"date": "2026-10-31",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261031T150000Z"
+},
+{
+"date": "2026-10-31",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261031T170000Z"
+},
+{
+"date": "2026-10-31",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261031T190000Z"
+},
+{
+"date": "2026-11-01",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261101T140000Z"
+},
+{
+"date": "2026-11-01",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261101T150000Z"
+},
+{
+"date": "2026-11-01",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261101T160000Z"
+},
+{
+"date": "2026-11-01",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261101T180000Z"
+},
+{
+"date": "2026-11-01",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261101T200000Z"
+},
+{
+"date": "2026-11-02",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261102T110000Z"
+},
+{
+"date": "2026-11-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261102T120000Z"
+},
+{
+"date": "2026-11-02",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261103T010000Z"
+},
+{
+"date": "2026-11-02",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261102T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-03",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261103T110000Z"
+},
+{
+"date": "2026-11-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261103T120000Z"
+},
+{
+"date": "2026-11-03",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261103T230000Z"
+},
+{
+"date": "2026-11-03",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261104T010000Z"
+},
+{
+"date": "2026-11-04",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261104T120000Z"
+},
+{
+"date": "2026-11-04",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261104T150000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-04",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261104T193000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-04",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261105T010000Z"
+},
+{
+"date": "2026-11-05",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261105T110000Z"
+},
+{
+"date": "2026-11-05",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261105T120000Z"
+},
+{
+"date": "2026-11-05",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261105T150000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-05",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261106T010000Z"
+},
+{
+"date": "2026-11-05",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261105T233000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-05",
+"time": "",
+"endTime": "",
+"title": "Poker night w/ Matthew (your floor)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mg278v86mdjecr6ovmtb7t4h7o"
+},
+{
+"date": "2026-11-06",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261106T110000Z"
+},
+{
+"date": "2026-11-06",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261106T120000Z"
+},
+{
+"date": "2026-11-06",
+"time": "12:00",
+"endTime": "12:15",
+"title": "Luke / Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "et5s1hmr65vulst86qdb7u6tl0"
+},
+{
+"date": "2026-11-06",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261107T010000Z"
+},
+{
+"date": "2026-11-06",
+"time": "",
+"endTime": "",
+"title": "Workout w/ Matthew",
+"category": "Work",
+"src": "gcal",
+"gid": "rv2ekn25pb6skeihvvqs6pp260"
+},
+{
+"date": "2026-11-07",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261107T140000Z"
+},
+{
+"date": "2026-11-07",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261107T150000Z"
+},
+{
+"date": "2026-11-07",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261107T160000Z"
+},
+{
+"date": "2026-11-07",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261107T180000Z"
+},
+{
+"date": "2026-11-07",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261107T200000Z"
+},
+{
+"date": "2026-11-08",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261108T140000Z"
+},
+{
+"date": "2026-11-08",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261108T150000Z"
+},
+{
+"date": "2026-11-08",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261108T160000Z"
+},
+{
+"date": "2026-11-08",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261108T180000Z"
+},
+{
+"date": "2026-11-08",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261108T200000Z"
+},
+{
+"date": "2026-11-09",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261109T110000Z"
+},
+{
+"date": "2026-11-09",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261109T120000Z"
+},
+{
+"date": "2026-11-09",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261110T010000Z"
+},
+{
+"date": "2026-11-09",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261109T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-10",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261110T110000Z"
+},
+{
+"date": "2026-11-10",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261110T120000Z"
+},
+{
+"date": "2026-11-10",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261110T230000Z"
+},
+{
+"date": "2026-11-10",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261111T010000Z"
+},
+{
+"date": "2026-11-11",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261111T120000Z"
+},
+{
+"date": "2026-11-11",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261111T150000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-11",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261111T193000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-11",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261112T010000Z"
+},
+{
+"date": "2026-11-12",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261112T110000Z"
+},
+{
+"date": "2026-11-12",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261112T120000Z"
+},
+{
+"date": "2026-11-12",
+"time": "09:45",
+"endTime": "10:00",
+"title": "Brand Analysis due (Hutter)",
+"category": "School",
+"src": "gcal",
+"gid": "74du4cjlpnlllr1pu9l8hj7qh4"
+},
+{
+"date": "2026-11-12",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261112T150000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-12",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261113T010000Z"
+},
+{
+"date": "2026-11-12",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261112T233000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-13",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261113T110000Z"
+},
+{
+"date": "2026-11-13",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261113T120000Z"
+},
+{
+"date": "2026-11-13",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261114T010000Z"
+},
+{
+"date": "2026-11-14",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261114T140000Z"
+},
+{
+"date": "2026-11-14",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261114T150000Z"
+},
+{
+"date": "2026-11-14",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261114T160000Z"
+},
+{
+"date": "2026-11-14",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261114T180000Z"
+},
+{
+"date": "2026-11-14",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261114T200000Z"
+},
+{
+"date": "2026-11-15",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261115T140000Z"
+},
+{
+"date": "2026-11-15",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261115T150000Z"
+},
+{
+"date": "2026-11-15",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261115T160000Z"
+},
+{
+"date": "2026-11-15",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261115T180000Z"
+},
+{
+"date": "2026-11-15",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261115T200000Z"
+},
+{
+"date": "2026-11-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261116T110000Z"
+},
+{
+"date": "2026-11-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261116T120000Z"
+},
+{
+"date": "2026-11-16",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261117T010000Z"
+},
+{
+"date": "2026-11-16",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261116T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261117T110000Z"
+},
+{
+"date": "2026-11-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261117T120000Z"
+},
+{
+"date": "2026-11-17",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261117T230000Z"
+},
+{
+"date": "2026-11-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261118T010000Z"
+},
+{
+"date": "2026-11-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261118T120000Z"
+},
+{
+"date": "2026-11-18",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261118T150000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-18",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261118T193000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-18",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261119T010000Z"
+},
+{
+"date": "2026-11-19",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261119T110000Z"
+},
+{
+"date": "2026-11-19",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261119T120000Z"
+},
+{
+"date": "2026-11-19",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261119T150000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-19",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261120T010000Z"
+},
+{
+"date": "2026-11-19",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261119T233000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-20",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261120T110000Z"
+},
+{
+"date": "2026-11-20",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261120T120000Z"
+},
+{
+"date": "2026-11-20",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261121T010000Z"
+},
+{
+"date": "2026-11-21",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261121T140000Z"
+},
+{
+"date": "2026-11-21",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261121T150000Z"
+},
+{
+"date": "2026-11-21",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261121T160000Z"
+},
+{
+"date": "2026-11-21",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261121T180000Z"
+},
+{
+"date": "2026-11-21",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261121T200000Z"
+},
+{
+"date": "2026-11-22",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261122T140000Z"
+},
+{
+"date": "2026-11-22",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261122T150000Z"
+},
+{
+"date": "2026-11-22",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261122T160000Z"
+},
+{
+"date": "2026-11-22",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261122T180000Z"
+},
+{
+"date": "2026-11-22",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261122T200000Z"
+},
+{
+"date": "2026-11-23",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261123T110000Z"
+},
+{
+"date": "2026-11-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261123T120000Z"
+},
+{
+"date": "2026-11-23",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261124T010000Z"
+},
+{
+"date": "2026-11-23",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261123T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-11-24",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261124T110000Z"
+},
+{
+"date": "2026-11-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261124T120000Z"
+},
+{
+"date": "2026-11-24",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261124T230000Z"
+},
+{
+"date": "2026-11-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261125T010000Z"
+},
+{
+"date": "2026-11-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261125T120000Z"
+},
+{
+"date": "2026-11-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261126T010000Z"
+},
+{
+"date": "2026-11-26",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261126T110000Z"
+},
+{
+"date": "2026-11-26",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261126T120000Z"
+},
+{
+"date": "2026-11-26",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261127T010000Z"
+},
+{
+"date": "2026-11-27",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261127T110000Z"
+},
+{
+"date": "2026-11-27",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261127T120000Z"
+},
+{
+"date": "2026-11-27",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261128T010000Z"
+},
+{
+"date": "2026-11-28",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261128T140000Z"
+},
+{
+"date": "2026-11-28",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261128T150000Z"
+},
+{
+"date": "2026-11-28",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261128T160000Z"
+},
+{
+"date": "2026-11-28",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261128T180000Z"
+},
+{
+"date": "2026-11-28",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261128T200000Z"
+},
+{
+"date": "2026-11-29",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261129T140000Z"
+},
+{
+"date": "2026-11-29",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261129T150000Z"
+},
+{
+"date": "2026-11-29",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261129T160000Z"
+},
+{
+"date": "2026-11-29",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261129T180000Z"
+},
+{
+"date": "2026-11-29",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261129T200000Z"
+},
+{
+"date": "2026-11-30",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261130T110000Z"
+},
+{
+"date": "2026-11-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261130T120000Z"
+},
+{
+"date": "2026-11-30",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261201T010000Z"
+},
+{
+"date": "2026-11-30",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261130T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-12-01",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261201T110000Z"
+},
+{
+"date": "2026-12-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261201T120000Z"
+},
+{
+"date": "2026-12-01",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261201T230000Z"
+},
+{
+"date": "2026-12-01",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261202T010000Z"
+},
+{
+"date": "2026-12-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261202T120000Z"
+},
+{
+"date": "2026-12-02",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261202T150000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-02",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261202T193000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-02",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261203T010000Z"
+},
+{
+"date": "2026-12-03",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261203T110000Z"
+},
+{
+"date": "2026-12-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261203T120000Z"
+},
+{
+"date": "2026-12-03",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261203T150000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-03",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261204T010000Z"
+},
+{
+"date": "2026-12-03",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261203T233000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-12-04",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261204T110000Z"
+},
+{
+"date": "2026-12-04",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261204T120000Z"
+},
+{
+"date": "2026-12-04",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261205T010000Z"
+},
+{
+"date": "2026-12-05",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261205T140000Z"
+},
+{
+"date": "2026-12-05",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261205T150000Z"
+},
+{
+"date": "2026-12-05",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261205T160000Z"
+},
+{
+"date": "2026-12-05",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261205T180000Z"
+},
+{
+"date": "2026-12-05",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261205T200000Z"
+},
+{
+"date": "2026-12-06",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261206T140000Z"
+},
+{
+"date": "2026-12-06",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261206T150000Z"
+},
+{
+"date": "2026-12-06",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261206T160000Z"
+},
+{
+"date": "2026-12-06",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261206T180000Z"
+},
+{
+"date": "2026-12-06",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261206T200000Z"
+},
+{
+"date": "2026-12-07",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261207T110000Z"
+},
+{
+"date": "2026-12-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261207T120000Z"
+},
+{
+"date": "2026-12-07",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261208T010000Z"
+},
+{
+"date": "2026-12-07",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261207T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-12-08",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261208T110000Z"
+},
+{
+"date": "2026-12-08",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261208T120000Z"
+},
+{
+"date": "2026-12-08",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261208T230000Z"
+},
+{
+"date": "2026-12-08",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261209T010000Z"
+},
+{
+"date": "2026-12-09",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261209T120000Z"
+},
+{
+"date": "2026-12-09",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20261209T150000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-09",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20261209T193000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-09",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261210T010000Z"
+},
+{
+"date": "2026-12-10",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261210T110000Z"
+},
+{
+"date": "2026-12-10",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261210T120000Z"
+},
+{
+"date": "2026-12-10",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20261210T150000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-10",
+"time": "14:00",
+"endTime": "16:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261211T010000Z"
+},
+{
+"date": "2026-12-10",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20261210T233000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-12-11",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261211T110000Z"
+},
+{
+"date": "2026-12-11",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261211T120000Z"
+},
+{
+"date": "2026-12-11",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261212T010000Z"
+},
+{
+"date": "2026-12-12",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261212T140000Z"
+},
+{
+"date": "2026-12-12",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261212T150000Z"
+},
+{
+"date": "2026-12-12",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261212T160000Z"
+},
+{
+"date": "2026-12-12",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261212T180000Z"
+},
+{
+"date": "2026-12-12",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261212T200000Z"
+},
+{
+"date": "2026-12-13",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261213T140000Z"
+},
+{
+"date": "2026-12-13",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261213T150000Z"
+},
+{
+"date": "2026-12-13",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261213T160000Z"
+},
+{
+"date": "2026-12-13",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261213T180000Z"
+},
+{
+"date": "2026-12-13",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261213T200000Z"
+},
+{
+"date": "2026-12-14",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261214T110000Z"
+},
+{
+"date": "2026-12-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261214T120000Z"
+},
+{
+"date": "2026-12-14",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261215T010000Z"
+},
+{
+"date": "2026-12-14",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20261214T233000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-12-15",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261215T110000Z"
+},
+{
+"date": "2026-12-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261215T120000Z"
+},
+{
+"date": "2026-12-15",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20261215T230000Z"
+},
+{
+"date": "2026-12-15",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261216T010000Z"
+},
+{
+"date": "2026-12-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261216T120000Z"
+},
+{
+"date": "2026-12-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261217T010000Z"
+},
+{
+"date": "2026-12-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261217T110000Z"
+},
+{
+"date": "2026-12-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261217T120000Z"
+},
+{
+"date": "2026-12-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261218T010000Z"
+},
+{
+"date": "2026-12-18",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261218T110000Z"
+},
+{
+"date": "2026-12-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261218T120000Z"
+},
+{
+"date": "2026-12-18",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261219T010000Z"
+},
+{
+"date": "2026-12-19",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261219T140000Z"
+},
+{
+"date": "2026-12-19",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261219T150000Z"
+},
+{
+"date": "2026-12-19",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261219T160000Z"
+},
+{
+"date": "2026-12-19",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261219T180000Z"
+},
+{
+"date": "2026-12-19",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261219T200000Z"
+},
+{
+"date": "2026-12-20",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261220T140000Z"
+},
+{
+"date": "2026-12-20",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261220T150000Z"
+},
+{
+"date": "2026-12-20",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261220T160000Z"
+},
+{
+"date": "2026-12-20",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261220T180000Z"
+},
+{
+"date": "2026-12-20",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261220T200000Z"
+},
+{
+"date": "2026-12-21",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261221T110000Z"
+},
+{
+"date": "2026-12-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261221T120000Z"
+},
+{
+"date": "2026-12-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261222T010000Z"
+},
+{
+"date": "2026-12-22",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261222T110000Z"
+},
+{
+"date": "2026-12-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261222T120000Z"
+},
+{
+"date": "2026-12-22",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261223T010000Z"
+},
+{
+"date": "2026-12-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261223T120000Z"
+},
+{
+"date": "2026-12-23",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261224T010000Z"
+},
+{
+"date": "2026-12-24",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261224T110000Z"
+},
+{
+"date": "2026-12-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261224T120000Z"
+},
+{
+"date": "2026-12-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261225T010000Z"
+},
+{
+"date": "2026-12-25",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261225T110000Z"
+},
+{
+"date": "2026-12-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261225T120000Z"
+},
+{
+"date": "2026-12-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261226T010000Z"
+},
+{
+"date": "2026-12-26",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261226T140000Z"
+},
+{
+"date": "2026-12-26",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261226T150000Z"
+},
+{
+"date": "2026-12-26",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261226T160000Z"
+},
+{
+"date": "2026-12-26",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261226T180000Z"
+},
+{
+"date": "2026-12-26",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261226T200000Z"
+},
+{
+"date": "2026-12-27",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20261227T140000Z"
+},
+{
+"date": "2026-12-27",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20261227T150000Z"
+},
+{
+"date": "2026-12-27",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20261227T160000Z"
+},
+{
+"date": "2026-12-27",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261227T180000Z"
+},
+{
+"date": "2026-12-27",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20261227T200000Z"
+},
+{
+"date": "2026-12-28",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261228T110000Z"
+},
+{
+"date": "2026-12-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261228T120000Z"
+},
+{
+"date": "2026-12-28",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261229T010000Z"
+},
+{
+"date": "2026-12-29",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261229T110000Z"
+},
+{
+"date": "2026-12-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261229T120000Z"
+},
+{
+"date": "2026-12-29",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261230T010000Z"
+},
+{
+"date": "2026-12-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261230T120000Z"
+},
+{
+"date": "2026-12-30",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261231T010000Z"
+},
+{
+"date": "2026-12-31",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20261231T110000Z"
+},
+{
+"date": "2026-12-31",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20261231T120000Z"
+},
+{
+"date": "2026-12-31",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270101T010000Z"
+},
+{
+"date": "2027-01-01",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270101T110000Z"
+},
+{
+"date": "2027-01-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270101T120000Z"
+},
+{
+"date": "2027-01-01",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270102T010000Z"
+},
+{
+"date": "2027-01-02",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270102T140000Z"
+},
+{
+"date": "2027-01-02",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270102T150000Z"
+},
+{
+"date": "2027-01-02",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270102T160000Z"
+},
+{
+"date": "2027-01-02",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270102T180000Z"
+},
+{
+"date": "2027-01-02",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270102T200000Z"
+},
+{
+"date": "2027-01-03",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270103T140000Z"
+},
+{
+"date": "2027-01-03",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270103T150000Z"
+},
+{
+"date": "2027-01-03",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270103T160000Z"
+},
+{
+"date": "2027-01-03",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270103T180000Z"
+},
+{
+"date": "2027-01-03",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270103T200000Z"
+},
+{
+"date": "2027-01-04",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270104T110000Z"
+},
+{
+"date": "2027-01-04",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270104T120000Z"
+},
+{
+"date": "2027-01-04",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270105T010000Z"
+},
+{
+"date": "2027-01-05",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270105T110000Z"
+},
+{
+"date": "2027-01-05",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270105T120000Z"
+},
+{
+"date": "2027-01-05",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270106T010000Z"
+},
+{
+"date": "2027-01-06",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270106T120000Z"
+},
+{
+"date": "2027-01-06",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270107T010000Z"
+},
+{
+"date": "2027-01-07",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270107T110000Z"
+},
+{
+"date": "2027-01-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270107T120000Z"
+},
+{
+"date": "2027-01-07",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270108T010000Z"
+},
+{
+"date": "2027-01-08",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270108T110000Z"
+},
+{
+"date": "2027-01-08",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270108T120000Z"
+},
+{
+"date": "2027-01-08",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270109T010000Z"
+},
+{
+"date": "2027-01-09",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270109T140000Z"
+},
+{
+"date": "2027-01-09",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270109T150000Z"
+},
+{
+"date": "2027-01-09",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270109T160000Z"
+},
+{
+"date": "2027-01-09",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270109T180000Z"
+},
+{
+"date": "2027-01-09",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270109T200000Z"
+},
+{
+"date": "2027-01-10",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270110T140000Z"
+},
+{
+"date": "2027-01-10",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270110T150000Z"
+},
+{
+"date": "2027-01-10",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270110T160000Z"
+},
+{
+"date": "2027-01-10",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270110T180000Z"
+},
+{
+"date": "2027-01-10",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270110T200000Z"
+},
+{
+"date": "2027-01-11",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270111T110000Z"
+},
+{
+"date": "2027-01-11",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270111T120000Z"
+},
+{
+"date": "2027-01-11",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270112T010000Z"
+},
+{
+"date": "2027-01-12",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270112T110000Z"
+},
+{
+"date": "2027-01-12",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270112T120000Z"
+},
+{
+"date": "2027-01-12",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270113T010000Z"
+},
+{
+"date": "2027-01-13",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270113T120000Z"
+},
+{
+"date": "2027-01-13",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270114T010000Z"
+},
+{
+"date": "2027-01-14",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270114T110000Z"
+},
+{
+"date": "2027-01-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270114T120000Z"
+},
+{
+"date": "2027-01-14",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270115T010000Z"
+},
+{
+"date": "2027-01-15",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270115T110000Z"
+},
+{
+"date": "2027-01-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270115T120000Z"
+},
+{
+"date": "2027-01-15",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270116T010000Z"
+},
+{
+"date": "2027-01-16",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270116T140000Z"
+},
+{
+"date": "2027-01-16",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270116T150000Z"
+},
+{
+"date": "2027-01-16",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270116T160000Z"
+},
+{
+"date": "2027-01-16",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270116T180000Z"
+},
+{
+"date": "2027-01-16",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270116T200000Z"
+},
+{
+"date": "2027-01-17",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270117T140000Z"
+},
+{
+"date": "2027-01-17",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270117T150000Z"
+},
+{
+"date": "2027-01-17",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270117T160000Z"
+},
+{
+"date": "2027-01-17",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270117T180000Z"
+},
+{
+"date": "2027-01-17",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270117T200000Z"
+},
+{
+"date": "2027-01-18",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270118T110000Z"
+},
+{
+"date": "2027-01-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270118T120000Z"
+},
+{
+"date": "2027-01-18",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270119T010000Z"
+},
+{
+"date": "2027-01-19",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270119T110000Z"
+},
+{
+"date": "2027-01-19",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270119T120000Z"
+},
+{
+"date": "2027-01-19",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270120T010000Z"
+},
+{
+"date": "2027-01-20",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270120T120000Z"
+},
+{
+"date": "2027-01-20",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270121T010000Z"
+},
+{
+"date": "2027-01-21",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270121T110000Z"
+},
+{
+"date": "2027-01-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270121T120000Z"
+},
+{
+"date": "2027-01-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270122T010000Z"
+},
+{
+"date": "2027-01-22",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270122T110000Z"
+},
+{
+"date": "2027-01-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270122T120000Z"
+},
+{
+"date": "2027-01-22",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270123T010000Z"
+},
+{
+"date": "2027-01-23",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270123T140000Z"
+},
+{
+"date": "2027-01-23",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270123T150000Z"
+},
+{
+"date": "2027-01-23",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270123T160000Z"
+},
+{
+"date": "2027-01-23",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270123T180000Z"
+},
+{
+"date": "2027-01-23",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270123T200000Z"
+},
+{
+"date": "2027-01-24",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270124T140000Z"
+},
+{
+"date": "2027-01-24",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270124T150000Z"
+},
+{
+"date": "2027-01-24",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270124T160000Z"
+},
+{
+"date": "2027-01-24",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270124T180000Z"
+},
+{
+"date": "2027-01-24",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270124T200000Z"
+},
+{
+"date": "2027-01-25",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270125T110000Z"
+},
+{
+"date": "2027-01-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270125T120000Z"
+},
+{
+"date": "2027-01-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270126T010000Z"
+},
+{
+"date": "2027-01-26",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270126T110000Z"
+},
+{
+"date": "2027-01-26",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270126T120000Z"
+},
+{
+"date": "2027-01-26",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270127T010000Z"
+},
+{
+"date": "2027-01-27",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270127T120000Z"
+},
+{
+"date": "2027-01-27",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270128T010000Z"
+},
+{
+"date": "2027-01-28",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270128T110000Z"
+},
+{
+"date": "2027-01-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270128T120000Z"
+},
+{
+"date": "2027-01-28",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270129T010000Z"
+},
+{
+"date": "2027-01-29",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270129T110000Z"
+},
+{
+"date": "2027-01-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270129T120000Z"
+},
+{
+"date": "2027-01-29",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270130T010000Z"
+},
+{
+"date": "2027-01-30",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270130T140000Z"
+},
+{
+"date": "2027-01-30",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270130T150000Z"
+},
+{
+"date": "2027-01-30",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270130T160000Z"
+},
+{
+"date": "2027-01-30",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270130T180000Z"
+},
+{
+"date": "2027-01-30",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270130T200000Z"
+},
+{
+"date": "2027-01-31",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270131T140000Z"
+},
+{
+"date": "2027-01-31",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270131T150000Z"
+},
+{
+"date": "2027-01-31",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270131T160000Z"
+},
+{
+"date": "2027-01-31",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270131T180000Z"
+},
+{
+"date": "2027-01-31",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270131T200000Z"
+}
+]
+}
