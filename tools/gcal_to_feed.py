@@ -10,7 +10,10 @@ The feed is public (GitHub Pages), so private / sensitive events are dropped.
 import json, re, sys
 from datetime import datetime, timedelta, timezone
 
-PRIVATE = re.compile(r"therap|doctor|dentist|dermat|psychiat|counsel|medic|pharmac|prescri|\brice\b|\btim rice\b|\bdate w/|\bdate with\b", re.I)
+PRIVATE = re.compile(r"therap|doctor|dentist|dermat|psychiat|counsel|medic|pharmac|prescri|\bdate w/|\bdate with\b", re.I)
+
+# Shown on the public mirrors under a neutral title instead of being dropped.
+MASK = re.compile(r"\brice\b|\btherapy\b", re.I)
 
 CATS = [
     (r"class|marketing|branding|operations|cross-cultural|consumer|analysis|exam|quiz|final|hutter|zile|fordham|lecture|study", "School"),
@@ -65,11 +68,14 @@ def main():
     seen, feed = set(), []
     for p in pages:
         for e in load(p):
-            if e.get("status") == "cancelled" or e.get("visibility") == "private":
+            if e.get("status") == "cancelled":
                 continue
             title = (e.get("summary") or "").strip()
             blob = " ".join([title, e.get("description") or "", e.get("location") or ""])
-            if not title or PRIVATE.search(blob):
+            if MASK.search(title):
+                title = "Appointment (Zoom)" if re.search(r"zoom", blob, re.I) else "Appointment"
+                e = dict(e, location="")
+            elif e.get("visibility") == "private" or not title or PRIVATE.search(blob):
                 continue
             s, en = e.get("start", {}), e.get("end", {})
             if "dateTime" in s:
