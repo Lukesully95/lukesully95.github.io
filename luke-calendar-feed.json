@@ -1,9 +1,4257 @@
 {
-"updated": "2026-11-05T20:52:00+00:00",
+"updated": "2026-11-05T20:56:38+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
-"from": "2026-10-01",
+"from": "2026-01-23",
 "to": "2027-01-31",
 "events": [
+{
+"date": "2026-01-23",
+"time": "12:00",
+"endTime": "12:30",
+"title": "BC2 Luke Check-In",
+"category": "Personal",
+"src": "gcal",
+"gid": "257rnu9sts50im5viko4hkb76k"
+},
+{
+"date": "2026-02-04",
+"time": "19:00",
+"endTime": "20:00",
+"title": "Floors 19/20 Pizza Party",
+"category": "Personal",
+"src": "gcal",
+"gid": "0sumv3463o8dvn7726l4g7d91b",
+"location": "McM Floor 17 Lounge"
+},
+{
+"date": "2026-04-21",
+"time": "19:00",
+"endTime": "20:00",
+"title": "Magnolia & Mingle (Free Magnolia Pudding)",
+"category": "Personal",
+"src": "gcal",
+"gid": "2q433bvgo19rpdcuofljbtc0ov",
+"location": "McM 14th Floor Lounge"
+},
+{
+"date": "2026-05-11",
+"time": "10:30",
+"endTime": "10:45",
+"title": "Hiring-Luke-Handshake",
+"category": "Personal",
+"src": "gcal",
+"gid": "10g9pj8sh0v0s5e2n6cdt3a5qt"
+},
+{
+"date": "2026-06-03",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Go to Boston",
+"category": "Personal",
+"src": "gcal",
+"gid": "jin7pplepvleuorts0rvg177p8"
+},
+{
+"date": "2026-06-05",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Etiquitte class",
+"category": "School",
+"src": "gcal",
+"gid": "qikiclo3i7vf44lfs8i2bvhivc"
+},
+{
+"date": "2026-06-07",
+"time": "11:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "v75nodshl1dvh80m3bic193vv0"
+},
+{
+"date": "2026-06-07",
+"time": "17:00",
+"endTime": "22:00",
+"title": "Waheed Pick Up — Back to NYC",
+"category": "Personal",
+"src": "gcal",
+"gid": "hkntn9aumv0o3r8e0cvlc5iufc"
+},
+{
+"date": "2026-06-08",
+"time": "09:00",
+"endTime": "17:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "8h4hrcu969ge6ovopfq7gjdo8k"
+},
+{
+"date": "2026-06-08",
+"time": "17:30",
+"endTime": "18:30",
+"title": "Audition",
+"category": "Personal",
+"src": "gcal",
+"gid": "9rmv94c3c11t6f54bk6mdoe934"
+},
+{
+"date": "2026-06-08",
+"time": "18:30",
+"endTime": "20:00",
+"title": "Apple Store — fix computer",
+"category": "Personal",
+"src": "gcal",
+"gid": "lmncuvc3h5i4o1akibfthd2hug"
+},
+{
+"date": "2026-06-08",
+"time": "19:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "bae102bio2peqm3jp3a1ukpq7k"
+},
+{
+"date": "2026-06-08",
+"time": "21:00",
+"endTime": "21:15",
+"title": "Clean Room",
+"category": "Personal",
+"src": "gcal",
+"gid": "u6q8evuva8ksdfh928dka7n5hg"
+},
+{
+"date": "2026-06-09",
+"time": "09:00",
+"endTime": "17:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "4djuv5oj1j7qqgp1cm9a78s8ko"
+},
+{
+"date": "2026-06-09",
+"time": "17:30",
+"endTime": "18:30",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "d0ua8cl1fijfivbu8p3asdcpa0"
+},
+{
+"date": "2026-06-09",
+"time": "18:30",
+"endTime": "19:30",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "oro67k25m2hacr14tkmjcjv0cc"
+},
+{
+"date": "2026-06-09",
+"time": "19:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "e53bl0sg992990fhpv586d936s"
+},
+{
+"date": "2026-06-10",
+"time": "09:00",
+"endTime": "17:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "f7bo2ueg5tbs626rqn177jrab4"
+},
+{
+"date": "2026-06-10",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "bq2qgtrpldhpd5d4t2nof7nc34"
+},
+{
+"date": "2026-06-10",
+"time": "19:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "s5ou1ke81dea0tc34s6pent038"
+},
+{
+"date": "2026-06-10",
+"time": "19:00",
+"endTime": "20:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "4argja5s55hhlllqv40adcknvs"
+},
+{
+"date": "2026-06-10",
+"time": "21:00",
+"endTime": "21:15",
+"title": "Clean Room",
+"category": "Personal",
+"src": "gcal",
+"gid": "407eg1adu6mvuckrc4iohprres"
+},
+{
+"date": "2026-06-11",
+"time": "09:00",
+"endTime": "17:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "uiul9vicqtv0rdbb1cgmjmv2hc"
+},
+{
+"date": "2026-06-11",
+"time": "17:30",
+"endTime": "18:30",
+"title": "Swim",
+"category": "Personal",
+"src": "gcal",
+"gid": "m2nt78q240u9vq4mnm825n1q2o"
+},
+{
+"date": "2026-06-11",
+"time": "18:30",
+"endTime": "19:30",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "3gj6hv5861p4miho2s3ch488p0"
+},
+{
+"date": "2026-06-11",
+"time": "19:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "str3i8cu2l9jfc7k5egrn7s08s"
+},
+{
+"date": "2026-06-12",
+"time": "09:00",
+"endTime": "17:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "7h28v29ir8q6c67auef7tragac"
+},
+{
+"date": "2026-06-12",
+"time": "17:30",
+"endTime": "18:30",
+"title": "Bike Ride",
+"category": "Personal",
+"src": "gcal",
+"gid": "qi9rh0lom9rgrbemtigd1hcka4"
+},
+{
+"date": "2026-06-12",
+"time": "18:30",
+"endTime": "19:30",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "1hm4cdk8tknl9g0aak55dm9pnc"
+},
+{
+"date": "2026-06-12",
+"time": "19:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "gofljts8tubol64vovaipn1p5g"
+},
+{
+"date": "2026-06-13",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Basketball",
+"category": "Personal",
+"src": "gcal",
+"gid": "agjrpq4b1lnv9hkca1oqag8sgc"
+},
+{
+"date": "2026-06-13",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "1kallfnqers9g0eiuf59g34v9c"
+},
+{
+"date": "2026-06-13",
+"time": "11:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "dll2g1vobqufq68csnt9puqtjk"
+},
+{
+"date": "2026-06-13",
+"time": "21:00",
+"endTime": "21:15",
+"title": "Clean Room",
+"category": "Personal",
+"src": "gcal",
+"gid": "43249st7u5ov5a0987tlapjkkc"
+},
+{
+"date": "2026-06-14",
+"time": "",
+"endTime": "",
+"title": "Flag Day",
+"category": "Personal",
+"src": "gcal",
+"gid": "u3lbmslrip7k8l9j6muc611f0g"
+},
+{
+"date": "2026-06-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "h26s88pinv7bdkr0tgi21v6tss"
+},
+{
+"date": "2026-06-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "sje6j2pprh3qro3vssdaj1u15o"
+},
+{
+"date": "2026-06-16",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "j0omrhfufvvheo4et6mgub26o4"
+},
+{
+"date": "2026-06-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1bkivtorg9tt5ct8kdq4e6kofg"
+},
+{
+"date": "2026-06-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "vi6f0439ps5llf1danpd5bkars"
+},
+{
+"date": "2026-06-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "4a9g6ic2lbmogi113tn7lrd80c"
+},
+{
+"date": "2026-06-17",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "rebgfkre52vgg885tf29dm7nf8"
+},
+{
+"date": "2026-06-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "bguba5t0btrqaa0pd05nh7pcc4"
+},
+{
+"date": "2026-06-18",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "e419aqs255fcrgd68sdrknj9o0"
+},
+{
+"date": "2026-06-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lqq79d6mc56hvfmqrthrfkggrk"
+},
+{
+"date": "2026-06-18",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "n42bsa9elol6eem295fs6hp63o"
+},
+{
+"date": "2026-06-18",
+"time": "19:30",
+"endTime": "20:30",
+"title": "Paramount+ Self-Tape Audition",
+"category": "Personal",
+"src": "gcal",
+"gid": "d75m37cfii85262947nkidnc5c"
+},
+{
+"date": "2026-06-18",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "p7q1g0i0jdolungn8jql8ugsdk"
+},
+{
+"date": "2026-06-19",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "2cp620bv12243hb2u593ogbb6s"
+},
+{
+"date": "2026-06-19",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "ao1cbvogc61j3dek5v2719827s"
+},
+{
+"date": "2026-06-19",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ledh0povp7nojlnbs993p3ee9c"
+},
+{
+"date": "2026-06-19",
+"time": "19:00",
+"endTime": "20:00",
+"title": "NJ Beach House Trip w/ Matthew",
+"category": "Travel",
+"src": "gcal",
+"gid": "k22j3didmsmbundvck51fnmta0"
+},
+{
+"date": "2026-06-19",
+"time": "",
+"endTime": "",
+"title": "Juneteenth",
+"category": "Personal",
+"src": "gcal",
+"gid": "865dgm2jsjot07a843ir4foi44"
+},
+{
+"date": "2026-06-20",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "u55e3gqlmuj713hpi5d0h4c1hk"
+},
+{
+"date": "2026-06-20",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "3eaicff3uf1365n3em5psmgd9o"
+},
+{
+"date": "2026-06-20",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "lep3odiqa6qudsfjfsdjdo6dq0"
+},
+{
+"date": "2026-06-20",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "tth13nk9s3p4jgdji7vs78tgkg"
+},
+{
+"date": "2026-06-20",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "ntark7etd11b1bd47mosmcpt14"
+},
+{
+"date": "2026-06-20",
+"time": "19:00",
+"endTime": "20:00",
+"title": "Atlantic City (w/ Matthew)",
+"category": "Personal",
+"src": "gcal",
+"gid": "b2pc6o7vr6e2sn14iv0pr7gcn4"
+},
+{
+"date": "2026-06-21",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260621T123000Z"
+},
+{
+"date": "2026-06-21",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260621T130000Z"
+},
+{
+"date": "2026-06-21",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260621T140000Z"
+},
+{
+"date": "2026-06-21",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260621T150000Z"
+},
+{
+"date": "2026-06-21",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260621T170000Z"
+},
+{
+"date": "2026-06-21",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260621T190000Z"
+},
+{
+"date": "2026-06-21",
+"time": "",
+"endTime": "",
+"title": "Father's Day",
+"category": "Personal",
+"src": "gcal",
+"gid": "botmpmjqlo8plir00mq4c7385g"
+},
+{
+"date": "2026-06-22",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260622T100000Z"
+},
+{
+"date": "2026-06-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260622T110000Z"
+},
+{
+"date": "2026-06-22",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260622T123000Z"
+},
+{
+"date": "2026-06-22",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260622T130000Z"
+},
+{
+"date": "2026-06-22",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260623T000000Z"
+},
+{
+"date": "2026-06-23",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260623T100000Z"
+},
+{
+"date": "2026-06-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260623T110000Z"
+},
+{
+"date": "2026-06-23",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260623T123000Z"
+},
+{
+"date": "2026-06-23",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260623T130000Z"
+},
+{
+"date": "2026-06-23",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260624T000000Z"
+},
+{
+"date": "2026-06-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260624T110000Z"
+},
+{
+"date": "2026-06-24",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260624T123000Z"
+},
+{
+"date": "2026-06-24",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260624T130000Z"
+},
+{
+"date": "2026-06-24",
+"time": "18:30",
+"endTime": "19:00",
+"title": "Travel to Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "7tvbvfflloomfer6r28lrpumjc"
+},
+{
+"date": "2026-06-24",
+"time": "19:00",
+"endTime": "20:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "haq3kpvipr3ntjequf7g93dvj8"
+},
+{
+"date": "2026-06-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260625T000000Z"
+},
+{
+"date": "2026-06-24",
+"time": "20:00",
+"endTime": "20:30",
+"title": "Travel from Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "dc7ra2eqvvkhijdfpt3v1k2o5s"
+},
+{
+"date": "2026-06-25",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260625T100000Z"
+},
+{
+"date": "2026-06-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260625T110000Z"
+},
+{
+"date": "2026-06-25",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260625T123000Z"
+},
+{
+"date": "2026-06-25",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260625T130000Z"
+},
+{
+"date": "2026-06-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260626T000000Z"
+},
+{
+"date": "2026-06-26",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260626T100000Z"
+},
+{
+"date": "2026-06-26",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260626T110000Z"
+},
+{
+"date": "2026-06-26",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260626T123000Z"
+},
+{
+"date": "2026-06-26",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260626T130000Z"
+},
+{
+"date": "2026-06-26",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260627T000000Z"
+},
+{
+"date": "2026-06-26",
+"time": "",
+"endTime": "",
+"title": "Ashura",
+"category": "Personal",
+"src": "gcal",
+"gid": "ntv6m1b5l2sce5kj6jm5m1orlg"
+},
+{
+"date": "2026-06-27",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260627T123000Z"
+},
+{
+"date": "2026-06-27",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260627T130000Z"
+},
+{
+"date": "2026-06-27",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260627T140000Z"
+},
+{
+"date": "2026-06-27",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260627T150000Z"
+},
+{
+"date": "2026-06-27",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260627T170000Z"
+},
+{
+"date": "2026-06-27",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260627T190000Z"
+},
+{
+"date": "2026-06-28",
+"time": "08:30",
+"endTime": "08:35",
+"title": "Feed Sheba",
+"category": "Personal",
+"src": "gcal",
+"gid": "4n03389mpg5q5j2j84oqr0haak_20260628T123000Z"
+},
+{
+"date": "2026-06-28",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260628T130000Z"
+},
+{
+"date": "2026-06-28",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260628T140000Z"
+},
+{
+"date": "2026-06-28",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260628T150000Z"
+},
+{
+"date": "2026-06-28",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260628T170000Z"
+},
+{
+"date": "2026-06-28",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260628T190000Z"
+},
+{
+"date": "2026-06-29",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260629T100000Z"
+},
+{
+"date": "2026-06-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260629T110000Z"
+},
+{
+"date": "2026-06-29",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260629T130000Z"
+},
+{
+"date": "2026-06-29",
+"time": "19:00",
+"endTime": "19:15",
+"title": "Call with Pittman Casting",
+"category": "Work",
+"src": "gcal",
+"gid": "cp7mp1t7a26agf99ia6ospfckk"
+},
+{
+"date": "2026-06-29",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260630T000000Z"
+},
+{
+"date": "2026-06-30",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260630T100000Z"
+},
+{
+"date": "2026-06-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260630T110000Z"
+},
+{
+"date": "2026-06-30",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260630T130000Z"
+},
+{
+"date": "2026-06-30",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260701T000000Z"
+},
+{
+"date": "2026-07-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260701T110000Z"
+},
+{
+"date": "2026-07-01",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260701T130000Z"
+},
+{
+"date": "2026-07-01",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260702T000000Z"
+},
+{
+"date": "2026-07-02",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260702T100000Z"
+},
+{
+"date": "2026-07-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260702T110000Z"
+},
+{
+"date": "2026-07-02",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260702T130000Z"
+},
+{
+"date": "2026-07-02",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260703T000000Z"
+},
+{
+"date": "2026-07-03",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260703T100000Z"
+},
+{
+"date": "2026-07-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260703T110000Z"
+},
+{
+"date": "2026-07-03",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260703T130000Z"
+},
+{
+"date": "2026-07-03",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260704T000000Z"
+},
+{
+"date": "2026-07-04",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260704T130000Z"
+},
+{
+"date": "2026-07-04",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260704T140000Z"
+},
+{
+"date": "2026-07-04",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260704T150000Z"
+},
+{
+"date": "2026-07-04",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260704T170000Z"
+},
+{
+"date": "2026-07-04",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260704T190000Z"
+},
+{
+"date": "2026-07-05",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260705T130000Z"
+},
+{
+"date": "2026-07-05",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260705T140000Z"
+},
+{
+"date": "2026-07-05",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260705T150000Z"
+},
+{
+"date": "2026-07-05",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260705T170000Z"
+},
+{
+"date": "2026-07-05",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260705T190000Z"
+},
+{
+"date": "2026-07-06",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260706T100000Z"
+},
+{
+"date": "2026-07-06",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260706T110000Z"
+},
+{
+"date": "2026-07-06",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260706T130000Z"
+},
+{
+"date": "2026-07-06",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260707T000000Z"
+},
+{
+"date": "2026-07-07",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260707T100000Z"
+},
+{
+"date": "2026-07-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260707T110000Z"
+},
+{
+"date": "2026-07-07",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260707T130000Z"
+},
+{
+"date": "2026-07-07",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260708T000000Z"
+},
+{
+"date": "2026-07-08",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260708T110000Z"
+},
+{
+"date": "2026-07-08",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260708T130000Z"
+},
+{
+"date": "2026-07-08",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260709T000000Z"
+},
+{
+"date": "2026-07-09",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260709T100000Z"
+},
+{
+"date": "2026-07-09",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260709T110000Z"
+},
+{
+"date": "2026-07-09",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260709T130000Z"
+},
+{
+"date": "2026-07-09",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260710T000000Z"
+},
+{
+"date": "2026-07-10",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260710T100000Z"
+},
+{
+"date": "2026-07-10",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260710T110000Z"
+},
+{
+"date": "2026-07-10",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260710T130000Z"
+},
+{
+"date": "2026-07-10",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260711T000000Z"
+},
+{
+"date": "2026-07-11",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260711T130000Z"
+},
+{
+"date": "2026-07-11",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260711T140000Z"
+},
+{
+"date": "2026-07-11",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260711T150000Z"
+},
+{
+"date": "2026-07-11",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260711T170000Z"
+},
+{
+"date": "2026-07-11",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260711T190000Z"
+},
+{
+"date": "2026-07-12",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260712T130000Z"
+},
+{
+"date": "2026-07-12",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260712T140000Z"
+},
+{
+"date": "2026-07-12",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260712T150000Z"
+},
+{
+"date": "2026-07-12",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260712T170000Z"
+},
+{
+"date": "2026-07-12",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260712T190000Z"
+},
+{
+"date": "2026-07-13",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260713T100000Z"
+},
+{
+"date": "2026-07-13",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260713T110000Z"
+},
+{
+"date": "2026-07-13",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260713T130000Z"
+},
+{
+"date": "2026-07-13",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260714T000000Z"
+},
+{
+"date": "2026-07-14",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260714T100000Z"
+},
+{
+"date": "2026-07-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260714T110000Z"
+},
+{
+"date": "2026-07-14",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260714T130000Z"
+},
+{
+"date": "2026-07-14",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260715T000000Z"
+},
+{
+"date": "2026-07-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260715T110000Z"
+},
+{
+"date": "2026-07-15",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260715T130000Z"
+},
+{
+"date": "2026-07-15",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260716T000000Z"
+},
+{
+"date": "2026-07-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260716T100000Z"
+},
+{
+"date": "2026-07-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260716T110000Z"
+},
+{
+"date": "2026-07-16",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260716T130000Z"
+},
+{
+"date": "2026-07-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260717T000000Z"
+},
+{
+"date": "2026-07-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260717T100000Z"
+},
+{
+"date": "2026-07-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260717T110000Z"
+},
+{
+"date": "2026-07-17",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260717T130000Z"
+},
+{
+"date": "2026-07-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260718T000000Z"
+},
+{
+"date": "2026-07-18",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260718T130000Z"
+},
+{
+"date": "2026-07-18",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260718T140000Z"
+},
+{
+"date": "2026-07-18",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260718T150000Z"
+},
+{
+"date": "2026-07-18",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260718T170000Z"
+},
+{
+"date": "2026-07-18",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260718T190000Z"
+},
+{
+"date": "2026-07-19",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260719T130000Z"
+},
+{
+"date": "2026-07-19",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260719T140000Z"
+},
+{
+"date": "2026-07-19",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260719T150000Z"
+},
+{
+"date": "2026-07-19",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260719T170000Z"
+},
+{
+"date": "2026-07-19",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260719T190000Z"
+},
+{
+"date": "2026-07-20",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260720T100000Z"
+},
+{
+"date": "2026-07-20",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260720T110000Z"
+},
+{
+"date": "2026-07-20",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260720T130000Z"
+},
+{
+"date": "2026-07-20",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260721T000000Z"
+},
+{
+"date": "2026-07-21",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260721T100000Z"
+},
+{
+"date": "2026-07-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260721T110000Z"
+},
+{
+"date": "2026-07-21",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260721T130000Z"
+},
+{
+"date": "2026-07-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260722T000000Z"
+},
+{
+"date": "2026-07-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260722T110000Z"
+},
+{
+"date": "2026-07-22",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260722T130000Z"
+},
+{
+"date": "2026-07-22",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260723T000000Z"
+},
+{
+"date": "2026-07-23",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260723T100000Z"
+},
+{
+"date": "2026-07-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260723T110000Z"
+},
+{
+"date": "2026-07-23",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260723T130000Z"
+},
+{
+"date": "2026-07-23",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260724T000000Z"
+},
+{
+"date": "2026-07-24",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260724T100000Z"
+},
+{
+"date": "2026-07-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260724T110000Z"
+},
+{
+"date": "2026-07-24",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260724T130000Z"
+},
+{
+"date": "2026-07-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260725T000000Z"
+},
+{
+"date": "2026-07-25",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260725T130000Z"
+},
+{
+"date": "2026-07-25",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260725T140000Z"
+},
+{
+"date": "2026-07-25",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260725T150000Z"
+},
+{
+"date": "2026-07-25",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260725T170000Z"
+},
+{
+"date": "2026-07-25",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260725T190000Z"
+},
+{
+"date": "2026-07-26",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260726T130000Z"
+},
+{
+"date": "2026-07-26",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260726T140000Z"
+},
+{
+"date": "2026-07-26",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260726T150000Z"
+},
+{
+"date": "2026-07-26",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260726T170000Z"
+},
+{
+"date": "2026-07-26",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260726T190000Z"
+},
+{
+"date": "2026-07-27",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260727T100000Z"
+},
+{
+"date": "2026-07-27",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260727T110000Z"
+},
+{
+"date": "2026-07-27",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260727T130000Z"
+},
+{
+"date": "2026-07-27",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260728T000000Z"
+},
+{
+"date": "2026-07-28",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260728T100000Z"
+},
+{
+"date": "2026-07-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260728T110000Z"
+},
+{
+"date": "2026-07-28",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260728T130000Z"
+},
+{
+"date": "2026-07-28",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260729T000000Z"
+},
+{
+"date": "2026-07-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260729T110000Z"
+},
+{
+"date": "2026-07-29",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260729T130000Z"
+},
+{
+"date": "2026-07-29",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260730T000000Z"
+},
+{
+"date": "2026-07-30",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260730T100000Z"
+},
+{
+"date": "2026-07-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260730T110000Z"
+},
+{
+"date": "2026-07-30",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260730T130000Z"
+},
+{
+"date": "2026-07-30",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260731T000000Z"
+},
+{
+"date": "2026-07-31",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260731T100000Z"
+},
+{
+"date": "2026-07-31",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260731T110000Z"
+},
+{
+"date": "2026-07-31",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260731T130000Z"
+},
+{
+"date": "2026-07-31",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260801T000000Z"
+},
+{
+"date": "2026-08-01",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260801T130000Z"
+},
+{
+"date": "2026-08-01",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260801T140000Z"
+},
+{
+"date": "2026-08-01",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260801T150000Z"
+},
+{
+"date": "2026-08-01",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260801T170000Z"
+},
+{
+"date": "2026-08-01",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260801T190000Z"
+},
+{
+"date": "2026-08-02",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260802T130000Z"
+},
+{
+"date": "2026-08-02",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260802T140000Z"
+},
+{
+"date": "2026-08-02",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260802T150000Z"
+},
+{
+"date": "2026-08-02",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260802T170000Z"
+},
+{
+"date": "2026-08-02",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260802T190000Z"
+},
+{
+"date": "2026-08-03",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260803T100000Z"
+},
+{
+"date": "2026-08-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260803T110000Z"
+},
+{
+"date": "2026-08-03",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260803T130000Z"
+},
+{
+"date": "2026-08-03",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260804T000000Z"
+},
+{
+"date": "2026-08-04",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260804T100000Z"
+},
+{
+"date": "2026-08-04",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260804T110000Z"
+},
+{
+"date": "2026-08-04",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260804T130000Z"
+},
+{
+"date": "2026-08-04",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260805T000000Z"
+},
+{
+"date": "2026-08-05",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260805T110000Z"
+},
+{
+"date": "2026-08-05",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260805T130000Z"
+},
+{
+"date": "2026-08-05",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260806T000000Z"
+},
+{
+"date": "2026-08-06",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260806T100000Z"
+},
+{
+"date": "2026-08-06",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260806T110000Z"
+},
+{
+"date": "2026-08-06",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260806T130000Z"
+},
+{
+"date": "2026-08-06",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260807T000000Z"
+},
+{
+"date": "2026-08-07",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260807T100000Z"
+},
+{
+"date": "2026-08-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260807T110000Z"
+},
+{
+"date": "2026-08-07",
+"time": "09:00",
+"endTime": "19:00",
+"title": "Profound",
+"category": "Work",
+"src": "gcal",
+"gid": "ds4v1k861vs3htfbc65u0iv3vg_20260807T130000Z"
+},
+{
+"date": "2026-08-07",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260808T000000Z"
+},
+{
+"date": "2026-08-08",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260808T130000Z"
+},
+{
+"date": "2026-08-08",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260808T140000Z"
+},
+{
+"date": "2026-08-08",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260808T150000Z"
+},
+{
+"date": "2026-08-08",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260808T170000Z"
+},
+{
+"date": "2026-08-08",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260808T190000Z"
+},
+{
+"date": "2026-08-09",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260809T130000Z"
+},
+{
+"date": "2026-08-09",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260809T140000Z"
+},
+{
+"date": "2026-08-09",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260809T150000Z"
+},
+{
+"date": "2026-08-09",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260809T170000Z"
+},
+{
+"date": "2026-08-09",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260809T190000Z"
+},
+{
+"date": "2026-08-10",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260810T100000Z"
+},
+{
+"date": "2026-08-10",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260810T110000Z"
+},
+{
+"date": "2026-08-10",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260811T000000Z"
+},
+{
+"date": "2026-08-11",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260811T100000Z"
+},
+{
+"date": "2026-08-11",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260811T110000Z"
+},
+{
+"date": "2026-08-11",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260812T000000Z"
+},
+{
+"date": "2026-08-12",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260812T110000Z"
+},
+{
+"date": "2026-08-12",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260813T000000Z"
+},
+{
+"date": "2026-08-13",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260813T100000Z"
+},
+{
+"date": "2026-08-13",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260813T110000Z"
+},
+{
+"date": "2026-08-13",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260814T000000Z"
+},
+{
+"date": "2026-08-14",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260814T100000Z"
+},
+{
+"date": "2026-08-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260814T110000Z"
+},
+{
+"date": "2026-08-14",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260815T000000Z"
+},
+{
+"date": "2026-08-15",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260815T130000Z"
+},
+{
+"date": "2026-08-15",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260815T140000Z"
+},
+{
+"date": "2026-08-15",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260815T150000Z"
+},
+{
+"date": "2026-08-15",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260815T170000Z"
+},
+{
+"date": "2026-08-15",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260815T190000Z"
+},
+{
+"date": "2026-08-16",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260816T130000Z"
+},
+{
+"date": "2026-08-16",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260816T140000Z"
+},
+{
+"date": "2026-08-16",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260816T150000Z"
+},
+{
+"date": "2026-08-16",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260816T170000Z"
+},
+{
+"date": "2026-08-16",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260816T190000Z"
+},
+{
+"date": "2026-08-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260817T100000Z"
+},
+{
+"date": "2026-08-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260817T110000Z"
+},
+{
+"date": "2026-08-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260818T000000Z"
+},
+{
+"date": "2026-08-18",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260818T100000Z"
+},
+{
+"date": "2026-08-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260818T110000Z"
+},
+{
+"date": "2026-08-18",
+"time": "18:30",
+"endTime": "20:54",
+"title": "Spider-Man: Brand New Day — AMC Lincoln Square 13 (w/ Mom + brother)",
+"category": "Personal",
+"src": "gcal",
+"gid": "84qlovv7d082fnij82s8tdilko",
+"location": "AMC Lincoln Square 13, New York, NY"
+},
+{
+"date": "2026-08-18",
+"time": "21:15",
+"endTime": "22:15",
+"title": "AUDITION — Coca-Cola commercial (self-tape)",
+"category": "Personal",
+"src": "gcal",
+"gid": "7rb2nv69d4ovirj7r4ac2fdb5o"
+},
+{
+"date": "2026-08-19",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260819T110000Z"
+},
+{
+"date": "2026-08-19",
+"time": "10:00",
+"endTime": "10:30",
+"title": "Call Sean German — plan FL trip",
+"category": "Work",
+"src": "gcal",
+"gid": "6k1nmkun13ftrnd4hdqk3dm2n4"
+},
+{
+"date": "2026-08-19",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260820T000000Z"
+},
+{
+"date": "2026-08-20",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260820T100000Z"
+},
+{
+"date": "2026-08-20",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260820T110000Z"
+},
+{
+"date": "2026-08-20",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260821T000000Z"
+},
+{
+"date": "2026-08-20",
+"time": "",
+"endTime": "",
+"title": "TENTATIVE — Florida (Sean's birthday weekend)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mhhvv98ulvljk9mkdsom17bufc"
+},
+{
+"date": "2026-08-21",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260821T100000Z"
+},
+{
+"date": "2026-08-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260821T110000Z"
+},
+{
+"date": "2026-08-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260822T000000Z"
+},
+{
+"date": "2026-08-21",
+"time": "",
+"endTime": "",
+"title": "TENTATIVE — Florida (Sean's birthday weekend)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mhhvv98ulvljk9mkdsom17bufc"
+},
+{
+"date": "2026-08-22",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260822T130000Z"
+},
+{
+"date": "2026-08-22",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260822T140000Z"
+},
+{
+"date": "2026-08-22",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260822T150000Z"
+},
+{
+"date": "2026-08-22",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260822T170000Z"
+},
+{
+"date": "2026-08-22",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260822T190000Z"
+},
+{
+"date": "2026-08-22",
+"time": "",
+"endTime": "",
+"title": "TENTATIVE — Florida (Sean's birthday weekend)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mhhvv98ulvljk9mkdsom17bufc"
+},
+{
+"date": "2026-08-23",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260823T130000Z"
+},
+{
+"date": "2026-08-23",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260823T140000Z"
+},
+{
+"date": "2026-08-23",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260823T150000Z"
+},
+{
+"date": "2026-08-23",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260823T170000Z"
+},
+{
+"date": "2026-08-23",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260823T190000Z"
+},
+{
+"date": "2026-08-23",
+"time": "",
+"endTime": "",
+"title": "TENTATIVE — Florida (Sean's birthday weekend)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mhhvv98ulvljk9mkdsom17bufc"
+},
+{
+"date": "2026-08-24",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260824T100000Z"
+},
+{
+"date": "2026-08-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260824T110000Z"
+},
+{
+"date": "2026-08-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260825T000000Z"
+},
+{
+"date": "2026-08-24",
+"time": "",
+"endTime": "",
+"title": "TENTATIVE — Florida (Sean's birthday weekend)",
+"category": "Personal",
+"src": "gcal",
+"gid": "mhhvv98ulvljk9mkdsom17bufc"
+},
+{
+"date": "2026-08-25",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260825T100000Z"
+},
+{
+"date": "2026-08-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260825T110000Z"
+},
+{
+"date": "2026-08-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260826T000000Z"
+},
+{
+"date": "2026-08-26",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260826T110000Z"
+},
+{
+"date": "2026-08-26",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260827T000000Z"
+},
+{
+"date": "2026-08-27",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260827T100000Z"
+},
+{
+"date": "2026-08-27",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260827T110000Z"
+},
+{
+"date": "2026-08-27",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260828T000000Z"
+},
+{
+"date": "2026-08-28",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260828T100000Z"
+},
+{
+"date": "2026-08-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260828T110000Z"
+},
+{
+"date": "2026-08-28",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260829T000000Z"
+},
+{
+"date": "2026-08-29",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260829T130000Z"
+},
+{
+"date": "2026-08-29",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260829T140000Z"
+},
+{
+"date": "2026-08-29",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260829T150000Z"
+},
+{
+"date": "2026-08-29",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260829T170000Z"
+},
+{
+"date": "2026-08-29",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260829T190000Z"
+},
+{
+"date": "2026-08-30",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260830T130000Z"
+},
+{
+"date": "2026-08-30",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260830T140000Z"
+},
+{
+"date": "2026-08-30",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260830T150000Z"
+},
+{
+"date": "2026-08-30",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260830T170000Z"
+},
+{
+"date": "2026-08-30",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260830T190000Z"
+},
+{
+"date": "2026-08-31",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260831T100000Z"
+},
+{
+"date": "2026-08-31",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260831T110000Z"
+},
+{
+"date": "2026-08-31",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260901T000000Z"
+},
+{
+"date": "2026-09-01",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260901T100000Z"
+},
+{
+"date": "2026-09-01",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260901T110000Z"
+},
+{
+"date": "2026-09-01",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260902T000000Z"
+},
+{
+"date": "2026-09-02",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260902T110000Z"
+},
+{
+"date": "2026-09-02",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260903T000000Z"
+},
+{
+"date": "2026-09-03",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260903T100000Z"
+},
+{
+"date": "2026-09-03",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260903T110000Z"
+},
+{
+"date": "2026-09-03",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260904T000000Z"
+},
+{
+"date": "2026-09-04",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260904T100000Z"
+},
+{
+"date": "2026-09-04",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260904T110000Z"
+},
+{
+"date": "2026-09-04",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260905T000000Z"
+},
+{
+"date": "2026-09-05",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260905T130000Z"
+},
+{
+"date": "2026-09-05",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260905T140000Z"
+},
+{
+"date": "2026-09-05",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260905T150000Z"
+},
+{
+"date": "2026-09-05",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260905T170000Z"
+},
+{
+"date": "2026-09-05",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260905T190000Z"
+},
+{
+"date": "2026-09-06",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260906T130000Z"
+},
+{
+"date": "2026-09-06",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260906T140000Z"
+},
+{
+"date": "2026-09-06",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260906T150000Z"
+},
+{
+"date": "2026-09-06",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260906T170000Z"
+},
+{
+"date": "2026-09-06",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260906T190000Z"
+},
+{
+"date": "2026-09-07",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260907T100000Z"
+},
+{
+"date": "2026-09-07",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260907T110000Z"
+},
+{
+"date": "2026-09-07",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260908T000000Z"
+},
+{
+"date": "2026-09-08",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260908T100000Z"
+},
+{
+"date": "2026-09-08",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260908T110000Z"
+},
+{
+"date": "2026-09-08",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260909T000000Z"
+},
+{
+"date": "2026-09-09",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260909T110000Z"
+},
+{
+"date": "2026-09-09",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260910T000000Z"
+},
+{
+"date": "2026-09-10",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260910T100000Z"
+},
+{
+"date": "2026-09-10",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260910T110000Z"
+},
+{
+"date": "2026-09-10",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260911T000000Z"
+},
+{
+"date": "2026-09-11",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260911T100000Z"
+},
+{
+"date": "2026-09-11",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260911T110000Z"
+},
+{
+"date": "2026-09-11",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260912T000000Z"
+},
+{
+"date": "2026-09-12",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260912T130000Z"
+},
+{
+"date": "2026-09-12",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260912T140000Z"
+},
+{
+"date": "2026-09-12",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260912T150000Z"
+},
+{
+"date": "2026-09-12",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260912T170000Z"
+},
+{
+"date": "2026-09-12",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260912T190000Z"
+},
+{
+"date": "2026-09-13",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260913T130000Z"
+},
+{
+"date": "2026-09-13",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260913T140000Z"
+},
+{
+"date": "2026-09-13",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260913T150000Z"
+},
+{
+"date": "2026-09-13",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260913T170000Z"
+},
+{
+"date": "2026-09-13",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260913T190000Z"
+},
+{
+"date": "2026-09-14",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260914T100000Z"
+},
+{
+"date": "2026-09-14",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260914T110000Z"
+},
+{
+"date": "2026-09-14",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260915T000000Z"
+},
+{
+"date": "2026-09-15",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260915T100000Z"
+},
+{
+"date": "2026-09-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260915T110000Z"
+},
+{
+"date": "2026-09-15",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260916T000000Z"
+},
+{
+"date": "2026-09-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260916T110000Z"
+},
+{
+"date": "2026-09-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260917T000000Z"
+},
+{
+"date": "2026-09-17",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260917T100000Z"
+},
+{
+"date": "2026-09-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260917T110000Z"
+},
+{
+"date": "2026-09-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260918T000000Z"
+},
+{
+"date": "2026-09-18",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260918T100000Z"
+},
+{
+"date": "2026-09-18",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260918T110000Z"
+},
+{
+"date": "2026-09-18",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260919T000000Z"
+},
+{
+"date": "2026-09-19",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260919T130000Z"
+},
+{
+"date": "2026-09-19",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260919T140000Z"
+},
+{
+"date": "2026-09-19",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260919T150000Z"
+},
+{
+"date": "2026-09-19",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260919T170000Z"
+},
+{
+"date": "2026-09-19",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260919T190000Z"
+},
+{
+"date": "2026-09-20",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260920T130000Z"
+},
+{
+"date": "2026-09-20",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260920T140000Z"
+},
+{
+"date": "2026-09-20",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260920T150000Z"
+},
+{
+"date": "2026-09-20",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260920T170000Z"
+},
+{
+"date": "2026-09-20",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260920T190000Z"
+},
+{
+"date": "2026-09-21",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260921T100000Z"
+},
+{
+"date": "2026-09-21",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260921T110000Z"
+},
+{
+"date": "2026-09-21",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260922T000000Z"
+},
+{
+"date": "2026-09-22",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260922T100000Z"
+},
+{
+"date": "2026-09-22",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260922T110000Z"
+},
+{
+"date": "2026-09-22",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260923T000000Z"
+},
+{
+"date": "2026-09-23",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260923T110000Z"
+},
+{
+"date": "2026-09-23",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260924T000000Z"
+},
+{
+"date": "2026-09-24",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260924T100000Z"
+},
+{
+"date": "2026-09-24",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260924T110000Z"
+},
+{
+"date": "2026-09-24",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Branding",
+"category": "School",
+"src": "gcal",
+"gid": "k95im2n9u704su20jr9k5saujc_20260924T140000Z",
+"location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-09-24",
+"time": "15:30",
+"endTime": "17:30",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260925T000000Z"
+},
+{
+"date": "2026-09-24",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Analytics",
+"category": "School",
+"src": "gcal",
+"gid": "kr1stq608pnoqoutuljo1d7lik_20260924T223000Z",
+"location": "Hughes Hall, Room 104, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-09-25",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260925T100000Z"
+},
+{
+"date": "2026-09-25",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260925T110000Z"
+},
+{
+"date": "2026-09-25",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260926T000000Z"
+},
+{
+"date": "2026-09-26",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260926T130000Z"
+},
+{
+"date": "2026-09-26",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260926T140000Z"
+},
+{
+"date": "2026-09-26",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260926T150000Z"
+},
+{
+"date": "2026-09-26",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260926T170000Z"
+},
+{
+"date": "2026-09-26",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260926T190000Z"
+},
+{
+"date": "2026-09-27",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20260927T130000Z"
+},
+{
+"date": "2026-09-27",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20260927T140000Z"
+},
+{
+"date": "2026-09-27",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20260927T150000Z"
+},
+{
+"date": "2026-09-27",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20260927T170000Z"
+},
+{
+"date": "2026-09-27",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20260927T190000Z"
+},
+{
+"date": "2026-09-28",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260928T100000Z"
+},
+{
+"date": "2026-09-28",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260928T110000Z"
+},
+{
+"date": "2026-09-28",
+"time": "15:00",
+"endTime": "17:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260929T000000Z"
+},
+{
+"date": "2026-09-28",
+"time": "18:30",
+"endTime": "21:15",
+"title": "Marketing Technology and Innovation",
+"category": "School",
+"src": "gcal",
+"gid": "c6g5c3ummujdtg1h9oco3ioi88_20260928T223000Z",
+"location": "Dealy Hall, Room 305, Fordham Rose Hill Campus, Bronx, NY"
+},
+{
+"date": "2026-09-29",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20260929T100000Z"
+},
+{
+"date": "2026-09-29",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260929T110000Z"
+},
+{
+"date": "2026-09-29",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Krav Maga",
+"category": "Health",
+"src": "gcal",
+"gid": "0a8bo4tgrqoe1gavtj4eodg56g_20260929T220000Z"
+},
+{
+"date": "2026-09-29",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20260930T000000Z"
+},
+{
+"date": "2026-09-30",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20260930T110000Z"
+},
+{
+"date": "2026-09-30",
+"time": "10:00",
+"endTime": "12:45",
+"title": "Cross-Cultural Consumer Insight",
+"category": "School",
+"src": "gcal",
+"gid": "2utj60tr1p4tt4glkmq587s70k_20260930T140000Z",
+"location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-09-30",
+"time": "14:30",
+"endTime": "17:15",
+"title": "Operations and Supply Chain Management",
+"category": "School",
+"src": "gcal",
+"gid": "iuriitfif1rcicaub9voqqoujk_20260930T183000Z",
+"location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-09-30",
+"time": "18:00",
+"endTime": "19:55",
+"title": "Marketing Analytics Requirement (Zile)",
+"category": "School",
+"src": "gcal",
+"gid": "40gaqs5c0j3qgv1kou7al4gtl0_20260930T220000Z",
+"location": "Leon Lowenstein Bldg, Room 521, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-09-30",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20261001T000000Z"
+},
 {
 "date": "2026-10-01",
 "time": "06:00",

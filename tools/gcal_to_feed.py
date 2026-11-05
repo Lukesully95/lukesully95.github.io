@@ -10,7 +10,7 @@ The feed is public (GitHub Pages), so private / sensitive events are dropped.
 import json, re, sys
 from datetime import datetime, timedelta, timezone
 
-PRIVATE = re.compile(r"therap|doctor|dentist|dermat|psychiat|counsel|medic|pharmac|prescri|\btim rice\b|\bdate w/|\bdate with\b", re.I)
+PRIVATE = re.compile(r"therap|doctor|dentist|dermat|psychiat|counsel|medic|pharmac|prescri|\brice\b|\btim rice\b|\bdate w/|\bdate with\b", re.I)
 
 CATS = [
     (r"class|marketing|branding|operations|cross-cultural|consumer|analysis|exam|quiz|final|hutter|zile|fordham|lecture|study", "School"),
