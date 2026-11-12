@@ -81,6 +81,8 @@
   .x{border:0;background:transparent;color:var(--muted);font-size:1.3rem;cursor:pointer;line-height:1}
   .mbody{padding:16px 18px}
   .daylist{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+  .evdel{margin-left:auto;flex:none;background:none;border:0;color:inherit;font-size:1.15rem;line-height:1;padding:4px 8px;cursor:pointer;opacity:.45;border-radius:8px}
+  .evdel:hover{opacity:1;color:#ff6b6b;background:rgba(255,107,107,.12)}
   .ev{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--card);cursor:pointer;transition:.12s}
   .ev:hover{border-color:var(--accent)}
   .ev .bar{width:4px;align-self:stretch;border-radius:3px;flex:none}
@@ -341,6 +343,7 @@ let dbRef = null;
 let mode = "local";        // "firebase" | "local"
 // ---------- Google Calendar feed (master) ----------
 const FEED_URL = "luke-calendar-feed.json";
+let gDeleted = new Set((()=>{ try{ return JSON.parse(localStorage.getItem("g_deleted")||"[]"); }catch(e){ return []; } })());
 let gcal = [];               // events from Google Calendar, refreshed by Christopher
 const SEED_KEYS = new Set(SEED_EVENTS.map(e=>e.date+"|"+(e.time||"")+"|"+e.title)); // old June seed: hide it
 const keyOf = e => e.date+"|"+(e.time||"")+"|"+(e.title||"").trim().toLowerCase();
@@ -349,7 +352,7 @@ async function loadFeed(){
     const r=await fetch(FEED_URL+"?t="+Date.now(),{cache:"no-store"});
     if(!r.ok) return;
     const d=await r.json();
-    gcal=(d.events||[]).map((e,i)=>({id:"g"+i+"_"+(e.gid||""),...e}));
+    gcal=(d.events||[]).filter(e=>!gDeleted.has(e.gid)).map((e,i)=>({id:"g"+i+"_"+(e.gid||""),...e}));
     const up=d.updated?new Date(d.updated):null;
     const sub=document.getElementById("syncSub");
     if(sub&&up) sub.textContent="Synced with Google Calendar · Christopher · updated "+up.toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
@@ -444,6 +447,9 @@ function openDay(ds){
     row.innerHTML=`<div class="bar" style="background:${CAT_COLOR[e.category]||'#888'}"></div>
       <div class="info"><div class="ttl">${escapeHtml(e.title)}</div>
       <div class="meta">${timeLabel(e)}${e.location?" · "+escapeHtml(e.location):""}</div></div>`;
+    const del=document.createElement("button"); del.className="evdel"; del.title="Delete"; del.setAttribute("aria-label","Delete event"); del.textContent="×";
+    del.addEventListener("click",ev=>{ ev.stopPropagation(); quickDelete(e); });
+    row.appendChild(del);
     if(e.src==="gcal"){
       row.querySelector(".meta").innerHTML+=' · <span style="opacity:.7">Google Calendar ↗</span>';
       row.addEventListener("click",()=>window.open(gcalLink(e.date),"_blank","noopener"));
@@ -847,7 +853,7 @@ loadFeed(); setInterval(loadFeed, 10*60*1000);
    ========================================================================= */
 const GOOGLE_CLIENT_ID = "197925826679-d106ulbi10g7n2kttsn4e0fmel6hc2a6.apps.googleusercontent.com";   // OAuth Web client ID (origin https://lukesully95.github.io)
 const GCAL_ID = "lsullivan59@fordham.edu";
-let gTok=null, gExp=0, gClient=null;
+let gTok=null, gExp=0, gClient=null; const gQueue=[];
 function gConnected(){ return !!(gTok && Date.now()<gExp); }
 function gWasConnected(){ try{ return localStorage.getItem("g_connected")==="1"; }catch(e){ return false; } }
 function gPending(){
@@ -865,7 +871,7 @@ function gInit(){
   if(!GOOGLE_CLIENT_ID) return;
   if(!(window.google&&google.accounts&&google.accounts.oauth2)){ setTimeout(gInit,500); return; }
   gClient=google.accounts.oauth2.initTokenClient({client_id:GOOGLE_CLIENT_ID, scope:"https://www.googleapis.com/auth/calendar.events",
-    callback:r=>{ if(r&&r.access_token){ gTok=r.access_token; gExp=Date.now()+((r.expires_in||3600)-60)*1000; try{localStorage.setItem("g_connected","1");}catch(e){} gPushAll(); } else showToast("Google didn't connect.",false); }});
+    callback:r=>{ if(r&&r.access_token){ gTok=r.access_token; gExp=Date.now()+((r.expires_in||3600)-60)*1000; try{localStorage.setItem("g_connected","1");}catch(e){} gQueue.splice(0).forEach(f=>f()); gPushAll(); } else showToast("Google didn't connect.",false); }});
   gLabel(); setInterval(gLabel,5000);
 }
 function gBody(ev){
@@ -898,6 +904,33 @@ document.getElementById("gBtn").addEventListener("click",()=>{
   if(!gClient) return;
   if(gConnected()) gPushAll(); else gClient.requestAccessToken({prompt: gWasConnected()?"":"consent"});
 });
+
+// ---- quick delete (× on each event) ----
+async function gDelete(gid){
+  const r=await fetch("https://www.googleapis.com/calendar/v3/calendars/"+encodeURIComponent(GCAL_ID)+"/events/"+encodeURIComponent(gid),{method:"DELETE",headers:{Authorization:"Bearer "+gTok}});
+  if(!(r.ok||r.status===404||r.status===410)) throw new Error("Google "+r.status);
+}
+function gWithToken(fn){
+  if(gConnected()) return fn();
+  if(!gClient){ showToast("Google isn't connected yet.",false); return; }
+  gQueue.push(fn); gClient.requestAccessToken({prompt: gWasConnected()?"":"consent"});
+}
+function quickDelete(e){
+  if(!confirm(`Delete “${e.title}”?`)) return;
+  const done=()=>{ if(activeDay) openDay(activeDay); renderMonth(); showToast("Deleted. Your other calendars update within a couple hours.",false); };
+  if(e.src==="gcal"){
+    gWithToken(async()=>{
+      try{ await gDelete(e.gid);
+        gDeleted.add(e.gid); try{ localStorage.setItem("g_deleted",JSON.stringify([...gDeleted].slice(-500))); }catch(_){}
+        gcal=gcal.filter(x=>x.gid!==e.gid); done();
+      }catch(err){ console.warn(err); showToast("Couldn't delete from Google: "+err.message,false); }
+    });
+  } else {
+    deleteEvent(e.id);
+    if(e.gcalId) gWithToken(async()=>{ try{ await gDelete(e.gcalId); gDeleted.add(e.gcalId); try{ localStorage.setItem("g_deleted",JSON.stringify([...gDeleted].slice(-500))); }catch(_){} gcal=gcal.filter(x=>x.gid!==e.gcalId); }catch(err){ console.warn(err); } done(); });
+    else done();
+  }
+}
 gInit();
 </script>
 </body>
