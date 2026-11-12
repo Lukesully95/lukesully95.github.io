@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+<title>Luke's Calendar</title>
+<style>
+  :root{
+    --bg:#0f1024; --bg2:#171a3a; --card:#1b1e3f; --card2:#23274f;
+    --line:#33386b; --text:#eef0ff; --muted:#a6abdc;
+    --accent:#7c5cff; --accent2:#39d0d8;
+    --c-work:#7c5cff; --c-school:#39d0d8; --c-personal:#ff6ba8;
+    --c-health:#39d98a; --c-travel:#ffb454; --c-holiday:#ff6b6b;
+    --shadow:0 18px 50px rgba(0,0,0,.45); --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(1100px 600px at 8% -10%, rgba(124,92,255,.32), transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, rgba(57,208,216,.20), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg2));
+    min-height:100vh;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:12px 14px 10px;display:flex;flex-direction:column;height:100vh;height:100dvh}
+  header.top,.toolbar,.photobar,.legend,footer{flex:none}
+
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:46px;height:46px;border-radius:14px;flex:none;background:linear-gradient(135deg,var(--accent),var(--c-personal));display:grid;place-items:center;box-shadow:var(--shadow)}
+  .logo svg{width:25px;height:25px}
+  h1{font-size:1.4rem;margin:0}
+  .sub{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+  .status .dot{width:8px;height:8px;border-radius:50%;background:#ffb454}
+  .status.on .dot{background:#39d98a}
+  .status.local .dot{background:#7c8cff}
+
+  .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .nav{display:flex;align-items:center;gap:6px}
+  .iconbtn{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;font-size:1.1rem;display:grid;place-items:center;transition:.15s}
+  .iconbtn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .monthlabel{font-size:1.12rem;font-weight:700;min-width:190px;text-align:center}
+  .btn{appearance:none;border:1px solid var(--line);cursor:pointer;background:var(--card);color:var(--text);padding:9px 14px;border-radius:11px;font-size:.9rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),#9a7bff);border-color:transparent}
+  .btn svg{width:16px;height:16px}
+  .spacer{flex:1}
+
+  .legend{display:flex;flex-wrap:wrap;gap:9px 16px;margin-bottom:9px;font-size:.76rem;color:var(--muted);justify-content:center}
+  .legend .it{display:flex;align-items:center;gap:7px;cursor:default}
+  .sw{width:11px;height:11px;border-radius:4px}
+
+  .calwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  .dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--card2);border-bottom:1px solid var(--line);flex:none}
+  .dow div{padding:10px 8px;text-align:center;font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(6,1fr);flex:1 1 auto;min-height:0}
+  .cell{min-height:0;overflow:hidden;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 6px 8px;cursor:pointer;position:relative;transition:.12s background}
+  .cell:nth-child(7n){border-right:0}
+  .cell:hover{background:rgba(124,92,255,.08)}
+  .cell.dim{opacity:.38}
+  .cell .num{font-size:.8rem;color:var(--muted);font-weight:700;display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:50%}
+  .cell.today .num{background:var(--accent);color:#fff}
+  .cell.blank{cursor:default;background:rgba(124,92,255,.03)}
+  .chips{margin-top:3px;display:flex;flex-direction:column;gap:3px}
+  .chip{font-size:.72rem;line-height:1.25;padding:2px 7px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#0b0d20;font-weight:600}
+  .chip .t{opacity:.75;font-weight:700;margin-right:3px}
+  .more{font-size:.66rem;color:var(--muted);margin-top:2px;font-weight:600}
+  [data-cat="Work"]{background:var(--c-work)} [data-cat="School"]{background:var(--c-school)}
+  [data-cat="Personal"]{background:var(--c-personal)} [data-cat="Health"]{background:var(--c-health)}
+  [data-cat="Travel"]{background:var(--c-travel)} [data-cat="Holiday"]{background:var(--c-holiday)}
+
+  /* Modal */
+  .ov{position:fixed;inset:0;background:rgba(6,7,20,.66);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .ov.show{display:flex}
+  .modal{background:var(--bg2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);width:100%;max-width:440px;max-height:88vh;overflow:auto}
+  .mhead{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .mhead h3{margin:0;font-size:1.05rem}
+  .x{border:0;background:transparent;color:var(--muted);font-size:1.3rem;cursor:pointer;line-height:1}
+  .mbody{padding:16px 18px}
+  .daylist{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+  .ev{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--card);cursor:pointer;transition:.12s}
+  .ev:hover{border-color:var(--accent)}
+  .ev .bar{width:4px;align-self:stretch;border-radius:3px;flex:none}
+  .ev .info{flex:1;min-width:0}
+  .ev .ttl{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ev .meta{color:var(--muted);font-size:.78rem;margin-top:1px}
+  .empty{color:var(--muted);font-size:.88rem;text-align:center;padding:14px 0}
+  form label{display:block;font-size:.78rem;color:var(--muted);margin:11px 0 5px;font-weight:600}
+  input,select,textarea{width:100%;background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 11px;font-size:.92rem;font-family:inherit}
+  textarea{resize:vertical;min-height:62px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mfoot{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line)}
+  .mfoot .spacer{flex:1}
+  .danger{background:transparent;border:1px solid var(--c-holiday);color:#ff9a9a}
+  .danger:hover{background:rgba(255,107,107,.12)}
+  footer{display:none}
+  .banner{background:rgba(255,180,84,.12);border:1px solid rgba(255,180,84,.4);color:#ffd9a8;font-size:.82rem;padding:10px 13px;border-radius:11px;margin-bottom:14px}
+  .banner b{color:#fff}
+  @media(max-width:600px){
+    /* fit the entire month on one phone screen: fixed-height flex column */
+    html,body{height:100%}
+    .wrap{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:none;padding:7px 8px 8px;gap:0}
+    header.top{flex:none;gap:8px;margin-bottom:7px}
+    .logo{width:32px;height:32px;border-radius:9px}
+    .logo svg{width:18px;height:18px}
+    h1{font-size:1.02rem}
+    .sub{display:none}
+    .status{font-size:.66rem;padding:3px 8px}
+    .toolbar{flex:none;gap:6px;margin-bottom:7px}
+    .nav{gap:4px}
+    .iconbtn{width:32px;height:32px;font-size:.95rem;border-radius:9px}
+    .monthlabel{min-width:0;flex:1;font-size:.96rem;text-align:left}
+    .btn{padding:7px 10px;font-size:.8rem;border-radius:9px}
+    #todayBtn{padding:7px 9px}
+    #addBtn{font-size:0;padding:7px 9px}
+    #addBtn svg{width:18px;height:18px}
+    .photobar{flex:none;padding:7px 10px;gap:8px;margin-bottom:7px}
+    .photobar .pi{width:30px;height:30px;font-size:.95rem}
+    .photobar .ptext{min-width:0}
+    .photobar .ptext b{font-size:.79rem}
+    .photobar .ptext span{display:none}
+    #topPhotoBtn{margin-left:auto;white-space:nowrap;font-size:.78rem;padding:8px 11px}
+    .legend{display:none}
+    .calwrap{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+    .dow{flex:none}
+    .dow div{padding:5px 1px;font-size:.58rem;letter-spacing:.2px}
+    .grid{flex:1 1 auto;min-height:0;grid-template-rows:repeat(6,1fr)}
+    .cell{min-height:0;padding:3px 4px 4px;overflow:hidden}
+    .cell .num{width:18px;height:18px;font-size:.7rem}
+    .chips{gap:2px;margin-top:2px;overflow:hidden}
+    .chip{font-size:.6rem;padding:1px 4px;border-radius:5px;line-height:1.2}
+    .chip .t{display:none}
+    .more{font-size:.5rem;margin-top:0}
+    .cell .pbadge{font-size:.55rem;top:2px;right:2px}
+    footer{display:none}
+    .ov{padding:10px}
+    .modal{max-width:none;max-height:90vh;max-height:90dvh}
+    .mhead{padding:12px 14px}
+    .mbody{padding:12px 14px}
+    .mfoot{padding:11px 14px;flex-wrap:wrap}
+    .dayphotos img{width:56px;height:56px}
+  }
+
+  /* Photo features */
+  .photobar{display:flex;align-items:center;gap:11px;flex-wrap:nowrap;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(57,208,216,.10));border:1px solid var(--line);border-radius:13px;padding:8px 13px;margin-bottom:8px}
+  .photobar .pi{width:34px;height:34px;border-radius:10px;background:rgba(124,92,255,.28);display:grid;place-items:center;font-size:1.05rem;flex:none}
+  .photobar .ptext{flex:1;min-width:0}
+  .photobar .ptext b{display:block;font-size:.86rem}
+  .photobar .ptext span{display:none}
+  .photobar .pstatus{font-size:.79rem;color:var(--accent2)}
+  .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;display:inline-block;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .cell .pbadge{position:absolute;top:5px;right:6px;font-size:.72rem;line-height:1}
+  .dayphotos{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+  .dayphotos img{width:66px;height:66px;object-fit:cover;border-radius:9px;border:1px solid var(--line);cursor:pointer}
+  .pstatus{font-size:.79rem;color:var(--accent2)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:13px;padding:12px 16px;display:none;align-items:center;gap:12px;z-index:80;font-size:.9rem;max-width:92vw}
+  .toast.show{display:flex}
+  .toast button{background:var(--accent);border:0;color:#fff;font-weight:700;padding:7px 12px;border-radius:9px;cursor:pointer;font-size:.84rem}
+  .toast button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:90;padding:20px}
+  .lightbox.show{display:flex}
+  .lightbox img{max-width:94vw;max-height:88vh;border-radius:12px;display:block}
+
+  /* Phone overrides for the photo-feature styles — declared LAST so they win over
+     the desktop photo styles above (this is what frees the space for all 6 weeks). */
+  @media(max-width:600px){
+    .photobar{flex:none;flex-wrap:nowrap;padding:6px 9px;gap:8px;margin-bottom:6px;border-radius:12px}
+    .photobar .pi{width:28px;height:28px;font-size:.85rem;border-radius:7px}
+    .photobar .ptext{flex:1;min-width:0}
+    .photobar .ptext b{font-size:.76rem}
+    .cell .pbadge{font-size:.55rem;top:2px;right:2px}
+    .dayphotos img{width:56px;height:56px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+      <div>
+        <h1 id="calTitle">Luke's Calendar</h1>
+        <div class="sub" id="syncSub">Synced with Google Calendar · Christopher</div>
+      </div>
+    </div>
+    <div id="status" class="status"><span class="dot"></span><span id="statusText">Connecting…</span></div>
+  </header>
+
+  <div id="setupBanner" class="banner" style="display:none">
+    <b>Offline view.</b> Your Google Calendar events are shown; events you add here save in this browser and open Google Calendar so they sync.
+  </div>
+
+  <div class="toolbar">
+    <div class="nav">
+      <button class="iconbtn" id="prev" aria-label="Previous month">‹</button>
+      <button class="iconbtn" id="next" aria-label="Next month">›</button>
+    </div>
+    <div class="monthlabel" id="monthLabel">—</div>
+    <button class="btn" id="todayBtn">Today</button>
+    <div class="spacer"></div>
+    <button class="btn" id="gBtn" style="display:none">🔗 Connect Google</button>
+    <button class="btn primary" id="addBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Add event
+    </button>
+  </div>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="photobar">
+    <div class="pi">📷</div>
+    <div class="ptext">
+      <b>Add a schedule photo</b>
+      <span>Drop in a pic of a schedule, flyer, or itinerary — the calendar reads it and fills in the right days automatically.</span>
+    </div>
+    <button class="btn primary" id="topPhotoBtn">📷 Read a photo</button>
+    <div class="pstatus" id="topPhotoStatus"></div>
+    <input type="file" id="topPhotoInput" accept="image/*" style="display:none" />
+  </div>
+
+  <div class="calwrap">
+    <div class="dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <footer>Your custom shared calendar · <span id="evcount">0</span> events loaded</footer>
+</div>
+
+<!-- Day modal -->
+<div class="ov" id="dayOv">
+  <div class="modal">
+    <div class="mhead"><h3 id="dayTitle">Day</h3><button class="x" data-close>×</button></div>
+    <div class="mbody">
+      <div class="dayphotos" id="dayPhotos"></div>
+      <div class="daylist" id="dayList"></div>
+    </div>
+    <div class="mfoot">
+      <button class="btn primary" id="dayAdd">+ Add event</button>
+      <button class="btn" id="dayPhotoBtn">📷 Add photo</button>
+      <span class="pstatus" id="dayPhotoStatus"></span>
+      <div class="spacer"></div>
+      <button class="btn" data-close>Close</button>
+    </div>
+    <input type="file" id="dayPhotoInput" accept="image/*" style="display:none" />
+  </div>
+</div>
+
+<!-- Edit modal -->
+<div class="ov" id="editOv">
+  <div class="modal">
+    <div class="mhead"><h3 id="editTitle">Add event</h3><button class="x" data-close>×</button></div>
+    <form id="editForm">
+      <div class="mbody">
+        <input type="hidden" id="f_id" />
+        <label>Title</label>
+        <input id="f_title" required placeholder="e.g. Dinner with friends" />
+        <div class="row2">
+          <div><label>Date</label><input id="f_date" type="date" required /></div>
+          <div><label>Category</label>
+            <select id="f_cat">
+              <option>Work</option><option>School</option><option>Personal</option>
+              <option>Health</option><option>Travel</option><option>Holiday</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2">
+          <div><label>Start time</label><input id="f_time" type="time" /></div>
+          <div><label>End time</label><input id="f_end" type="time" /></div>
+        </div>
+        <label>Location (optional)</label>
+        <input id="f_loc" placeholder="Where?" />
+        <label>Notes (optional)</label>
+        <textarea id="f_notes" placeholder="Anything to remember…"></textarea>
+      </div>
+      <div class="mfoot">
+        <button type="button" class="btn danger" id="delBtn" style="display:none">Delete</button>
+        <div class="spacer"></div>
+        <button type="button" class="btn" data-close>Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast (auto-add + undo) -->
+<div class="toast" id="toast">
+  <span id="toastMsg"></span>
+  <button id="toastUndo">Undo</button>
+  <button class="ghost" id="toastClose">Dismiss</button>
+</div>
+
+<!-- Photo lightbox -->
+<div class="lightbox" id="lightbox">
+  <div style="position:relative">
+    <img id="lightboxImg" alt="photo" />
+    <button class="btn danger" id="lbDelete" style="position:absolute;top:10px;right:10px">Delete photo</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* =========================================================================
+   CONFIG
+   ========================================================================= */
+// By default this page borrows the SAME Firebase project that powers your
+// rachel-calendar.html (read automatically at runtime from the same site) and
+// stores events in its own separate collection, so the two never mix.
+// To pin an explicit config instead, fill this in:
+const FIREBASE_CONFIG = {
+  // apiKey: "…", authDomain: "…", projectId: "…",
+  // storageBucket: "…", messagingSenderId: "…", appId: "…"
+};
+const SOURCE_PAGE = "rachel-calendar.html"; // page to borrow the Firebase config from
+const COLLECTION  = "lukeEvents";           // Firestore collection (separate from Rachel's "events")
+const ROOM        = "lukeCalendar";         // localStorage key for offline preview
+const CAL_TITLE   = "Luke's Calendar";
+/* ========================================================================= */
+let db=null, col=null;
+
+const SEED_EVENTS = [{"date":"2026-06-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-06-24","time":"08:30","endTime":"08:35","title":"Feed Sheba","category":"Personal"},{"date":"2026-06-24","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-06-24","time":"17:45","endTime":"18:30","title":"Therapy with Tim","category":"Health"},{"date":"2026-06-24","time":"18:30","endTime":"19:00","title":"Travel to Krav Maga","category":"Travel"},{"date":"2026-06-24","time":"19:00","endTime":"20:00","title":"Krav Maga","category":"Health"},{"date":"2026-06-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-24","time":"20:00","endTime":"20:30","title":"Travel from Krav Maga","category":"Travel"},{"date":"2026-06-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-06-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-06-25","time":"08:30","endTime":"08:35","title":"Feed Sheba","category":"Personal"},{"date":"2026-06-25","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-06-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-26","time":"","title":"Ashura","category":"Holiday"},{"date":"2026-06-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-06-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-06-26","time":"08:30","endTime":"08:35","title":"Feed Sheba","category":"Personal"},{"date":"2026-06-26","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-06-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-27","time":"08:30","endTime":"08:35","title":"Feed Sheba","category":"Personal"},{"date":"2026-06-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-06-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-06-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-06-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-06-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-28","time":"08:30","endTime":"08:35","title":"Feed Sheba","category":"Personal"},{"date":"2026-06-28","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-06-28","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-06-28","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-06-28","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-06-28","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-06-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-06-29","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-06-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-06-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-06-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-06-30","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-06-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-01","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-02","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-03","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-04","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-04","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-04","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-04","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-04","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-05","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-05","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-05","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-05","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-05","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-06","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-07","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-08","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-09","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-10","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-11","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-11","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-11","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-11","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-11","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-12","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-12","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-12","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-12","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-12","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-13","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-14","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-15","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-16","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-17","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-18","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-18","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-18","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-18","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-18","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-19","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-19","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-19","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-19","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-19","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-20","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-21","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-22","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-23","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-24","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-25","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-25","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-25","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-25","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-25","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-26","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-07-26","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-07-26","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-07-26","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-07-26","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-27","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-28","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-29","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-30","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-07-31","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-07-31","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-07-31","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-07-31","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-01","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-01","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-01","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-01","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-01","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-02","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-02","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-02","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-02","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-02","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-03","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-08-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-04","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-08-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-05","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-08-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-06","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-08-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-07","time":"09:00","endTime":"19:00","title":"Profound","notes":"30 minutes travel time each way (Google Calendar has no native travel-time field).","category":"Work"},{"date":"2026-08-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-08","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-08","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-08","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-08","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-08","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-09","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-09","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-09","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-09","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-09","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-15","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-15","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-15","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-15","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-15","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-16","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-16","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-16","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-16","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-16","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-22","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-22","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-22","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-22","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-22","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-23","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-23","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-23","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-23","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-23","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-29","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-29","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-29","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-29","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-29","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-30","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-08-30","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-08-30","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-08-30","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-08-30","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-08-31","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-08-31","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-08-31","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-05","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-05","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-05","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-05","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-05","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-06","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-06","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-06","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-06","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-06","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-12","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-12","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-12","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-12","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-12","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-13","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-13","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-13","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-13","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-13","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-19","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-19","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-19","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-19","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-19","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-20","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-20","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-20","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-20","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-20","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-26","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-26","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-26","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-26","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-26","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-09-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-09-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-09-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-09-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-09-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-09-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-09-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-03","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-03","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-03","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-03","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-03","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-04","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-04","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-04","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-04","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-04","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-10","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-10","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-10","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-10","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-10","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-11","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-11","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-11","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-11","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-11","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-17","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-17","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-17","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-17","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-17","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-18","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-18","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-18","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-18","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-18","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-24","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-24","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-24","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-24","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-24","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-25","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-25","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-25","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-25","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-25","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-10-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-10-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-10-31","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-10-31","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-10-31","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-10-31","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-10-31","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-01","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-01","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-01","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-01","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-01","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-07","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-07","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-07","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-07","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-07","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-08","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-08","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-08","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-08","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-08","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-14","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-14","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-14","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-14","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-14","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-15","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-15","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-15","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-15","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-15","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-21","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-21","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-21","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-21","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-21","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-22","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-22","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-22","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-22","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-22","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-28","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-28","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-28","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-28","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-28","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-29","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-11-29","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-11-29","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-11-29","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-11-29","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-11-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-11-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-11-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-05","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-05","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-05","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-05","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-05","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-06","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-06","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-06","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-06","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-06","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-12","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-12","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-12","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-12","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-12","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-13","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-13","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-13","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-13","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-13","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-19","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-19","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-19","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-19","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-19","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-20","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-20","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-20","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-20","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-20","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-26","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-26","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-26","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-26","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-26","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2026-12-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2026-12-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2026-12-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2026-12-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2026-12-31","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2026-12-31","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2026-12-31","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-02","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-02","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-02","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-02","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-02","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-03","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-03","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-03","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-03","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-03","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-09","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-09","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-09","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-09","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-09","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-10","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-10","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-10","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-10","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-10","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-16","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-16","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-16","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-16","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-16","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-17","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-17","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-17","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-17","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-17","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-23","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-23","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-23","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-23","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-23","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-24","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-24","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-24","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-24","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-24","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-01-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-01-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-30","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-30","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-30","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-30","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-30","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-01-31","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-01-31","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-01-31","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-01-31","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-01-31","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-06","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-06","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-06","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-06","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-06","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-07","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-07","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-07","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-07","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-07","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-13","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-13","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-13","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-13","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-13","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-14","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-14","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-14","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-14","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-14","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-20","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-20","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-20","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-20","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-20","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-21","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-21","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-21","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-21","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-21","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-02-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-02-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-02-28","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-02-28","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-02-28","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-02-28","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-02-28","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-06","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-06","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-06","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-06","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-06","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-07","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-07","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-07","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-07","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-07","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-13","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-13","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-13","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-13","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-13","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-14","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-14","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-14","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-14","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-14","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-20","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-20","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-20","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-20","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-20","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-21","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-21","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-21","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-21","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-21","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-28","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-03-28","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-03-28","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-03-28","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-03-28","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-03-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-03-31","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-03-31","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-02","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-03","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-03","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-03","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-03","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-03","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-04","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-04","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-04","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-04","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-04","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-05","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-09","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-10","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-10","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-10","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-10","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-10","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-11","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-11","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-11","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-11","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-11","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-12","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-16","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-17","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-17","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-17","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-17","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-17","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-18","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-18","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-18","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-18","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-18","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-19","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-23","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-24","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-24","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-24","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-24","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-24","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-25","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-04-25","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-04-25","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-04-25","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-04-25","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-26","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-04-30","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-04-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-04-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-01","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-01","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-01","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-01","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-01","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-02","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-02","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-02","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-02","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-02","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-05","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-05","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-06","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-06","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-06","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-08","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-08","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-08","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-08","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-08","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-09","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-09","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-09","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-09","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-09","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-12","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-12","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-13","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-13","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-13","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-15","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-15","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-15","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-15","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-15","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-16","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-16","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-16","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-16","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-16","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-19","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-19","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-20","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-20","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-20","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-22","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-22","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-22","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-22","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-22","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-23","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-23","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-23","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-23","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-23","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-26","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-26","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-27","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-27","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-27","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-29","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-29","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-29","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-29","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-29","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-30","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-05-30","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-05-30","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-05-30","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-05-30","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-05-31","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-05-31","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-05-31","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-01","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-01","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-01","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-02","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-02","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-03","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-03","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-03","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-04","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-04","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-04","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-05","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-05","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-05","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-05","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-05","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-06","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-06","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-06","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-06","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-06","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-07","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-07","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-07","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-08","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-08","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-08","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-09","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-09","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-10","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-10","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-10","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-11","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-11","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-11","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-12","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-12","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-12","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-12","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-12","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-13","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-13","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-13","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-13","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-13","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-14","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-14","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-14","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-15","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-15","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-15","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-16","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-16","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-17","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-17","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-17","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-18","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-18","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-18","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-19","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-19","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-19","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-19","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-19","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-20","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-20","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-20","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-20","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-20","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-21","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-21","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-21","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-22","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-22","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-22","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-23","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-23","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-24","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-24","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-24","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-25","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-25","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-25","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-26","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-26","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-26","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-26","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-26","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-27","time":"09:00","endTime":"10:00","title":"Gym","category":"Health"},{"date":"2027-06-27","time":"10:00","endTime":"11:00","title":"Shower","category":"Health"},{"date":"2027-06-27","time":"11:00","endTime":"12:00","title":"Driving Practice","category":"Personal"},{"date":"2027-06-27","time":"13:00","endTime":"14:00","title":"Acting Practice","category":"Personal"},{"date":"2027-06-27","time":"15:00","endTime":"21:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-28","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-28","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-28","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-29","time":"06:00","endTime":"07:00","title":"Gym","category":"Health"},{"date":"2027-06-29","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-29","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"},{"date":"2027-06-30","time":"07:00","endTime":"08:00","title":"Shower","category":"Health"},{"date":"2027-06-30","time":"20:00","endTime":"22:00","title":"AI Business Work","category":"Work"}];
+
+const CATS = ["Work","School","Personal","Health","Travel","Holiday"];
+const CAT_COLOR = {Work:"#7c5cff",School:"#39d0d8",Personal:"#ff6ba8",Health:"#39d98a",Travel:"#ffb454",Holiday:"#ff6b6b"};
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+document.getElementById("calTitle").textContent = CAL_TITLE;
+document.title = CAL_TITLE;
+
+// ---------- state ----------
+let events = {};           // id -> event
+let view = new Date();     // current month being viewed
+let dbRef = null;
+let mode = "local";        // "firebase" | "local"
+// ---------- Google Calendar feed (master) ----------
+const FEED_URL = "luke-calendar-feed.json";
+let gcal = [];               // events from Google Calendar, refreshed by Christopher
+const SEED_KEYS = new Set(SEED_EVENTS.map(e=>e.date+"|"+(e.time||"")+"|"+e.title)); // old June seed: hide it
+const keyOf = e => e.date+"|"+(e.time||"")+"|"+(e.title||"").trim().toLowerCase();
+async function loadFeed(){
+  try{
+    const r=await fetch(FEED_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) return;
+    const d=await r.json();
+    gcal=(d.events||[]).map((e,i)=>({id:"g"+i+"_"+(e.gid||""),...e}));
+    const up=d.updated?new Date(d.updated):null;
+    const sub=document.getElementById("syncSub");
+    if(sub&&up) sub.textContent="Synced with Google Calendar · Christopher · updated "+up.toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+    renderMonth();
+  }catch(e){ console.warn("feed:",e); }
+}
+
+// ---------- helpers ----------
+const pad = n => String(n).padStart(2,"0");
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const uid = () => "e"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+function to12(t){ if(!t) return ""; const [h,m]=t.split(":").map(Number); const ap=h<12?"AM":"PM"; const hh=h%12||12; return `${hh}:${pad(m)} ${ap}`; }
+function timeLabel(e){ if(!e.time) return "All day"; return to12(e.time)+(e.endTime?` – ${to12(e.endTime)}`:""); }
+
+// ---------- rendering ----------
+function renderLegend(){
+  const el=document.getElementById("legend"); el.innerHTML="";
+  CATS.forEach(c=>{
+    const d=document.createElement("div"); d.className="it";
+    d.innerHTML=`<span class="sw" style="background:${CAT_COLOR[c]}"></span>${c}`;
+    el.appendChild(d);
+  });
+}
+
+function eventsOn(dateStr){
+  const g=gcal.filter(e=>e.date===dateStr);
+  const have=new Set(g.map(keyOf));
+  const mine=Object.entries(events)
+    .filter(([id,e])=>e.date===dateStr && !SEED_KEYS.has(e.date+"|"+(e.time||"")+"|"+e.title) && !have.has(keyOf(e)))
+    .map(([id,e])=>({id,...e}));
+  return g.concat(mine).sort((a,b)=>(a.time||"99").localeCompare(b.time||"99"));
+}
+function gcalLink(ds){ const [y,m,d]=ds.split("-"); return `https://calendar.google.com/calendar/r/day/${y}/${+m}/${+d}`; }
+function gcalTemplate(ev){
+  const f=(d,t)=>d.replace(/-/g,"")+(t?"T"+t.replace(":","")+"00":"");
+  let dates;
+  if(ev.time){ dates=f(ev.date,ev.time)+"/"+f(ev.date,ev.endTime||ev.time); }
+  else { const n=new Date(ev.date+"T00:00:00"); n.setDate(n.getDate()+1); dates=f(ev.date)+"/"+f(ymd(n)); }
+  const q=new URLSearchParams({action:"TEMPLATE",text:ev.title,dates,ctz:"America/New_York",details:ev.notes||"",location:ev.location||""});
+  return "https://calendar.google.com/calendar/render?"+q.toString();
+}
+
+function renderMonth(){
+  const y=view.getFullYear(), m=view.getMonth();
+  document.getElementById("monthLabel").textContent=`${MONTHS[m]} ${y}`;
+  const firstWeekday=new Date(y,m,1).getDay();        // 0=Sun
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const totalCells=Math.ceil((firstWeekday+daysInMonth)/7)*7;   // only the weeks this month touches
+  const rows=totalCells/7;
+  const grid=document.getElementById("grid"); grid.innerHTML="";
+  grid.style.gridTemplateRows=`repeat(${rows},1fr)`;            // 4–6 rows, like Mom's
+  const todayStr=ymd(new Date());
+  const cap=3;                                                  // show up to 3 + "+more", like Mom's
+  for(let i=0;i<totalCells;i++){
+    const dayNum=i-firstWeekday+1;
+    const inMonth=dayNum>=1 && dayNum<=daysInMonth;
+    const cell=document.createElement("div");
+    if(!inMonth){ cell.className="cell blank"; grid.appendChild(cell); continue; }   // blank leading/trailing cells
+    const d=new Date(y,m,dayNum);
+    const ds=ymd(d);
+    cell.className="cell"+(ds===todayStr?" today":"");
+    cell.dataset.date=ds;
+    const dayEvents=eventsOn(ds);
+    let html=`<span class="num">${dayNum}</span><div class="chips">`;
+    dayEvents.slice(0,cap).forEach(e=>{
+      const t=e.time?`<span class="t">${to12(e.time).replace(":00","")}</span>`:"";
+      html+=`<div class="chip" data-cat="${e.category||'Personal'}">${t}${escapeHtml(e.title)}</div>`;
+    });
+    html+=`</div>`;
+    if(dayEvents.length>cap) html+=`<div class="more">+${dayEvents.length-cap} more</div>`;
+    if(photosOn(ds).length) html+=`<span class="pbadge">📷</span>`;
+    cell.innerHTML=html;
+    cell.addEventListener("click",()=>openDay(ds));
+    grid.appendChild(cell);
+  }
+  document.getElementById("evcount").textContent=gcal.length+Object.values(events).filter(e=>!SEED_KEYS.has(e.date+"|"+(e.time||"")+"|"+e.title)).length;
+}
+
+function escapeHtml(s){return (s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
+
+// ---------- day modal ----------
+let activeDay=null;
+function openDay(ds){
+  activeDay=ds;
+  const d=new Date(ds+"T00:00:00");
+  document.getElementById("dayTitle").textContent=d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
+  const list=document.getElementById("dayList"); list.innerHTML="";
+  const evs=eventsOn(ds);
+  if(!evs.length) list.innerHTML=`<div class="empty">No events yet. Add one below.</div>`;
+  evs.forEach(e=>{
+    const row=document.createElement("div"); row.className="ev";
+    row.innerHTML=`<div class="bar" style="background:${CAT_COLOR[e.category]||'#888'}"></div>
+      <div class="info"><div class="ttl">${escapeHtml(e.title)}</div>
+      <div class="meta">${timeLabel(e)}${e.location?" · "+escapeHtml(e.location):""}</div></div>`;
+    if(e.src==="gcal"){
+      row.querySelector(".meta").innerHTML+=' · <span style="opacity:.7">Google Calendar ↗</span>';
+      row.addEventListener("click",()=>window.open(gcalLink(e.date),"_blank","noopener"));
+    } else row.addEventListener("click",()=>openEdit(e));
+    list.appendChild(row);
+  });
+  renderDayPhotos(ds);
+  show("dayOv");
+}
+document.getElementById("dayAdd").addEventListener("click",()=>{ openEdit(null,activeDay); });
+
+// ---------- edit modal ----------
+function openEdit(ev,presetDate){
+  const isNew=!ev;
+  document.getElementById("editTitle").textContent=isNew?"Add event":"Edit event";
+  document.getElementById("f_id").value=ev?ev.id:"";
+  document.getElementById("f_title").value=ev?ev.title:"";
+  document.getElementById("f_date").value=ev?ev.date:(presetDate||ymd(view.getMonth()===new Date().getMonth()?new Date():new Date(view.getFullYear(),view.getMonth(),1)));
+  document.getElementById("f_time").value=ev?ev.time||"":"";
+  document.getElementById("f_end").value=ev?ev.endTime||"":"";
+  document.getElementById("f_cat").value=ev?(ev.category||"Personal"):"Personal";
+  document.getElementById("f_loc").value=ev?ev.location||"":"";
+  document.getElementById("f_notes").value=ev?ev.notes||"":"";
+  document.getElementById("delBtn").style.display=isNew?"none":"inline-flex";
+  show("editOv");
+}
+
+document.getElementById("editForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const id=document.getElementById("f_id").value||uid();
+  const ev={
+    date:document.getElementById("f_date").value,
+    time:document.getElementById("f_time").value||"",
+    endTime:document.getElementById("f_end").value||"",
+    title:document.getElementById("f_title").value.trim()||"Untitled",
+    category:document.getElementById("f_cat").value,
+    location:document.getElementById("f_loc").value.trim(),
+    notes:document.getElementById("f_notes").value.trim()
+  };
+  const isNewEv=!document.getElementById("f_id").value;
+  saveEvent(id,ev);
+  if(isNewEv){ if(gConnected()) gAfterAdd([[id,ev]]); else window.open(gcalTemplate(ev),"_blank","noopener"); }
+  hide("editOv");
+  if(activeDay) openDay(ev.date); else hide("dayOv");
+});
+
+document.getElementById("delBtn").addEventListener("click",()=>{
+  const id=document.getElementById("f_id").value;
+  if(!id) return;
+  if(confirm("Delete this event?")){
+    deleteEvent(id);
+    hide("editOv");
+    if(activeDay) openDay(activeDay);
+  }
+});
+
+// ---------- data layer (Firestore or local) ----------
+function saveEvent(id,ev){
+  if(mode==="firebase" && col){
+    col.doc(id).set(ev).catch(e=>alert("Couldn't save (sharing rules?): "+e.message));
+  } else { events[id]=ev; persistLocal(); renderMonth(); }
+}
+function deleteEvent(id){
+  if(mode==="firebase" && col){
+    col.doc(id).delete().catch(e=>alert("Couldn't delete (sharing rules?): "+e.message));
+  } else { delete events[id]; persistLocal(); renderMonth(); }
+}
+function persistLocal(){ try{ localStorage.setItem("cal_"+ROOM, JSON.stringify(events)); }catch(e){} }
+
+function seedObject(){
+  const o={};
+  SEED_EVENTS.forEach(e=>{ o[uid()]=e; });
+  return o;
+}
+
+function startLocal(){
+  mode="local";
+  setStatus("local","Local preview");
+  document.getElementById("setupBanner").style.display="block";
+  let saved=null;
+  try{ saved=JSON.parse(localStorage.getItem("cal_"+ROOM)||"null"); }catch(e){}
+  events = saved || {};
+  try{ photos=JSON.parse(localStorage.getItem("ph_"+ROOM)||"{}"); }catch(e){ photos={}; }
+  persistLocal();
+  renderMonth();
+  jumpToEvents();
+}
+
+// Borrow the Firebase config from the sibling page (same origin), so no keys are stored here.
+async function loadBorrowedConfig(){
+  try{
+    const res=await fetch(SOURCE_PAGE,{cache:"no-store"});
+    if(!res.ok) return null;
+    const txt=await res.text();
+    const keys=["apiKey","authDomain","projectId","storageBucket","messagingSenderId","appId"];
+    const cfg={};
+    for(const k of keys){
+      const m=txt.match(new RegExp(k+"\\s*:\\s*[\"']([^\"']+)[\"']"));
+      if(m) cfg[k]=m[1];
+    }
+    return (cfg.apiKey && cfg.projectId) ? cfg : null;
+  }catch(e){ return null; }
+}
+
+async function seedAll(){
+  const items=SEED_EVENTS.map(e=>({id:uid(),data:e}));
+  for(let i=0;i<items.length;i+=450){
+    const batch=db.batch();
+    items.slice(i,i+450).forEach(it=>batch.set(col.doc(it.id),it.data));
+    await batch.commit();
+  }
+}
+
+function startFirebase(cfg){
+  try{
+    firebase.initializeApp(cfg);
+    db=firebase.firestore();
+    col=db.collection(COLLECTION);
+    mode="firebase";
+    setStatus("","Connecting…");
+    // one-time seed, guarded so concurrent viewers don't double-seed
+    const meta=db.collection(COLLECTION+"_meta").doc("state");
+    db.runTransaction(async tx=>{
+      const m=await tx.get(meta);
+      if(m.exists) return false;
+      tx.set(meta,{seeded:true,ts:Date.now()});
+      return true;
+    }).then(()=>{ /* seeding retired: Google Calendar is the master now */ })
+      .catch(e=>console.warn("seed skipped:",e.message));
+    // live updates
+    col.onSnapshot(snap=>{
+      events={};
+      snap.forEach(d=>{ events[d.id]=d.data(); });
+      setStatus("on","Live · synced");
+      renderMonth();
+      if(!window.__jumped){ jumpToEvents(); window.__jumped=true; }
+    }, err=>{
+      console.warn("snapshot error:",err);
+      setStatus("","Can't sync — check sharing rules");
+    });
+    // live photo updates
+    pcol=db.collection(PHOTOS_COLLECTION);
+    pcol.onSnapshot(snap=>{
+      photos={};
+      snap.forEach(d=>{ photos[d.id]=d.data(); });
+      renderMonth();
+      if(activeDay) renderDayPhotos(activeDay);
+    }, e=>console.warn("photo snapshot error:",e));
+  }catch(e){
+    console.warn("Firebase failed, using local:",e);
+    startLocal();
+  }
+}
+
+function jumpToEvents(){
+  // if today has no events but seed starts later, jump to first event month
+  const keys=Object.values(events);
+  if(!keys.length) return;
+  const today=ymd(new Date());
+  const hasFuture=keys.some(e=>e.date>=today);
+  if(hasFuture){
+    const firstFuture=keys.filter(e=>e.date>=today).sort((a,b)=>a.date.localeCompare(b.date))[0];
+    const d=new Date(firstFuture.date+"T00:00:00");
+    if(d.getMonth()!==view.getMonth()||d.getFullYear()!==view.getFullYear()){ /* keep current month if it has events */ }
+  }
+}
+
+function setStatus(cls,txt){
+  const s=document.getElementById("status");
+  s.className="status"+(cls?(" "+cls):"");
+  document.getElementById("statusText").textContent=txt;
+}
+
+/* =========================================================================
+   PHOTO FEATURES — read a photo (OCR) and auto-fill the calendar
+   ========================================================================= */
+const PHOTOS_COLLECTION = "lukePhotos";
+let pcol=null;
+let photos={};   // id -> {date, img, ts}
+
+function photosOn(ds){ return Object.entries(photos).filter(([id,p])=>p.date===ds).map(([id,p])=>({id,...p})); }
+function savePhoto(id,p){
+  if(mode==="firebase" && pcol){ pcol.doc(id).set(p).catch(e=>alert("Couldn't save photo: "+e.message)); }
+  else { photos[id]=p; persistPhotosLocal(); renderMonth(); if(activeDay) renderDayPhotos(activeDay); }
+}
+function deletePhoto(id){
+  if(mode==="firebase" && pcol){ pcol.doc(id).delete().catch(()=>{}); }
+  else { delete photos[id]; persistPhotosLocal(); renderMonth(); if(activeDay) renderDayPhotos(activeDay); }
+}
+function persistPhotosLocal(){ try{ localStorage.setItem("ph_"+ROOM, JSON.stringify(photos)); }catch(e){} }
+
+function renderDayPhotos(ds){
+  const wrap=document.getElementById("dayPhotos"); if(!wrap) return;
+  wrap.innerHTML="";
+  photosOn(ds).forEach(p=>{
+    const im=document.createElement("img"); im.src=p.img; im.alt="day photo";
+    im.addEventListener("click",()=>openLightbox(p.id,p.img));
+    wrap.appendChild(im);
+  });
+}
+
+// shrink an uploaded image to a small JPEG data URL so it fits in the shared DB
+function compressImage(file,maxDim=760,q=0.55){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    img.onload=()=>{
+      let w=img.width,h=img.height;
+      if(w>h && w>maxDim){ h=Math.round(h*maxDim/w); w=maxDim; }
+      else if(h>=w && h>maxDim){ w=Math.round(w*maxDim/h); h=maxDim; }
+      const c=document.createElement("canvas"); c.width=w; c.height=h;
+      c.getContext("2d").drawImage(img,0,0,w,h);
+      try{ resolve(c.toDataURL("image/jpeg",q)); }catch(e){ reject(e); }
+      URL.revokeObjectURL(img.src);
+    };
+    img.onerror=reject;
+    img.src=URL.createObjectURL(file);
+  });
+}
+
+// ---- OCR ----
+async function ocr(file,statusEl){
+  if(typeof Tesseract==="undefined") throw new Error("photo reader still loading — try again in a moment");
+  const{data:{text}}=await Tesseract.recognize(file,"eng",{
+    logger:m=>{ if(statusEl && m.status==="recognizing text"){ statusEl.innerHTML=`<span class="spin"></span>Reading… ${Math.round((m.progress||0)*100)}%`; } }
+  });
+  return text||"";
+}
+
+// ---- schedule text -> events ----
+const WD={sun:0,mon:1,tue:2,wed:3,thu:4,fri:5,sat:6};
+const MO={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+function startOfToday(){ const t=new Date(); t.setHours(0,0,0,0); return t; }
+function nextWeekday(dow){ const t=startOfToday(); const diff=(dow-t.getDay()+7)%7; const d=new Date(t); d.setDate(t.getDate()+diff); return d; }
+function resolveYear(mo,day){ const now=startOfToday(); let yr=now.getFullYear(); if(new Date(yr,mo,day)<now) yr++; return yr; }
+function parseDateToken(line){
+  let m;
+  m=line.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:\s*,?\s*(\d{4}))?/i);
+  if(m){ const mo=MO[m[1].slice(0,3).toLowerCase()]; const day=+m[2]; if(day>=1&&day<=31){ const yr=m[3]?+m[3]:resolveYear(mo,day); return ymd(new Date(yr,mo,day)); } }
+  m=line.match(/\b(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?\b/);
+  if(m){ const mo=+m[1]-1, day=+m[2]; if(mo>=0&&mo<=11&&day>=1&&day<=31){ let yr=m[3]?(+m[3]<100?2000+(+m[3]):+m[3]):resolveYear(mo,day); return ymd(new Date(yr,mo,day)); } }
+  m=line.match(/\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b/i);
+  if(m){ return ymd(nextWeekday(WD[m[1].slice(0,3).toLowerCase()])); }
+  return null;
+}
+function parseTimes(line){
+  const re=/\b(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)?/ig;
+  const hits=[]; let m;
+  while((m=re.exec(line))){
+    let h=+m[1]; const min=m[2]?+m[2]:0; let ap=m[3]?m[3].replace(/\./g,"").toLowerCase():null;
+    const strong=!!(ap||m[2]);                 // needs am/pm or a colon to count as a real time
+    if(!strong) continue;
+    if(h>12 && ap) continue;                   // "13pm" nonsense
+    if(ap==="pm"&&h<12)h+=12;
+    if(ap==="am"&&h===12)h=0;
+    if(h>23||min>59) continue;
+    hits.push(`${pad(h)}:${pad(min)}`);
+  }
+  if(!hits.length) return null;
+  return {time:hits[0], endTime:hits.length>1?hits[1]:""};
+}
+function cleanTitle(line){
+  return line
+    .replace(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:\s*,?\s*\d{4})?/ig,"")
+    .replace(/\b\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\b/g,"")
+    .replace(/\b(sun|mon|tue|wed|thu|fri|sat)[a-z]*\b/ig,"")
+    .replace(/\b\d{1,2}(?::\d{2})?\s*(a\.?m\.?|p\.?m\.?)?\s*(?:[-–—]|to)\s*\d{1,2}(?::\d{2})?\s*(a\.?m\.?|p\.?m\.?)?/ig,"")
+    .replace(/\b\d{1,2}:\d{2}\s*(a\.?m\.?|p\.?m\.?)?/ig,"")
+    .replace(/\b\d{1,2}\s*(a\.?m\.?|p\.?m\.?)\b/ig,"")
+    .replace(/[•·*|]+/g," ").replace(/[-–—:]\s*$/,"").replace(/^\s*[-–—:]/,"")
+    .replace(/\s+/g," ").trim();
+}
+function isWeakTitle(t){
+  if(!t) return true;
+  if(t.replace(/[^a-z0-9]/ig,"").length<3) return true;
+  return /^(at|to|on|the|a|an|am|pm|and|or|of|in|for|with|by|st|nd|rd|th)$/i.test(t.trim());
+}
+function parseSchedule(text,opts){
+  opts=opts||{};
+  const perDay=!!opts.defaultDate;             // a per-day photo stays on its day
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.length>1);
+  let current = opts.defaultDate || null;
+  let lastText = "";                           // most recent descriptive line (title candidate)
+  const out=[];
+  for(const line of lines){
+    const d = perDay ? null : parseDateToken(line);
+    const t = parseTimes(line);
+    if(t){
+      const date = perDay ? opts.defaultDate : (d||current);
+      if(d) current=d;
+      if(!date) continue;                      // multi-day: skip undated times
+      let title=cleanTitle(line);
+      if(isWeakTitle(title)) title = lastText || "Event";
+      out.push({date,time:t.time,endTime:t.endTime,title:title.slice(0,80),category:"Personal"});
+      continue;
+    }
+    if(d){                                      // dated line, no time -> all-day event
+      current=d; const title=cleanTitle(line);
+      if(title && !isWeakTitle(title)) out.push({date:d,time:"",endTime:"",title:title.slice(0,80),category:"Personal"});
+      else { const ct=cleanTitle(line); if(ct) lastText=ct; }
+      continue;
+    }
+    const ct=cleanTitle(line); if(ct && !isWeakTitle(ct)) lastText=ct;   // plain text -> title candidate
+  }
+  // per-day photo with no times found: capture the gist as one all-day event
+  if(perDay && out.length===0 && lastText && !isWeakTitle(lastText)){
+    out.push({date:opts.defaultDate,time:"",endTime:"",title:lastText.slice(0,80),category:"Personal"});
+  }
+  const seen=new Set(), uniq=[];
+  for(const e of out){ const k=e.date+"|"+e.time+"|"+e.title.toLowerCase(); if(seen.has(k))continue; seen.add(k); uniq.push(e); }
+  return uniq;
+}
+
+// ---- auto-add with undo ----
+let lastBatchIds=[];
+function autoAddEvents(list){
+  lastBatchIds=[];
+  list.forEach(ev=>{ const id=uid(); lastBatchIds.push(id); saveEvent(id,ev); });
+  gAfterAdd(lastBatchIds.map(id=>[id,list[lastBatchIds.indexOf(id)]]));
+  return lastBatchIds.length;
+}
+function showToast(msg,canUndo){
+  document.getElementById("toastMsg").textContent=msg;
+  document.getElementById("toastUndo").style.display=canUndo?"inline-block":"none";
+  const t=document.getElementById("toast"); t.classList.add("show");
+  clearTimeout(window.__toastT); window.__toastT=setTimeout(()=>t.classList.remove("show"), canUndo?14000:6000);
+}
+
+// ---- handlers ----
+async function handleTopPhoto(file){
+  const status=document.getElementById("topPhotoStatus");
+  status.innerHTML='<span class="spin"></span>Reading photo…';
+  try{
+    const text=await ocr(file,status);
+    const list=parseSchedule(text,{multiDay:true});
+    if(!list.length){ status.textContent="No dated events found — try a clearer schedule photo."; showToast("Couldn't find dated events in that photo. A typed schedule with dates/times works best.",false); setTimeout(()=>status.textContent="",6000); return; }
+    const n=autoAddEvents(list);
+    const days=[...new Set(list.map(e=>e.date))].length;
+    status.textContent=`Added ${n} event${n>1?"s":""} across ${days} day${days>1?"s":""}.`;
+    showToast(`Added ${n} event${n>1?"s":""} from the photo across ${days} day${days>1?"s":""}.`,true);
+    setTimeout(()=>status.textContent="",7000);
+  }catch(e){ console.warn(e); status.textContent="Couldn't read that photo."; showToast("Couldn't read that photo: "+e.message,false); }
+}
+async function handleDayPhoto(file,ds){
+  const status=document.getElementById("dayPhotoStatus");
+  status.innerHTML='<span class="spin"></span>Adding photo…';
+  try{ const img=await compressImage(file); savePhoto(uid(),{date:ds,img,ts:Date.now()}); }
+  catch(e){ console.warn("compress failed",e); }
+  status.innerHTML='<span class="spin"></span>Reading text…';
+  try{
+    const text=await ocr(file,status);
+    const list=parseSchedule(text,{defaultDate:ds});
+    if(list.length){
+      const n=autoAddEvents(list);
+      status.textContent=`Photo + ${n} event${n>1?"s":""} added.`;
+      showToast(`Added ${n} event${n>1?"s":""} from the photo to this day.`,true);
+    } else { status.textContent="Photo added."; showToast("Photo added to the day (no event text detected).",false); }
+  }catch(e){ console.warn(e); status.textContent="Photo added (couldn't read text)."; }
+  if(activeDay===ds) openDay(ds);
+  setTimeout(()=>{ status.textContent=""; },7000);
+}
+
+// ---- lightbox ----
+let lbPhotoId=null;
+function openLightbox(id,src){ lbPhotoId=id; document.getElementById("lightboxImg").src=src; document.getElementById("lightbox").classList.add("show"); }
+document.getElementById("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox") document.getElementById("lightbox").classList.remove("show"); });
+document.getElementById("lbDelete").addEventListener("click",()=>{ if(lbPhotoId && confirm("Delete this photo?")) deletePhoto(lbPhotoId); document.getElementById("lightbox").classList.remove("show"); });
+
+// ---- photo UI wiring ----
+document.getElementById("topPhotoBtn").addEventListener("click",()=>document.getElementById("topPhotoInput").click());
+document.getElementById("topPhotoInput").addEventListener("change",e=>{ const f=e.target.files[0]; if(f) handleTopPhoto(f); e.target.value=""; });
+document.getElementById("dayPhotoBtn").addEventListener("click",()=>document.getElementById("dayPhotoInput").click());
+document.getElementById("dayPhotoInput").addEventListener("change",e=>{ const f=e.target.files[0]; if(f&&activeDay) handleDayPhoto(f,activeDay); e.target.value=""; });
+document.getElementById("toastUndo").addEventListener("click",()=>{ lastBatchIds.forEach(id=>deleteEvent(id)); lastBatchIds=[]; document.getElementById("toast").classList.remove("show"); showToast("Removed those events.",false); });
+document.getElementById("toastClose").addEventListener("click",()=>document.getElementById("toast").classList.remove("show"));
+
+// ---------- UI plumbing ----------
+function show(id){document.getElementById(id).classList.add("show");}
+function hide(id){document.getElementById(id).classList.remove("show");}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",e=>{
+  e.target.closest(".ov").classList.remove("show");
+}));
+document.querySelectorAll(".ov").forEach(ov=>ov.addEventListener("click",e=>{ if(e.target===ov) ov.classList.remove("show"); }));
+document.getElementById("prev").addEventListener("click",()=>{view.setMonth(view.getMonth()-1);renderMonth();});
+document.getElementById("next").addEventListener("click",()=>{view.setMonth(view.getMonth()+1);renderMonth();});
+document.getElementById("todayBtn").addEventListener("click",()=>{view=new Date();renderMonth();});
+document.getElementById("addBtn").addEventListener("click",()=>{activeDay=null;openEdit(null);});
+window.addEventListener("resize",()=>{ clearTimeout(window.__rz); window.__rz=setTimeout(renderMonth,180); });
+
+// ---------- boot ----------
+renderLegend();
+loadFeed(); setInterval(loadFeed, 10*60*1000);
+(async function(){
+  let cfg = (FIREBASE_CONFIG && FIREBASE_CONFIG.apiKey) ? FIREBASE_CONFIG : null;
+  if(!cfg && location.protocol.startsWith("http")) cfg = await loadBorrowedConfig();
+  if(cfg && typeof firebase!=="undefined") startFirebase(cfg);
+  else startLocal();
+})();
+
+/* =========================================================================
+   GOOGLE CALENDAR — send site events straight to Google (works on phone too)
+   ========================================================================= */
+const GOOGLE_CLIENT_ID = "197925826679-d106ulbi10g7n2kttsn4e0fmel6hc2a6.apps.googleusercontent.com";   // OAuth Web client ID (origin https://lukesully95.github.io)
+const GCAL_ID = "lsullivan59@fordham.edu";
+let gTok=null, gExp=0, gClient=null;
+function gConnected(){ return !!(gTok && Date.now()<gExp); }
+function gWasConnected(){ try{ return localStorage.getItem("g_connected")==="1"; }catch(e){ return false; } }
+function gPending(){
+  const t=new Date().toLocaleDateString("en-CA",{timeZone:"America/New_York"});
+  const have=new Set(gcal.map(keyOf));
+  return Object.entries(events).filter(([id,e])=>e.date>=t && !e.gcalId && !SEED_KEYS.has(e.date+"|"+(e.time||"")+"|"+e.title) && !have.has(keyOf(e)));
+}
+function gLabel(){
+  const b=document.getElementById("gBtn"); if(!b||!GOOGLE_CLIENT_ID) return;
+  b.style.display="inline-flex";
+  const n=gPending().length;
+  b.textContent = n ? `🔗 Send ${n} to Google` : (gConnected()||gWasConnected() ? "✓ Google" : "🔗 Connect Google");
+}
+function gInit(){
+  if(!GOOGLE_CLIENT_ID) return;
+  if(!(window.google&&google.accounts&&google.accounts.oauth2)){ setTimeout(gInit,500); return; }
+  gClient=google.accounts.oauth2.initTokenClient({client_id:GOOGLE_CLIENT_ID, scope:"https://www.googleapis.com/auth/calendar.events",
+    callback:r=>{ if(r&&r.access_token){ gTok=r.access_token; gExp=Date.now()+((r.expires_in||3600)-60)*1000; try{localStorage.setItem("g_connected","1");}catch(e){} gPushAll(); } else showToast("Google didn't connect.",false); }});
+  gLabel(); setInterval(gLabel,5000);
+}
+function gBody(ev){
+  const b={summary:ev.title, location:ev.location||undefined, description:"Added from your calendar site."+(ev.notes?"\n"+ev.notes:"")};
+  if(ev.time){ const end=ev.endTime||(String(Math.min(23,+ev.time.slice(0,2)+1)).padStart(2,"0")+ev.time.slice(2));
+    b.start={dateTime:ev.date+"T"+ev.time+":00",timeZone:"America/New_York"}; b.end={dateTime:ev.date+"T"+end+":00",timeZone:"America/New_York"}; }
+  else { const n=new Date(ev.date+"T00:00:00"); n.setDate(n.getDate()+1); b.start={date:ev.date}; b.end={date:ymd(n)}; b.transparency="transparent"; }
+  if(ev.category==="Health") b.visibility="private";
+  return b;
+}
+async function gPush(id,ev){
+  const r=await fetch("https://www.googleapis.com/calendar/v3/calendars/"+encodeURIComponent(GCAL_ID)+"/events",{method:"POST",headers:{Authorization:"Bearer "+gTok,"Content-Type":"application/json"},body:JSON.stringify(gBody(ev))});
+  if(!r.ok) throw new Error("Google "+r.status);
+  const d=await r.json();
+  if(mode==="firebase"&&col) await col.doc(id).set({gcalId:d.id},{merge:true}); else { events[id]={...ev,gcalId:d.id}; persistLocal(); }
+}
+async function gPushAll(){
+  const list=gPending(); let ok=0, bad=0;
+  for(const [id,ev] of list){ try{ await gPush(id,ev); ok++; }catch(e){ console.warn(e); bad++; if(/401/.test(e.message)){ gTok=null; break; } } }
+  if(ok) showToast(`Sent ${ok} event${ok>1?"s":""} to Google Calendar.`,false);
+  if(bad) showToast(`Couldn't send ${bad} to Google — tap the Google button to retry.`,false);
+  gLabel();
+}
+function gAfterAdd(pairs){
+  if(!GOOGLE_CLIENT_ID) return;
+  if(gConnected()) setTimeout(gPushAll,800);
+  else setTimeout(()=>{ gLabel(); showToast("Tap “Send to Google” (top bar) to add these to Google Calendar.",false); },1500);
+}
+document.getElementById("gBtn").addEventListener("click",()=>{
+  if(!gClient) return;
+  if(gConnected()) gPushAll(); else gClient.requestAccessToken({prompt: gWasConnected()?"":"consent"});
+});
+gInit();
+</script>
+</body>
+</html>

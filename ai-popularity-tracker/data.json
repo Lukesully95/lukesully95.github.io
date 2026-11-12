@@ -1,0 +1,606 @@
+{
+  "status": {
+    "updatedAt": "2026-11-12",
+    "cadence": "Refreshes every morning"
+  },
+  "bots": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "maker": "OpenAI",
+      "color": "#0d0d0d",
+      "metric": "Weekly",
+      "users": 1200000000,
+      "prevUsers": 1200000000,
+      "prevRank": 1,
+      "asOf": "Sep 2026",
+      "source": "OpenAI DevDay",
+      "sourceUrl": "https://superlines.io/articles/chatgpt-statistics",
+      "history": [
+        {
+          "date": "2025-10",
+          "users": 800000000
+        },
+        {
+          "date": "2026-02",
+          "users": 900000000
+        },
+        {
+          "date": "2026-08",
+          "users": 1000000000
+        },
+        {
+          "date": "2026-09",
+          "users": 1200000000
+        }
+      ],
+      "color2": "#4a4a4a",
+      "colors": [
+        "#0d0d0d",
+        "#4a4a4a"
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "maker": "Google",
+      "color": "#3186ff",
+      "metric": "Monthly",
+      "users": 1000000000,
+      "prevUsers": 1000000000,
+      "prevRank": 2,
+      "asOf": "Oct 2026",
+      "source": "Alphabet Q3 2026 earnings (Sundar Pichai)",
+      "sourceUrl": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q3-2026/",
+      "history": [
+        {
+          "date": "2025-10",
+          "users": 650000000
+        },
+        {
+          "date": "2025-12",
+          "users": 750000000
+        },
+        {
+          "date": "2026-08",
+          "users": 1000000000
+        },
+        {
+          "date": "2026-10",
+          "users": 1000000000
+        }
+      ],
+      "color2": "#f94543",
+      "colors": [
+        "#3186ff",
+        "#08b962",
+        "#fabc12",
+        "#f94543"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "name": "Meta AI",
+      "maker": "Meta",
+      "color": "#0082fb",
+      "metric": "Monthly",
+      "users": 1000000000,
+      "prevUsers": 1000000000,
+      "prevRank": 3,
+      "asOf": "2025 (latest reported)",
+      "source": "Meta earnings",
+      "sourceUrl": "https://www.demandsage.com/meta-ai-statistics/",
+      "history": [
+        {
+          "date": "2024-09",
+          "users": 500000000
+        },
+        {
+          "date": "2024-12",
+          "users": 600000000
+        },
+        {
+          "date": "2025-05",
+          "users": 1000000000
+        }
+      ],
+      "color2": "#e541ff",
+      "colors": [
+        "#0082fb",
+        "#5041ff",
+        "#a555ff",
+        "#e541ff"
+      ]
+    },
+    {
+      "id": "doubao",
+      "name": "Doubao",
+      "maker": "ByteDance",
+      "color": "#1e37fc",
+      "metric": "Monthly",
+      "users": 419080000,
+      "prevUsers": 382000000,
+      "prevRank": 4,
+      "asOf": "Sep 2026",
+      "source": "QuestMobile (Q3 2026 AI app report)",
+      "sourceUrl": "https://finance.sina.com.cn/stock/relnews/hk/2026-10-20/doc-inivvxct6517780.shtml",
+      "history": [
+        {
+          "date": "2024-11",
+          "users": 56000000
+        },
+        {
+          "date": "2025-08",
+          "users": 157000000
+        },
+        {
+          "date": "2025-12",
+          "users": 226690000
+        },
+        {
+          "date": "2026-03",
+          "users": 345000000
+        },
+        {
+          "date": "2026-05",
+          "users": 382000000
+        },
+        {
+          "date": "2026-09",
+          "users": 419080000
+        }
+      ],
+      "color2": "#37e1be",
+      "colors": [
+        "#1e37fc",
+        "#a569ff",
+        "#37e1be"
+      ]
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "maker": "Anthropic",
+      "color": "#d97757",
+      "metric": "Monthly",
+      "users": 271300000,
+      "prevUsers": 271300000,
+      "prevRank": 5,
+      "asOf": "Aug 2026 (estimate)",
+      "source": "Datarefs",
+      "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
+      "history": [],
+      "color2": "#c15f3c",
+      "colors": [
+        "#d97757",
+        "#c15f3c"
+      ]
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "maker": "Microsoft",
+      "color": "#a86edd",
+      "metric": "Monthly",
+      "users": 212000000,
+      "prevUsers": 212000000,
+      "prevRank": 6,
+      "asOf": "Nov 2025",
+      "source": "Datarefs",
+      "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
+      "history": [],
+      "color2": "#aad445",
+      "colors": [
+        "#a86edd",
+        "#f2598a",
+        "#ffb152",
+        "#aad445"
+      ]
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "maker": "Alibaba",
+      "color": "#082dff",
+      "metric": "Monthly",
+      "users": 158170000,
+      "prevUsers": 167000000,
+      "prevRank": 7,
+      "asOf": "Sep 2026",
+      "source": "QuestMobile (Q3 2026 AI app report)",
+      "sourceUrl": "https://finance.sina.com.cn/stock/relnews/hk/2026-10-20/doc-inivvxct6517780.shtml",
+      "history": [
+        {
+          "date": "2025-12",
+          "users": 25170000
+        },
+        {
+          "date": "2026-03",
+          "users": 166000000
+        },
+        {
+          "date": "2026-05",
+          "users": 167000000
+        },
+        {
+          "date": "2026-09",
+          "users": 158170000
+        }
+      ],
+      "color2": "#615ced",
+      "colors": [
+        "#082dff",
+        "#615ced"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "maker": "DeepSeek",
+      "color": "#4d6bfe",
+      "metric": "Monthly",
+      "users": 139080000,
+      "prevUsers": 139080000,
+      "prevRank": 8,
+      "asOf": "Jul 2026",
+      "source": "Datarefs",
+      "sourceUrl": "https://www.datarefs.com/insights/market-size/most-used-ai-chatbot/",
+      "history": [
+        {
+          "date": "2025-08",
+          "users": 143000000
+        },
+        {
+          "date": "2025-12",
+          "users": 135570000
+        },
+        {
+          "date": "2026-03",
+          "users": 127000000
+        },
+        {
+          "date": "2026-05",
+          "users": 130000000
+        },
+        {
+          "date": "2026-07",
+          "users": 139080000
+        }
+      ],
+      "color2": "#3a52d9",
+      "colors": [
+        "#4d6bfe",
+        "#3a52d9"
+      ]
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "maker": "xAI",
+      "color": "#0d0d0d",
+      "metric": "Monthly",
+      "users": 117000000,
+      "prevUsers": 117000000,
+      "prevRank": 9,
+      "asOf": "Mar 2026",
+      "source": "SpaceX IPO filing",
+      "sourceUrl": "https://rctrl.com/blog/grok-statistics-2026",
+      "history": [],
+      "color2": "#4a4a4a",
+      "colors": [
+        "#0d0d0d",
+        "#4a4a4a"
+      ]
+    },
+    {
+      "id": "yuanbao",
+      "name": "Yuanbao",
+      "maker": "Tencent",
+      "color": "#00cc70",
+      "metric": "Monthly",
+      "users": 114000000,
+      "prevUsers": 114000000,
+      "prevRank": 10,
+      "asOf": "Feb 2026",
+      "source": "Tencent (official)",
+      "sourceUrl": "https://www-web.itiger.com/news/1119639272",
+      "history": [
+        {
+          "date": "2026-02",
+          "users": 114000000
+        }
+      ],
+      "color2": "#00a85c",
+      "colors": [
+        "#00cc70",
+        "#00a85c"
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "maker": "Perplexity AI",
+      "color": "#22b8cd",
+      "metric": "Monthly",
+      "users": 45000000,
+      "prevUsers": 45000000,
+      "prevRank": 11,
+      "asOf": "Oct 2026",
+      "source": "fatjoe",
+      "sourceUrl": "https://fatjoe.com/blog/perplexity-ai-stats/",
+      "history": [
+        {
+          "date": "2025-01",
+          "users": 22000000
+        },
+        {
+          "date": "2026-10",
+          "users": 45000000
+        }
+      ],
+      "color2": "#1a8f9f",
+      "colors": [
+        "#22b8cd",
+        "#1a8f9f"
+      ]
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI",
+      "maker": "Character.AI",
+      "color": "#1f2937",
+      "metric": "Monthly",
+      "users": 20000000,
+      "prevUsers": 20000000,
+      "prevRank": 12,
+      "asOf": "2024 (latest reported)",
+      "source": "Sacra",
+      "sourceUrl": "https://sqmagazine.co.uk/character-ai-statistics.md",
+      "history": [],
+      "color2": "#6b7280",
+      "colors": [
+        "#1f2937",
+        "#6b7280"
+      ]
+    }
+  ],
+  "news": [
+    {
+      "title": "Fed's Barr warns fast AI adoption could widen inequality",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-12/fed-s-barr-warns-ai-without-guardrails-risks-widening-inequality",
+      "date": "Nov 12",
+      "type": "policy"
+    },
+    {
+      "title": "Foxconn profit jumps 34% on strong AI server demand",
+      "source": "Quartz",
+      "url": "https://qz.com/foxconn-profit-ai-server-demand-earnings-beat-111226",
+      "date": "Nov 12",
+      "type": "company"
+    },
+    {
+      "title": "Anthropic's stricter China access policy takes effect",
+      "source": "ChainCatcher",
+      "url": "https://www.chaincatcher.com/en/article/2303466",
+      "date": "Nov 12",
+      "type": "policy"
+    }
+  ],
+  "newsArchive": {
+    "2026-11-03": [
+      {
+        "title": "India is now ChatGPT's biggest market by weekly users",
+        "source": "StartupTalky",
+        "url": "https://startuptalky.com/news/daily-indian-funding-roundup-key-news-3-november-2026/",
+        "date": "Nov 3",
+        "type": "company"
+      },
+      {
+        "title": "OpenAI hires Uber veteran Jill Hazelbaker to lead communications",
+        "source": "PYMNTS",
+        "url": "https://pymnts.com/personnel/2026/openai-recruits-uber-communications-exec-jill-hazelbaker-to-win-public-trust",
+        "date": "Nov 3",
+        "type": "company"
+      },
+      {
+        "title": "Anthropic buys a tiny biotech to test Claude on real drug development",
+        "source": "PYMNTS",
+        "url": "https://www.pymnts.com/news/artificial-intelligence/2026/anthropic-buys-one-person-biotech-to-prove-claude-can-make-drugs/",
+        "date": "Nov 2",
+        "type": "company"
+      }
+    ],
+    "2026-11-04": [
+      {
+        "title": "AMD posts record quarter as AI data center sales surge",
+        "source": "AMD (SEC filing)",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000188/q32026991.htm",
+        "date": "Nov 4",
+        "type": "company"
+      },
+      {
+        "title": "Meta speeds up shipping new ad AI features 3.6x",
+        "source": "Meta Engineering",
+        "url": "https://engineering.fb.com/2026/11/03/ml-applications/f3-lightning-how-meta-accelerates-ads-ml-features-to-production",
+        "date": "Nov 3",
+        "type": "research"
+      },
+      {
+        "title": "Anthropic expands invisible watermarks on Claude-written text",
+        "source": "Yahoo Finance",
+        "url": "https://uk.finance.yahoo.com/news/anthropic-claude-now-leave-trail-151343512.html",
+        "date": "Nov 2",
+        "type": "policy"
+      }
+    ],
+    "2026-11-05": [
+      {
+        "title": "Claude credited with finding two Xen hypervisor security flaws",
+        "source": "The Hacker News",
+        "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
+        "date": "Nov 5",
+        "type": "research"
+      },
+      {
+        "title": "AMD buys AI chip startup Taalas to boost inference",
+        "source": "AMD",
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1296/amd-acquires-taalas-to-advance-compute-solutions-for-rapidly-growing-ai-inference-market",
+        "date": "Nov 5",
+        "type": "funding"
+      },
+      {
+        "title": "Chinese chipmakers lure Korean and Taiwanese engineers with big pay",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/05/semiconductor-china-korea-talents-rivalry.html",
+        "date": "Nov 5",
+        "type": "policy"
+      },
+      {
+        "title": "Goldman and Apollo shop SpaceX's $40B GPU financing",
+        "source": "Bloomberg",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-04/goldman-apollo-in-talks-to-sell-spacex-s-40-billion-ai-deal",
+        "date": "Nov 4",
+        "type": "funding"
+      },
+      {
+        "title": "Memory chipmaker YMTC pauses its $4.9B Shanghai IPO",
+        "source": "Reuters",
+        "url": "https://www.reuters.com/world/china/chinese-chipmaker-ymtc-puts-ipo-hold-weaker-markets-weigh-sources-say-2026-11-04/",
+        "date": "Nov 4",
+        "type": "company"
+      }
+    ],
+    "2026-11-06": [
+      {
+        "title": "OpenAI raises $11B at a $1.25 trillion valuation",
+        "source": "GV Wire (Bloomberg)",
+        "url": "https://gvwire.com/2026/11/06/openai-secures-11-billion-funding-at-1-25-trillion-valuation-bloomberg-news-reports/",
+        "date": "Nov 6",
+        "type": "funding"
+      },
+      {
+        "title": "Thinking Machines Lab nears $5B round led by Accel",
+        "source": "Business Insider",
+        "url": "https://www.businessinsider.com/thinking-machines-lab-is-closing-5-billion-new-round-2026-11",
+        "date": "Nov 6",
+        "type": "funding"
+      },
+      {
+        "title": "Post-midterm AI chip selloff drags Nvidia down 9%",
+        "source": "Trefis",
+        "url": "https://www.trefis.com/stock/nvda/articles/623357/what-sent-nvidia-stock-lower/2026-11-06",
+        "date": "Nov 6",
+        "type": "company"
+      }
+    ],
+    "2026-11-08": [
+      {
+        "title": "Nvidia board opens independent probe into reports about Jensen Huang",
+        "source": "Digital Citizen",
+        "url": "https://www.digitalcitizen.life/nvidia-board-independent-investigation-jensen-huang-foreign-intelligence/",
+        "date": "Nov 8",
+        "type": "company"
+      }
+    ],
+    "2026-11-09": [
+      {
+        "title": "Google unveils TPU 8tx and TPU 8i Max chips",
+        "source": "Google",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+        "date": "Nov 9",
+        "type": "launch"
+      },
+      {
+        "title": "Anthropic releases Claude Fable 5.2 and Mythos 5.2",
+        "source": "Kuwait Times (AFP)",
+        "url": "https://kuwaittimes.com/article/53372/business/anthropic-reveals-new-models-ahead-of-wall-st-debut/",
+        "date": "Nov 9",
+        "type": "launch"
+      },
+      {
+        "title": "Meituan opens weights of 1.6T-parameter LongCat-2.5",
+        "source": "Silicon Report",
+        "url": "https://www.siliconreport.com/meituan-releases-weights-for-longcat-2-5-under-mit-license",
+        "date": "Nov 9",
+        "type": "research"
+      }
+    ],
+    "2026-11-10": [
+      {
+        "title": "Anthropic launches IPO roadshow at $70 to $78 a share",
+        "source": "Anthropic",
+        "url": "https://anthropic.com/news/roadshow-launch",
+        "date": "Nov 10",
+        "type": "company"
+      },
+      {
+        "title": "SoftBank books $7B quarterly loss on US data center charge",
+        "source": "The Star (Reuters)",
+        "url": "https://www.thestar.com.my/tech/tech-news/2026/11/10/softbank-swings-to-7-billion-net-loss-in-second-quarter",
+        "date": "Nov 10",
+        "type": "company"
+      },
+      {
+        "title": "CoreWeave revenue jumps 168% as backlog hits $132.5B",
+        "source": "Unite.AI",
+        "url": "https://www.unite.ai/?p=511941",
+        "date": "Nov 10",
+        "type": "company"
+      },
+      {
+        "title": "Notion flags security incident at AI vendor Fireworks AI",
+        "source": "Notion",
+        "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+        "date": "Nov 10",
+        "type": "company"
+      },
+      {
+        "title": "Google DeepMind launches Gemini Robotics 2.5 robot model",
+        "source": "Google DeepMind",
+        "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+        "date": "Nov 10",
+        "type": "launch"
+      }
+    ],
+    "2026-11-11": [
+      {
+        "title": "AI stocks rally after CoreWeave beats and raises outlook",
+        "source": "TheStreet",
+        "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-11-2026",
+        "date": "Nov 11",
+        "type": "company"
+      },
+      {
+        "title": "OpenAI Q3 revenue reportedly rises 50% to about $10B",
+        "source": "Crypto Briefing (WSJ)",
+        "url": "https://cryptobriefing.com/openais-q3-operating-loss-hits-11b-despite-50-revenue-rise-wsj/",
+        "date": "Nov 11",
+        "type": "company"
+      }
+    ],
+    "2026-11-12": [
+      {
+        "title": "Fed's Barr warns fast AI adoption could widen inequality",
+        "source": "Bloomberg",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-12/fed-s-barr-warns-ai-without-guardrails-risks-widening-inequality",
+        "date": "Nov 12",
+        "type": "policy"
+      },
+      {
+        "title": "Foxconn profit jumps 34% on strong AI server demand",
+        "source": "Quartz",
+        "url": "https://qz.com/foxconn-profit-ai-server-demand-earnings-beat-111226",
+        "date": "Nov 12",
+        "type": "company"
+      },
+      {
+        "title": "Anthropic's stricter China access policy takes effect",
+        "source": "ChainCatcher",
+        "url": "https://www.chaincatcher.com/en/article/2303466",
+        "date": "Nov 12",
+        "type": "policy"
+      }
+    ]
+  }
+}

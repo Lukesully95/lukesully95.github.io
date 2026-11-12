@@ -1,0 +1,37 @@
+name: Update Stock Prices
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yfinance
+        run: pip install yfinance --quiet
+
+      - name: Fetch prices
+        run: python fetch_prices.py
+
+      - name: Fetch daily briefing market data
+        run: python fetch_briefing_data.py || echo "briefing data fetch failed"
+
+      - name: Commit prices.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prices.json
+          git add briefing-prices.json || true
+          git diff --staged --quiet || git commit -m "prices: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main || true
+          git push

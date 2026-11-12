@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Sullivan Portfolio — Live Tracker</title>
+<style>
+  :root {
+    --green: #1a7f37;
+    --red: #d1242f;
+    --green-bg: rgba(26,127,55,0.08);
+    --red-bg: rgba(209,36,47,0.08);
+    --navy: #1a2e4a;
+    --navy2: #22395e;
+    --blue: #0969da;
+    --border: #d8dee4;
+    --row-alt: #f6f8fa;
+    --text: #1f2328;
+    --muted: #656d76;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+    background: #edf0f4;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    color: #fff;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .header-left h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.3px; }
+  .header-left p  { font-size: 12px; opacity: 0.72; margin-top: 3px; }
+  .header-right { text-align: right; }
+  .total-val { font-size: 30px; font-weight: 700; letter-spacing: -0.5px; }
+  .total-sub { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+
+  /* ── TOOLBAR ── */
+  .toolbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-refresh {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .btn-refresh:hover:not(:disabled) { background: #0759b8; }
+  .btn-refresh:disabled { opacity: 0.55; cursor: not-allowed; }
+  .spin { display: inline-block; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .status-text { font-size: 12px; color: var(--muted); }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .badge-open   { background: #e6f4ea; color: var(--green); }
+  .badge-closed { background: #fff3cd; color: #856404; }
+  .badge-pre    { background: #e8f4fd; color: #0550ae; }
+  .badge-post   { background: #f0e8fd; color: #6f42c1; }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  /* ── ALERT BAR ── */
+  .alert {
+    display: none;
+    padding: 8px 24px;
+    font-size: 12.5px;
+  }
+  .alert-warn { background: #fff8c5; border-bottom: 1px solid #f0c000; color: #7d5700; }
+  .alert-err  { background: #ffebe9; border-bottom: 1px solid #f7c5c0; color: #a0111f; }
+
+  /* ── CONTAINER ── */
+  .container { padding: 18px 20px; max-width: 1500px; margin: 0 auto; }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .card-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-title { font-size: 13.5px; font-weight: 700; }
+  .card-sub   { font-size: 12px; color: var(--muted); }
+  .countdown  { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--navy); color: #fff; }
+  thead th {
+    padding: 10px 12px;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th:hover { background: var(--navy2); }
+  thead th.left { text-align: left; }
+  thead th .sort-arrow { opacity: 0.45; margin-left: 3px; font-size: 9px; }
+  thead th.sort-asc  .sort-arrow { opacity: 1; }
+  thead th.sort-desc .sort-arrow { opacity: 1; }
+
+  tbody tr { border-bottom: 1px solid #eaecef; transition: background 0.08s; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: #e8f2ff !important; }
+
+  td {
+    padding: 9px 12px;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  td.left { text-align: left; }
+
+  .sym  { font-weight: 800; color: var(--blue); font-size: 13px; }
+  .desc { font-size: 12px; color: var(--muted); }
+
+  .price-cell { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .mono { font-variant-numeric: tabular-nums; }
+
+  .gain { color: var(--green); font-weight: 700; }
+  .loss { color: var(--red);   font-weight: 700; }
+  .neutral { color: var(--muted); }
+
+  .gain-cell { background: var(--green-bg); }
+  .loss-cell { background: var(--red-bg); }
+
+  .day-line { font-size: 11px; display: block; margin-top: 1px; opacity: 0.85; }
+
+  /* superscript for cp */
+  sup { font-size: 8px; vertical-align: super; opacity: 0.7; }
+
+  /* ── TOTALS ROW ── */
+  tfoot tr { background: var(--navy); color: #fff; }
+  tfoot td { padding: 11px 12px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ── MINI SPARKLINE BARS ── */
+  .bar-wrap { display: flex; align-items: center; gap: 5px; justify-content: flex-end; }
+  .bar { height: 14px; border-radius: 2px; min-width: 2px; }
+  .bar-g { background: var(--green); }
+  .bar-r { background: var(--red); }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 10px 20px 18px;
+  }
+
+  /* ── PRIVATE BADGE ── */
+  .private-badge {
+    display: inline-block;
+    background: #f0e8fd;
+    color: #6f42c1;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── PASSWORD OVERLAY ── */
+  #pw-overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, #1a2e4a 0%, #22395e 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #pw-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 40px 44px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  #pw-box h2 { font-size: 20px; font-weight: 800; color: #1a2e4a; margin-bottom: 6px; }
+  #pw-box p  { font-size: 13px; color: #656d76; margin-bottom: 24px; }
+  #pw-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #d8dee4;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.15s;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  #pw-input:focus { border-color: #0969da; }
+  #pw-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 11px;
+    background: #0969da;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #pw-btn:hover { background: #0759b8; }
+  #pw-err {
+    display: none;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #d1242f;
+    font-weight: 600;
+  }
+  #pw-lock { font-size: 36px; margin-bottom: 14px; }
+
+  /* MOBILE: fit the entire spreadsheet on a phone screen */
+  @media (max-width: 820px) {
+    .header { flex-wrap: wrap; gap: 6px; padding: 10px 14px; }
+    .header-left h1 { font-size: 14px; }
+    .header-left p  { font-size: 10px; line-height: 1.35; }
+    .header-right   { text-align: left; }
+    .total-val { font-size: 22px; }
+    .total-sub { font-size: 10.5px; }
+    .toolbar { padding: 6px 12px; gap: 8px; }
+    .btn-refresh { padding: 5px 12px; font-size: 12px; }
+    .status-text, .countdown { font-size: 10px; }
+    .container { padding: 6px 2px; }
+    .card-header { padding: 8px 8px; }
+    .card-title { font-size: 12px; }
+
+    .table-wrap { overflow: visible; }
+    table { font-size: 10px; }
+    thead th { padding: 8px 4px; font-size: 8px; letter-spacing: 0; }
+    td { padding: 12px 4px; }
+    .sym { font-size: 10px; }
+    .desc { font-size: 8px; white-space: normal; display: inline-block; max-width: 78px; line-height: 1.15; }
+    .price-cell { font-size: 10px; }
+    .day-line { font-size: 8px; }
+    tfoot td { padding: 12px 4px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD OVERLAY -->
+<div id="pw-overlay">
+  <div id="pw-box">
+    <div id="pw-lock">🔒</div>
+    <h2>Sullivan Portfolio</h2>
+    <p>This portfolio is private.<br>Enter the password to continue.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkPw()">
+    <button id="pw-btn" onclick="checkPw()">View Portfolio</button>
+    <div id="pw-err">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1 id="hdrName">Sullivan Portfolio</h1>
+    <p id="hdrSub"></p>
+  </div>
+  <div class="header-right">
+    <div class="total-val" id="hdrTotal">—</div>
+    <div class="total-sub" id="hdrGain">Loading live prices…</div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button class="btn-refresh" id="btnRefresh" onclick="doFetch()">
+    <span id="btnIcon">↻</span> Refresh Prices
+  </button>
+  <span class="status-text" id="statusText">—</span>
+  <span class="badge" id="mktBadge" style="display:none"></span>
+  <span style="margin-left:auto;" class="countdown" id="cdText"></span>
+</div>
+
+<!-- ALERT -->
+<div class="alert" id="alertBar"></div>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="card-title" id="acctTitle">Account Positions (Open / Unrealized)</span>
+        <span class="card-sub">&nbsp; 15 Positions</span>
+      </div>
+      <span class="countdown" id="cdText2"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="tbl">
+        <thead>
+          <tr id="thead">
+            <th class="left"   data-col="symbol">Symbol<span class="sort-arrow">▲</span></th>
+            <th class="left"   data-col="name">Description<span class="sort-arrow">▲</span></th>
+            <th                data-col="qty">Qty<span class="sort-arrow">▲</span></th>
+            <th                data-col="price">Recent Price<span class="sort-arrow">▲</span></th>
+            <th                data-col="dayChange">Day Change<span class="sort-arrow">▲</span></th>
+            <th                data-col="mktVal">Market Value<span class="sort-arrow">▲</span></th>
+            <th                data-col="cost">Cost Basis<span class="sort-arrow">▲</span></th>
+            <th                data-col="gainLoss">Gain / Loss $<span class="sort-arrow">▲</span></th>
+            <th                data-col="gainPct">Gain / Loss %<span class="sort-arrow">▲</span></th>
+            <th                data-col="dayValChange">Day Value Δ<span class="sort-arrow">▲</span></th>
+            <th class="left">Type</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+        <tfoot>
+          <tr>
+            <td class="left" colspan="2">PORTFOLIO TOTAL</td>
+            <td></td>
+            <td></td>
+            <td id="ftDayChg">—</td>
+            <td id="ftMktVal">—</td>
+            <td id="ftCost">—</td>
+            <td id="ftGL">—</td>
+            <td id="ftGLpct">—</td>
+            <td id="ftDayValChg">—</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <p class="disclaimer">
+    ⚡ Prices fetched live from Yahoo Finance · Auto-refreshes every 60 s during market hours ·
+    Gain/Loss calculated as <em>Market Value − Cost Basis</em> · Day Change = today's price move × shares held ·
+    Data is delayed ~15 min and for informational purposes only — not financial advice.
+  </p>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────
+//  HOLDINGS  (cost = total cost basis from brokerage screenshot)
+// ─────────────────────────────────────────────────────────────────────
+// Holdings are encrypted below and only decrypted with the password.
+let HOLDINGS = [];
+const VAULT = { salt:'qKu2V4N37qYkgCxD1p0hZQ==', iv:'QaKT0urTCSaV/+Cg', ct:'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', iter:250000 };
+
+let SNAPSHOT = {};
+
+// Live data store
+let liveData   = {};   // { AMZN: { price, change, changePct, prevClose, state } }
+let usingSnap  = false;
+let lastUpdate = null;
+let cdSecs     = 60;
+let cdTimer    = null;
+let sortCol    = 'symbol';
+let sortDir    = 1;   // 1 = asc, -1 = desc
+
+// ─── FORMAT HELPERS (equivalent to Excel formulas) ────────────────────
+const $n = (n, d=2) => n == null || isNaN(n) ? 'n/a' :
+  Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+const $$ = (n, sign=false) => {
+  if (n == null || isNaN(n)) return 'n/a';
+  const s = sign && n > 0 ? '+' : n < 0 ? '-' : '';
+  return s + '$' + $n(Math.abs(n));
+};
+
+const $pct = (n, sign=false) => {
+  if (n == null || isNaN(n)) return 'n/a';
+  const s = sign && n > 0 ? '+' : n < 0 ? '-' : '';
+  return s + $n(Math.abs(n)) + '%';
+};
+
+const cls = (n) => n == null ? 'neutral' : n >= 0 ? 'gain' : 'loss';
+const cellCls = (n) => n == null ? '' : n >= 0 ? 'gain-cell' : 'loss-cell';
+
+// ─── COMPUTE ROW (Excel formula equivalents) ───────────────────────────
+function computeRow(h) {
+  // PRICE:  =IF(fixed, fixedPrice, livePrice)
+  const price = h.fixed
+    ? h.fixedPrice
+    : (liveData[h.symbol]?.price ?? SNAPSHOT[h.symbol] ?? 0);
+
+  const prevClose = h.fixed ? h.fixedPrice : (liveData[h.symbol]?.prevClose ?? null);
+  const rawChange = h.fixed ? 0 : (liveData[h.symbol]?.change ?? null);
+  const rawChangePct = h.fixed ? 0 : (liveData[h.symbol]?.changePct ?? null);
+
+  // MARKET VALUE: =Qty * Price
+  const mktVal = h.qty * price;
+
+  // GAIN / LOSS $: =MarketValue - CostBasis
+  const gainLoss = h.cost != null ? mktVal - h.cost : null;
+
+  // GAIN / LOSS %: =(MarketValue - Cost) / Cost * 100
+  const gainPct  = h.cost != null && h.cost > 0 ? (gainLoss / h.cost) * 100 : null;
+
+  // DAY CHANGE $: =DayChangePriceMove * Qty
+  const dayValChange = rawChange != null ? rawChange * h.qty : null;
+
+  return { price, prevClose, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange };
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────────
+function render() {
+  const rows = HOLDINGS.map(h => ({ h, ...computeRow(h) }));
+
+  // Sort
+  rows.sort((a, b) => {
+    let av, bv;
+    switch(sortCol) {
+      case 'symbol':      av = a.h.symbol;    bv = b.h.symbol;    break;
+      case 'name':        av = a.h.name;      bv = b.h.name;      break;
+      case 'qty':         av = a.h.qty;       bv = b.h.qty;       break;
+      case 'price':       av = a.price;       bv = b.price;       break;
+      case 'dayChange':   av = a.rawChange??-Infinity; bv = b.rawChange??-Infinity; break;
+      case 'mktVal':      av = a.mktVal;      bv = b.mktVal;      break;
+      case 'cost':        av = a.h.cost??-Infinity; bv = b.h.cost??-Infinity; break;
+      case 'gainLoss':    av = a.gainLoss??-Infinity; bv = b.gainLoss??-Infinity; break;
+      case 'gainPct':     av = a.gainPct??-Infinity; bv = b.gainPct??-Infinity; break;
+      case 'dayValChange':av = a.dayValChange??-Infinity; bv = b.dayValChange??-Infinity; break;
+      default:            av = 0; bv = 0;
+    }
+    if (typeof av === 'string') return sortDir * av.localeCompare(bv);
+    return sortDir * (av - bv);
+  });
+
+  // Build tbody HTML
+  const html = rows.map(({ h, price, prevClose, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange }) => {
+    const glCls   = cls(gainLoss);
+    const glCCell = cellCls(gainLoss);
+    const dcCls   = cls(rawChange);
+
+    // Price cell
+    let priceHtml;
+    if (h.private)        priceHtml = `<span class="private-badge">PRIVATE</span>`;
+    else if (h.fixed)     priceHtml = `$1.0000<sup>cp</sup>`;
+    else                  priceHtml = `${'$' + $n(price)}`;
+
+    // Day change cell
+    let dayHtml = '—';
+    if (!h.fixed && rawChange != null) {
+      dayHtml = `<span class="${dcCls}">${rawChange >= 0 ? '+' : ''}${'$' + $n(Math.abs(rawChange))}</span>`
+             + `<span class="day-line ${dcCls}">${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%</span>`;
+    }
+
+    // Gain bar
+    const barW   = gainPct != null ? Math.min(Math.abs(gainPct) / 3, 40) : 0;
+    const barCls = gainPct != null ? (gainPct >= 0 ? 'bar-g' : 'bar-r') : '';
+
+    const qtyFmt = h.private ? '—' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3));
+
+    // For private holdings, show n/a for gain (market value unknown)
+    const glDisplay   = h.private ? '<span class="neutral">n/a</span>'
+                      : gainLoss != null ? (gainLoss >= 0 ? '+' : '') + '$' + $n(Math.abs(gainLoss))
+                      : '<span class="neutral">n/a</span>';
+    const glPctDisplay = h.private ? '<span class="neutral">n/a</span>'
+                       : gainPct != null
+                         ? `<div class="bar-wrap"><div class="bar ${barCls}" style="width:${barW}px"></div>${(gainPct >= 0 ? '+' : '') + $n(gainPct) + '%'}</div>`
+                         : '<span class="neutral">n/a</span>';
+
+    return `<tr>
+      <td class="left"><span class="sym">${h.symbol}</span></td>
+      <td class="left"><span class="desc">${h.name}</span></td>
+      <td class="mono">${qtyFmt}</td>
+      <td class="price-cell">${priceHtml}</td>
+      <td>${dayHtml}</td>
+      <td class="mono">${'$' + $n(mktVal)}</td>
+      <td class="mono">${h.cost != null ? '$' + $n(h.cost) : '<span class="neutral">n/a</span>'}</td>
+      <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glDisplay}</td>
+      <td class="${h.private ? '' : glCls + ' ' + glCCell}">${glPctDisplay}</td>
+      <td class="${cls(dayValChange)}">${dayValChange != null ? (dayValChange >= 0 ? '+' : '') + '$' + $n(Math.abs(dayValChange)) : '—'}</td>
+      <td class="left" style="color:var(--muted);font-size:12px;">${h.type}</td>
+    </tr>`;
+  });
+
+  document.getElementById('tbody').innerHTML = html.join('');
+
+  // ── TOTALS (Excel SUM formulas) ──────────────────────────────────────
+  // =SUM(MarketValue column)
+  const totMV  = rows.reduce((s, r) => s + r.mktVal, 0);
+  // =SUM(Cost column) — only rows with cost
+  const totCost= rows.reduce((s, r) => s + (r.h.cost ?? 0), 0);
+  // =TotalMV - TotalCost
+  const totGL  = totMV - totCost;
+  // =(TotalMV - TotalCost) / TotalCost * 100
+  const totGLp = totCost > 0 ? (totGL / totCost) * 100 : null;
+  // =SUM(DayValChange column)
+  const totDVC = rows.reduce((s, r) => s + (r.dayValChange ?? 0), 0);
+  const totDC  = rows.reduce((s, r) => s + (r.rawChange != null ? r.rawChange : 0), 0);
+
+  const ftGL  = document.getElementById('ftGL');
+  const ftGLp = document.getElementById('ftGLpct');
+  const ftDVC = document.getElementById('ftDayValChg');
+
+  document.getElementById('ftMktVal').textContent  = '$' + $n(totMV);
+  document.getElementById('ftCost').textContent    = '$' + $n(totCost);
+  ftGL.textContent   = (totGL >= 0 ? '+' : '-') + '$' + $n(Math.abs(totGL));
+  ftGL.style.color   = totGL >= 0 ? '#6ee09b' : '#ffaaaa';
+  ftGLp.textContent  = totGLp != null ? (totGLp >= 0 ? '+' : '') + $n(totGLp) + '%' : '—';
+  ftGLp.style.color  = totGLp != null ? (totGLp >= 0 ? '#6ee09b' : '#ffaaaa') : '';
+  ftDVC.textContent  = totDVC !== 0 ? (totDVC >= 0 ? '+' : '-') + '$' + $n(Math.abs(totDVC)) : '—';
+  ftDVC.style.color  = totDVC >= 0 ? '#6ee09b' : '#ffaaaa';
+  document.getElementById('ftDayChg').textContent  = totDC !== 0 ? (totDC >= 0 ? '+' : '') + '$' + $n(Math.abs(totDC)) : '—';
+
+  // ── HEADER summary ──────────────────────────────────────────────────
+  document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
+  const gainSign = totGL >= 0 ? '+' : '';
+  document.getElementById('hdrGain').textContent =
+    `Total Return: ${gainSign}${'$' + $n(Math.abs(totGL))} (${gainSign}${$n(totGLp)}%) · `
+    + `Today: ${totDVC >= 0 ? '+' : ''}${'$' + $n(Math.abs(totDVC))}`;
+  document.getElementById('hdrGain').style.color = totGL >= 0 ? '#9fdfb0' : '#ffb3b3';
+}
+
+// ─── FIX cost display (was showing $$ by accident) ─────────────────────
+// Corrected in render: using proper string formatting below
+// (the $$ issue is patched in the render call above)
+
+// ─── SORT HEADERS ─────────────────────────────────────────────────────
+document.getElementById('thead').addEventListener('click', e => {
+  const th = e.target.closest('th[data-col]');
+  if (!th) return;
+  const col = th.dataset.col;
+  if (sortCol === col) sortDir *= -1; else { sortCol = col; sortDir = 1; }
+
+  document.querySelectorAll('thead th').forEach(t => {
+    t.classList.remove('sort-asc','sort-desc');
+    const arrow = t.querySelector('.sort-arrow');
+    if (arrow) arrow.textContent = '▲';
+  });
+  th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+  const arrow = th.querySelector('.sort-arrow');
+  if (arrow) arrow.textContent = sortDir === 1 ? '▲' : '▼';
+
+  render();
+});
+
+// ─── LIVE FETCH ───────────────────────────────────────────────────────
+async function doFetch() {
+  const btn  = document.getElementById('btnRefresh');
+  const icon = document.getElementById('btnIcon');
+  btn.disabled = true;
+  icon.className = 'spin';
+  icon.textContent = '↻';
+
+  const symsArr = HOLDINGS.filter(h => !h.fixed).map(h => h.symbol);
+  const syms = symsArr.join(',');
+  let gotLive = false;
+  let pjData = null;
+
+  // ── SOURCE 0: CNBC real-time quotes (CORS-friendly, no key, all symbols in one call) ──
+  try {
+    const num = v => { if (v == null) return null; const n = parseFloat(String(v).replace(/[,%+]/g, '')); return isNaN(n) ? null : n; };
+    const stateMap = { REG_MKT: 'REGULAR', PRE_MKT: 'PRE', POST_MKT: 'POST' };
+    const r = await fetch('https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=' +
+      symsArr.join('%7C') + '&requestMethod=itv&noform=0&partnerId=2&fund=1&exthrs=1&output=json',
+      { signal: AbortSignal.timeout(8000), cache: 'no-store' });
+    if (r.ok) {
+      const q = (await r.json())?.FormattedQuoteResult?.FormattedQuote || [];
+      let count = 0;
+      q.forEach(x => {
+        const price = num(x.last);
+        if (x.code === 0 && price && symsArr.includes(x.symbol)) {
+          liveData[x.symbol] = {
+            price,
+            change:    num(x.change),
+            changePct: num(x.change_pct),
+            prevClose: num(x.previous_day_closing),
+            state:     stateMap[x.curmktstatus] || 'CLOSED',
+          };
+          count++;
+        }
+      });
+      if (count > 0) gotLive = true;
+    }
+  } catch (_) {}
+
+  // ── SOURCE 1: /prices.json — updated by GitHub Action, only use if fresh (< 30 min) ──
+  if (!gotLive) try {
+    const r = await fetch('/prices.json?t=' + Date.now(), { signal: AbortSignal.timeout(5000) });
+    if (r.ok) {
+      const data = await r.json();
+      if (data?.prices) {
+        pjData = data;
+        const updatedAt = data.updated ? new Date(data.updated) : null;
+        const ageMinutes = updatedAt ? (Date.now() - updatedAt.getTime()) / 60000 : Infinity;
+        if (ageMinutes <= 30) {
+          let count = 0;
+          symsArr.forEach(sym => {
+            const p = data.prices[sym];
+            if (p?.price) {
+              liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
+              count++;
+            }
+          });
+          if (count > 0) {
+            gotLive = true;
+            lastUpdate = updatedAt;
+          }
+        }
+      }
+    }
+  } catch (_) {}
+
+  // ── SOURCE 2: Yahoo Finance chart API via allorigins CORS proxy (parallel fetch) ──
+  if (!gotLive) {
+    try {
+      const chartResults = await Promise.allSettled(
+        symsArr.map(sym =>
+          fetch(`https://api.cors.lol/?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/' + sym + '?interval=1d&range=1d')}`,
+            { signal: AbortSignal.timeout(12000) })
+            .then(r => r.json())
+            .then(data => ({ sym, data }))
+        )
+      );
+      let count = 0;
+      chartResults.forEach(res => {
+        if (res.status === 'fulfilled') {
+          const { sym, data } = res.value;
+          const meta = data?.chart?.result?.[0]?.meta;
+          if (meta?.regularMarketPrice) {
+            const price = meta.regularMarketPrice;
+            const prev  = meta.previousClose ?? meta.chartPreviousClose ?? null;
+            liveData[sym] = {
+              price,
+              change:    prev ? Math.round((price - prev) * 10000) / 10000 : null,
+              changePct: prev ? Math.round((price - prev) / prev * 100 * 10000) / 10000 : null,
+              prevClose: prev,
+              state:     meta.marketState ?? 'REGULAR',
+            };
+            count++;
+          }
+        }
+      });
+      if (count > 0) {
+        gotLive = true;
+        lastUpdate = new Date();
+        showMarketBadge(liveData[symsArr[0]]?.state ?? 'REGULAR');
+      }
+    } catch (_) {}
+  }
+
+  // ── SOURCE 3: Yahoo Finance with CORS proxies ──
+  if (!gotLive) {
+    const YF_URL  = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+    const YF_URL2 = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${syms}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose,marketState,shortName`;
+    const attempts = [
+      () => fetch(YF_URL,  { signal: AbortSignal.timeout(5000) }),
+      () => fetch(YF_URL2, { signal: AbortSignal.timeout(5000) }),
+      () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL)}`,  { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(YF_URL)}`, { signal: AbortSignal.timeout(10000) }),
+      () => fetch(`https://corsproxy.io/?${encodeURIComponent(YF_URL2)}`, { signal: AbortSignal.timeout(10000) }),
+    ];
+    let yfData = null;
+    for (const attempt of attempts) {
+      if (yfData) break;
+      try {
+        const r = await attempt();
+        if (r.ok) {
+          const json = await r.json();
+          if (json?.quoteResponse?.result?.length) yfData = json;
+        }
+      } catch (_) {}
+    }
+    if (yfData?.quoteResponse?.result?.length) {
+      yfData.quoteResponse.result.forEach(q => {
+        liveData[q.symbol] = {
+          price:     q.regularMarketPrice,
+          change:    q.regularMarketChange,
+          changePct: q.regularMarketChangePercent,
+          prevClose: q.regularMarketPreviousClose,
+          state:     q.marketState,
+        };
+      });
+      const state = yfData.quoteResponse.result[0]?.marketState ?? 'UNKNOWN';
+      showMarketBadge(state);
+      gotLive = true;
+    }
+  }
+
+  if (gotLive) {
+    usingSnap = false;
+    showAlert('', '');
+    lastUpdate = new Date();
+    showMarketBadge(liveData[symsArr[0]]?.state ?? 'REGULAR');
+    document.getElementById('statusText').textContent =
+      '✓ Live prices as of ' + lastUpdate.toLocaleTimeString();
+  } else {
+    // Live feeds unreachable — use the latest prices.json we have (any age) before the static snapshot
+    if (pjData && pjData.prices) {
+      const updatedAt = pjData.updated ? new Date(pjData.updated) : null;
+      symsArr.forEach(sym => {
+        const p = pjData.prices[sym];
+        if (p?.price) {
+          liveData[sym] = { price: p.price, change: p.change ?? null, changePct: p.changePct ?? null, prevClose: p.prevClose ?? null, state: 'REGULAR' };
+        }
+      });
+      lastUpdate = updatedAt || new Date();
+      showAlert('', '');
+      document.getElementById('statusText').textContent = 'Prices as of ' + (updatedAt ? updatedAt.toLocaleString() : 'recently');
+    } else {
+      usingSnap = true;
+      Object.keys(SNAPSHOT).forEach(sym => {
+        if (!liveData[sym]) {
+          liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
+        }
+      });
+      showAlert('alert-warn', '⚠ Could not reach price sources — showing fallback snapshot prices.');
+      document.getElementById('statusText').textContent = 'Using fallback snapshot prices (live fetch failed)';
+    }
+  }
+
+  render();
+  btn.disabled = false;
+  icon.className = '';
+  icon.textContent = '↻';
+  resetCountdown();
+}
+
+function showMarketBadge(state) {
+  const b = document.getElementById('mktBadge');
+  b.style.display = 'inline-flex';
+  if (state === 'REGULAR') {
+    b.className = 'badge badge-open';
+    b.innerHTML = '<span class="badge-dot"></span> Market Open';
+  } else if (state === 'PRE') {
+    b.className = 'badge badge-pre';
+    b.innerHTML = '<span class="badge-dot"></span> Pre-Market';
+  } else if (state === 'POST') {
+    b.className = 'badge badge-post';
+    b.innerHTML = '<span class="badge-dot"></span> After Hours';
+  } else {
+    b.className = 'badge badge-closed';
+    b.innerHTML = '<span class="badge-dot"></span> Market Closed';
+  }
+}
+
+function showAlert(type, msg) {
+  const bar = document.getElementById('alertBar');
+  if (!msg) { bar.style.display = 'none'; return; }
+  bar.className = 'alert ' + type;
+  bar.textContent = msg;
+  bar.style.display = 'block';
+}
+
+// ─── COUNTDOWN TIMER ─────────────────────────────────────────────────
+function resetCountdown() {
+  cdSecs = 60;
+  clearInterval(cdTimer);
+  cdTimer = setInterval(() => {
+    cdSecs--;
+    const txt = `Auto-refresh in ${cdSecs}s`;
+    document.getElementById('cdText').textContent = txt;
+    document.getElementById('cdText2').textContent = txt;
+    if (cdSecs <= 0) doFetch();
+  }, 1000);
+}
+
+// ─── PASSWORD GATE (real encryption: AES-GCM, key from password via PBKDF2) ───
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unlockWithKey(key) {
+  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(VAULT.iv) }, key, b64(VAULT.ct));
+  const d = JSON.parse(new TextDecoder().decode(plain));
+  HOLDINGS = d.holdings; SNAPSHOT = d.snapshot;
+  document.getElementById('hdrName').innerHTML = d.h1;
+  document.getElementById('hdrSub').innerHTML = d.sub;
+  document.getElementById('acctTitle').textContent = d.acct.replace(/&nbsp;/g, ' ');
+  Object.keys(SNAPSHOT).forEach(sym => {
+    liveData[sym] = { price: SNAPSHOT[sym], change: null, changePct: null, prevClose: null, state: null };
+  });
+  document.getElementById('pw-overlay').style.display = 'none';
+  render();
+  document.getElementById('statusText').textContent = 'Fetching live prices…';
+  doFetch();
+}
+async function deriveKey(pw) {
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(VAULT.salt), iterations: VAULT.iter, hash: 'SHA-256' },
+    base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+}
+async function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  try {
+    const key = await deriveKey(val);
+    await unlockWithKey(key);
+    const raw = await crypto.subtle.exportKey('raw', key);
+    sessionStorage.setItem('pw_key', btoa(String.fromCharCode(...new Uint8Array(raw))));
+  } catch (_) {
+    document.getElementById('pw-err').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────
+sessionStorage.removeItem('pw_ok');
+(async () => {
+  const saved = sessionStorage.getItem('pw_key');
+  if (saved) {
+    try {
+      const key = await crypto.subtle.importKey('raw', b64(saved), 'AES-GCM', false, ['decrypt']);
+      await unlockWithKey(key);
+      return;
+    } catch (_) { sessionStorage.removeItem('pw_key'); }
+  }
+  document.getElementById('statusText').textContent = 'Enter password to load your portfolio';
+  setTimeout(() => document.getElementById('pw-input').focus(), 100);
+})();
+</script>
+
+<script>
+// Fit the positions table to the phone screen — ONE stable size
+(function () {
+  var natW = 0, natH = 0, lastW = -1;
+  function fit() {
+    var t = document.getElementById('tbl');
+    if (!t) return;
+    var wrap = t.parentElement;
+    if (window.innerWidth > 820) {
+      t.style.transform = ''; t.style.transformOrigin = ''; wrap.style.height = '';
+      return;
+    }
+    if (!natW) {
+      var prev = t.style.transform;
+      t.style.transform = 'none';
+      natW = t.offsetWidth; natH = t.offsetHeight;
+      t.style.transform = prev;
+    }
+    var availW = wrap.clientWidth;
+    var top = wrap.getBoundingClientRect().top;
+    var availH = window.innerHeight - top - 6;
+    if (natW > 0 && natH > 0 && availH > 120) {
+      t.style.transformOrigin = 'top left';
+      t.style.transform = 'scale(' + (availW / natW) + ',' + (availH / natH) + ')';
+      wrap.style.height = (Math.ceil(t.getBoundingClientRect().height) + 2) + 'px';
+    }
+  }
+  // No resize listener on purpose: mobile address-bar show/hide can nudge the
+  // viewport and cause flicker. We fit once at startup and only re-fit on an
+  // actual device rotation, so the size stays rock steady.
+  window.addEventListener('orientationchange', function () { lastW = -1; natW = 0; setTimeout(fit, 350); });
+  window.addEventListener('load', function () { lastW = window.innerWidth; fit(); });
+  lastW = window.innerWidth;
+  setTimeout(fit, 300);
+  setTimeout(fit, 1200);
+})();
+</script>
+</body>
+</html>
