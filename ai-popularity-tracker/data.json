@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-12",
+    "updatedAt": "2026-11-13",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,25 +366,32 @@
   ],
   "news": [
     {
-      "title": "Fed's Barr warns fast AI adoption could widen inequality",
-      "source": "Bloomberg",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-12/fed-s-barr-warns-ai-without-guardrails-risks-widening-inequality",
-      "date": "Nov 12",
-      "type": "policy"
-    },
-    {
-      "title": "Foxconn profit jumps 34% on strong AI server demand",
-      "source": "Quartz",
-      "url": "https://qz.com/foxconn-profit-ai-server-demand-earnings-beat-111226",
+      "title": "Jensen Huang resigns as Nvidia CEO; CFO Colette Kress named interim",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
       "date": "Nov 12",
       "type": "company"
     },
     {
-      "title": "Anthropic's stricter China access policy takes effect",
-      "source": "ChainCatcher",
-      "url": "https://www.chaincatcher.com/en/article/2303466",
+      "title": "Google launches Gemini 4 Hydrogen, a faster, cheaper model",
+      "source": "American Bazaar",
+      "url": "https://americanbazaaronline.com/2026/11/12/google-launches-gemini-4-hydrogen-targets-faster-ai-workflows/",
       "date": "Nov 12",
-      "type": "policy"
+      "type": "launch"
+    },
+    {
+      "title": "Nebius plans $40B+ in spending to expand AI cloud capacity",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/",
+      "date": "Nov 12",
+      "type": "company"
+    },
+    {
+      "title": "Anthropic lets companies self-host Claude Managed Agents",
+      "source": "Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/11/12/anthropic-self-hosted-claude-managed-agents/",
+      "date": "Nov 12",
+      "type": "launch"
     }
   ],
   "newsArchive": {
@@ -600,6 +607,36 @@
         "url": "https://www.chaincatcher.com/en/article/2303466",
         "date": "Nov 12",
         "type": "policy"
+      }
+    ],
+    "2026-11-13": [
+      {
+        "title": "Jensen Huang resigns as Nvidia CEO; CFO Colette Kress named interim",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
+        "date": "Nov 12",
+        "type": "company"
+      },
+      {
+        "title": "Google launches Gemini 4 Hydrogen, a faster, cheaper model",
+        "source": "American Bazaar",
+        "url": "https://americanbazaaronline.com/2026/11/12/google-launches-gemini-4-hydrogen-targets-faster-ai-workflows/",
+        "date": "Nov 12",
+        "type": "launch"
+      },
+      {
+        "title": "Nebius plans $40B+ in spending to expand AI cloud capacity",
+        "source": "TechCrunch",
+        "url": "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/",
+        "date": "Nov 12",
+        "type": "company"
+      },
+      {
+        "title": "Anthropic lets companies self-host Claude Managed Agents",
+        "source": "Help Net Security",
+        "url": "https://www.helpnetsecurity.com/2026/11/12/anthropic-self-hosted-claude-managed-agents/",
+        "date": "Nov 12",
+        "type": "launch"
       }
     ]
   }
