@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-12T01:49:25+00:00",
+"updated": "2026-11-13T03:48:36+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-11",
@@ -6409,6 +6409,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "lj5dssregcqgepk25bfds7amic_20261117T120000Z"
+},
+{
+"date": "2026-11-17",
+"time": "18:15",
+"endTime": "19:15",
+"title": "Final preso CCCI meeting",
+"category": "School",
+"src": "gcal",
+"gid": "clpl0m8ns74ndejorg9ldmmp6o"
 },
 {
 "date": "2026-11-17",
