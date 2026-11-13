@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-13T03:48:36+00:00",
+"updated": "2026-11-13T11:49:11+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-11",
+"to": "2027-03-12",
 "events": [
 {
 "date": "2026-01-15",
@@ -10268,6 +10268,42 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20270312T010000Z"
+},
+{
+"date": "2027-03-12",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270312T110000Z"
+},
+{
+"date": "2027-03-12",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270312T120000Z"
+},
+{
+"date": "2027-03-12",
+"time": "11:10",
+"endTime": "12:00",
+"title": "Tim Rice (Zoom)",
+"category": "Personal",
+"src": "gcal",
+"gid": "fepkl257li5oh78ltfmhu085do_20270312T161000Z"
+},
+{
+"date": "2027-03-12",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270313T010000Z"
 }
 ]
 }
