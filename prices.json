@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14T00:52:29.181808+00:00",
+  "updated": "2026-11-14T07:16:18.020863+00:00",
   "prices": {
     "AMZN": {
       "price": 266.66,
@@ -9,11 +9,11 @@
       "marketCap": 2883431500276
     },
     "COIN": {
-      "price": 127.645,
-      "change": -3.7775,
-      "changePct": -2.8743,
+      "price": 127.65,
+      "change": -3.7725,
+      "changePct": -2.8705,
       "prevClose": 131.4225,
-      "marketCap": 33795725601
+      "marketCap": 33797050711
     },
     "DIS": {
       "price": 118.97,
@@ -120,11 +120,11 @@
       "marketCap": 234793360510
     },
     "TCEHY": {
-      "price": 49.77,
-      "change": -0.35,
-      "changePct": -0.6983,
+      "price": 49.74,
+      "change": -0.38,
+      "changePct": -0.7582,
       "prevClose": 50.12,
-      "marketCap": 448159324423
+      "marketCap": 447889197187
     }
   }
 }
