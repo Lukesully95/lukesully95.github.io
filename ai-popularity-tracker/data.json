@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-13",
+    "updatedAt": "2026-11-14",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,32 +366,32 @@
   ],
   "news": [
     {
-      "title": "Jensen Huang resigns as Nvidia CEO; CFO Colette Kress named interim",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
-      "date": "Nov 12",
-      "type": "company"
-    },
-    {
-      "title": "Google launches Gemini 4 Hydrogen, a faster, cheaper model",
-      "source": "American Bazaar",
-      "url": "https://americanbazaaronline.com/2026/11/12/google-launches-gemini-4-hydrogen-targets-faster-ai-workflows/",
-      "date": "Nov 12",
+      "title": "OpenAI launches ChatGPT Wallet so agents can complete purchases",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet/",
+      "date": "Nov 13",
       "type": "launch"
     },
     {
-      "title": "Nebius plans $40B+ in spending to expand AI cloud capacity",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/",
-      "date": "Nov 12",
-      "type": "company"
+      "title": "White House AI task force urges easing liability to boost incident reporting",
+      "source": "Bloomberg",
+      "url": "https://bloomberg.com/news/articles/2026-11-14/white-house-urges-easing-liability-to-encourage-ai-disclosure",
+      "date": "Nov 14",
+      "type": "policy"
     },
     {
-      "title": "Anthropic lets companies self-host Claude Managed Agents",
-      "source": "Help Net Security",
-      "url": "https://www.helpnetsecurity.com/2026/11/12/anthropic-self-hosted-claude-managed-agents/",
-      "date": "Nov 12",
-      "type": "launch"
+      "title": "Anthropic says standard single-turn safety tests are now saturated",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+      "date": "Nov 13",
+      "type": "research"
+    },
+    {
+      "title": "AI startup Aaru to expand in NYC, adding 650+ jobs",
+      "source": "New York State",
+      "url": "https://www.governor.ny.gov/news/governor-hochul-announces-cutting-edge-ai-company-aaru-will-expand-new-york-city-creating-over",
+      "date": "Nov 13",
+      "type": "company"
     }
   ],
   "newsArchive": {
@@ -637,6 +637,36 @@
         "url": "https://www.helpnetsecurity.com/2026/11/12/anthropic-self-hosted-claude-managed-agents/",
         "date": "Nov 12",
         "type": "launch"
+      }
+    ],
+    "2026-11-14": [
+      {
+        "title": "OpenAI launches ChatGPT Wallet so agents can complete purchases",
+        "source": "OpenAI",
+        "url": "https://openai.com/index/introducing-chatgpt-wallet/",
+        "date": "Nov 13",
+        "type": "launch"
+      },
+      {
+        "title": "White House AI task force urges easing liability to boost incident reporting",
+        "source": "Bloomberg",
+        "url": "https://bloomberg.com/news/articles/2026-11-14/white-house-urges-easing-liability-to-encourage-ai-disclosure",
+        "date": "Nov 14",
+        "type": "policy"
+      },
+      {
+        "title": "Anthropic says standard single-turn safety tests are now saturated",
+        "source": "Anthropic",
+        "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+        "date": "Nov 13",
+        "type": "research"
+      },
+      {
+        "title": "AI startup Aaru to expand in NYC, adding 650+ jobs",
+        "source": "New York State",
+        "url": "https://www.governor.ny.gov/news/governor-hochul-announces-cutting-edge-ai-company-aaru-will-expand-new-york-city-creating-over",
+        "date": "Nov 13",
+        "type": "company"
       }
     ]
   }
