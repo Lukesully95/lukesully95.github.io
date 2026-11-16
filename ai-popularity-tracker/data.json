@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-15",
+    "updatedAt": "2026-11-16",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,10 +366,31 @@
   ],
   "news": [
     {
-      "title": "Nvidia loses about $1 trillion in value in one week",
-      "source": "Trending Topics",
-      "url": "https://www.trendingtopics.eu/nvidia-loses-1-trillion-in-value-in-a-single-week/",
-      "date": "Nov 14",
+      "title": "Anthropic sets IPO price range ahead of Nasdaq debut",
+      "source": "The Next Web",
+      "url": "https://thenextweb.com/news/anthropic-ipo-terms-1-4-trillion-valuation",
+      "date": "Nov 16",
+      "type": "funding"
+    },
+    {
+      "title": "US and nine partners sign AI supply-chain agreement",
+      "source": "Anadolu Agency",
+      "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
+      "date": "Nov 16",
+      "type": "policy"
+    },
+    {
+      "title": "Petition to reinstate Jensen Huang passes 130,000 signatures",
+      "source": "Anadolu Agency",
+      "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
+      "date": "Nov 16",
+      "type": "company"
+    },
+    {
+      "title": "Nvidia earnings this week face AI spending and governance questions",
+      "source": "MarketPulse",
+      "url": "https://www.marketpulse.com/markets/nvidia-nvda-q3-earnings-preview-ai-spending-risks-and-governance-concerns-threaten-major-uptrend/",
+      "date": "Nov 16",
       "type": "company"
     }
   ],
@@ -654,6 +675,36 @@
         "source": "Trending Topics",
         "url": "https://www.trendingtopics.eu/nvidia-loses-1-trillion-in-value-in-a-single-week/",
         "date": "Nov 14",
+        "type": "company"
+      }
+    ],
+    "2026-11-16": [
+      {
+        "title": "Anthropic sets IPO price range ahead of Nasdaq debut",
+        "source": "The Next Web",
+        "url": "https://thenextweb.com/news/anthropic-ipo-terms-1-4-trillion-valuation",
+        "date": "Nov 16",
+        "type": "funding"
+      },
+      {
+        "title": "US and nine partners sign AI supply-chain agreement",
+        "source": "Anadolu Agency",
+        "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
+        "date": "Nov 16",
+        "type": "policy"
+      },
+      {
+        "title": "Petition to reinstate Jensen Huang passes 130,000 signatures",
+        "source": "Anadolu Agency",
+        "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
+        "date": "Nov 16",
+        "type": "company"
+      },
+      {
+        "title": "Nvidia earnings this week face AI spending and governance questions",
+        "source": "MarketPulse",
+        "url": "https://www.marketpulse.com/markets/nvidia-nvda-q3-earnings-preview-ai-spending-risks-and-governance-concerns-threaten-major-uptrend/",
+        "date": "Nov 16",
         "type": "company"
       }
     ]
