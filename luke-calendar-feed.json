@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-15T11:48:29+00:00",
+"updated": "2026-11-16T11:48:40+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-14",
+"to": "2027-03-15",
 "events": [
 {
 "date": "2026-01-15",
@@ -10394,6 +10394,33 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20270314T190000Z"
+},
+{
+"date": "2027-03-15",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270315T100000Z"
+},
+{
+"date": "2027-03-15",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270315T110000Z"
+},
+{
+"date": "2027-03-15",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270316T000000Z"
 }
 ]
 }
