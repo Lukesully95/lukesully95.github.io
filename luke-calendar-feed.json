@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T00:33:11+00:00",
+"updated": "2026-11-17T00:34:24+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-15",
@@ -6779,22 +6779,22 @@
 },
 {
 "date": "2026-11-26",
+"time": "13:00",
+"endTime": "17:00",
+"title": "Thanksgiving at Soho House w/ Dad + Coopersmiths",
+"category": "Holiday",
+"src": "gcal",
+"gid": "3482rusbn089u1dmvrkukcc1ko",
+"location": "Soho House"
+},
+{
+"date": "2026-11-26",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261127T010000Z"
-},
-{
-"date": "2026-11-26",
-"time": "",
-"endTime": "",
-"title": "Thanksgiving at Soho House w/ Dad + Coopersmiths",
-"category": "Holiday",
-"src": "gcal",
-"gid": "3482rusbn089u1dmvrkukcc1ko",
-"location": "Soho House"
 },
 {
 "date": "2026-11-27",
