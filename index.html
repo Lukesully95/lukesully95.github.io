@@ -259,6 +259,31 @@
   }
   #pw-lock { font-size: 36px; margin-bottom: 14px; }
 
+
+  /* phone cards */
+  #mcards { display: none; }
+  .mc { display:block; padding: 14px 14px; border-bottom: 1px solid var(--border); cursor: pointer; -webkit-tap-highlight-color: rgba(9,105,218,.08); }
+  .mc:nth-child(even) { background: var(--row-alt); }
+  .mc-top, .mc-mid { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .mc-sym { font-weight:800; color:var(--blue); font-size:17px; }
+  .mc-name { font-size:12px; color:var(--muted); margin-top:2px; }
+  .mc-val { font-weight:800; font-size:17px; font-variant-numeric: tabular-nums; }
+  .mc-mid { margin-top:8px; font-size:13.5px; font-variant-numeric: tabular-nums; }
+  .mc-sub { color:var(--muted); font-size:12.5px; }
+  .mc-total { display:flex; justify-content:space-between; padding:14px; background:var(--navy); color:#fff; font-weight:800; font-size:15px; }
+  .sym, .desc { cursor: pointer; }
+  .sym:hover { text-decoration: underline; }
+
+  /* company overview popup */
+  #ov-bg { display:none; position:fixed; inset:0; background:rgba(15,25,40,.55); z-index:9000; align-items:center; justify-content:center; padding:18px; }
+  #ov-bg.show { display:flex; }
+  #ov-box { background:#fff; border-radius:14px; max-width:520px; width:100%; max-height:80vh; overflow:auto; padding:22px 22px 18px; box-shadow:0 20px 60px rgba(0,0,0,.3); }
+  #ov-sym { font-weight:800; color:var(--blue); font-size:22px; }
+  #ov-name { color:var(--muted); font-size:13px; margin:2px 0 14px; }
+  #ov-text { font-size:15px; line-height:1.55; color:#1f2328; }
+  #ov-src { font-size:11px; color:var(--muted); margin-top:12px; }
+  #ov-close { margin-top:16px; width:100%; padding:11px; border:none; border-radius:8px; background:var(--navy); color:#fff; font-weight:700; font-size:15px; cursor:pointer; }
+
   /* MOBILE: fit the entire spreadsheet on a phone screen */
   @media (max-width: 820px) {
     .header { flex-wrap: wrap; gap: 6px; padding: 10px 14px; }
@@ -274,15 +299,12 @@
     .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
-    .table-wrap { overflow: visible; }
-    table { font-size: 10px; }
-    thead th { padding: 8px 4px; font-size: 8px; letter-spacing: 0; }
-    td { padding: 12px 4px; }
-    .sym { font-size: 10px; }
-    .desc { font-size: 8px; white-space: normal; display: inline-block; max-width: 78px; line-height: 1.15; }
-    .price-cell { font-size: 10px; }
-    .day-line { font-size: 8px; }
-    tfoot td { padding: 12px 4px; font-size: 10px; }
+    .table-wrap { display: none; }
+    #mcards { display: block; }
+    .header-left h1 { font-size: 17px; }
+    .header-left p  { font-size: 12px; }
+    .total-val { font-size: 26px; }
+    .total-sub { font-size: 12.5px; }
   }
 </style>
 </head>
@@ -297,6 +319,17 @@
     <input id="pw-input" type="password" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkPw()">
     <button id="pw-btn" onclick="checkPw()">View Portfolio</button>
     <div id="pw-err">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- COMPANY OVERVIEW POPUP -->
+<div id="ov-bg" onclick="if(event.target===this)closeOv()">
+  <div id="ov-box">
+    <div id="ov-sym"></div>
+    <div id="ov-name"></div>
+    <div id="ov-text"></div>
+    <div id="ov-src"></div>
+    <button id="ov-close" onclick="closeOv()">Close</button>
   </div>
 </div>
 
@@ -369,6 +402,7 @@
         </tfoot>
       </table>
     </div>
+    <div id="mcards"></div>
   </div>
   <p class="disclaimer">
     ⚡ Prices fetched live from Yahoo Finance · Auto-refreshes every 60 s during market hours ·
@@ -500,8 +534,8 @@ function render() {
                          : '<span class="neutral">n/a</span>';
 
     return `<tr>
-      <td class="left"><span class="sym">${h.symbol}</span></td>
-      <td class="left"><span class="desc">${h.name}</span></td>
+      <td class="left"><span class="sym" onclick="openOv('${h.symbol}')">${h.symbol}</span></td>
+      <td class="left"><span class="desc" onclick="openOv('${h.symbol}')">${h.name}</span></td>
       <td class="mono">${qtyFmt}</td>
       <td class="price-cell">${priceHtml}</td>
       <td>${dayHtml}</td>
@@ -515,6 +549,20 @@ function render() {
   });
 
   document.getElementById('tbody').innerHTML = html.join('');
+
+  // Phone cards
+  document.getElementById('mcards').innerHTML = rows.map(({ h, price, rawChange, rawChangePct, mktVal, gainLoss, gainPct }) => {
+    const pr = h.private ? 'Private' : h.fixed ? '$1.00' : '$' + $n(price);
+    const dc = (!h.fixed && rawChange != null)
+      ? `<span class="${cls(rawChange)}">${rawChange >= 0 ? '+' : '-'}$${$n(Math.abs(rawChange))} (${rawChangePct >= 0 ? '+' : ''}${$n(rawChangePct)}%)</span>` : '';
+    const gl = (!h.private && !h.fixed && gainLoss != null)
+      ? `<span class="${cls(gainLoss)}">${gainLoss >= 0 ? '+' : '-'}$${$n(Math.abs(gainLoss))}${gainPct != null ? ' (' + (gainPct >= 0 ? '+' : '') + $n(gainPct) + '%)' : ''}</span>` : '<span class="mc-sub">—</span>';
+    const qty = (h.private || h.fixed) ? '' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3)) + ' sh · ';
+    return `<div class="mc" onclick="openOv('${h.symbol}')">
+      <div class="mc-top"><div><div class="mc-sym">${h.symbol}</div><div class="mc-name">${h.name}</div></div><div class="mc-val">$${$n(mktVal)}</div></div>
+      <div class="mc-mid"><span class="mc-sub">${qty}${pr} ${dc}</span><span>${gl}</span></div>
+    </div>`;
+  }).join('');
 
   // ── TOTALS (Excel SUM formulas) ──────────────────────────────────────
   // =SUM(MarketValue column)
@@ -542,6 +590,9 @@ function render() {
   ftDVC.textContent  = totDVC !== 0 ? (totDVC >= 0 ? '+' : '-') + '$' + $n(Math.abs(totDVC)) : '—';
   ftDVC.style.color  = totDVC >= 0 ? '#6ee09b' : '#ffaaaa';
   document.getElementById('ftDayChg').textContent  = totDC !== 0 ? (totDC >= 0 ? '+' : '') + '$' + $n(Math.abs(totDC)) : '—';
+
+  document.getElementById('mcards').insertAdjacentHTML('beforeend',
+    `<div class="mc-total"><span>Total</span><span>$${$n(totMV)}</span></div>`);
 
   // ── HEADER summary ──────────────────────────────────────────────────
   document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
@@ -850,41 +901,35 @@ sessionStorage.removeItem('pw_ok');
 </script>
 
 <script>
-// Fit the positions table to the phone screen — ONE stable size
-(function () {
-  var natW = 0, natH = 0, lastW = -1;
-  function fit() {
-    var t = document.getElementById('tbl');
-    if (!t) return;
-    var wrap = t.parentElement;
-    if (window.innerWidth > 820) {
-      t.style.transform = ''; t.style.transformOrigin = ''; wrap.style.height = '';
-      return;
-    }
-    if (!natW) {
-      var prev = t.style.transform;
-      t.style.transform = 'none';
-      natW = t.offsetWidth; natH = t.offsetHeight;
-      t.style.transform = prev;
-    }
-    var availW = wrap.clientWidth;
-    var top = wrap.getBoundingClientRect().top;
-    var availH = window.innerHeight - top - 6;
-    if (natW > 0 && natH > 0 && availH > 120) {
-      t.style.transformOrigin = 'top left';
-      t.style.transform = 'scale(' + (availW / natW) + ',' + (availH / natH) + ')';
-      wrap.style.height = (Math.ceil(t.getBoundingClientRect().height) + 2) + 'px';
-    }
+// ─── COMPANY OVERVIEW (fetched on tap, nothing stored in the page) ─────
+const OV_CACHE = {};
+function cleanName(n) {
+  return n.replace(/\b(INC|CORP|CORPORATION|CO|COM|CL A|CL B|CLASS A|COMMON STOCK|SH BEN INT|HLDGS|HOLDINGS|LTD|PLC|NEW|ORD|SHS)\b\.?/gi, ' ')
+          .replace(/^DISNEY WALT/i, 'Walt Disney Company').replace(/\s+/g, ' ').trim();
+}
+async function openOv(sym) {
+  const h = HOLDINGS.find(x => x.symbol === sym); if (!h) return;
+  document.getElementById('ov-sym').textContent = sym;
+  document.getElementById('ov-name').textContent = h.name;
+  const t = document.getElementById('ov-text'), src = document.getElementById('ov-src');
+  document.getElementById('ov-bg').classList.add('show');
+  if (h.fixed || /cash/i.test(h.name) && !/market/i.test(h.name)) { t.textContent = 'Uninvested cash sitting in your account.'; src.textContent=''; return; }
+  if (OV_CACHE[sym]) { t.textContent = OV_CACHE[sym].text; src.textContent = OV_CACHE[sym].src; return; }
+  t.textContent = 'Loading overview…'; src.textContent = '';
+  try {
+    const q = encodeURIComponent(cleanName(h.name));
+    const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${q}&gsrlimit=1&prop=extracts&exintro=1&explaintext=1&exsentences=4&format=json&origin=*`);
+    const d = await r.json();
+    const pg = d.query && Object.values(d.query.pages)[0];
+    if (!pg || !pg.extract) throw 0;
+    OV_CACHE[sym] = { text: pg.extract.trim(), src: 'Source: Wikipedia — ' + pg.title };
+  } catch (_) {
+    OV_CACHE[sym] = null; t.textContent = "Couldn't load an overview right now. Try again in a sec."; return;
   }
-  // No resize listener on purpose: mobile address-bar show/hide can nudge the
-  // viewport and cause flicker. We fit once at startup and only re-fit on an
-  // actual device rotation, so the size stays rock steady.
-  window.addEventListener('orientationchange', function () { lastW = -1; natW = 0; setTimeout(fit, 350); });
-  window.addEventListener('load', function () { lastW = window.innerWidth; fit(); });
-  lastW = window.innerWidth;
-  setTimeout(fit, 300);
-  setTimeout(fit, 1200);
-})();
+  t.textContent = OV_CACHE[sym].text; src.textContent = OV_CACHE[sym].src;
+}
+function closeOv() { document.getElementById('ov-bg').classList.remove('show'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOv(); });
 </script>
 </body>
 </html>
