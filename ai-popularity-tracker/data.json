@@ -584,6 +584,27 @@
         "url": "https://cryptobriefing.com/openais-q3-operating-loss-hits-11b-despite-50-revenue-rise-wsj/",
         "date": "Nov 11",
         "type": "company"
+      },
+      {
+        "title": "Google launches Gemini Decisions API for fast AI choices",
+        "source": "Google",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+        "date": "Nov 11",
+        "type": "launch"
+      },
+      {
+        "title": "UK AI chip startup Fractile raises $720M Series C",
+        "source": "Silicon UK",
+        "url": "https://www.silicon.co.uk/cloud/ai/fractile-funding-round-2-632302",
+        "date": "Nov 11",
+        "type": "funding"
+      },
+      {
+        "title": "EU proposal would let shoppers set limits on AI buying agents",
+        "source": "MLex",
+        "url": "https://www.mlex.com/mlex/articles/2548994",
+        "date": "Nov 11",
+        "type": "policy"
       }
     ],
     "2026-11-12": [
@@ -675,6 +696,20 @@
         "source": "Trending Topics",
         "url": "https://www.trendingtopics.eu/nvidia-loses-1-trillion-in-value-in-a-single-week/",
         "date": "Nov 14",
+        "type": "company"
+      },
+      {
+        "title": "Apple launches AI health study app built with OpenEvidence",
+        "source": "ABC News",
+        "url": "https://abcnews.com/US/apple-launches-ai-health-chatbot-part-research-study/story?id=138164909",
+        "date": "Nov 15",
+        "type": "launch"
+      },
+      {
+        "title": "Apple bets on Siri AI apps to power its smart glasses",
+        "source": "Bloomberg",
+        "url": "https://www.bloomberg.com/news/newsletters/2026-11-15/apple-siri-ai-app-integrations-power-smart-glasses-iphone-duo-2-face-id-plan",
+        "date": "Nov 15",
         "type": "company"
       }
     ],
