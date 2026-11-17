@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2x AI — Double the Output. Zero the Friction.</title>
+<meta name="description" content="2x AI is an AI marketing agency. We make AI video ads, send daily briefing emails, build websites, and run the Brain — one core that connects everything.">
+<style>
+  :root{--bg:#05080f;--bg2:#0a1120;--card:#0d1628;--line:#1b2944;--text:#e8eef8;--muted:#8d9bb4;--blue:#2f8cff;--blue2:#5aa6ff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(5,8,15,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}
+  .logo i{width:24px;height:24px;border-radius:6px;background:var(--blue);display:inline-block}
+  .links{display:flex;gap:30px;font-size:14px;color:#b9c4d8}
+  .links a:hover{color:#fff}
+  .btn{display:inline-block;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:12px 20px;border-radius:9px;transition:.15s}
+  .btn:hover{background:#1f7af0}
+  .btn.ghost{background:transparent;border:1px solid #2a3a58}
+  .btn.ghost:hover{border-color:var(--blue2)}
+  /* hero */
+  .hero{position:relative;padding:90px 0 60px;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background:
+    radial-gradient(700px 380px at 15% 10%,rgba(47,140,255,.18),transparent 70%),
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/48px 48px,
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/48px 48px;pointer-events:none}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #22324f;border-radius:999px;padding:6px 13px;font-size:13px;color:#b9c4d8;position:relative}
+  .pill b{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  h1{font-size:clamp(44px,7vw,84px);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:26px 0 22px;position:relative}
+  h1 span{display:block;color:var(--blue)}
+  .lead{font-size:clamp(20px,2.4vw,28px);font-weight:700;margin-bottom:16px;position:relative}
+  .lead em{font-style:normal;color:var(--blue)}
+  .sub{max-width:600px;color:var(--muted);font-size:17px;position:relative}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 22px;position:relative}
+  .proof{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--muted);position:relative}
+  /* work */
+  .work{padding:30px 0 80px}
+  .work-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:stretch}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .shot video,.shot img{width:100%;display:block;background:#000}
+  .shot .media{flex:1;display:flex;align-items:center;justify-content:center;background:#000}
+  .shot.brief .media{background:#23252a;max-height:520px;overflow:hidden;align-items:flex-start}
+  .shot .cap{padding:16px 18px;border-top:1px solid var(--line)}
+  .shot .cap b{display:block;font-size:16px}
+  .shot .cap span{font-size:13.5px;color:var(--muted)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:12px}
+  h2{font-size:clamp(32px,4.4vw,52px);line-height:1.08;letter-spacing:-.025em;font-weight:700}
+  .sec{padding:90px 0;border-top:1px solid rgba(255,255,255,.04)}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px;flex-wrap:wrap}
+  .sec-head p{max-width:360px;color:var(--muted)}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg2)}
+  .stats div{padding:28px 26px;border-right:1px solid var(--line)}
+  .stats div:last-child{border-right:none}
+  .stats b{display:block;font-size:44px;font-weight:700;letter-spacing:-.02em}
+  .stats span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  /* services */
+  .grid4{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .svc{padding:34px 32px;background:var(--bg2);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .svc:nth-child(2n){border-right:none}.svc:nth-child(n+3){border-bottom:none}
+  .num{width:32px;height:32px;border:1px solid #22324f;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--blue2);margin-bottom:26px}
+  .svc h3{font-size:22px;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:15px;max-width:420px}
+  .svc small{display:block;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6f7d96;margin-top:16px}
+  /* brain */
+  .brain{text-align:center}
+  .brain p.lead2{max-width:620px;margin:18px auto 50px;color:var(--muted);font-size:17px}
+  .diagram{position:relative;max-width:760px;height:360px;margin:0 auto}
+  .core{position:absolute;left:50%;top:50%;width:230px;height:230px;margin:-115px 0 0 -115px;border-radius:50%;border:1px solid #1e3a66;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(47,140,255,.16),transparent 70%)}
+  .core:before{content:"";width:46px;height:46px;border-radius:50%;background:radial-gradient(circle,var(--blue) 0 22%,rgba(47,140,255,.25) 23%);margin-bottom:14px}
+  .core b{font-size:17px}.core span{font-size:11px;letter-spacing:.14em;color:var(--blue2)}
+  .node{position:absolute;width:130px;height:96px;border:1px solid #1e3050;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.14em;color:#b9c4d8;background:var(--bg2)}
+  .n1{left:0;top:30px}.n2{right:0;top:30px}.n3{left:40px;bottom:0}.n4{right:40px;bottom:0}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .step{border-top:1px solid var(--line);padding-top:22px}
+  .step small{font-family:ui-monospace,Menlo,monospace;color:var(--blue2);font-size:12px}
+  .step h3{font-size:20px;margin:10px 0 8px}
+  .step p{color:var(--muted);font-size:15px}
+  /* production */
+  .prod{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .prod p{color:var(--muted);font-size:17px;margin:16px 0 22px}
+  .prod ul{list-style:none}.prod li{padding:7px 0 7px 20px;position:relative;font-size:15px}
+  .prod li:before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+  .glow{aspect-ratio:4/3;border-radius:16px;border:1px solid var(--line);background:
+    radial-gradient(circle at 55% 50%,rgba(90,166,255,.55),transparent 22%),
+    radial-gradient(circle at 30% 30%,rgba(47,140,255,.25),transparent 30%),
+    radial-gradient(circle at 75% 75%,rgba(47,140,255,.22),transparent 30%),#030814}
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .plan{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:30px 28px;display:flex;flex-direction:column}
+  .plan.hot{border-color:var(--blue);box-shadow:0 0 0 1px rgba(47,140,255,.3),0 20px 60px rgba(47,140,255,.12)}
+  .tag{align-self:flex-start;background:var(--blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+  .plan h3{font-size:22px}.plan .d{color:var(--muted);font-size:14px;margin:4px 0 20px}
+  .price{font-size:38px;font-weight:700}.price small{font-size:14px;color:var(--muted);font-weight:400}
+  .setup{color:var(--blue2);font-size:14px;margin-top:2px}
+  .plan ul{list-style:none;margin:22px 0 26px;flex:1}.plan li{padding:6px 0 6px 18px;position:relative;font-size:14.5px;color:#c9d3e4}
+  .plan li:before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .plan .btn{text-align:center}
+  /* faq */
+  .faq{display:grid;grid-template-columns:1fr 1.4fr;gap:50px}
+  details{border-bottom:1px solid var(--line);padding:20px 0}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-size:18px;font-weight:600}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";color:var(--blue2)}details[open] summary:after{content:"–"}
+  details p{color:var(--muted);margin-top:10px;font-size:15.5px}
+  /* cta */
+  .cta{margin:20px 0 90px;background:var(--blue);border-radius:22px;padding:70px 30px;text-align:center;position:relative;overflow:hidden}
+  .cta:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.1)}
+  .cta h2{position:relative}.cta p{position:relative;margin:12px 0 28px;color:rgba(255,255,255,.85);font-size:17px}
+  .cta .btn{background:#06101f;position:relative}.cta .btn.ghost{background:transparent;border-color:rgba(255,255,255,.5)}
+  footer{border-top:1px solid rgba(255,255,255,.05);padding:28px 0;font-size:13px;color:#6f7d96}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer .fl{display:flex;gap:22px;letter-spacing:.12em;text-transform:uppercase}
+  @media (max-width:900px){
+    .links{display:none}
+    .work-grid,.prod,.faq{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:none}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .grid4,.steps,.plans{grid-template-columns:1fr}
+    .svc{border-right:none!important;border-bottom:1px solid var(--line)!important}.svc:last-child{border-bottom:none!important}
+    .diagram{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .core{position:static;margin:0 auto 6px;grid-column:1/-1}.node{position:static;width:auto}
+    .hero{padding:60px 0 40px}
+    .proof span:nth-child(even){display:none}.proof{gap:8px;flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#top" class="logo"><i></i>2x AI</a>
+  <div class="links"><a href="#services">AI Video Ads</a><a href="#services">Briefings</a><a href="#services">Websites</a><a href="#brain">The Brain</a></div>
+  <a href="#pricing" class="btn">Book a Briefing</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="pill"><b></b>Now booking new partners</div>
+  <h1>Double the output.<span>Zero the friction.</span></h1>
+  <div class="lead">We can make you <em>twice as productive</em> and efficient — <em>2x</em> more.</div>
+  <p class="sub">2x AI builds the AI behind modern marketing teams: AI video ads, a daily briefing your people actually read, websites that tune themselves, and one Brain that runs the calendar and every workflow between them.</p>
+  <div class="ctas"><a href="#pricing" class="btn">Book a strategy call</a><a href="#work" class="btn ghost">See our work</a></div>
+  <div class="proof"><span>First automation live in 14 days</span><span>·</span><span>No lock-in contracts</span><span>·</span><span>You own every workflow we build</span></div>
+</div></header>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="eyebrow">Our work</div>
+  <div class="work-grid">
+    <div class="shot">
+      <div class="media"><video controls playsinline preload="metadata" poster="lst-poster.jpg"><source src="long-strange-trip-ad.mp4" type="video/mp4"></video></div>
+      <div class="cap"><b>AI video ad · Long Strange Trip podcast</b><span>A fully AI-generated promo spot for the Long Strange Trip podcast, made by 2x AI.</span></div>
+    </div>
+    <div class="shot brief">
+      <div class="media"><img src="briefing.jpg" alt="A 2x AI daily briefing email with markets, weather and AI news"></div>
+      <div class="cap"><b>Daily briefing · lands every morning</b><span>A real 2x AI briefing: markets, weather and the news that matters, in one email.</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="wrap" style="padding-bottom:20px">
+  <div class="stats">
+    <div><b>6:00</b><span>Briefing lands daily</span></div>
+    <div><b>24/7</b><span>Workflows run unattended</span></div>
+    <div><b>20+</b><span>Markets localized</span></div>
+    <div><b>48h</b><span>Brief to broadcast</span></div>
+  </div>
+</section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-head"><h2>Four systems.<br>One operating layer.</h2><p>Start with one. Most clients end up running all four through the same Brain.</p></div>
+  <div class="grid4">
+    <div class="svc"><div class="num">01</div><h3>AI Video Ads</h3><p>Hyper-personalized video creative generated at scale for global audience segments.</p><small>48h from brief to broadcast</small></div>
+    <div class="svc"><div class="num">02</div><h3>Daily Briefings</h3><p>A daily intelligence report delivered to your team at 6 AM — the briefing email that runs your day.</p><small>Sent every morning, 6:00</small></div>
+    <div class="svc"><div class="num">03</div><h3>Adaptive Sites</h3><p>Websites we build and ship — self-optimizing pages tuned to what visitors actually do.</p><small>Ships in 2 weeks</small></div>
+    <div class="svc"><div class="num">04</div><h3>Workflow Logic</h3><p>Custom automation pipelines that replace manual operations with AI agents.</p><small>Runs 24/7, unattended</small></div>
+  </div>
+</div></section>
+
+<section class="sec brain" id="brain"><div class="wrap">
+  <div class="eyebrow">The Brain</div>
+  <h2>One core that connects everything</h2>
+  <p class="lead2">Your calendar, inbox, CRM, ad accounts and creative library become one system. The Brain reads the context, makes the call, and does the work.</p>
+  <div class="diagram">
+    <div class="node n1">WORKFLOWS</div><div class="node n2">BRIEFINGS</div>
+    <div class="core"><b>Core Intelligence</b><span>ACTIVE</span></div>
+    <div class="node n3">CALENDAR</div><div class="node n4">ASSETS</div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2 style="margin-bottom:40px">How a 2x engagement actually runs.</h2>
+  <div class="steps">
+    <div class="step"><small>01</small><h3>Signal audit</h3><p>We map every tool, inbox, calendar and hand-off in your operation and score it for automation.</p></div>
+    <div class="step"><small>02</small><h3>Brain build</h3><p>Your intelligence core is wired to those systems in a two-week sprint, with humans still in the loop.</p></div>
+    <div class="step"><small>03</small><h3>Compounding output</h3><p>Creative, briefings and workflows run themselves. We keep tuning against your revenue numbers.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap prod">
+  <div><h2>Production without the overhead.</h2>
+    <p>Our AI production pipeline creates broadcast-ready creative in hours, not months.</p>
+    <ul><li>Automated A/B testing at the frame level</li><li>Dynamic language localization in 20+ markets</li><li>AI voice-over with a brand-locked tone</li></ul>
+  </div>
+  <div class="glow"></div>
+</div></section>
+
+<section class="sec" id="pricing"><div class="wrap">
+  <div class="eyebrow">Engagements</div>
+  <h2>Start with one system.<br>Compound from there.</h2>
+  <p style="color:var(--muted);max-width:640px;margin:16px 0 40px">Every retainer begins with a one-time setup — we map your stack and wire the Brain — then rolls month to month for the work that runs every day. No lock-in, cancel with 30 days' notice, and you keep everything we built.</p>
+  <div class="plans">
+    <div class="plan"><h3>Signal Sprint</h3><div class="d">One system, live fast.</div><div class="price">$4.5k <small>one-time setup</small></div>
+      <ul><li>Audit of your tools, calendar and workflows</li><li>One system shipped: video ads, briefings or site</li><li>Live in 14 days</li><li>Handover docs + team walkthrough</li></ul><a href="#top" class="btn ghost">Get scoped</a></div>
+    <div class="plan hot"><span class="tag">MOST CHOSEN</span><h3>Brain Build</h3><div class="d">The core that connects everything.</div><div class="price">$9k <small>/ month</small></div><div class="setup">$4.5k setup</div>
+      <ul><li>The Brain connected to your full stack</li><li>Self-organizing calendar + daily briefings</li><li>Unlimited workflow automations</li><li>Weekly optimization loop with our team</li><li>Slack channel, same-day response</li></ul><a href="#top" class="btn">Get scoped</a></div>
+    <div class="plan"><h3>Studio Partner</h3><div class="d">Full output engine, always on.</div><div class="price">Custom <small>setup + monthly</small></div>
+      <ul><li>Everything in Brain Build</li><li>Ongoing AI video ad production at volume</li><li>Adaptive website + landing page system</li><li>Dedicated strategist + quarterly roadmap</li></ul><a href="#top" class="btn ghost">Get scoped</a></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap faq">
+  <div><div class="eyebrow">FAQ</div><h2>The questions we get every week.</h2></div>
+  <div>
+    <details><summary>How fast is the first thing live?</summary><p>Fourteen days from kickoff. We scope in week one and ship one working system before we expand.</p></details>
+    <details><summary>Do the AI video ads actually look like our brand?</summary><p>Yes. We build every ad from your logo, colors, fonts and past creative, and you approve each cut before it runs.</p></details>
+    <details><summary>What does the Brain connect to?</summary><p>Calendar, email, CRM, project tools, ad platforms, storage and analytics. If it has an API, it plugs in.</p></details>
+    <details><summary>Is our data used to train anything?</summary><p>No. Your data stays in your own accounts and is only used to run your systems.</p></details>
+    <details><summary>Are we locked into a contract?</summary><p>No lock-in. Monthly engagements roll month to month — cancel with 30 days' notice and you keep every workflow we built.</p></details>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cta">
+  <h2>Scale your output by 2x.</h2>
+  <p>Book a call and we'll show you the first system we'd build for you.</p>
+  <a href="#pricing" class="btn">Book strategy call</a> <a href="#brain" class="btn ghost">Explore the Brain</a>
+</div></div>
+
+<footer><div class="wrap"><span>2x AI © 2026</span><div class="fl"><a href="#services">Video Ads</a><a href="#services">Briefings</a><a href="#services">Websites</a><a href="#brain">The Brain</a></div></div></footer>
+</body>
+</html>
