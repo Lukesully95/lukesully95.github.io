@@ -123,6 +123,14 @@
   .founder p{color:var(--muted);font-size:17px;margin-top:14px;max-width:720px}
   .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:2px solid #2a4a80;display:block}
   @media (max-width:900px){.founder{grid-template-columns:1fr;gap:20px}.avatar{width:110px;height:110px;font-size:36px}}
+  .sidenav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:14px}
+  .sidenav a{display:flex;align-items:center;justify-content:flex-end;gap:10px;color:#8d9bb4;font-size:12.5px;font-weight:600}
+  .sidenav span{opacity:0;transform:translateX(6px);transition:.18s;background:rgba(13,22,40,.92);border:1px solid var(--line);padding:4px 9px;border-radius:7px;white-space:nowrap}
+  .sidenav i{width:9px;height:9px;border-radius:50%;border:1.5px solid #3a4d70;transition:.18s}
+  .sidenav a:hover span,.sidenav a.on span{opacity:1;transform:none}
+  .sidenav a:hover i{border-color:var(--blue2)}
+  .sidenav a.on{color:#fff}.sidenav a.on i{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,140,255,.18)}
+  @media (max-width:1100px){.sidenav{display:none}}
   footer{border-top:1px solid rgba(255,255,255,.05);padding:28px 0;font-size:13px;color:#6f7d96}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   footer .fl{display:flex;gap:22px;letter-spacing:.12em;text-transform:uppercase}
@@ -143,7 +151,7 @@
 
 <nav><div class="wrap">
   <a href="#top" class="logo"><i></i>2x AI</a>
-  <div class="links"><a href="#services">AI Video Ads</a><a href="#services">Briefings</a><a href="#services">Websites</a><a href="#brain">The Brain</a><a href="#about">About</a></div>
+  <div class="links"><a href="#services">AI Video Ads</a><a href="#services">Briefings</a><a href="#services">Websites</a><a href="#brain">The Brain</a><a href="#about">Founder</a></div>
   <a href="mailto:lukechristophersullivan@gmail.com?subject=2x%20AI%20-%20Book%20a%20call" class="btn">Book a call</a>
 </div></nav>
 
@@ -201,7 +209,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec" id="process"><div class="wrap">
   <h2 style="margin-bottom:40px">How a 2x engagement actually runs.</h2>
   <div class="steps">
     <div class="step"><small>01</small><h3>Signal audit</h3><p>We map every tool, inbox, calendar and hand-off in your operation and score it for automation.</p></div>
@@ -210,7 +218,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap prod">
+<section class="sec" id="production"><div class="wrap prod">
   <div><h2>Production without the overhead.</h2>
     <p>AI lets us make polished ad creative in days, not months, for a fraction of a normal shoot.</p>
     <ul><li>Multiple versions of each ad to test</li><li>Captions and other languages on request</li><li>AI voice-over matched to your brand</li></ul>
@@ -241,7 +249,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap faq">
+<section class="sec" id="faq"><div class="wrap faq">
   <div><div class="eyebrow">FAQ</div><h2>The questions we get every week.</h2></div>
   <div>
     <details><summary>How fast is the first thing live?</summary><p>Fourteen days from kickoff. We scope in week one and ship one working system before we expand.</p></details>
@@ -259,5 +267,26 @@
 </div></div>
 
 <footer><div class="wrap"><span>2x AI © 2026 · <a href="mailto:lukechristophersullivan@gmail.com" style="color:#9fb0c6">lukechristophersullivan@gmail.com</a></span><div class="fl"><a href="#services">Video Ads</a><a href="#services">Briefings</a><a href="#services">Websites</a><a href="#brain">The Brain</a><a href="https://ai-popularity-tracker.netlify.app" target="_blank" rel="noopener">AI Tracker</a></div></div></footer>
+
+<aside class="sidenav" aria-label="Jump to section">
+  <a href="#top"><span>Home</span><i></i></a>
+  <a href="#work"><span>Our work</span><i></i></a>
+  <a href="#services"><span>Services</span><i></i></a>
+  <a href="#brain"><span>The Brain</span><i></i></a>
+  <a href="#process"><span>How it works</span><i></i></a>
+  <a href="#about"><span>Founder</span><i></i></a>
+  <a href="#pricing"><span>Pricing</span><i></i></a>
+  <a href="#faq"><span>FAQ</span><i></i></a>
+</aside>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.sidenav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function upd(){var y=window.scrollY+window.innerHeight*0.35,cur=0;
+    secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top+window.scrollY<=y)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)})}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+})();
+</script>
 </body>
 </html>
