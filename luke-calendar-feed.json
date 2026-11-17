@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T05:42:29+00:00",
+"updated": "2026-11-17T05:44:53+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-16",
@@ -3793,6 +3793,15 @@
 },
 {
 "date": "2026-08-30",
+"time": "11:30",
+"endTime": "13:30",
+"title": "Brunch w/ Joe + Prathiba",
+"category": "Personal",
+"src": "gcal",
+"gid": "0u04oo7ihnss5gqnm8bk16ekpg"
+},
+{
+"date": "2026-08-30",
 "time": "13:00",
 "endTime": "14:00",
 "title": "Acting Practice",
@@ -5348,6 +5357,16 @@
 },
 {
 "date": "2026-10-11",
+"time": "13:00",
+"endTime": "16:00",
+"title": "Pats game (Boston)",
+"category": "Personal",
+"src": "gcal",
+"gid": "t5osgig5dihcaqe7bvh0dg91ns",
+"location": "Boston, MA"
+},
+{
+"date": "2026-10-11",
 "time": "15:00",
 "endTime": "21:00",
 "title": "AI Business Work",
@@ -6884,6 +6903,15 @@
 "category": "Personal",
 "src": "gcal",
 "gid": "jdvibjauvjtsp97dmn49p7vkrs"
+},
+{
+"date": "2026-11-15",
+"time": "22:00",
+"endTime": "01:00",
+"title": "Night out w/ Sean",
+"category": "Personal",
+"src": "gcal",
+"gid": "7c0r1cr0r8ecuc5ilfnujhh1bg"
 },
 {
 "date": "2026-11-16",
