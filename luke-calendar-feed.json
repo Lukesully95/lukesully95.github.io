@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-17T00:34:24+00:00",
+"updated": "2026-11-17T00:47:20+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-15",
+"to": "2027-03-16",
 "events": [
 {
 "date": "2026-01-15",
@@ -5929,21 +5929,21 @@
 },
 {
 "date": "2026-11-06",
-"time": "11:10",
-"endTime": "12:00",
-"title": "Tim Rice (Zoom)",
-"category": "Personal",
-"src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261106T161000Z"
-},
-{
-"date": "2026-11-06",
 "time": "12:00",
 "endTime": "12:15",
 "title": "Luke / Dad",
 "category": "Personal",
 "src": "gcal",
 "gid": "et5s1hmr65vulst86qdb7u6tl0"
+},
+{
+"date": "2026-11-06",
+"time": "12:15",
+"endTime": "13:05",
+"title": "Tim Rice (Zoom)",
+"category": "Personal",
+"src": "gcal",
+"gid": "fepkl257li5oh78ltfmhu085do_20261106T171500Z"
 },
 {
 "date": "2026-11-06",
@@ -6249,12 +6249,12 @@
 },
 {
 "date": "2026-11-13",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261113T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261113T171500Z"
 },
 {
 "date": "2026-11-13",
@@ -6412,6 +6412,15 @@
 },
 {
 "date": "2026-11-17",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261117T150000Z"
+},
+{
+"date": "2026-11-17",
 "time": "18:15",
 "endTime": "19:15",
 "title": "Final preso CCCI meeting",
@@ -6446,6 +6455,15 @@
 "src": "gcal",
 "gid": "2utj60tr1p4tt4glkmq587s70k_20261118T150000Z",
 "location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-18",
+"time": "13:00",
+"endTime": "14:15",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "sc9npk20a81etr0me233l5l04s_20261118T180000Z"
 },
 {
 "date": "2026-11-18",
@@ -6505,6 +6523,15 @@
 },
 {
 "date": "2026-11-19",
+"time": "13:00",
+"endTime": "14:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "dcemmjgm51to3eggqqnup17glg_20261119T180000Z"
+},
+{
+"date": "2026-11-19",
 "time": "14:00",
 "endTime": "16:00",
 "title": "AI Business Work",
@@ -6551,12 +6578,12 @@
 },
 {
 "date": "2026-11-20",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261120T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261120T171500Z"
 },
 {
 "date": "2026-11-20",
@@ -6687,6 +6714,15 @@
 },
 {
 "date": "2026-11-23",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261123T150000Z"
+},
+{
+"date": "2026-11-23",
 "time": "15:00",
 "endTime": "17:00",
 "title": "AI Business Work",
@@ -6724,6 +6760,15 @@
 },
 {
 "date": "2026-11-24",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261124T150000Z"
+},
+{
+"date": "2026-11-24",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -6739,6 +6784,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "lj5dssregcqgepk25bfds7amic_20261125T120000Z"
+},
+{
+"date": "2026-11-25",
+"time": "13:00",
+"endTime": "14:15",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "sc9npk20a81etr0me233l5l04s_20261125T180000Z"
 },
 {
 "date": "2026-11-25",
@@ -6816,12 +6870,21 @@
 },
 {
 "date": "2026-11-27",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261127T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261127T171500Z"
+},
+{
+"date": "2026-11-27",
+"time": "14:00",
+"endTime": "16:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "qa7kg76rqgrrdcesonl99jb3gs_20261127T190000Z"
 },
 {
 "date": "2026-11-27",
@@ -6942,6 +7005,15 @@
 },
 {
 "date": "2026-11-30",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261130T150000Z"
+},
+{
+"date": "2026-11-30",
 "time": "15:00",
 "endTime": "17:00",
 "title": "AI Business Work",
@@ -6979,6 +7051,15 @@
 },
 {
 "date": "2026-12-01",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261201T150000Z"
+},
+{
+"date": "2026-12-01",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -7004,6 +7085,15 @@
 "src": "gcal",
 "gid": "2utj60tr1p4tt4glkmq587s70k_20261202T150000Z",
 "location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-02",
+"time": "13:00",
+"endTime": "14:15",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "sc9npk20a81etr0me233l5l04s_20261202T180000Z"
 },
 {
 "date": "2026-12-02",
@@ -7063,6 +7153,15 @@
 },
 {
 "date": "2026-12-03",
+"time": "13:00",
+"endTime": "14:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "dcemmjgm51to3eggqqnup17glg_20261203T180000Z"
+},
+{
+"date": "2026-12-03",
 "time": "14:00",
 "endTime": "16:00",
 "title": "AI Business Work",
@@ -7100,12 +7199,21 @@
 },
 {
 "date": "2026-12-04",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261204T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261204T171500Z"
+},
+{
+"date": "2026-12-04",
+"time": "14:00",
+"endTime": "16:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "qa7kg76rqgrrdcesonl99jb3gs_20261204T190000Z"
 },
 {
 "date": "2026-12-04",
@@ -7226,6 +7334,15 @@
 },
 {
 "date": "2026-12-07",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261207T150000Z"
+},
+{
+"date": "2026-12-07",
 "time": "15:00",
 "endTime": "17:00",
 "title": "AI Business Work",
@@ -7263,6 +7380,15 @@
 },
 {
 "date": "2026-12-08",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261208T150000Z"
+},
+{
+"date": "2026-12-08",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -7288,6 +7414,15 @@
 "src": "gcal",
 "gid": "2utj60tr1p4tt4glkmq587s70k_20261209T150000Z",
 "location": "140 W 62nd St, Room 214, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-09",
+"time": "13:00",
+"endTime": "14:15",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "sc9npk20a81etr0me233l5l04s_20261209T180000Z"
 },
 {
 "date": "2026-12-09",
@@ -7347,6 +7482,15 @@
 },
 {
 "date": "2026-12-10",
+"time": "13:00",
+"endTime": "14:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "dcemmjgm51to3eggqqnup17glg_20261210T180000Z"
+},
+{
+"date": "2026-12-10",
 "time": "14:00",
 "endTime": "16:00",
 "title": "AI Business Work",
@@ -7384,12 +7528,21 @@
 },
 {
 "date": "2026-12-11",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261211T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261211T171500Z"
+},
+{
+"date": "2026-12-11",
+"time": "14:00",
+"endTime": "16:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "qa7kg76rqgrrdcesonl99jb3gs_20261211T190000Z"
 },
 {
 "date": "2026-12-11",
@@ -7510,6 +7663,15 @@
 },
 {
 "date": "2026-12-14",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261214T150000Z"
+},
+{
+"date": "2026-12-14",
 "time": "15:00",
 "endTime": "17:00",
 "title": "AI Business Work",
@@ -7547,6 +7709,15 @@
 },
 {
 "date": "2026-12-15",
+"time": "10:00",
+"endTime": "12:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "7dlp8scclal4om6bfpmrbdbkm0_20261215T150000Z"
+},
+{
+"date": "2026-12-15",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -7562,6 +7733,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "lj5dssregcqgepk25bfds7amic_20261216T120000Z"
+},
+{
+"date": "2026-12-16",
+"time": "13:00",
+"endTime": "14:15",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "sc9npk20a81etr0me233l5l04s_20261216T180000Z"
 },
 {
 "date": "2026-12-16",
@@ -7601,6 +7781,15 @@
 },
 {
 "date": "2026-12-17",
+"time": "13:00",
+"endTime": "14:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "dcemmjgm51to3eggqqnup17glg_20261217T180000Z"
+},
+{
+"date": "2026-12-17",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -7628,12 +7817,21 @@
 },
 {
 "date": "2026-12-18",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261218T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261218T171500Z"
+},
+{
+"date": "2026-12-18",
+"time": "14:00",
+"endTime": "16:00",
+"title": "School Work",
+"category": "Work",
+"src": "gcal",
+"gid": "qa7kg76rqgrrdcesonl99jb3gs_20261218T190000Z"
 },
 {
 "date": "2026-12-18",
@@ -7853,12 +8051,12 @@
 },
 {
 "date": "2026-12-25",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261225T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20261225T171500Z"
 },
 {
 "date": "2026-12-25",
@@ -8078,12 +8276,12 @@
 },
 {
 "date": "2027-01-01",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270101T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270101T171500Z"
 },
 {
 "date": "2027-01-01",
@@ -8303,12 +8501,12 @@
 },
 {
 "date": "2027-01-08",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270108T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270108T171500Z"
 },
 {
 "date": "2027-01-08",
@@ -8528,12 +8726,12 @@
 },
 {
 "date": "2027-01-15",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270115T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270115T171500Z"
 },
 {
 "date": "2027-01-15",
@@ -8753,12 +8951,12 @@
 },
 {
 "date": "2027-01-22",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270122T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270122T171500Z"
 },
 {
 "date": "2027-01-22",
@@ -8978,12 +9176,12 @@
 },
 {
 "date": "2027-01-29",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270129T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270129T171500Z"
 },
 {
 "date": "2027-01-29",
@@ -9203,12 +9401,12 @@
 },
 {
 "date": "2027-02-05",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270205T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270205T171500Z"
 },
 {
 "date": "2027-02-05",
@@ -9428,12 +9626,12 @@
 },
 {
 "date": "2027-02-12",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270212T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270212T171500Z"
 },
 {
 "date": "2027-02-12",
@@ -9653,12 +9851,12 @@
 },
 {
 "date": "2027-02-19",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270219T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270219T171500Z"
 },
 {
 "date": "2027-02-19",
@@ -9878,12 +10076,12 @@
 },
 {
 "date": "2027-02-26",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270226T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270226T171500Z"
 },
 {
 "date": "2027-02-26",
@@ -10103,12 +10301,12 @@
 },
 {
 "date": "2027-03-05",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270305T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270305T171500Z"
 },
 {
 "date": "2027-03-05",
@@ -10328,12 +10526,12 @@
 },
 {
 "date": "2027-03-12",
-"time": "11:10",
-"endTime": "12:00",
+"time": "12:15",
+"endTime": "13:05",
 "title": "Tim Rice (Zoom)",
 "category": "Personal",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20270312T161000Z"
+"gid": "fepkl257li5oh78ltfmhu085do_20270312T171500Z"
 },
 {
 "date": "2027-03-12",
@@ -10460,6 +10658,33 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20270316T000000Z"
+},
+{
+"date": "2027-03-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270316T100000Z"
+},
+{
+"date": "2027-03-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270316T110000Z"
+},
+{
+"date": "2027-03-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270317T000000Z"
 }
 ]
 }
