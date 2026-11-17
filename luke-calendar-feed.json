@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T00:47:20+00:00",
+"updated": "2026-11-17T01:00:21+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-16",
@@ -7872,20 +7872,12 @@
 {
 "date": "2026-12-19",
 "time": "13:00",
-"endTime": "14:00",
-"title": "Acting Practice",
+"endTime": "17:00",
+"title": "Xmas party w/ Dad (Boston)",
 "category": "Personal",
 "src": "gcal",
-"gid": "59rtkjo0hgf8q3o28mu58snmfk_20261219T180000Z"
-},
-{
-"date": "2026-12-19",
-"time": "15:00",
-"endTime": "21:00",
-"title": "AI Business Work",
-"category": "Work",
-"src": "gcal",
-"gid": "1dqjgd210v6id3of332lupq7gk_20261219T200000Z"
+"gid": "33p4h1g8ubbfm61u2map24p0cs",
+"location": "Boston, MA"
 },
 {
 "date": "2026-12-20",
