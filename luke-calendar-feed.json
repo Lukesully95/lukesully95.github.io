@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-17T03:48:47+00:00",
+"updated": "2026-11-17T05:42:29+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-15",
+"to": "2027-03-16",
 "events": [
 {
 "date": "2026-01-15",
@@ -215,12 +215,30 @@
 },
 {
 "date": "2026-06-03",
+"time": "12:00",
+"endTime": "13:00",
+"title": "Lunch w/ Dad at Sequoia",
+"category": "Personal",
+"src": "gcal",
+"gid": "7f17ne5pmpnmm3pnq2g0jnnrq4"
+},
+{
+"date": "2026-06-03",
 "time": "18:00",
 "endTime": "19:00",
 "title": "Go to Boston",
 "category": "Personal",
 "src": "gcal",
 "gid": "jin7pplepvleuorts0rvg177p8"
+},
+{
+"date": "2026-06-03",
+"time": "",
+"endTime": "",
+"title": "Boston + Cape trip",
+"category": "Travel",
+"src": "gcal",
+"gid": "uuag15uvhsa3l0ngcke1vjo57o"
 },
 {
 "date": "2026-06-04",
@@ -241,6 +259,24 @@
 "gid": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g6go30c9l6cp48c1p6t348gpg64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8l1j4h9o8l242dho6h0jcchk75142h2368rj2ha364pk8chh8gq0_20260604T151000Z"
 },
 {
+"date": "2026-06-04",
+"time": "",
+"endTime": "",
+"title": "Boston + Cape trip",
+"category": "Travel",
+"src": "gcal",
+"gid": "uuag15uvhsa3l0ngcke1vjo57o"
+},
+{
+"date": "2026-06-05",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Etiquette lesson",
+"category": "Personal",
+"src": "gcal",
+"gid": "enba3ofkbjctk5728du5536j5s"
+},
+{
 "date": "2026-06-05",
 "time": "10:00",
 "endTime": "11:00",
@@ -248,6 +284,34 @@
 "category": "School",
 "src": "gcal",
 "gid": "qikiclo3i7vf44lfs8i2bvhivc"
+},
+{
+"date": "2026-06-05",
+"time": "18:30",
+"endTime": "20:30",
+"title": "Dinner w/ Dad at Luna Sol (Boston)",
+"category": "Personal",
+"src": "gcal",
+"gid": "cj4juhvst6kmr34msm58b4nk70",
+"location": "Boston, MA"
+},
+{
+"date": "2026-06-05",
+"time": "",
+"endTime": "",
+"title": "Boston + Cape trip",
+"category": "Travel",
+"src": "gcal",
+"gid": "uuag15uvhsa3l0ngcke1vjo57o"
+},
+{
+"date": "2026-06-06",
+"time": "",
+"endTime": "",
+"title": "Boston + Cape trip",
+"category": "Travel",
+"src": "gcal",
+"gid": "uuag15uvhsa3l0ngcke1vjo57o"
 },
 {
 "date": "2026-06-07",
@@ -266,6 +330,24 @@
 "category": "Personal",
 "src": "gcal",
 "gid": "hkntn9aumv0o3r8e0cvlc5iufc"
+},
+{
+"date": "2026-06-07",
+"time": "17:00",
+"endTime": "18:00",
+"title": "Waheed: Cape → NYC",
+"category": "Travel",
+"src": "gcal",
+"gid": "jbijq6lbchm1bsc3pe3hbhcbmc"
+},
+{
+"date": "2026-06-07",
+"time": "",
+"endTime": "",
+"title": "Boston + Cape trip",
+"category": "Travel",
+"src": "gcal",
+"gid": "uuag15uvhsa3l0ngcke1vjo57o"
 },
 {
 "date": "2026-06-08",
@@ -1348,6 +1430,15 @@
 "gid": "cl6qk6p140esodnlip1448arho_20260704T000000Z"
 },
 {
+"date": "2026-07-03",
+"time": "",
+"endTime": "",
+"title": "July 4th in the Hamptons w/ Kaiden",
+"category": "Personal",
+"src": "gcal",
+"gid": "qa97t09i72mgf81hv193d8rd40"
+},
+{
 "date": "2026-07-04",
 "time": "09:00",
 "endTime": "10:00",
@@ -1393,6 +1484,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20260704T190000Z"
 },
 {
+"date": "2026-07-04",
+"time": "",
+"endTime": "",
+"title": "July 4th in the Hamptons w/ Kaiden",
+"category": "Personal",
+"src": "gcal",
+"gid": "qa97t09i72mgf81hv193d8rd40"
+},
+{
 "date": "2026-07-05",
 "time": "09:00",
 "endTime": "10:00",
@@ -1436,6 +1536,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260705T190000Z"
+},
+{
+"date": "2026-07-05",
+"time": "",
+"endTime": "",
+"title": "July 4th in the Hamptons w/ Kaiden",
+"category": "Personal",
+"src": "gcal",
+"gid": "qa97t09i72mgf81hv193d8rd40"
 },
 {
 "date": "2026-07-06",
@@ -1826,12 +1935,31 @@
 },
 {
 "date": "2026-07-16",
+"time": "19:30",
+"endTime": "20:30",
+"title": "Drive to Cape w/ Dad (Waheed)",
+"category": "Travel",
+"src": "gcal",
+"gid": "djsic01hhcd40889icu3p5g480"
+},
+{
+"date": "2026-07-16",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260717T000000Z"
+},
+{
+"date": "2026-07-16",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Dad",
+"category": "Travel",
+"src": "gcal",
+"gid": "7869jt1v1mjrmlkb92aplq4sdo",
+"location": "Falmouth, MA"
 },
 {
 "date": "2026-07-17",
@@ -1870,6 +1998,16 @@
 "gid": "cl6qk6p140esodnlip1448arho_20260718T000000Z"
 },
 {
+"date": "2026-07-17",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Dad",
+"category": "Travel",
+"src": "gcal",
+"gid": "7869jt1v1mjrmlkb92aplq4sdo",
+"location": "Falmouth, MA"
+},
+{
 "date": "2026-07-18",
 "time": "09:00",
 "endTime": "10:00",
@@ -1886,6 +2024,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "62tti5irhreboa8i2466t9u4v0_20260718T140000Z"
+},
+{
+"date": "2026-07-18",
+"time": "11:00",
+"endTime": "14:00",
+"title": "Boat trip (Cape)",
+"category": "Travel",
+"src": "gcal",
+"gid": "e0di41rck6o9b8mga58aq4r80g"
 },
 {
 "date": "2026-07-18",
@@ -1913,6 +2060,16 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260718T190000Z"
+},
+{
+"date": "2026-07-18",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Dad",
+"category": "Travel",
+"src": "gcal",
+"gid": "7869jt1v1mjrmlkb92aplq4sdo",
+"location": "Falmouth, MA"
 },
 {
 "date": "2026-07-19",
@@ -1958,6 +2115,25 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260719T190000Z"
+},
+{
+"date": "2026-07-19",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Waheed: Cape → NYC",
+"category": "Travel",
+"src": "gcal",
+"gid": "1vdkkh54p6o8qo9fd9t4kj3a94"
+},
+{
+"date": "2026-07-19",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Dad",
+"category": "Travel",
+"src": "gcal",
+"gid": "7869jt1v1mjrmlkb92aplq4sdo",
+"location": "Falmouth, MA"
 },
 {
 "date": "2026-07-20",
@@ -2021,6 +2197,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "ds4v1k861vs3htfbc65u0iv3vg_20260721T130000Z"
+},
+{
+"date": "2026-07-21",
+"time": "17:30",
+"endTime": "19:00",
+"title": "Dinner at Kaiden's Chelsea office",
+"category": "Personal",
+"src": "gcal",
+"gid": "2vfcme40g63mtj26cc7dmd4f9c"
 },
 {
 "date": "2026-07-21",
@@ -2131,6 +2316,15 @@
 "gid": "cl6qk6p140esodnlip1448arho_20260725T000000Z"
 },
 {
+"date": "2026-07-24",
+"time": "",
+"endTime": "",
+"title": "Sean's Shabbat + bar mitzvah weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "kl235lke7grap3ed99vclqtki4"
+},
+{
 "date": "2026-07-25",
 "time": "09:00",
 "endTime": "10:00",
@@ -2174,6 +2368,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260725T190000Z"
+},
+{
+"date": "2026-07-25",
+"time": "",
+"endTime": "",
+"title": "Sean's Shabbat + bar mitzvah weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "kl235lke7grap3ed99vclqtki4"
 },
 {
 "date": "2026-07-26",
@@ -2384,12 +2587,31 @@
 },
 {
 "date": "2026-07-31",
+"time": "18:30",
+"endTime": "19:30",
+"title": "Waheed: NYC → Cape",
+"category": "Travel",
+"src": "gcal",
+"gid": "agkq60e95feoblcsckk0c6o90c"
+},
+{
+"date": "2026-07-31",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260801T000000Z"
+},
+{
+"date": "2026-07-31",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Kaiden",
+"category": "Travel",
+"src": "gcal",
+"gid": "j9o370qh5sp8m9ddlg8tsf1g34",
+"location": "Falmouth, MA"
 },
 {
 "date": "2026-08-01",
@@ -2437,6 +2659,16 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20260801T190000Z"
 },
 {
+"date": "2026-08-01",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Kaiden",
+"category": "Travel",
+"src": "gcal",
+"gid": "j9o370qh5sp8m9ddlg8tsf1g34",
+"location": "Falmouth, MA"
+},
+{
 "date": "2026-08-02",
 "time": "09:00",
 "endTime": "10:00",
@@ -2480,6 +2712,25 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260802T190000Z"
+},
+{
+"date": "2026-08-02",
+"time": "18:00",
+"endTime": "19:00",
+"title": "Waheed: Cape → NYC",
+"category": "Travel",
+"src": "gcal",
+"gid": "f3lac276at1qiii05l8qkmlff8"
+},
+{
+"date": "2026-08-02",
+"time": "",
+"endTime": "",
+"title": "Cape weekend w/ Kaiden",
+"category": "Travel",
+"src": "gcal",
+"gid": "j9o370qh5sp8m9ddlg8tsf1g34",
+"location": "Falmouth, MA"
 },
 {
 "date": "2026-08-03",
@@ -2642,6 +2893,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "ds4v1k861vs3htfbc65u0iv3vg_20260807T130000Z"
+},
+{
+"date": "2026-08-07",
+"time": "13:00",
+"endTime": "17:00",
+"title": "Last day at Profound + send-off party",
+"category": "Work",
+"src": "gcal",
+"gid": "6tu12dns7tun9fmd08r27i1t14"
 },
 {
 "date": "2026-08-07",
@@ -3078,12 +3338,31 @@
 },
 {
 "date": "2026-08-20",
+"time": "17:47",
+"endTime": "20:45",
+"title": "Flight EWR → Orlando (UA1213, delayed)",
+"category": "Travel",
+"src": "gcal",
+"gid": "0vtvng3r87ji93b3q384ctmeo8"
+},
+{
+"date": "2026-08-20",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260821T000000Z"
+},
+{
+"date": "2026-08-20",
+"time": "",
+"endTime": "",
+"title": "Orlando trip w/ Sean (his bday weekend)",
+"category": "Travel",
+"src": "gcal",
+"gid": "o1nada46gogh7sks99co85gb0s",
+"location": "Orlando, FL"
 },
 {
 "date": "2026-08-20",
@@ -3120,6 +3399,16 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260822T000000Z"
+},
+{
+"date": "2026-08-21",
+"time": "",
+"endTime": "",
+"title": "Orlando trip w/ Sean (his bday weekend)",
+"category": "Travel",
+"src": "gcal",
+"gid": "o1nada46gogh7sks99co85gb0s",
+"location": "Orlando, FL"
 },
 {
 "date": "2026-08-21",
@@ -3179,6 +3468,16 @@
 "date": "2026-08-22",
 "time": "",
 "endTime": "",
+"title": "Orlando trip w/ Sean (his bday weekend)",
+"category": "Travel",
+"src": "gcal",
+"gid": "o1nada46gogh7sks99co85gb0s",
+"location": "Orlando, FL"
+},
+{
+"date": "2026-08-22",
+"time": "",
+"endTime": "",
 "title": "TENTATIVE — Florida (Sean's birthday weekend)",
 "category": "Personal",
 "src": "gcal",
@@ -3233,6 +3532,16 @@
 "date": "2026-08-23",
 "time": "",
 "endTime": "",
+"title": "Orlando trip w/ Sean (his bday weekend)",
+"category": "Travel",
+"src": "gcal",
+"gid": "o1nada46gogh7sks99co85gb0s",
+"location": "Orlando, FL"
+},
+{
+"date": "2026-08-23",
+"time": "",
+"endTime": "",
 "title": "TENTATIVE — Florida (Sean's birthday weekend)",
 "category": "Personal",
 "src": "gcal",
@@ -3258,12 +3567,31 @@
 },
 {
 "date": "2026-08-24",
+"time": "14:20",
+"endTime": "16:50",
+"title": "Flight Orlando → EWR (UA1643)",
+"category": "Travel",
+"src": "gcal",
+"gid": "rdatcb9960p2ou1mn1ro4m8g24"
+},
+{
+"date": "2026-08-24",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260825T000000Z"
+},
+{
+"date": "2026-08-24",
+"time": "",
+"endTime": "",
+"title": "Orlando trip w/ Sean (his bday weekend)",
+"category": "Travel",
+"src": "gcal",
+"gid": "o1nada46gogh7sks99co85gb0s",
+"location": "Orlando, FL"
 },
 {
 "date": "2026-08-24",
@@ -3291,6 +3619,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "lj5dssregcqgepk25bfds7amic_20260825T110000Z"
+},
+{
+"date": "2026-08-25",
+"time": "13:00",
+"endTime": "17:00",
+"title": "Move into McMahon Hall",
+"category": "Personal",
+"src": "gcal",
+"gid": "4c0tna0uh9ujph6utt3tc9nldg"
 },
 {
 "date": "2026-08-25",
@@ -3419,6 +3756,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20260829T190000Z"
 },
 {
+"date": "2026-08-29",
+"time": "",
+"endTime": "",
+"title": "Hamptons weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "8h9s0qettpu456obccrc1fi97s"
+},
+{
 "date": "2026-08-30",
 "time": "09:00",
 "endTime": "10:00",
@@ -3464,6 +3810,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20260830T190000Z"
 },
 {
+"date": "2026-08-30",
+"time": "",
+"endTime": "",
+"title": "Hamptons weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "8h9s0qettpu456obccrc1fi97s"
+},
+{
 "date": "2026-08-31",
 "time": "06:00",
 "endTime": "07:00",
@@ -3491,6 +3846,15 @@
 "gid": "cl6qk6p140esodnlip1448arho_20260901T000000Z"
 },
 {
+"date": "2026-08-31",
+"time": "",
+"endTime": "",
+"title": "Hamptons weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "8h9s0qettpu456obccrc1fi97s"
+},
+{
 "date": "2026-09-01",
 "time": "06:00",
 "endTime": "07:00",
@@ -3516,6 +3880,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260902T000000Z"
+},
+{
+"date": "2026-09-01",
+"time": "",
+"endTime": "",
+"title": "Dad's birthday",
+"category": "Personal",
+"src": "gcal",
+"gid": "1lt21iqf2dq8oii9cc5tt8odt8_20260901"
 },
 {
 "date": "2026-09-02",
@@ -3771,6 +4144,15 @@
 },
 {
 "date": "2026-09-10",
+"time": "13:00",
+"endTime": "14:30",
+"title": "Lunch w/ Dad at Shun Lee",
+"category": "Personal",
+"src": "gcal",
+"gid": "rku2b3eogqni2b44jdklm08m1c"
+},
+{
+"date": "2026-09-10",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -3804,6 +4186,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20260912T000000Z"
+},
+{
+"date": "2026-09-11",
+"time": "20:30",
+"endTime": "22:00",
+"title": "Night out w/ Noah (Chelsea Piers)",
+"category": "Personal",
+"src": "gcal",
+"gid": "gcov448spr1jbm9odtds0nim6o"
 },
 {
 "date": "2026-09-12",
@@ -4067,6 +4458,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20260919T190000Z"
 },
 {
+"date": "2026-09-19",
+"time": "",
+"endTime": "",
+"title": "Hamptons weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "4vccti79as7nm0hvh1cqe4141o"
+},
+{
 "date": "2026-09-20",
 "time": "09:00",
 "endTime": "10:00",
@@ -4110,6 +4510,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20260920T190000Z"
+},
+{
+"date": "2026-09-20",
+"time": "",
+"endTime": "",
+"title": "Hamptons weekend",
+"category": "Personal",
+"src": "gcal",
+"gid": "4vccti79as7nm0hvh1cqe4141o"
 },
 {
 "date": "2026-09-21",
@@ -4820,12 +5229,31 @@
 },
 {
 "date": "2026-10-09",
+"time": "11:30",
+"endTime": "12:30",
+"title": "Waheed: NYC → Boston",
+"category": "Personal",
+"src": "gcal",
+"gid": "c1er451corgbja8nnkrel7fm9s"
+},
+{
+"date": "2026-10-09",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261010T000000Z"
+},
+{
+"date": "2026-10-09",
+"time": "",
+"endTime": "",
+"title": "Boston weekend w/ Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "cp9p9ogfpjcjonum3v8th4hp7c",
+"location": "Boston, MA"
 },
 {
 "date": "2026-10-10",
@@ -4873,6 +5301,16 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20261010T190000Z"
 },
 {
+"date": "2026-10-10",
+"time": "",
+"endTime": "",
+"title": "Boston weekend w/ Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "cp9p9ogfpjcjonum3v8th4hp7c",
+"location": "Boston, MA"
+},
+{
 "date": "2026-10-11",
 "time": "09:00",
 "endTime": "10:00",
@@ -4918,6 +5356,16 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20261011T190000Z"
 },
 {
+"date": "2026-10-11",
+"time": "",
+"endTime": "",
+"title": "Boston weekend w/ Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "cp9p9ogfpjcjonum3v8th4hp7c",
+"location": "Boston, MA"
+},
+{
 "date": "2026-10-12",
 "time": "06:00",
 "endTime": "07:00",
@@ -4937,12 +5385,31 @@
 },
 {
 "date": "2026-10-12",
+"time": "17:00",
+"endTime": "18:00",
+"title": "Waheed: Boston → NYC",
+"category": "Personal",
+"src": "gcal",
+"gid": "j767gd7ivmrkagjm3lcl4lvp0o"
+},
+{
+"date": "2026-10-12",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261013T000000Z"
+},
+{
+"date": "2026-10-12",
+"time": "",
+"endTime": "",
+"title": "Boston weekend w/ Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "cp9p9ogfpjcjonum3v8th4hp7c",
+"location": "Boston, MA"
 },
 {
 "date": "2026-10-13",
@@ -5423,6 +5890,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20261024T190000Z"
 },
 {
+"date": "2026-10-24",
+"time": "20:00",
+"endTime": "22:00",
+"title": "Dinner w/ Kaiden, then pregame w/ Nazar + Jackson",
+"category": "Personal",
+"src": "gcal",
+"gid": "ss43a92us3d0qbu9lsbt4lg7r8"
+},
+{
 "date": "2026-10-25",
 "time": "09:00",
 "endTime": "10:00",
@@ -5645,6 +6121,15 @@
 },
 {
 "date": "2026-10-30",
+"time": "15:00",
+"endTime": "16:00",
+"title": "Meet up w/ Dad",
+"category": "Personal",
+"src": "gcal",
+"gid": "rp8q0fupivjs0upjpik7p082dc"
+},
+{
+"date": "2026-10-30",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -5696,6 +6181,24 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20261031T190000Z"
+},
+{
+"date": "2026-10-31",
+"time": "17:00",
+"endTime": "18:30",
+"title": "Dinner w/ Jimmy",
+"category": "Personal",
+"src": "gcal",
+"gid": "ojfdu3v84bbd3e0998aapnuinc"
+},
+{
+"date": "2026-10-31",
+"time": "21:00",
+"endTime": "01:00",
+"title": "Halloween: pregame at Jackson's, then Fordham party",
+"category": "School",
+"src": "gcal",
+"gid": "0jht965g0vv03pqbbe30ti6ckc"
 },
 {
 "date": "2026-11-01",
@@ -6258,6 +6761,15 @@
 },
 {
 "date": "2026-11-13",
+"time": "17:15",
+"endTime": "19:00",
+"title": "Dinner w/ Jimmy + Matthew, then party w/ Noah",
+"category": "Personal",
+"src": "gcal",
+"gid": "srr5fv6rblm8o4q1afh9nfrs0s"
+},
+{
+"date": "2026-11-13",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -6311,6 +6823,15 @@
 "gid": "1dqjgd210v6id3of332lupq7gk_20261114T200000Z"
 },
 {
+"date": "2026-11-14",
+"time": "20:30",
+"endTime": "22:30",
+"title": "Hang w/ Kaiden",
+"category": "Personal",
+"src": "gcal",
+"gid": "4kmromc4fik0kerfaf0p4fgqvo"
+},
+{
 "date": "2026-11-15",
 "time": "09:00",
 "endTime": "10:00",
@@ -6354,6 +6875,15 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20261115T200000Z"
+},
+{
+"date": "2026-11-15",
+"time": "20:30",
+"endTime": "22:00",
+"title": "Dinner w/ Kaiden",
+"category": "Personal",
+"src": "gcal",
+"gid": "jdvibjauvjtsp97dmn49p7vkrs"
 },
 {
 "date": "2026-11-16",
@@ -10651,6 +11181,33 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20270316T000000Z"
+},
+{
+"date": "2027-03-16",
+"time": "06:00",
+"endTime": "07:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "j1d1j47a4dsskrqrvcsqq4b3bs_20270316T100000Z"
+},
+{
+"date": "2027-03-16",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270316T110000Z"
+},
+{
+"date": "2027-03-16",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270317T000000Z"
 }
 ]
 }
