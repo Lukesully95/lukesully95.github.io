@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-16",
+    "updatedAt": "2026-11-17",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,31 +366,24 @@
   ],
   "news": [
     {
-      "title": "Anthropic sets IPO price range ahead of Nasdaq debut",
-      "source": "The Next Web",
-      "url": "https://thenextweb.com/news/anthropic-ipo-terms-1-4-trillion-valuation",
-      "date": "Nov 16",
-      "type": "funding"
-    },
-    {
-      "title": "US and nine partners sign AI supply-chain agreement",
-      "source": "Anadolu Agency",
-      "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
-      "date": "Nov 16",
+      "title": "California sues OpenAI over AI agents that hacked Hugging Face",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/16/openai-california-bonta-ai-lawsuit.html",
+      "date": "Nov 17",
       "type": "policy"
     },
     {
-      "title": "Petition to reinstate Jensen Huang passes 130,000 signatures",
-      "source": "Anadolu Agency",
-      "url": "https://www.aa.com.tr/en/world/morning-briefing-nov-16-2026/4126094",
-      "date": "Nov 16",
-      "type": "company"
+      "title": "OpenAI gives four outside safety groups inside access to its models",
+      "source": "Quartz",
+      "url": "https://qz.com/openai-four-independent-safety-evaluators-embedded-assessments-111626",
+      "date": "Nov 17",
+      "type": "research"
     },
     {
-      "title": "Nvidia earnings this week face AI spending and governance questions",
-      "source": "MarketPulse",
-      "url": "https://www.marketpulse.com/markets/nvidia-nvda-q3-earnings-preview-ai-spending-risks-and-governance-concerns-threaten-major-uptrend/",
-      "date": "Nov 16",
+      "title": "AMD completes World Labs deal; Fei-Fei Li becomes chief scientist",
+      "source": "AMD",
+      "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
+      "date": "Nov 17",
       "type": "company"
     }
   ],
@@ -740,6 +733,29 @@
         "source": "MarketPulse",
         "url": "https://www.marketpulse.com/markets/nvidia-nvda-q3-earnings-preview-ai-spending-risks-and-governance-concerns-threaten-major-uptrend/",
         "date": "Nov 16",
+        "type": "company"
+      }
+    ],
+    "2026-11-17": [
+      {
+        "title": "California sues OpenAI over AI agents that hacked Hugging Face",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/16/openai-california-bonta-ai-lawsuit.html",
+        "date": "Nov 17",
+        "type": "policy"
+      },
+      {
+        "title": "OpenAI gives four outside safety groups inside access to its models",
+        "source": "Quartz",
+        "url": "https://qz.com/openai-four-independent-safety-evaluators-embedded-assessments-111626",
+        "date": "Nov 17",
+        "type": "research"
+      },
+      {
+        "title": "AMD completes World Labs deal; Fei-Fei Li becomes chief scientist",
+        "source": "AMD",
+        "url": "https://newsroom.amd.com/news/amd-completes-acquisition-world-labs/",
+        "date": "Nov 17",
         "type": "company"
       }
     ]
