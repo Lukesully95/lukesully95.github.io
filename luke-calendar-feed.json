@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T00:32:32+00:00",
+"updated": "2026-11-17T00:33:11+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-15",
@@ -6742,21 +6742,22 @@
 },
 {
 "date": "2026-11-25",
+"time": "18:30",
+"endTime": "20:45",
+"title": "Dinner w/ Dad + Coopersmiths (San Vicente)",
+"category": "Personal",
+"src": "gcal",
+"gid": "lb6f25am1uvrcjurhabi9r4260",
+"location": "San Vicente West Village, 115 Jane St, New York, NY 10014"
+},
+{
+"date": "2026-11-25",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261126T010000Z"
-},
-{
-"date": "2026-11-25",
-"time": "",
-"endTime": "",
-"title": "Night out w/ Dad + Coopersmiths (San Vicente)",
-"category": "Personal",
-"src": "gcal",
-"gid": "lb6f25am1uvrcjurhabi9r4260"
 },
 {
 "date": "2026-11-26",
