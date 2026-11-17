@@ -299,18 +299,24 @@
     .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
-    /* same table as the computer, swipe sideways to see every column */
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { font-size: 13px; }
-    thead th { padding: 10px 10px; font-size: 10px; white-space: nowrap; }
-    td { padding: 12px 10px; white-space: nowrap; }
-    .desc { font-size: 11px; white-space: normal; display: inline-block; min-width: 130px; max-width: 150px; line-height: 1.25; }
-    #tbl thead th:first-child, #tbl tbody td:first-child, #tbl tfoot td:first-child {
-      position: sticky; left: 0; z-index: 2; box-shadow: 1px 0 0 var(--border); }
-    #tbl tbody td:first-child { background: #fff; }
-    #tbl tbody tr:nth-child(even) td:first-child { background: var(--row-alt); }
-    #tbl thead th:first-child { background: var(--navy); }
-    #tbl tfoot td:first-child { background: var(--navy); }
+    /* phone: whole table fits the screen — key columns only, real (sharp) text */
+    .table-wrap { overflow: visible; }
+    #tbl { width: 100%; table-layout: auto; font-size: 11px; }
+    #tbl th:nth-child(2), #tbl td:nth-child(2),
+    #tbl th:nth-child(7), #tbl td:nth-child(7),
+    #tbl th:nth-child(8), #tbl td:nth-child(8),
+    #tbl th:nth-child(10), #tbl td:nth-child(10),
+    #tbl th:nth-child(11), #tbl td:nth-child(11) { display: none; }
+    thead th { padding: 9px 4px; font-size: 9px; letter-spacing: 0; white-space: normal; line-height: 1.2; }
+    td { padding: 11px 3px; white-space: nowrap; }
+    #tbl td:first-child, #tbl th:first-child { padding-left: 8px; }
+    #tbl td:last-child, #tbl th:nth-child(9), #tbl td:nth-child(9) { padding-right: 8px; }
+    .sym { font-size: 13px; }
+    .price-cell { font-size: 11px; }
+    .day-line { font-size: 10px; }
+    .bar { display: none; }
+    tfoot td { padding: 12px 3px; font-size: 11px; }
+    .sort-arrow { display: none; }
     .header-left h1 { font-size: 17px; }
     .header-left p  { font-size: 12px; }
     .total-val { font-size: 26px; }
@@ -398,7 +404,8 @@
         <tbody id="tbody"></tbody>
         <tfoot>
           <tr>
-            <td class="left" colspan="2">PORTFOLIO TOTAL</td>
+            <td class="left">TOTAL</td>
+            <td></td>
             <td></td>
             <td></td>
             <td id="ftDayChg">—</td>
