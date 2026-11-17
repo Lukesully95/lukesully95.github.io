@@ -284,6 +284,23 @@
   #ov-src { font-size:11px; color:var(--muted); margin-top:12px; }
   #ov-close { margin-top:16px; width:100%; padding:11px; border:none; border-radius:8px; background:var(--navy); color:#fff; font-weight:700; font-size:15px; cursor:pointer; }
 
+
+  /* phone table */
+  #mwrap { display: none; }
+  #mtbl { width: 100%; border-collapse: collapse; font-size: 10.5px; font-variant-numeric: tabular-nums; }
+  #mtbl th { background: var(--navy); color: #fff; font-size: 8.5px; font-weight: 700; text-transform: uppercase; padding: 6px 2px; text-align: right; line-height: 1.2; }
+  #mtbl td { padding: 4px 2px; text-align: right; border-bottom: 1px solid var(--border); line-height: 1.25; white-space: nowrap; }
+  #mtbl th:first-child, #mtbl td:first-child { text-align: left; padding-left: 7px; }
+  #mtbl th:last-child, #mtbl td:last-child { padding-right: 7px; }
+  #mtbl tbody tr:nth-child(even) { background: var(--row-alt); }
+  #mtbl .m1 { display: block; font-weight: 700; }
+  #mtbl .m2 { display: block; font-size: 9px; color: var(--muted); font-weight: 500; }
+  #mtbl .pos { color: var(--green); } #mtbl .neg { color: var(--red); }
+  #mtbl .ms { color: var(--blue); font-weight: 800; font-size: 12px; cursor: pointer; display: block; }
+  #mtbl .md { display: none; font-size: 8.5px; color: var(--muted); max-width: 92px; overflow: hidden; text-overflow: ellipsis; }
+  #mtbl tfoot td { background: var(--navy); color: #fff; border: none; padding: 7px 3px; }
+  #mtbl tfoot .m2 { color: #c9d4e3; }
+
   /* MOBILE: fit the entire spreadsheet on a phone screen */
   @media (max-width: 820px) {
     .header { flex-wrap: wrap; gap: 6px; padding: 10px 14px; }
@@ -299,24 +316,9 @@
     .card-header { padding: 8px 8px; }
     .card-title { font-size: 12px; }
 
-    /* phone: whole table fits the screen — key columns only, real (sharp) text */
-    .table-wrap { overflow: visible; }
-    #tbl { width: 100%; table-layout: auto; font-size: 11px; }
-    #tbl th:nth-child(2), #tbl td:nth-child(2),
-    #tbl th:nth-child(7), #tbl td:nth-child(7),
-    #tbl th:nth-child(8), #tbl td:nth-child(8),
-    #tbl th:nth-child(10), #tbl td:nth-child(10),
-    #tbl th:nth-child(11), #tbl td:nth-child(11) { display: none; }
-    thead th { padding: 9px 4px; font-size: 9px; letter-spacing: 0; white-space: normal; line-height: 1.2; }
-    td { padding: 11px 3px; white-space: nowrap; }
-    #tbl td:first-child, #tbl th:first-child { padding-left: 8px; }
-    #tbl td:last-child, #tbl th:nth-child(9), #tbl td:nth-child(9) { padding-right: 8px; }
-    .sym { font-size: 13px; }
-    .price-cell { font-size: 11px; }
-    .day-line { font-size: 10px; }
-    .bar { display: none; }
-    tfoot td { padding: 12px 3px; font-size: 11px; }
-    .sort-arrow { display: none; }
+    /* phone: every column, two values stacked per cell, real (sharp) text */
+    .table-wrap { display: none; }
+    #mwrap { display: block; }
     /* everything on one screen */
     .header { padding: 8px 12px; }
     #hdrSub { display: none; }
@@ -331,11 +333,6 @@
     .container { padding: 4px 2px; }
     .card-header { padding: 5px 8px; }
     .card-title { font-size: 11px; }
-    thead th { padding: 6px 3px; font-size: 8.5px; }
-    td { padding: 6px 3px; line-height: 1.2; }
-    tfoot td { padding: 8px 3px; }
-    #tbl td:nth-child(5) > span:first-child { display: none; }
-    #tbl td:nth-child(5) .day-line { display: inline; font-size: 11px; font-weight: 700; }
     .header-left h1 { font-size: 17px; }
     .header-left p  { font-size: 12px; }
     .total-val { font-size: 26px; }
@@ -439,6 +436,7 @@
       </table>
     </div>
     <div id="mcards"></div>
+    <div id="mwrap"><table id="mtbl"><thead><tr><th>Symbol</th><th>Qty<br>Price</th><th>Day<br>Change</th><th>Value<br>Cost</th><th>Gain / Loss<br>$ · %</th><th>Day Δ<br>Type</th></tr></thead><tbody id="mbody"></tbody><tfoot id="mfoot"></tfoot></table></div>
   </div>
   <p class="disclaimer">
     ⚡ Prices fetched live from Yahoo Finance · Auto-refreshes every 60 s during market hours ·
@@ -586,6 +584,26 @@ function render() {
 
   document.getElementById('tbody').innerHTML = html.join('');
 
+  // Phone table (all columns, stacked)
+  const pn = v => v == null ? '' : (v >= 0 ? 'pos' : 'neg');
+  const sd = (v, d=2) => v == null ? '—' : (v >= 0 ? '+' : '-') + '$' + $n(Math.abs(v), d);
+  document.getElementById('mbody').innerHTML = rows.map(({ h, price, rawChange, rawChangePct, mktVal, gainLoss, gainPct, dayValChange }) => {
+    const qty = h.private ? '—' : (h.qty % 1 === 0 ? $n(h.qty, 0) : $n(h.qty, 3));
+    const pr  = h.private ? 'Private' : h.fixed ? '$1.00' : '$' + $n(price);
+    const dc  = (!h.fixed && rawChange != null)
+      ? `<span class="m1 ${pn(rawChange)}">${sd(rawChange)}</span><span class="m2 ${pn(rawChange)}">${rawChange >= 0 ? '+' : '-'}${$n(Math.abs(rawChangePct))}%</span>` : '<span class="m1">—</span>';
+    const gl  = (!h.private && gainLoss != null)
+      ? `<span class="m1 ${pn(gainLoss)}">${sd(gainLoss, 0)}</span><span class="m2 ${pn(gainLoss)}">${gainPct != null ? (gainPct >= 0 ? '+' : '-') + $n(Math.abs(gainPct)) + '%' : ''}</span>` : '<span class="m1">n/a</span>';
+    return `<tr>
+      <td><span class="ms" onclick="openOv('${h.symbol}')">${h.symbol}</span><span class="md" onclick="openOv('${h.symbol}')">${h.name}</span></td>
+      <td><span class="m1">${qty}</span><span class="m2">${pr}</span></td>
+      <td>${dc}</td>
+      <td><span class="m1">$${$n(mktVal, 0)}</span><span class="m2">${h.cost != null ? '$' + $n(h.cost, 0) : 'n/a'}</span></td>
+      <td>${gl}</td>
+      <td><span class="m1 ${pn(dayValChange)}">${dayValChange != null ? sd(dayValChange, 0) : '—'}</span><span class="m2">${h.type}</span></td>
+    </tr>`;
+  }).join('');
+
   // Phone cards
   document.getElementById('mcards').innerHTML = rows.map(({ h, price, rawChange, rawChangePct, mktVal, gainLoss, gainPct }) => {
     const pr = h.private ? 'Private' : h.fixed ? '$1.00' : '$' + $n(price);
@@ -629,6 +647,14 @@ function render() {
 
   document.getElementById('mcards').insertAdjacentHTML('beforeend',
     `<div class="mc-total"><span>Total</span><span>$${$n(totMV)}</span></div>`);
+
+  document.getElementById('mfoot').innerHTML = `<tr>
+    <td><span class="m1">TOTAL</span></td><td></td>
+    <td><span class="m1">${totDC !== 0 ? sd(totDC) : '—'}</span></td>
+    <td><span class="m1">$${$n(totMV, 0)}</span><span class="m2">$${$n(totCost, 0)}</span></td>
+    <td><span class="m1" style="color:${totGL >= 0 ? '#6ee09b' : '#ffaaaa'}">${sd(totGL, 0)}</span><span class="m2" style="color:${totGL >= 0 ? '#6ee09b' : '#ffaaaa'}">${totGLp != null ? (totGLp >= 0 ? '+' : '') + $n(totGLp) + '%' : ''}</span></td>
+    <td><span class="m1" style="color:${totDVC >= 0 ? '#6ee09b' : '#ffaaaa'}">${totDVC !== 0 ? sd(totDVC, 0) : '—'}</span></td>
+  </tr>`;
 
   // ── HEADER summary ──────────────────────────────────────────────────
   document.getElementById('hdrTotal').textContent = '$' + $n(totMV);
