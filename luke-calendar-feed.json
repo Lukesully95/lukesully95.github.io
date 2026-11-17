@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T01:00:21+00:00",
+"updated": "2026-11-17T01:01:09+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-16",
@@ -8043,12 +8043,13 @@
 },
 {
 "date": "2026-12-25",
-"time": "12:15",
-"endTime": "13:05",
-"title": "Tim Rice (Zoom)",
-"category": "Personal",
+"time": "13:00",
+"endTime": "17:00",
+"title": "Christmas in Gloucester w/ the Sullivans",
+"category": "Holiday",
 "src": "gcal",
-"gid": "fepkl257li5oh78ltfmhu085do_20261225T171500Z"
+"gid": "rsod61qr0826apmqi52ifm9bn8",
+"location": "Gloucester, MA"
 },
 {
 "date": "2026-12-25",
