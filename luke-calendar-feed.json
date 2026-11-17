@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T05:44:53+00:00",
+"updated": "2026-11-17T13:48:50+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-16",
@@ -7287,6 +7287,16 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261124T010000Z"
+},
+{
+"date": "2026-11-23",
+"time": "18:30",
+"endTime": "21:15",
+"title": "AI and Emerging Marketing Technologies",
+"category": "School",
+"src": "gcal",
+"gid": "1lsv1btrlq9gn881v10bvgbofh",
+"location": "https://fordham.zoom.us/my/chiying.wang"
 },
 {
 "date": "2026-11-23",
