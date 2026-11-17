@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T00:29:40+00:00",
+"updated": "2026-11-17T00:32:32+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-15",
@@ -6539,6 +6539,15 @@
 "category": "Health",
 "src": "gcal",
 "gid": "lj5dssregcqgepk25bfds7amic_20261120T120000Z"
+},
+{
+"date": "2026-11-20",
+"time": "10:00",
+"endTime": "12:00",
+"title": "Etiquette class (Beaumont, in person)",
+"category": "School",
+"src": "gcal",
+"gid": "cl5knc1lm2gc8g69bbmb42bm0s"
 },
 {
 "date": "2026-11-20",
