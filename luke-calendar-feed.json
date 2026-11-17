@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-16T11:48:40+00:00",
+"updated": "2026-11-17T00:29:40+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-15",
@@ -6551,6 +6551,16 @@
 },
 {
 "date": "2026-11-20",
+"time": "15:30",
+"endTime": "16:30",
+"title": "Shabbaton w/ Rabbi Motti (arrive Valley Stream by 3:30)",
+"category": "Personal",
+"src": "gcal",
+"gid": "rokqktb9aisirtco3jortepncc",
+"location": "Valley Stream, NY"
+},
+{
+"date": "2026-11-20",
 "time": "20:00",
 "endTime": "22:00",
 "title": "AI Business Work",
@@ -6731,6 +6741,15 @@
 "gid": "cl6qk6p140esodnlip1448arho_20261126T010000Z"
 },
 {
+"date": "2026-11-25",
+"time": "",
+"endTime": "",
+"title": "Night out w/ Dad + Coopersmiths (San Vicente)",
+"category": "Personal",
+"src": "gcal",
+"gid": "lb6f25am1uvrcjurhabi9r4260"
+},
+{
 "date": "2026-11-26",
 "time": "06:00",
 "endTime": "07:00",
@@ -6756,6 +6775,16 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20261127T010000Z"
+},
+{
+"date": "2026-11-26",
+"time": "",
+"endTime": "",
+"title": "Thanksgiving at Soho House w/ Dad + Coopersmiths",
+"category": "Holiday",
+"src": "gcal",
+"gid": "3482rusbn089u1dmvrkukcc1ko",
+"location": "Soho House"
 },
 {
 "date": "2026-11-27",
