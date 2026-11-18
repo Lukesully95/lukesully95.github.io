@@ -7,15 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #050510;
-      --card: #0a0b1d;
-      --coral: #FF5F57;
-      --teal: #00E5C0;
-      --yellow: #FFD166;
-      --pink: #FF2D78;
-      --purple: #9B5FFF;
-      --white: #F0F0FF;
-      --muted: #8888AA;
+      --navy: #0a2257;
+      --card: #05070d;
+      --coral: #93c5fd;
+      --teal: #7cc4ff;
+      --yellow: #bfdbfe;
+      --pink: #60a5fa;
+      --purple: #3b82f6;
+      --white: #ffffff;
+      --muted: #c9dcf5;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +23,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--navy);
+      background: linear-gradient(180deg, #0c2a66, #06163a) fixed;
       color: var(--white);
       font-family: 'Space Grotesk', sans-serif;
       overflow-x: hidden;
@@ -49,7 +49,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.2rem 4rem;
-      background: rgba(8, 8, 24, 0.85);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
@@ -97,7 +97,7 @@
       content: '';
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(155,95,255,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
       top: -100px; left: -100px;
       pointer-events: none;
     }
@@ -105,7 +105,7 @@
       content: '';
       position: absolute;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,229,192,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124,196,255,0.12) 0%, transparent 70%);
       bottom: 0; right: 0;
       pointer-events: none;
     }
@@ -116,8 +116,8 @@
       display: inline-flex;
       gap: 0.6rem;
       align-items: center;
-      background: rgba(0,229,192,0.1);
-      border: 1px solid rgba(0,229,192,0.25);
+      background: rgba(124,196,255,0.1);
+      border: 1px solid rgba(124,196,255,0.25);
       color: var(--teal);
       font-size: 0.75rem;
       font-weight: 600;
@@ -171,11 +171,11 @@
       border: none;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(0,229,192,0.25);
+      box-shadow: 0 0 30px rgba(124,196,255,0.25);
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(0,229,192,0.4);
+      box-shadow: 0 0 50px rgba(124,196,255,0.4);
     }
 
     .btn-outline {
@@ -313,7 +313,7 @@
     }
 
     .about-text {
-      color: #c0c0d8;
+      color: #dbe7f7;
       font-size: 1rem;
       line-height: 1.85;
     }
@@ -334,7 +334,7 @@
       transition: border-color 0.2s, transform 0.2s;
     }
     .highlight-card:hover {
-      border-color: rgba(0,229,192,0.3);
+      border-color: rgba(124,196,255,0.3);
       transform: translateY(-3px);
     }
 
@@ -454,7 +454,7 @@
       transition: all 0.2s;
     }
     .hobby-chip:hover {
-      background: rgba(155,95,255,0.15);
+      background: rgba(59,130,246,0.15);
       border-color: var(--purple);
       color: var(--white);
     }
@@ -483,7 +483,7 @@
       transition: border-color 0.2s, transform 0.2s;
     }
     .exp-card:hover {
-      border-color: rgba(155,95,255,0.35);
+      border-color: rgba(59,130,246,0.35);
       transform: translateY(-3px);
     }
 
@@ -505,16 +505,16 @@
       flex-shrink: 0;
     }
 
-    .tag-ai     { background: rgba(0,229,192,0.15); color: var(--teal); }
-    .tag-finance { background: rgba(255,209,102,0.15); color: var(--yellow); }
-    .tag-non    { background: rgba(255,45,120,0.15); color: var(--pink); }
-    .tag-sales  { background: rgba(155,95,255,0.15); color: var(--purple); }
-    .tag-hosp   { background: rgba(255,95,87,0.15); color: var(--coral); }
-    .tag-cre    { background: rgba(255,45,120,0.15); color: var(--pink); }
-    .tag-ent    { background: rgba(0,229,192,0.15); color: var(--teal); }
-    .tag-con    { background: rgba(255,209,102,0.15); color: var(--yellow); }
-    .tag-ind    { background: rgba(155,95,255,0.15); color: var(--purple); }
-    .tag-ops    { background: rgba(0,229,192,0.15); color: var(--teal); }
+    .tag-ai     { background: rgba(124,196,255,0.15); color: var(--teal); }
+    .tag-finance { background: rgba(191,219,254,0.15); color: var(--yellow); }
+    .tag-non    { background: rgba(96,165,250,0.15); color: var(--pink); }
+    .tag-sales  { background: rgba(59,130,246,0.15); color: var(--purple); }
+    .tag-hosp   { background: rgba(147,197,253,0.15); color: var(--coral); }
+    .tag-cre    { background: rgba(96,165,250,0.15); color: var(--pink); }
+    .tag-ent    { background: rgba(124,196,255,0.15); color: var(--teal); }
+    .tag-con    { background: rgba(191,219,254,0.15); color: var(--yellow); }
+    .tag-ind    { background: rgba(59,130,246,0.15); color: var(--purple); }
+    .tag-ops    { background: rgba(124,196,255,0.15); color: var(--teal); }
 
     .exp-role {
       font-family: 'Syne', sans-serif;
@@ -555,7 +555,7 @@
       content: '';
       position: absolute;
       width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(155,95,255,0.12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 65%);
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
@@ -584,7 +584,7 @@
     .contact-card:hover {
       border-color: var(--teal);
       transform: translateY(-3px);
-      box-shadow: 0 0 30px rgba(0,229,192,0.15);
+      box-shadow: 0 0 30px rgba(124,196,255,0.15);
     }
 
     .contact-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
@@ -661,7 +661,7 @@
       transition: border-color 0.2s, transform 0.2s;
     }
     .acting-card:hover {
-      border-color: rgba(255,45,120,0.35);
+      border-color: rgba(96,165,250,0.35);
       transform: translateY(-3px);
     }
     .acting-type {
