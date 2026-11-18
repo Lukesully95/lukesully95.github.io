@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-17T13:48:50+00:00",
+"updated": "2026-11-18T01:49:10+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-16",
@@ -7032,6 +7032,15 @@
 "src": "gcal",
 "gid": "iuriitfif1rcicaub9voqqoujk_20261118T193000Z",
 "location": "140 W 62nd St, Room 328, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-18",
+"time": "16:30",
+"endTime": "17:00",
+"title": "DEADLINE: Thanksgiving break on-campus stay form (5pm)",
+"category": "Holiday",
+"src": "gcal",
+"gid": "usmv99nakunpje58464vbnhrdg"
 },
 {
 "date": "2026-11-18",
