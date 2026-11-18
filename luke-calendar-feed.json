@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-18T15:48:53+00:00",
+"updated": "2026-11-18T15:54:20+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-17",
@@ -7016,6 +7016,15 @@
 },
 {
 "date": "2026-11-18",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Rolls and Bowls w Jimmy",
+"category": "Personal",
+"src": "gcal",
+"gid": "5578rb65ja30rbf2466i8d8ur0_20261118T174500Z"
+},
+{
+"date": "2026-11-18",
 "time": "13:00",
 "endTime": "14:15",
 "title": "School Work",
@@ -7097,6 +7106,15 @@
 "src": "gcal",
 "gid": "k95im2n9u704su20jr9k5saujc_20261119T150000Z",
 "location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-11-19",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Hang w Caleb",
+"category": "Personal",
+"src": "gcal",
+"gid": "qkp1h4gqdukd2htksq13m35t8k_20261119T174500Z"
 },
 {
 "date": "2026-11-19",
@@ -7675,6 +7693,15 @@
 },
 {
 "date": "2026-12-02",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Rolls and Bowls w Jimmy",
+"category": "Personal",
+"src": "gcal",
+"gid": "5578rb65ja30rbf2466i8d8ur0_20261202T174500Z"
+},
+{
+"date": "2026-12-02",
 "time": "13:00",
 "endTime": "14:15",
 "title": "School Work",
@@ -7737,6 +7764,15 @@
 "src": "gcal",
 "gid": "k95im2n9u704su20jr9k5saujc_20261203T150000Z",
 "location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-03",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Hang w Caleb",
+"category": "Personal",
+"src": "gcal",
+"gid": "qkp1h4gqdukd2htksq13m35t8k_20261203T174500Z"
 },
 {
 "date": "2026-12-03",
@@ -8004,6 +8040,15 @@
 },
 {
 "date": "2026-12-09",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Rolls and Bowls w Jimmy",
+"category": "Personal",
+"src": "gcal",
+"gid": "5578rb65ja30rbf2466i8d8ur0_20261209T174500Z"
+},
+{
+"date": "2026-12-09",
 "time": "13:00",
 "endTime": "14:15",
 "title": "School Work",
@@ -8066,6 +8111,15 @@
 "src": "gcal",
 "gid": "k95im2n9u704su20jr9k5saujc_20261210T150000Z",
 "location": "Leon Lowenstein Bldg, Room 1002, Fordham Lincoln Center, New York, NY"
+},
+{
+"date": "2026-12-10",
+"time": "12:45",
+"endTime": "13:45",
+"title": "Hang w Caleb",
+"category": "Personal",
+"src": "gcal",
+"gid": "qkp1h4gqdukd2htksq13m35t8k_20261210T174500Z"
 },
 {
 "date": "2026-12-10",
