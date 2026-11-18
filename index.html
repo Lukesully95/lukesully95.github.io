@@ -339,24 +339,27 @@
     .total-sub { font-size: 12.5px; }
   }
 
-  /* ── DARK THEME (colors only) ── white → dark blue, navy → near-black */
+  /* ── THEME (colors only): dark blue background, black panels, light blue accents ── */
   :root {
-    --navy: #070b12; --navy2: #0e1420;
-    --blue: #58a6ff; --green: #3fb950; --red: #ff6b6b;
+    --navy: #05070d; --navy2: #0d1220;
+    --blue: #7cc4ff; --green: #3fb950; --red: #ff6b6b;
     --green-bg: rgba(63,185,80,0.14); --red-bg: rgba(255,107,107,0.13);
-    --border: #22375a; --row-alt: #142844; --text: #e6edf3; --muted: #9fb0c6;
+    --border: #22406e; --row-alt: #0a1630; --text: #ffffff; --muted: #c9dcf5;
   }
-  body { background: #0a1626; }
-  .toolbar, .card, #pw-box, #ov-box { background: #102240 !important; }
-  .header { background: linear-gradient(135deg, #05080d 0%, #0e1420 100%) !important; }
-  tbody tr:hover { background: #1b3558 !important; }
+  body { background: linear-gradient(180deg, #0c2a66, #06163a) fixed; }
+  .toolbar, .card, #pw-box, #ov-box { background: #05070d !important; }
+  .header { background: #000 !important; border-bottom: 1px solid var(--border); }
+  .btn-refresh { background: #000 !important; color: #7cc4ff !important; border: 1px solid #7cc4ff !important; }
+  .btn-refresh:hover:not(:disabled) { background: #0d1220 !important; }
+  tbody tr:hover { background: #102244 !important; }
   td { border-color: var(--border) !important; }
   tbody tr { border-bottom-color: var(--border) !important; }
   .card-header { border-color: var(--border) !important; }
-  #pw-overlay { background: #070b12 !important; }
-  #pw-box h2 { color: #e6edf3; } #pw-box p { color: var(--muted); }
-  #pw-input { background: #0a1626; color: #e6edf3; border-color: var(--border); }
-  #ov-text { color: #e6edf3; }
+  #pw-overlay { background: linear-gradient(180deg, #0c2a66, #06163a) !important; }
+  #pw-box h2 { color: #ffffff; } #pw-box p { color: var(--muted); }
+  #pw-input { background: #0a1630; color: #ffffff; border-color: var(--border); }
+  #pw-btn { background: #000 !important; color: #7cc4ff !important; border: 1px solid #7cc4ff !important; }
+  #ov-text { color: #ffffff; }
   .disclaimer { color: var(--muted); }
 </style>
 </head>
