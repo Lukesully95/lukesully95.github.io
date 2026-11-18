@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-18T11:49:49+00:00",
+"updated": "2026-11-18T15:48:53+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
 "to": "2027-03-17",
@@ -7050,6 +7050,16 @@
 "category": "Health",
 "src": "gcal",
 "gid": "sfp2j5ca34fnmpbvq6iki02kdg_20261118T230000Z"
+},
+{
+"date": "2026-11-18",
+"time": "18:00",
+"endTime": "21:00",
+"title": "RamHack Mini: networking, judging & dinner",
+"category": "Work",
+"src": "gcal",
+"gid": "5am6g9smhmsch6hr9gb1s6q228",
+"location": "McMahon 109, Fordham Lincoln Center"
 },
 {
 "date": "2026-11-18",
