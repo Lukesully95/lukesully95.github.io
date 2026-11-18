@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-18T01:49:10+00:00",
+"updated": "2026-11-18T11:49:49+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-16",
+"to": "2027-03-17",
 "events": [
 {
 "date": "2026-01-15",
@@ -8060,20 +8060,11 @@
 {
 "date": "2026-12-10",
 "time": "13:00",
-"endTime": "14:00",
-"title": "School Work",
-"category": "Work",
+"endTime": "17:00",
+"title": "DUE: Branding Group Project Part III report",
+"category": "School",
 "src": "gcal",
-"gid": "dcemmjgm51to3eggqqnup17glg_20261210T180000Z"
-},
-{
-"date": "2026-12-10",
-"time": "14:00",
-"endTime": "16:00",
-"title": "AI Business Work",
-"category": "Work",
-"src": "gcal",
-"gid": "cl6qk6p140esodnlip1448arho_20261211T010000Z"
+"gid": "vv6p9f5vhf5rurb7rb1evlpcpg"
 },
 {
 "date": "2026-12-10",
@@ -11255,6 +11246,24 @@
 "category": "Work",
 "src": "gcal",
 "gid": "cl6qk6p140esodnlip1448arho_20270317T000000Z"
+},
+{
+"date": "2027-03-17",
+"time": "07:00",
+"endTime": "08:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "lj5dssregcqgepk25bfds7amic_20270317T110000Z"
+},
+{
+"date": "2027-03-17",
+"time": "20:00",
+"endTime": "22:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "cl6qk6p140esodnlip1448arho_20270318T000000Z"
 }
 ]
 }
