@@ -1,0 +1,50 @@
+name: Refresh link previews
+
+# Retakes the preview pictures that iMessage, Slack, LinkedIn etc. show for
+# the portfolio, 2x AI and AI Tracker links, so they always match the live sites.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+      - '2x-ai/**'
+      - 'ai-popularity-tracker/**'
+      - '!portfolio/og.jpg'
+      - '!2x-ai/og2.jpg'
+      - '!ai-popularity-tracker/og2.jpg'
+  schedule:
+    - cron: '23 16 * * *'   # daily, after the AI Tracker's morning refresh
+  workflow_dispatch:
+
+concurrency:
+  group: link-previews
+  cancel-in-progress: false
+
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install browser
+        run: |
+          pip install playwright pillow --quiet
+          python -m playwright install --with-deps chromium
+
+      - name: Retake previews
+        run: python tools/make_previews.py
+
+      - name: Commit new previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add portfolio/og.jpg portfolio/index.html 2x-ai/og2.jpg 2x-ai/index.html ai-popularity-tracker/og2.jpg ai-popularity-tracker/index.html
+          git diff --staged --quiet && exit 0
+          git commit -m "link previews: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 5; done
