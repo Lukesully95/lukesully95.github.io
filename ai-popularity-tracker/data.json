@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-18",
+    "updatedAt": "2026-11-19",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,25 +366,25 @@
   ],
   "news": [
     {
-      "title": "Nvidia posts $115.8B quarter, revenue up 103% from last year",
-      "source": "NVIDIA",
-      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/",
-      "date": "Nov 18",
-      "type": "company"
-    },
-    {
-      "title": "Nvidia board says it won't bring Jensen Huang back as CEO",
-      "source": "The Boston Globe (AP)",
-      "url": "https://www.bostonglobe.com/2026/11/17/business/nvidia-earning-surpass-expecations/",
-      "date": "Nov 18",
-      "type": "company"
-    },
-    {
-      "title": "Anthropic sets IPO price tonight; Nasdaq trading starts Thursday",
+      "title": "Anthropic prices IPO at $83, raising a record $81.3 billion",
       "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html",
-      "date": "Nov 18",
+      "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
+      "date": "Nov 19",
       "type": "funding"
+    },
+    {
+      "title": "OpenAI releases GPT-6.2 Astra and Sol with cheaper API pricing",
+      "source": "9to5Google",
+      "url": "https://9to5google.com/2026/11/17/openai-releases-gpt-6-2-astra-and-sol-for-complex-projects-a-week-after-claude-5-2/",
+      "date": "Nov 19",
+      "type": "launch"
+    },
+    {
+      "title": "Microsoft launches MAI Code 2 coding models in GitHub Copilot",
+      "source": "The New Stack",
+      "url": "https://thenewstack.io/microsoft-mai-code-2/",
+      "date": "Nov 19",
+      "type": "launch"
     }
   ],
   "newsArchive": {
@@ -780,6 +780,29 @@
         "url": "https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html",
         "date": "Nov 18",
         "type": "funding"
+      }
+    ],
+    "2026-11-19": [
+      {
+        "title": "Anthropic prices IPO at $83, raising a record $81.3 billion",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
+        "date": "Nov 19",
+        "type": "funding"
+      },
+      {
+        "title": "OpenAI releases GPT-6.2 Astra and Sol with cheaper API pricing",
+        "source": "9to5Google",
+        "url": "https://9to5google.com/2026/11/17/openai-releases-gpt-6-2-astra-and-sol-for-complex-projects-a-week-after-claude-5-2/",
+        "date": "Nov 19",
+        "type": "launch"
+      },
+      {
+        "title": "Microsoft launches MAI Code 2 coding models in GitHub Copilot",
+        "source": "The New Stack",
+        "url": "https://thenewstack.io/microsoft-mai-code-2/",
+        "date": "Nov 19",
+        "type": "launch"
       }
     ]
   }
