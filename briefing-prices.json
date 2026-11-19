@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-18T18:00:30.426160+00:00",
+ "updated": "2026-11-19T00:19:13.080630+00:00",
  "symbols": {
   "^GSPC": {
-   "price": 7329.48,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 7323.6299,
+   "priceTime": "2026-11-18T16:00:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 7340.5298,
    "prevCloseDate": "2026-11-17",
-   "changePct": -0.1505,
+   "changePct": -0.2302,
    "history": [
     [
      "2026-11-05",
@@ -48,20 +48,20 @@
     ],
     [
      "2026-11-18",
-     7329.2402
+     7323.6299
     ]
    ],
    "low52": 6343.7202,
    "high52": 7818.9302
   },
   "^IXIC": {
-   "price": 24412.3496,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 24429.8848,
+   "priceTime": "2026-11-18T16:00:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 24328.3809,
    "prevCloseDate": "2026-11-17",
-   "changePct": 0.3451,
+   "changePct": 0.4172,
    "history": [
     [
      "2026-11-05",
@@ -101,20 +101,20 @@
     ],
     [
      "2026-11-18",
-     24412.3496
+     24429.8848
     ]
    ],
    "low52": 20794.6406,
    "high52": 27599.7891
   },
   "^DJI": {
-   "price": 50308.1016,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 50198.1719,
+   "priceTime": "2026-11-18T16:00:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 50759.4219,
    "prevCloseDate": "2026-11-17",
-   "changePct": -0.8891,
+   "changePct": -1.1057,
    "history": [
     [
      "2026-11-05",
@@ -154,20 +154,20 @@
     ],
     [
      "2026-11-18",
-     50308.1016
+     50198.1719
     ]
    ],
    "low52": 45166.6406,
    "high52": 54349.1211
   },
   "BTC-USD": {
-   "price": 63028.3086,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 62644.9883,
+   "priceTime": "2026-11-18T19:18:00-05:00",
    "priceDate": "2026-11-18",
    "session": "24h",
-   "prevClose": 63738.6602,
+   "prevClose": 64778.8281,
    "prevCloseDate": null,
-   "changePct": -1.1145,
+   "changePct": -3.294,
    "history": [
     [
      "2026-11-08",
@@ -206,21 +206,21 @@
      64893.9453
     ],
     [
-     "2026-11-17",
-     63028.3086
+     "2026-11-18",
+     62642.1289
     ]
    ],
    "low52": 58558.8594,
    "high52": 96929.3281
   },
   "ETH-USD": {
-   "price": 1766.1,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 1769.11,
+   "priceTime": "2026-11-18T19:19:00-05:00",
    "priceDate": "2026-11-18",
    "session": "24h",
-   "prevClose": 1785.3101,
+   "prevClose": 1820.11,
    "prevCloseDate": null,
-   "changePct": -1.076,
+   "changePct": -2.802,
    "history": [
     [
      "2026-11-08",
@@ -259,21 +259,21 @@
      1822.9613
     ],
     [
-     "2026-11-17",
-     1766.1
+     "2026-11-18",
+     1769.11
     ]
    ],
    "low52": 1564.8167,
    "high52": 3354.7227
   },
   "^VIX": {
-   "price": 24.22,
-   "priceTime": "2026-11-18T12:45:00-05:00",
+   "price": 24.56,
+   "priceTime": "2026-11-18T16:15:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 25.46,
    "prevCloseDate": "2026-11-17",
-   "changePct": -4.8704,
+   "changePct": -3.535,
    "history": [
     [
      "2026-11-05",
@@ -313,20 +313,20 @@
     ],
     [
      "2026-11-18",
-     24.22
+     24.56
     ]
    ],
    "low52": 13.47,
    "high52": 31.05
   },
   "HUBS": {
-   "price": 205.23,
-   "priceTime": "2026-11-18T12:58:00-05:00",
+   "price": 206.0,
+   "priceTime": "2026-11-18T17:57:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 216.3,
    "prevCloseDate": "2026-11-17",
-   "changePct": -5.1179,
+   "changePct": -4.7619,
    "history": [
     [
      "2026-11-05",
@@ -366,21 +366,21 @@
     ],
     [
      "2026-11-18",
-     205.22
+     205.12
     ]
    ],
    "low52": 170.28,
    "high52": 405.83,
-   "marketCap": 10022218586
+   "marketCap": 10017334641
   },
   "NVDA": {
-   "price": 151.64,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 151.95,
+   "priceTime": "2026-11-18T19:18:56-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 155.46,
    "prevCloseDate": "2026-11-17",
-   "changePct": -2.4572,
+   "changePct": -2.2578,
    "history": [
     [
      "2026-11-05",
@@ -420,21 +420,21 @@
     ],
     [
      "2026-11-18",
-     151.64
+     150.96
     ]
    ],
-   "low52": 151.64,
+   "low52": 150.96,
    "high52": 239.24,
-   "marketCap": 3661651065261
+   "marketCap": 3645231282119
   },
   "SPCX": {
-   "price": 145.06,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 144.7,
+   "priceTime": "2026-11-18T19:19:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 141.7,
    "prevCloseDate": "2026-11-17",
-   "changePct": 2.3712,
+   "changePct": 2.1171,
    "history": [
     [
      "2026-11-05",
@@ -474,21 +474,21 @@
     ],
     [
      "2026-11-18",
-     145.06
+     143.5
     ]
    ],
    "low52": 108.27,
    "high52": 211.39,
-   "marketCap": 1970069068470
+   "marketCap": 1948882642241
   },
   "NET": {
-   "price": 301.445,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 310.0,
+   "priceTime": "2026-11-18T18:50:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 284.8,
    "prevCloseDate": "2026-11-17",
-   "changePct": 5.8445,
+   "changePct": 8.8483,
    "history": [
     [
      "2026-11-05",
@@ -528,21 +528,21 @@
     ],
     [
      "2026-11-18",
-     301.445
+     300.91
     ]
    ],
    "low52": 160.19,
    "high52": 360.93,
-   "marketCap": 108035555933
+   "marketCap": 107843814764
   },
   "HODL": {
-   "price": 17.805,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 17.68,
+   "priceTime": "2026-11-18T18:19:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 18.07,
    "prevCloseDate": "2026-11-17",
-   "changePct": -1.4665,
+   "changePct": -2.1583,
    "history": [
     [
      "2026-11-05",
@@ -582,20 +582,20 @@
     ],
     [
      "2026-11-18",
-     17.805
+     17.68
     ]
    ],
    "low52": 16.61,
    "high52": 27.62
   },
   "JOBY": {
-   "price": 4.3453,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 4.21,
+   "priceTime": "2026-11-18T19:18:19-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 4.38,
    "prevCloseDate": "2026-11-17",
-   "changePct": -0.7922,
+   "changePct": -3.8813,
    "history": [
     [
      "2026-11-05",
@@ -635,21 +635,21 @@
     ],
     [
      "2026-11-18",
-     4.3453
+     4.19
     ]
    ],
-   "low52": 4.3453,
+   "low52": 4.19,
    "high52": 16.3,
-   "marketCap": 4417615808
+   "marketCap": 4259731123
   },
   "AMZN": {
-   "price": 266.525,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 270.0,
+   "priceTime": "2026-11-18T19:18:52-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 257.89,
    "prevCloseDate": "2026-11-17",
-   "changePct": 3.3483,
+   "changePct": 4.6958,
    "history": [
     [
      "2026-11-05",
@@ -689,21 +689,21 @@
     ],
     [
      "2026-11-18",
-     266.525
+     267.74
     ]
    ],
    "low52": 198.79,
    "high52": 284.02,
-   "marketCap": 2881971621008
+   "marketCap": 2895109544451
   },
   "COIN": {
-   "price": 112.53,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 111.6757,
+   "priceTime": "2026-11-18T19:16:07-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 115.02,
    "prevCloseDate": "2026-11-17",
-   "changePct": -2.1648,
+   "changePct": -2.9076,
    "history": [
     [
      "2026-11-05",
@@ -743,21 +743,21 @@
     ],
     [
      "2026-11-18",
-     112.53
+     110.51
     ]
    ],
-   "low52": 112.53,
+   "low52": 110.51,
    "high52": 277.36,
-   "marketCap": 29793827104
+   "marketCap": 29259005888
   },
   "TSLA": {
-   "price": 383.9762,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 384.9,
+   "priceTime": "2026-11-18T19:18:40-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 380.11,
    "prevCloseDate": "2026-11-17",
-   "changePct": 1.0171,
+   "changePct": 1.2602,
    "history": [
     [
      "2026-11-05",
@@ -797,21 +797,21 @@
     ],
     [
      "2026-11-18",
-     383.9762
+     383.72
     ]
    ],
    "low52": 298.32,
    "high52": 489.88,
-   "marketCap": 1517764960956
+   "marketCap": 1516752283864
   },
   "SNAP": {
-   "price": 5.545,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 5.45,
+   "priceTime": "2026-11-18T19:18:51-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 5.5,
    "prevCloseDate": "2026-11-17",
-   "changePct": 0.8182,
+   "changePct": -0.9091,
    "history": [
     [
      "2026-11-05",
@@ -851,21 +851,21 @@
     ],
     [
      "2026-11-18",
-     5.545
+     5.44
     ]
    ],
    "low52": 3.93,
    "high52": 8.79,
-   "marketCap": 9573868221
+   "marketCap": 9392577629
   },
   "ZM": {
-   "price": 92.31,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 94.1851,
+   "priceTime": "2026-11-18T19:05:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 91.52,
    "prevCloseDate": "2026-11-17",
-   "changePct": 0.8632,
+   "changePct": 2.912,
    "history": [
     [
      "2026-11-05",
@@ -905,21 +905,21 @@
     ],
     [
      "2026-11-18",
-     92.31
+     92.68
     ]
    ],
    "low52": 72.72,
    "high52": 111.88,
-   "marketCap": 26934553650
+   "marketCap": 27042514424
   },
   "NFLX": {
-   "price": 60.275,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 60.16,
+   "priceTime": "2026-11-18T19:15:37-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 59.68,
    "prevCloseDate": "2026-11-17",
-   "changePct": 0.997,
+   "changePct": 0.8043,
    "history": [
     [
      "2026-11-05",
@@ -959,21 +959,21 @@
     ],
     [
      "2026-11-18",
-     60.275
+     59.82
     ]
    ],
    "low52": 59.68,
-   "high52": 114.09,
-   "marketCap": 247508800069
+   "high52": 110.0,
+   "marketCap": 245640414264
   },
   "DIS": {
-   "price": 122.525,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 122.41,
+   "priceTime": "2026-11-18T18:21:00-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 116.94,
    "prevCloseDate": "2026-11-17",
-   "changePct": 4.776,
+   "changePct": 4.6776,
    "history": [
     [
      "2026-11-05",
@@ -1013,21 +1013,21 @@
     ],
     [
      "2026-11-18",
-     122.525
+     122.36
     ]
    ],
    "low52": 92.42,
-   "high52": 122.525,
-   "marketCap": 209276337677
+   "high52": 122.36,
+   "marketCap": 208994511218
   },
   "MRNA": {
-   "price": 201.745,
-   "priceTime": "2026-11-18T13:00:00-05:00",
+   "price": 194.82,
+   "priceTime": "2026-11-18T19:09:58-05:00",
    "priceDate": "2026-11-18",
-   "session": "regular",
+   "session": "post",
    "prevClose": 206.8,
    "prevCloseDate": "2026-11-17",
-   "changePct": -2.4444,
+   "changePct": -5.793,
    "history": [
     [
      "2026-11-05",
@@ -1067,21 +1067,21 @@
     ],
     [
      "2026-11-18",
-     201.745
+     196.79
     ]
    ],
    "low52": 22.36,
    "high52": 269.0,
-   "marketCap": 81630256625
+   "marketCap": 79625358953
   },
   "ES=F": {
-   "price": 7349.0,
-   "priceTime": "2026-11-18T12:50:00-05:00",
+   "price": 7374.0,
+   "priceTime": "2026-11-18T19:09:00-05:00",
    "priceDate": "2026-11-18",
    "session": "futures",
    "prevClose": 7359.0,
    "prevCloseDate": "2026-11-17",
-   "changePct": -0.1359,
+   "changePct": 0.2038,
    "history": [
     [
      "2026-11-05",
@@ -1121,20 +1121,20 @@
     ],
     [
      "2026-11-18",
-     7349.0
+     7374.0
     ]
    ],
    "low52": 6388.25,
    "high52": 7874.0
   },
   "NQ=F": {
-   "price": 27162.25,
-   "priceTime": "2026-11-18T12:50:00-05:00",
+   "price": 27429.5,
+   "priceTime": "2026-11-18T19:09:00-05:00",
    "priceDate": "2026-11-18",
    "session": "futures",
    "prevClose": 27075.5,
    "prevCloseDate": "2026-11-17",
-   "changePct": 0.3204,
+   "changePct": 1.3075,
    "history": [
     [
      "2026-11-05",
@@ -1174,20 +1174,20 @@
     ],
     [
      "2026-11-18",
-     27153.5
+     27430.25
     ]
    ],
    "low52": 23139.75,
    "high52": 31483.25
   },
   "YM=F": {
-   "price": 50382.0,
-   "priceTime": "2026-11-18T12:50:00-05:00",
+   "price": 50410.0,
+   "priceTime": "2026-11-18T19:09:00-05:00",
    "priceDate": "2026-11-18",
    "session": "futures",
    "prevClose": 50815.0,
    "prevCloseDate": "2026-11-17",
-   "changePct": -0.8521,
+   "changePct": -0.797,
    "history": [
     [
      "2026-11-05",
@@ -1227,7 +1227,7 @@
     ],
     [
      "2026-11-18",
-     50382.0
+     50410.0
     ]
    ],
    "low52": 45424.0,
