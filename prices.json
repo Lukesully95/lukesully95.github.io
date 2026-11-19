@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T00:19:04.098553+00:00",
+  "updated": "2026-11-19T07:43:21.661279+00:00",
   "prices": {
     "AMZN": {
       "price": 267.74,
@@ -120,11 +120,11 @@
       "marketCap": 209891047336
     },
     "TCEHY": {
-      "price": 46.15,
-      "change": -1.12,
-      "changePct": -2.3694,
+      "price": 46.13,
+      "change": -1.14,
+      "changePct": -2.4117,
       "prevClose": 47.27,
-      "marketCap": 415562654526
+      "marketCap": 415382558252
     }
   }
 }
