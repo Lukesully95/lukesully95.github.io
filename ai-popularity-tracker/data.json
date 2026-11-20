@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-19",
+    "updatedAt": "2026-11-20",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,25 +366,25 @@
   ],
   "news": [
     {
-      "title": "Anthropic prices IPO at $83, raising a record $81.3 billion",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
-      "date": "Nov 19",
+      "title": "Anthropic closes first trading day 17% above its $83 IPO price",
+      "source": "The Next Web",
+      "url": "https://thenextweb.com/news/anthropic-shares-close-17-above-their-ipo-price-on-first-day-of-trading",
+      "date": "Nov 20",
       "type": "funding"
     },
     {
-      "title": "OpenAI releases GPT-6.2 Astra and Sol with cheaper API pricing",
-      "source": "9to5Google",
-      "url": "https://9to5google.com/2026/11/17/openai-releases-gpt-6-2-astra-and-sol-for-complex-projects-a-week-after-claude-5-2/",
-      "date": "Nov 19",
+      "title": "Google launches Gemini 4 Neon, a mid-tier model for coding",
+      "source": "Google",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "date": "Nov 20",
       "type": "launch"
     },
     {
-      "title": "Microsoft launches MAI Code 2 coding models in GitHub Copilot",
-      "source": "The New Stack",
-      "url": "https://thenewstack.io/microsoft-mai-code-2/",
-      "date": "Nov 19",
-      "type": "launch"
+      "title": "Reuters: Meta's Muse agent mixed up users' private messages",
+      "source": "CTV News (Reuters)",
+      "url": "https://www.ctvnews.ca/sci-tech/article/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface/",
+      "date": "Nov 20",
+      "type": "company"
     }
   ],
   "newsArchive": {
@@ -803,6 +803,29 @@
         "url": "https://thenewstack.io/microsoft-mai-code-2/",
         "date": "Nov 19",
         "type": "launch"
+      }
+    ],
+    "2026-11-20": [
+      {
+        "title": "Anthropic closes first trading day 17% above its $83 IPO price",
+        "source": "The Next Web",
+        "url": "https://thenextweb.com/news/anthropic-shares-close-17-above-their-ipo-price-on-first-day-of-trading",
+        "date": "Nov 20",
+        "type": "funding"
+      },
+      {
+        "title": "Google launches Gemini 4 Neon, a mid-tier model for coding",
+        "source": "Google",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "date": "Nov 20",
+        "type": "launch"
+      },
+      {
+        "title": "Reuters: Meta's Muse agent mixed up users' private messages",
+        "source": "CTV News (Reuters)",
+        "url": "https://www.ctvnews.ca/sci-tech/article/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface/",
+        "date": "Nov 20",
+        "type": "company"
       }
     ]
   }
