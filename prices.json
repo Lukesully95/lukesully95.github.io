@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T23:22:00.331882+00:00",
+  "updated": "2026-11-20T04:07:36.761641+00:00",
   "prices": {
     "AMZN": {
       "price": 257.37,
@@ -13,7 +13,7 @@
       "change": -2.88,
       "changePct": -2.5772,
       "prevClose": 111.75,
-      "marketCap": 28824794044
+      "marketCap": 28824793317
     },
     "DIS": {
       "price": 120.25,
@@ -33,21 +33,21 @@
       "change": -0.28,
       "changePct": -6.6508,
       "prevClose": 4.21,
-      "marketCap": 3995404145
+      "marketCap": 3995404077
     },
     "MRNA": {
       "price": 199.33,
       "change": 4.9285,
       "changePct": 2.5352,
       "prevClose": 194.4015,
-      "marketCap": 80653099687
+      "marketCap": 80653098946
     },
     "NET": {
       "price": 303.68,
       "change": -6.32,
       "changePct": -2.0387,
       "prevClose": 310.0,
-      "marketCap": 108836557373
+      "marketCap": 108836559998
     },
     "NFLX": {
       "price": 58.46,
@@ -68,7 +68,7 @@
       "change": -0.3596,
       "changePct": -6.5625,
       "prevClose": 5.4796,
-      "marketCap": 8840072772
+      "marketCap": 8840072970
     },
     "TSLA": {
       "price": 374.41,
@@ -82,14 +82,14 @@
       "change": -10.1733,
       "changePct": -10.8234,
       "prevClose": 93.9933,
-      "marketCap": 24457310566
+      "marketCap": 24457310656
     },
     "SPCX": {
       "price": 138.43,
       "change": -6.1703,
       "changePct": -4.2671,
       "prevClose": 144.6003,
-      "marketCap": 1880026549766
+      "marketCap": 1880026649236
     },
     "MSFT": {
       "price": 498.3,
@@ -110,14 +110,14 @@
       "change": -23.0994,
       "changePct": -3.7298,
       "prevClose": 619.3194,
-      "marketCap": 1524082084973
+      "marketCap": 1524082159863
     },
     "BABA": {
       "price": 83.31,
       "change": -1.64,
-      "changePct": -1.9306,
+      "changePct": -1.9305,
       "prevClose": 84.95,
-      "marketCap": 207254024794
+      "marketCap": 207254030868
     },
     "TCEHY": {
       "price": 44.2,
