@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-20",
+    "updatedAt": "2026-11-21",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,25 +366,25 @@
   ],
   "news": [
     {
-      "title": "Anthropic closes first trading day 17% above its $83 IPO price",
-      "source": "The Next Web",
-      "url": "https://thenextweb.com/news/anthropic-shares-close-17-above-their-ipo-price-on-first-day-of-trading",
-      "date": "Nov 20",
-      "type": "funding"
+      "title": "US approved nearly 900,000 Nvidia and AMD AI chips for China",
+      "source": "The Standard (Reuters)",
+      "url": "https://www.thestandard.com.hk/world/article/349075/US-signed-off-on-sales-of-nearly-900000-AI-chips-to-China-in-six-months-committee-says",
+      "date": "Nov 21",
+      "type": "policy"
     },
     {
-      "title": "Google launches Gemini 4 Neon, a mid-tier model for coding",
-      "source": "Google",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
-      "date": "Nov 20",
-      "type": "launch"
-    },
-    {
-      "title": "Reuters: Meta's Muse agent mixed up users' private messages",
-      "source": "CTV News (Reuters)",
-      "url": "https://www.ctvnews.ca/sci-tech/article/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface/",
-      "date": "Nov 20",
+      "title": "Apple job listing reveals AI agent that can use apps and code",
+      "source": "MacRumors",
+      "url": "https://macrumors.com/2026/11/19/apple-ai-agent-development",
+      "date": "Nov 21",
       "type": "company"
+    },
+    {
+      "title": "Anthropic begins trading after largest IPO in US history",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/11/19/anthropic-starts-trading-in-the-us-after-blockbuster-ipo",
+      "date": "Nov 21",
+      "type": "funding"
     }
   ],
   "newsArchive": {
@@ -826,6 +826,29 @@
         "url": "https://www.ctvnews.ca/sci-tech/article/as-meta-bets-big-on-muse-ai-agent-early-safety-mishaps-surface/",
         "date": "Nov 20",
         "type": "company"
+      }
+    ],
+    "2026-11-21": [
+      {
+        "title": "US approved nearly 900,000 Nvidia and AMD AI chips for China",
+        "source": "The Standard (Reuters)",
+        "url": "https://www.thestandard.com.hk/world/article/349075/US-signed-off-on-sales-of-nearly-900000-AI-chips-to-China-in-six-months-committee-says",
+        "date": "Nov 21",
+        "type": "policy"
+      },
+      {
+        "title": "Apple job listing reveals AI agent that can use apps and code",
+        "source": "MacRumors",
+        "url": "https://macrumors.com/2026/11/19/apple-ai-agent-development",
+        "date": "Nov 21",
+        "type": "company"
+      },
+      {
+        "title": "Anthropic begins trading after largest IPO in US history",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/economy/2026/11/19/anthropic-starts-trading-in-the-us-after-blockbuster-ipo",
+        "date": "Nov 21",
+        "type": "funding"
       }
     ]
   }
