@@ -1,8 +1,8 @@
 {
-"updated": "2026-11-21T11:49:16+00:00",
+"updated": "2026-11-22T11:49:16+00:00",
 "source": "Google Calendar (lsullivan59@fordham.edu) via Christopher",
 "from": "2026-01-15",
-"to": "2027-03-20",
+"to": "2027-03-21",
 "events": [
 {
 "date": "2026-01-15",
@@ -11436,6 +11436,51 @@
 "category": "Work",
 "src": "gcal",
 "gid": "1dqjgd210v6id3of332lupq7gk_20270320T190000Z"
+},
+{
+"date": "2027-03-21",
+"time": "09:00",
+"endTime": "10:00",
+"title": "Gym",
+"category": "Health",
+"src": "gcal",
+"gid": "bl5rqdtqosumq65cf69maa9i94_20270321T130000Z"
+},
+{
+"date": "2027-03-21",
+"time": "10:00",
+"endTime": "11:00",
+"title": "Shower",
+"category": "Health",
+"src": "gcal",
+"gid": "62tti5irhreboa8i2466t9u4v0_20270321T140000Z"
+},
+{
+"date": "2027-03-21",
+"time": "11:00",
+"endTime": "12:00",
+"title": "Driving Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "8indbqis1shk0beppjjumgcb74_20270321T150000Z"
+},
+{
+"date": "2027-03-21",
+"time": "13:00",
+"endTime": "14:00",
+"title": "Acting Practice",
+"category": "Personal",
+"src": "gcal",
+"gid": "59rtkjo0hgf8q3o28mu58snmfk_20270321T170000Z"
+},
+{
+"date": "2027-03-21",
+"time": "15:00",
+"endTime": "21:00",
+"title": "AI Business Work",
+"category": "Work",
+"src": "gcal",
+"gid": "1dqjgd210v6id3of332lupq7gk_20270321T190000Z"
 }
 ]
 }
