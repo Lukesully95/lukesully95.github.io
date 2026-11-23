@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-22",
+    "updatedAt": "2026-11-23",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,18 +366,18 @@
   ],
   "news": [
     {
-      "title": "Google brings computer use to Gemini app on Mac",
-      "source": "Google",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
-      "date": "Nov 22",
-      "type": "launch"
+      "title": "US trade chief says new rules tighten China's access to AI chips",
+      "source": "WORLD",
+      "url": "https://wng.org/podcasts/monday-morning-news-november-23-2026-1795382024",
+      "date": "Nov 23",
+      "type": "policy"
     },
     {
-      "title": "Amazon reportedly close to buying AI startup Decart for $7B+",
-      "source": "FourWeekMBA (via Calcalist)",
-      "url": "https://fourweekmba.com/ai-amazon-nears-7b-decart-deal-1-75x-its-may-valuation/",
-      "date": "Nov 22",
-      "type": "company"
+      "title": "OpenAI launches ChatGPT for Sales with 30+ partner plugins",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-chatgpt-for-sales/",
+      "date": "Nov 23",
+      "type": "launch"
     }
   ],
   "newsArchive": {
@@ -858,6 +858,22 @@
         "url": "https://fourweekmba.com/ai-amazon-nears-7b-decart-deal-1-75x-its-may-valuation/",
         "date": "Nov 22",
         "type": "company"
+      }
+    ],
+    "2026-11-23": [
+      {
+        "title": "US trade chief says new rules tighten China's access to AI chips",
+        "source": "WORLD",
+        "url": "https://wng.org/podcasts/monday-morning-news-november-23-2026-1795382024",
+        "date": "Nov 23",
+        "type": "policy"
+      },
+      {
+        "title": "OpenAI launches ChatGPT for Sales with 30+ partner plugins",
+        "source": "OpenAI",
+        "url": "https://openai.com/index/introducing-chatgpt-for-sales/",
+        "date": "Nov 23",
+        "type": "launch"
       }
     ]
   }
