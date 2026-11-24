@@ -1,130 +1,130 @@
 {
-  "updated": "2026-11-24T09:49:49.828488+00:00",
+  "updated": "2026-11-24T20:27:14.185029+00:00",
   "prices": {
     "AMZN": {
-      "price": 255.39,
-      "change": -1.61,
-      "changePct": -0.6265,
-      "prevClose": 257.0,
-      "marketCap": 2761567385369
+      "price": 251.16,
+      "change": -4.0685,
+      "changePct": -1.5941,
+      "prevClose": 255.2285,
+      "marketCap": 2715827856533
     },
     "COIN": {
-      "price": 108.78,
-      "change": -0.69,
-      "changePct": -0.6303,
-      "prevClose": 109.47,
-      "marketCap": 28800964286
+      "price": 102.76,
+      "change": -6.07,
+      "changePct": -5.5775,
+      "prevClose": 108.83,
+      "marketCap": 27207089399
     },
     "DIS": {
-      "price": 120.27,
-      "change": -0.08,
-      "changePct": -0.0665,
+      "price": 122.005,
+      "change": 1.655,
+      "changePct": 1.3752,
       "prevClose": 120.35,
-      "marketCap": 205424722436
+      "marketCap": 208388154953
     },
     "HODL": {
-      "price": 17.29,
-      "change": -0.05,
-      "changePct": -0.2883,
+      "price": 16.835,
+      "change": -0.505,
+      "changePct": -2.9123,
       "prevClose": 17.34
     },
     "JOBY": {
-      "price": 3.85,
-      "change": -0.0457,
-      "changePct": -1.1731,
-      "prevClose": 3.8957,
-      "marketCap": 3914072600
+      "price": 3.545,
+      "change": -0.335,
+      "changePct": -8.634,
+      "prevClose": 3.88,
+      "marketCap": 3603996885
     },
     "MRNA": {
-      "price": 212.08,
-      "change": -0.95,
-      "changePct": -0.4459,
-      "prevClose": 213.03,
-      "marketCap": 85812017118
+      "price": 225.165,
+      "change": 12.955,
+      "changePct": 6.1048,
+      "prevClose": 212.21,
+      "marketCap": 91106479119
     },
     "NET": {
-      "price": 291.13,
-      "change": -2.65,
-      "changePct": -0.902,
-      "prevClose": 293.78,
-      "marketCap": 104338738948
+      "price": 287.57,
+      "change": -4.49,
+      "changePct": -1.5374,
+      "prevClose": 292.06,
+      "marketCap": 103062863395
     },
     "NFLX": {
-      "price": 58.1,
-      "change": -0.12,
-      "changePct": -0.2061,
-      "prevClose": 58.22,
-      "marketCap": 238577528698
+      "price": 58.78,
+      "change": 0.88,
+      "changePct": 1.5199,
+      "prevClose": 57.9,
+      "marketCap": 241369831565
     },
     "NVDA": {
-      "price": 165.05,
-      "change": -1.74,
-      "changePct": -1.0432,
-      "prevClose": 166.79,
-      "marketCap": 3985462423690
+      "price": 152.895,
+      "change": -12.3646,
+      "changePct": -7.4819,
+      "prevClose": 165.2596,
+      "marketCap": 3691955668167
     },
     "SNAP": {
-      "price": 4.92,
-      "change": 0.0,
-      "changePct": 0.0,
-      "prevClose": 4.92,
-      "marketCap": 8494757751
+      "price": 4.885,
+      "change": -0.045,
+      "changePct": -0.9128,
+      "prevClose": 4.93,
+      "marketCap": 8434327828
     },
     "TSLA": {
-      "price": 385.46,
-      "change": -2.69,
-      "changePct": -0.693,
-      "prevClose": 388.15,
-      "marketCap": 1523630044089
+      "price": 381.855,
+      "change": -3.2794,
+      "changePct": -0.8515,
+      "prevClose": 385.1344,
+      "marketCap": 1509380428896
     },
     "ZM": {
-      "price": 86.03,
-      "change": 0.48,
-      "changePct": 0.5611,
-      "prevClose": 85.55,
-      "marketCap": 25102152301
+      "price": 88.14,
+      "change": 2.26,
+      "changePct": 2.6316,
+      "prevClose": 85.88,
+      "marketCap": 25717816109
     },
     "SPCX": {
-      "price": 133.35,
-      "change": -1.4,
-      "changePct": -1.039,
-      "prevClose": 134.75,
-      "marketCap": 1811034928487
+      "price": 126.12,
+      "change": -7.8695,
+      "changePct": -5.8732,
+      "prevClose": 133.9895,
+      "marketCap": 1712843792280
     },
     "MSFT": {
-      "price": 492.5,
-      "change": -0.1,
-      "changePct": -0.0203,
-      "prevClose": 492.6,
-      "marketCap": 3657400816860
+      "price": 493.84,
+      "change": 2.8462,
+      "changePct": 0.5797,
+      "prevClose": 490.9938,
+      "marketCap": 3667351890364
     },
     "GOOGL": {
-      "price": 282.1,
-      "change": -2.649,
-      "changePct": -0.9303,
-      "prevClose": 284.749,
-      "marketCap": 3468137475036
+      "price": 277.24,
+      "change": -6.029,
+      "changePct": -2.1284,
+      "prevClose": 283.269,
+      "marketCap": 3408388439941
     },
     "META": {
-      "price": 597.6,
-      "change": -1.9785,
-      "changePct": -0.33,
-      "prevClose": 599.5785,
-      "marketCap": 1527609710384
+      "price": 588.225,
+      "change": -9.775,
+      "changePct": -1.6346,
+      "prevClose": 598.0,
+      "marketCap": 1503644948637
     },
     "BABA": {
-      "price": 86.04,
-      "change": -1.16,
-      "changePct": -1.3303,
-      "prevClose": 87.2,
-      "marketCap": 214045576829
+      "price": 84.23,
+      "change": -2.57,
+      "changePct": -2.9608,
+      "prevClose": 86.8,
+      "marketCap": 209542764563
     },
     "TCEHY": {
-      "price": 44.24,
-      "change": 1.74,
-      "changePct": 4.0941,
-      "prevClose": 42.5,
-      "marketCap": 398363855382
+      "price": 43.53,
+      "change": -0.73,
+      "changePct": -1.6493,
+      "prevClose": 44.26,
+      "marketCap": 391970557879
     }
   }
 }
