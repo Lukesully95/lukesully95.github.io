@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-23",
+    "updatedAt": "2026-11-24",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,18 +366,18 @@
   ],
   "news": [
     {
-      "title": "US trade chief says new rules tighten China's access to AI chips",
-      "source": "WORLD",
-      "url": "https://wng.org/podcasts/monday-morning-news-november-23-2026-1795382024",
-      "date": "Nov 23",
-      "type": "policy"
+      "title": "Nvidia reinstates Jensen Huang as CEO; stock jumps 31%",
+      "source": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html",
+      "date": "Nov 24",
+      "type": "company"
     },
     {
-      "title": "OpenAI launches ChatGPT for Sales with 30+ partner plugins",
-      "source": "OpenAI",
-      "url": "https://openai.com/index/introducing-chatgpt-for-sales/",
-      "date": "Nov 23",
-      "type": "launch"
+      "title": "Anthropic and Nvidia rebound after Nasdaq's worst week since 2020",
+      "source": "CNBC",
+      "url": "https://www.cnbc.com/amp/2026/11/23/anthropic-nvidia-shares.html",
+      "date": "Nov 24",
+      "type": "company"
     }
   ],
   "newsArchive": {
@@ -874,6 +874,22 @@
         "url": "https://openai.com/index/introducing-chatgpt-for-sales/",
         "date": "Nov 23",
         "type": "launch"
+      }
+    ],
+    "2026-11-24": [
+      {
+        "title": "Nvidia reinstates Jensen Huang as CEO; stock jumps 31%",
+        "source": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html",
+        "date": "Nov 24",
+        "type": "company"
+      },
+      {
+        "title": "Anthropic and Nvidia rebound after Nasdaq's worst week since 2020",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/amp/2026/11/23/anthropic-nvidia-shares.html",
+        "date": "Nov 24",
+        "type": "company"
       }
     ]
   }
