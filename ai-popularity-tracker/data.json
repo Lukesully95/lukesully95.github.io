@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-24",
+    "updatedAt": "2026-11-25",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,17 +366,10 @@
   ],
   "news": [
     {
-      "title": "Nvidia reinstates Jensen Huang as CEO; stock jumps 31%",
-      "source": "Yahoo Finance",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html",
-      "date": "Nov 24",
-      "type": "company"
-    },
-    {
-      "title": "Anthropic and Nvidia rebound after Nasdaq's worst week since 2020",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/amp/2026/11/23/anthropic-nvidia-shares.html",
-      "date": "Nov 24",
+      "title": "Asian markets drop as AI doubts return despite Huang's comeback",
+      "source": "Al Jazeera",
+      "url": "https://aljazeera.com/news/2026/11/25/asias-stock-markets-dive-as-doubts-to-swirl-over-ai-boom",
+      "date": "Nov 25",
       "type": "company"
     }
   ],
@@ -889,6 +882,15 @@
         "source": "CNBC",
         "url": "https://www.cnbc.com/amp/2026/11/23/anthropic-nvidia-shares.html",
         "date": "Nov 24",
+        "type": "company"
+      }
+    ],
+    "2026-11-25": [
+      {
+        "title": "Asian markets drop as AI doubts return despite Huang's comeback",
+        "source": "Al Jazeera",
+        "url": "https://aljazeera.com/news/2026/11/25/asias-stock-markets-dive-as-doubts-to-swirl-over-ai-boom",
+        "date": "Nov 25",
         "type": "company"
       }
     ]
