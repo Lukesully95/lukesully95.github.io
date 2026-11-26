@@ -1,6 +1,6 @@
 {
   "status": {
-    "updatedAt": "2026-11-25",
+    "updatedAt": "2026-11-26",
     "cadence": "Refreshes every morning"
   },
   "bots": [
@@ -366,10 +366,17 @@
   ],
   "news": [
     {
-      "title": "Asian markets drop as AI doubts return despite Huang's comeback",
-      "source": "Al Jazeera",
-      "url": "https://aljazeera.com/news/2026/11/25/asias-stock-markets-dive-as-doubts-to-swirl-over-ai-boom",
-      "date": "Nov 25",
+      "title": "Tech stocks swing as AI fears outweigh Huang's Nvidia return",
+      "source": "CNN",
+      "url": "https://www.cnn.com/2026/11/25/business/ai-sell-off-despite-huang-nvidia-return",
+      "date": "Nov 26",
+      "type": "company"
+    },
+    {
+      "title": "S&P says it could downgrade Nvidia within 90 days",
+      "source": "Fox News (via Reuters)",
+      "url": "https://www.foxnews.com/live-news/ai-news-iran-war-economy-china-11-25-26",
+      "date": "Nov 26",
       "type": "company"
     }
   ],
@@ -891,6 +898,22 @@
         "source": "Al Jazeera",
         "url": "https://aljazeera.com/news/2026/11/25/asias-stock-markets-dive-as-doubts-to-swirl-over-ai-boom",
         "date": "Nov 25",
+        "type": "company"
+      }
+    ],
+    "2026-11-26": [
+      {
+        "title": "Tech stocks swing as AI fears outweigh Huang's Nvidia return",
+        "source": "CNN",
+        "url": "https://www.cnn.com/2026/11/25/business/ai-sell-off-despite-huang-nvidia-return",
+        "date": "Nov 26",
+        "type": "company"
+      },
+      {
+        "title": "S&P says it could downgrade Nvidia within 90 days",
+        "source": "Fox News (via Reuters)",
+        "url": "https://www.foxnews.com/live-news/ai-news-iran-war-economy-china-11-25-26",
+        "date": "Nov 26",
         "type": "company"
       }
     ]
